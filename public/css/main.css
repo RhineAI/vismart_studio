@@ -1,0 +1,225 @@
+*{
+    font-family: 'qanelas', sans-serif;
+}
+
+:root{
+    --primary-color: #F67600;
+    --secondary-color: #265F94;
+    --tertiary-color: #4A4A4A;
+    --shadow-color: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --primary-shadow: rgba(246, 118, 0, 1) 0px 8px 24px;
+}
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-3.5rem);
+    }
+}
+
+body {
+    background-color: white;
+}
+a{
+    text-decoration: none;
+}
+section {
+    margin-bottom: 10em;
+}
+.card {
+    border: none;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    box-shadow: var(--shadow-color);
+    transition-duration: 0.4s;
+    letter-spacing: 0.2em;
+}
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+.btn-border-primary {   
+    border-color: var(--primary-color);
+    color: var(--tertiary-color);
+    box-shadow: var(--shadow-color);
+    letter-spacing: 0.2em;
+}
+.btn-border-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+.btn-white {   
+    background-color: #fff;
+    border-color: #fff;
+    color: var(--primary-color);
+    box-shadow: var(--shadow-color);
+    letter-spacing: 0.2em;
+}
+.btn-white:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+
+
+/* Navbar Start */
+.form-control {
+    color: var(--tertiary-color);
+    font-size: 14px;
+    box-shadow: var(--shadow-color);
+    border-radius: 5px;
+}
+.template-sosmed{
+    color: var(--tertiary-color);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+.template-sosmed:hover {
+    color: var(--secondary-color);
+}
+/* Navbar End */
+
+/* Home Start */
+.header {
+    color: var(--tertiary-color);
+    margin-bottom: 0;
+}
+.page-1 {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.page-1 img{
+    animation: float 3s linear infinite;
+}
+.page-2 {
+    color: var(--tertiary-color);
+}
+.service {
+    box-shadow: var(--shadow-color);
+    padding: 0.25em;
+    margin: 1em;
+    border-radius: 1.5em;
+}
+.service:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+.page-2-img {
+    animation: float 3s linear infinite;
+}
+.page-3 {
+    color: var(--tertiary-color);
+}
+.feature {
+    color: var(--tertiary-color);
+    box-shadow: var(--shadow-color);
+    margin: 1em;
+    border-radius: 1.5em;
+    transition-duration: 0.6;
+}
+.feature:hover {
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+.page-4 {
+    background-color: var(--primary-color);
+    color: #fff;
+    margin-bottom: 0;
+}
+.column-3 {
+    color: var(--tertiary-color);
+}
+.column-2 {
+    color: var(--tertiary-color);
+}
+.pricing {
+    color: var(--tertiary-color);
+}
+.pricing .card {
+    color: var(--tertiary-color);
+    box-shadow: var(--shadow-color);
+    margin: 1em;
+    border-radius: 1.5em;
+    transition-duration: 0.6;
+}
+.pricing .card:hover {
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+.list-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.page-5 img {
+    box-shadow: var(--shadow-color);
+}
+.client {
+    color: var(--tertiary-color);
+}
+.page-5 {
+    color: var(--tertiary-color);
+}
+.page-6 {
+    color: var(--tertiary-color);
+}
+
+
+/* Login Start */
+.login {
+    margin-top: 10em;
+}
+.background-login {
+    border: none;
+    box-shadow: var(--shadow-color);
+}
+.username, .password {
+    color: var(--tertiary-color);
+    font-size: 14px;
+    box-shadow: var(--shadow-color);
+    border-radius: 5px;
+    border: 2px solid var(--secondary-color);
+}
+/* Login End */
+
+/* Register Start */
+.register {
+    margin-top: 10em;
+}
+.background-register {
+    border: none;
+    box-shadow: var(--shadow-color);
+}
+.nama, .no-tlp, .username, .email, .password {
+    color: var(--tertiary-color);
+    font-size: 14px;
+    box-shadow: var(--shadow-color);
+    border-radius: 5px;
+    border: 2px solid var(--secondary-color);
+}
+/* Register End */
+
+/* Footer Start */
+footer {
+    background-color: var(--secondary-color);
+}
+.footer {
+    background-color: var(--secondary-color);
+    color: #fff;
+    margin-bottom: 0;
+}
+/* Footer End */
