@@ -40,45 +40,125 @@
                 <ul class="metismenu left-sidenav-menu">
                     <li class="menu-label mt-0">Menu</li>
                     
+                    {{-- Dashboard --}}
                     <li>
-                        <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>Dashboard</span><span class="menu-arrow"></span></a>
+                        <a href=""> 
+                            <i data-feather="home" class="align-self-center menu-icon"></i>
+                            <span>Dashboard</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
+
+                    {{-- Service --}}
                     <li>
-                        <a href="javascript: void(0);"><i data-feather="inbox" class="align-self-center menu-icon"></i><span>Layanan</span><span class="menu-arrow"></span></a>
+                        <a href="javascript: void(0);">
+                            <i data-feather="inbox" class="align-self-center menu-icon"></i>
+                            <span>Layanan</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
+
+                    {{-- Testimonial --}}
                     <li>
-                        <a href="javascript: void(0);"><i data-feather="user-plus" class="align-self-center menu-icon"></i><span>Testimoni</span><span class="menu-arrow"></span></a>
+                        <a href="{{ route('testimonial.index') }}">
+                            <i data-feather="user-plus" class="align-self-center menu-icon"></i>
+                            <span>Testimoni</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
+
+                    {{-- Portofolio --}}
                     <li>
-                        <a href="javascript: void(0);"><i data-feather="grid" class="align-self-center menu-icon"></i><span>Portofolio</span><span class="menu-arrow"></span></a>
+                        <a href="javascript: void(0);">
+                            <i data-feather="grid" class="align-self-center menu-icon"></i>
+                            <span>Portofolio</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
+
+                    {{-- Client --}}
                     <li>
-                        <a href="javascript: void(0);"><i data-feather="user" class="align-self-center menu-icon"></i><span>Klien</span><span class="menu-arrow"></span></a>
+                        <a href="javascript: void(0);">
+                            <i data-feather="user" class="align-self-center menu-icon"></i>
+                            <span>Klien</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
+
+                    {{-- Package --}}
                     <li>
-                        <a href="javascript: void(0);"><i data-feather="shopping-bag" class="align-self-center menu-icon"></i><span>Paket</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <a href="javascript: void(0);">
+                            <i data-feather="shopping-bag" class="align-self-center menu-icon"></i>
+                            <span>Paket</span>
+                            <span class="menu-arrow">
+                                <i class="mdi mdi-chevron-right"></i>
+                            </span>
+                        </a>
+
                         <ul class="nav-second-level" aria-expanded="false">
-                            <li class="nav-item"><a class="nav-link" href="auth-login.html"><i class="ti-control-record"></i>List Paket</a></li>
-                            <li class="nav-item"><a class="nav-link" href="auth-register.html"><i class="ti-control-record"></i>List Fitur</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="auth-login.html">
+                                    <i class="ti-control-record"></i>
+                                    List Paket
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="auth-register.html">
+                                    <i class="ti-control-record"></i>
+                                    List Fitur
+                                </a>
+                            </li>
+
                         </ul>
                     </li> 
+
+                    {{-- Advantage --}}
                     <li>
-                        <a href="javascript: void(0);"><i data-feather="award" class="align-self-center menu-icon"></i><span>Keunggulan</span><span class="menu-arrow"></span></a>
+                        <a href="javascript: void(0);">
+                            <i data-feather="award" class="align-self-center menu-icon"></i>
+                            <span>Keunggulan</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
+
+                    {{-- Module --}}
                     <li>
-                        <a href="javascript: void(0);"> <i data-feather="list" class="align-self-center menu-icon"></i><span>List Module</span><span class="menu-arrow"></span></a>
+                        <a href="javascript: void(0);">
+                            <i data-feather="list" class="align-self-center menu-icon"></i>
+                            <span>List Module</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
+
+            {{--    Lainnya    --}}
     
                     <hr class="hr-dashed hr-menu">
                     <li class="menu-label my-2">Lainnya</li>
+
+                    {{-- User --}}
                     <li>
-                        <a href="javascript: void(0);"><i data-feather="users" class="align-self-center menu-icon"></i><span>Pengguna</span><span class="menu-arrow"></span></a>
+                        <a href="javascript: void(0);">
+                            <i data-feather="users" class="align-self-center menu-icon"></i>
+                            <span>Pengguna</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
+
                     <li>
-                        <a href="javascript: void(0);"><i data-feather="edit" class="align-self-center menu-icon"></i><span>Edit Profile</span><span class="menu-arrow"></span></a>
+                        <a href="javascript: void(0);">
+                            <i data-feather="edit" class="align-self-center menu-icon"></i>
+                            <span>Edit Profile</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
+
                     <li>
-                        <a href="javascript: void(0);"><i data-feather="log-out" class="align-self-center menu-icon"></i><span>Logout</span><span class="menu-arrow"></span></a>
+                        <a href="javascript: void(0);">
+                            <i data-feather="log-out" class="align-self-center menu-icon"></i>
+                            <span>Logout</span>
+                            <span class="menu-arrow"></span>
+                        </a>
                     </li>
             </div>
         </div>

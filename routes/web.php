@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,5 @@ Route::get('/logobranding', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+    
+Route::resource('/dashboard/testimonial', TestimonialController::class);
