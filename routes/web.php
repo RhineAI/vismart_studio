@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\{
+    DashboardController,
+    AuthController
+};
 use App\Http\Controllers\TestimonialController;
 
 /*
@@ -47,6 +50,13 @@ Route::get('/logobranding', function () {
     ]);
 });
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+Route::get('/auth/login', [AuthController::class, 'auth'])->name('auth.index');
+Route::post('/auth/process', [AuthController::class, 'process'])->name('auth.process');
+
+// Disini untuk admin
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'dashboard']);
     
-Route::resource('/dashboard/testimonial', TestimonialController::class);
+    Route::resource('/dashboard/testimonial', TestimonialController::class);
+});
+// End

@@ -23,8 +23,8 @@ class CreateServiceTable extends Migration
             $table->foreign('module_id')
                   ->references('id')
                   ->on('module')
-                  ->onUpdate('restrict')
-                  ->onDelete('restrict');
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
 
         });
     }

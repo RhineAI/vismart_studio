@@ -25,14 +25,14 @@ class CreateAdvantageTable extends Migration
             $table->foreign('service_id')
                 ->references('id')
                 ->on('service')
-                ->onUpdate('restrict')
-                ->onDelete('restrict');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->foreign('module_id')
                 ->references('id')
                 ->on('module')
-                ->onUpdate('restrict')
-                ->onDelete('restrict');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
 
         });
