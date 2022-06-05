@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
+// use Yajra\DataTables\Facades\DataTables;
+use DataTables;
 
 class TestimonialController extends Controller
 {
@@ -13,7 +16,31 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        return view('testimonial.index');
+        $testimonial = Testimonial::all();
+        return view('testimonial.index', compact('testimonial'));
+    }
+
+
+    public function data()
+    {
+        $testimonial = Testimonial::orderBy('id', 'desc')->get();
+
+        return datatables()
+            ->of($testimonial)
+            ->addIndexColumn()
+            ->addColumn('name', function($testimonial) {
+                return $testimonial->name;
+            })
+            ->addColumn('description', function($testimonial) {
+                return $testimonial->description;
+            })
+            ->addColumn('action', function ($testimonial) {
+                return '
+                    <button onclick="deleteData(`'. route('testimonial.destroy', $testimonial->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="bi bi-trash"></i> Hapus</button>
+                ';
+            })
+            ->rawColumns(['action'])
+            ->make(true);
     }
 
     /**
@@ -23,7 +50,9 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('testimonial.create', [
+            'testimonial' => Testimonial::all()
+        ]);
     }
 
     /**
@@ -34,7 +63,13 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $testimonial = new Testimonial;
+        $testimonial->name = $request->name;
+        $testimonial->description = $request->description;
+        $testimonial->save();
+
+        return redirect('/dashboard/testimonial')->with('success', 'Berhasil ditambahkan');
+        
     }
 
     /**
@@ -54,9 +89,12 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Testimonial $testimonial)
     {
-        //
+        return view('testimonial.edit', [
+            'testi' => $testimonial,
+            'testimonial' => Testimonial::all()
+        ]);
     }
 
     /**
@@ -66,9 +104,17 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Testimonial $testimonial)
     {
-        //
+        $testi = Testimonial::find($testimonial->id);
+        $testi->name = $request->name;
+        $testi->description = $request->description;
+        $testi->update();
+
+        $testi->update();
+
+        return redirect('/dashboard/testimonial')->with('success', 'Berhasil diupdate');
+
     }
 
     /**
@@ -77,8 +123,9 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Testimonial $testimonial)
     {
-        //
+        Testimonial::destroy($testimonial->id);
+        return redirect('/dashboard/testimonial')->with('success', 'Berhasil di delete');
     }
 }
