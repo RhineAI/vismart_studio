@@ -49,4 +49,6 @@ Route::get('/logobranding', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
     
+// Testimonial
 Route::resource('/dashboard/testimonial', TestimonialController::class);
+Route::get('/dashboard/testimonial/data', [TestimonialController::class, 'data'])->name('testimonial.data');
