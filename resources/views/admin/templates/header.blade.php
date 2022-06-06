@@ -89,7 +89,7 @@
 
                     {{-- Client --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('client.index') }}">
                             <i data-feather="user" class="align-self-center menu-icon"></i>
                             <span>Klien</span>
                             <span class="menu-arrow"></span>

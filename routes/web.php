@@ -57,3 +57,5 @@ Route::get('/dashboard/testimonial/data', [TestimonialController::class, 'data']
 // Portofolio
 Route::resource('/dashboard/portofolio', PortofolioController::class);
 Route::get('/dashboard/portofolio/data', [PortofolioController::class, 'data'])->name('portofolio.data');
+Route::resource('/dashboard/client', ClientController::class);
+Route::get('/dashboard/client/data', [ClientController::class, 'data'])->name('client.data');
