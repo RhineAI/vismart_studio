@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\TestimonialController;
 
 /*
@@ -52,3 +53,7 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 // Testimonial
 Route::resource('/dashboard/testimonial', TestimonialController::class);
 Route::get('/dashboard/testimonial/data', [TestimonialController::class, 'data'])->name('testimonial.data');
+
+// Portofolio
+Route::resource('/dashboard/portofolio', PortofolioController::class);
+Route::get('/dashboard/portofolio/data', [PortofolioController::class, 'data'])->name('portofolio.data');

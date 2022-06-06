@@ -18,7 +18,7 @@
                     <span data-feather="plus-circle"></span> 
                 </a>
 
-                {{-- <button onclick="add()">Add</button> --}}
+                <button onclick="add()">Add</button>
             </div>
 
             <div class="box-body table-responsive">
@@ -40,10 +40,11 @@
                             <th class=" table-secondary">{{ $key->description }}</th>
                             <th class="table-secondary">
                                 <a href="/dashboard/testimonial/{{ $key->id }}/edit" class="btn btn-xs bg-info"><span data-feather='edit'></span></a>
+                                
                                 <form action="{{ route('testimonial.destroy', $key->id) }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button class="btn btn-xs bg-danger border-0" type="submit" onclick="return confirm('Sure?')"><span data-feather='trash-2' ></span></button>  
+                                    <button class="btn btn-xs bg-danger border-0" type="submit" onclick="deleteData()"><span data-feather='trash-2' ></span></button>  
                                 </form>
                             </th>
                         </tr>
@@ -58,6 +59,15 @@
 </div>
 
 @includeIf('testimonial.form')
+
+<script>
+    var time = document.getElementById("alert");
+
+    setTimeout(function(){
+        time.style.display = "none";
+    }, 2000);
+</script>
+
 @endsection
 
 @push('script')
@@ -66,11 +76,7 @@
         $('#modal-form').modal('show');
     }
 
-    var time = document.getElementById("alert");
-
-    setTimeout(function(){
-        time.style.display = "none";
-    }, 2000);
+    
 
     let table;
         table = $('.table').DataTable({
@@ -89,50 +95,7 @@
             ]
         });
 
-        function deleteData(url) {
-            Swal.fire({
-                title: 'Hapus Data yang dipilih?',
-                icon: 'question',
-                iconColor: '#DC3545',
-                showDenyButton: true,
-                denyButtonColor: '#838383',
-                denyButtonText: 'Batal',
-                confirmButtonText: 'Hapus',
-                confirmButtonColor: '#DC3545'
-                }).then((result) => {
-                if (result.isConfirmed) {
-                    $.post(url, {
-                        '_token': $('[name=csrf-token]').attr('content'),
-                        '_method': 'delete'
-                    })
-                    .done((response) => {
-                        Swal.fire({
-                            title: 'Sukses!',
-                            text: 'Data berhasil dihapus',
-                            icon: 'success',
-                            confirmButtonText: 'Lanjut',
-                            confirmButtonColor: '#28A745'
-                        }) 
-                        table.ajax.reload();
-                    })
-                    .fail((errors) => {
-                        Swal.fire({
-                            title: 'Gagal!',
-                            text: 'Data gagal dihapus',
-                            icon: 'error',
-                            confirmButtonText: 'Kembali',
-                            confirmButtonColor: '#DC3545'
-                        })                       
-                        return;
-                    });
-                } else if (result.isDenied) {
-                    Swal.fire({
-                        title: 'Batal dihapus',
-                        icon: 'warning',
-                    })
-                }
-            })
-        }
+        
 
 
 </script> 

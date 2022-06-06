@@ -29,6 +29,9 @@
         <!-- App js -->
         <script src="{{ asset('admin/assets/js/app.js') }}"></script>
 
+        {{-- Toastr --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
         @stack('script')
         
     </body>
