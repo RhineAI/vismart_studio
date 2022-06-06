@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\PackageController;
+use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\TestimonialController;
 
@@ -52,10 +54,23 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard']);
     
 // Testimonial
 Route::resource('/dashboard/testimonial', TestimonialController::class);
-Route::get('/dashboard/testimonial/data', [TestimonialController::class, 'data'])->name('testimonial.data');
+Route::post('/dashboard/testimonial/data', [TestimonialController::class, 'data'])->name('testimonial.data');
 
 // Portofolio
 Route::resource('/dashboard/portofolio', PortofolioController::class);
 Route::get('/dashboard/portofolio/data', [PortofolioController::class, 'data'])->name('portofolio.data');
+Route::post('/dashboard/portofolio/data', [PortofolioController::class, 'data'])->name('portofolio.data');
+
+// Client
 Route::resource('/dashboard/client', ClientController::class);
 Route::get('/dashboard/client/data', [ClientController::class, 'data'])->name('client.data');
+
+//Package
+Route::resource('dashboard/package', PackageController::class);
+Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name('package.data');
+
+
+//Package Feature
+Route::resource('dashboard/package-feature', PackageFeatureController::class);
+Route::post('/dashboard/package-feature/data', [PackageFeatureController::class, 'data'])->name('package-feature.data');
+

@@ -35,6 +35,12 @@
         <!-- Feather Icons -->  
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js">
 
+        <!-- DataTables -->
+        <link href="{{ asset('admin/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('admin/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="{{ asset('admin/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+
     </head>
 
     <body class="dark-sidenav">
@@ -108,14 +114,14 @@
 
                         <ul class="nav-second-level" aria-expanded="false">
                             <li class="nav-item">
-                                <a class="nav-link" href="auth-login.html">
+                                <a class="nav-link" href="{{ route('package.index') }}">
                                     <i class="ti-control-record"></i>
                                     List Paket
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="auth-register.html">
+                                <a class="nav-link" href="{{ route('package-feature.index') }}">
                                     <i class="ti-control-record"></i>
                                     List Fitur
                                 </a>

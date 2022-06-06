@@ -27,14 +27,15 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
-                            <th width="17%" scope="col" class="text-center table-danger" style="color:black;">Image</th>
+                            <th width="13%" scope="col" class="text-center table-danger" style="color:black;">Title</th>
+                            <th width="14%" scope="col" class="text-center table-danger" style="color:black;">Image</th>
                             <th scope="col" class="text-center table-danger" style="color:black;">Description</th>
-                            <th width="14%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
-                            <th width="13%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
+                            <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
 
-                    <tbody>
+                    {{-- <tbody>
                         @foreach ($portofolio as $item => $key)
                         <tr>
                             <th class=" table-secondary">{{ $item+1 }}</th>
@@ -53,7 +54,7 @@
                             </th>
                         </tr>
                         @endforeach
-                    </tbody>
+                    </tbody> --}}
                     
                 </table>
             </div>
@@ -76,6 +77,12 @@
         time.style.display = "none";
     }, 4000);   
 
+    
+</script>
+@endsection
+
+@push('script')
+<script>
     function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');
@@ -87,80 +94,77 @@
 
         oFReader.onload = function(oFREvent) {
         imgPreview.src = oFREvent.target.result;
+        }
     }
-  }
-</script>
-@endsection
-
-@push('script')
-<script>
-    function add() {
-        $('#modal-form').modal('show');
-    }
-
-  
 
     let table;
-        table = $('.table').DataTable({
+            table = $('.table-portofolio').DataTable({
             processing: true,
             responsive: true,
             autoWidth: false,
             serverSide: true,
             ajax: {
-                url: '{{ route('portofolio.data') }}'',
+                url: "{{ route('portofolio.data') }}",
+                type: "POST",
+                data: {  
+                    _token: '{{ csrf_token() }}'
+                }
             },
             columns: [
                 {data:'DT_RowIndex', searchable: false, sortable: false},
-                {data:'name'},
+                {data:'title'},
+                {data:'image'},
                 {data:'description'},
+                {data:'created'},
                 {data:'action', searchable: false, sortable: false},
             ]
         });
 
-        function deleteData(url) {
-            Swal.fire({
-                title: 'Hapus Data yang dipilih?',
-                icon: 'question',
-                iconColor: '#DC3545',
-                showDenyButton: true,
-                denyButtonColor: '#838383',
-                denyButtonText: 'Batal',
-                confirmButtonText: 'Hapus',
-                confirmButtonColor: '#DC3545'
-                }).then((result) => {
-                if (result.isConfirmed) {
-                    $.post(url, {
-                        '_token': $('[name=csrf-token]').attr('content'),
-                        '_method': 'delete'
-                    })
-                    .done((response) => {
-                        Swal.fire({
-                            title: 'Sukses!',
-                            text: 'Data berhasil dihapus',
-                            icon: 'success',
-                            confirmButtonText: 'Lanjut',
-                            confirmButtonColor: '#28A745'
-                        }) 
-                        table.ajax.reload();
-                    })
-                    .fail((errors) => {
-                        Swal.fire({
-                            title: 'Gagal!',
-                            text: 'Data gagal dihapus',
-                            icon: 'error',
-                            confirmButtonText: 'Kembali',
-                            confirmButtonColor: '#DC3545'
-                        })                       
-                        return;
-                    });
-                } else if (result.isDenied) {
+
+    function deleteData(url) {
+        Swal.fire({
+            title: 'Hapus Data yang dipilih?',
+            icon: 'question',
+            iconColor: '#DC3545',
+            showDenyButton: true,
+            denyButtonColor: '#838383',
+            denyButtonText: 'Batal',
+            confirmButtonText: 'Hapus',
+            confirmButtonColor: '#DC3545'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                $.post(url, {
+                    '_token': $('[name=csrf-token]').attr('content'),
+                    '_method': 'delete'
+                })
+                .done((response) => {
                     Swal.fire({
-                        title: 'Batal dihapus',
-                        icon: 'warning',
-                    })
-                }
-            })
-        }
+                        title: 'Sukses!',
+                        text: 'Data berhasil dihapus',
+                        icon: 'success',
+                        confirmButtonText: 'Lanjut',
+                        confirmButtonColor: '#28A745'
+                    }) 
+                    table.ajax.reload();
+                })
+                .fail((errors) => {
+                    Swal.fire({
+                        title: 'Gagal!',
+                        text: 'Data gagal dihapus',
+                        icon: 'error',
+                        confirmButtonText: 'Kembali',
+                        confirmButtonColor: '#DC3545'
+                    })                       
+                    return;
+                });
+            } else if (result.isDenied) {
+                Swal.fire({
+                    title: 'Batal dihapus',
+                    icon: 'warning',
+                })
+            }
+        })
+    }
 
 
 </script> 
