@@ -15,6 +15,16 @@
 
                 @csrf
                     <div class="mb-2">
+                        <label for="title" class="form-label">Title</label>
+                        <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $testi->title) }}" maxlength="20" minlength="3"></input>
+                        @error('title')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>    
+
+                    <div class="mb-2">
                         <label for="image" class="form-label">Image</label>
                         <input type="hidden" name="oldImage" id="oldImage" value="{{ $testi->image }}">
                         @if($testi->image)
@@ -45,7 +55,7 @@
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">
-            <button type="submit" class="btn btn-primary">Update Testimonial</button>
+            <button type="submit" class="btn btn-primary">Update Portofolio</button>
             </form>
         </div>
 

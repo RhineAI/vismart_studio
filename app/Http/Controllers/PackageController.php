@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Testimonial;
+use App\Models\Package;
 use Illuminate\Http\Request;
-// use Yajra\DataTables\Facades\DataTables;
-use DataTables;
 
-class TestimonialController extends Controller
+class PackageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +14,13 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testimonial = Testimonial::all();
-        return view('testimonial.index', compact('testimonial'));
+        $package = Package::all();
+        return view('package.index', compact('package'));
     }
-
 
     public function data()
     {
-        $testimonial = Testimonial::orderBy('id', 'desc')->get();
+        $testimonial = Package::orderBy('id', 'desc')->get();
 
         return datatables()
             ->of($testimonial)
@@ -44,6 +41,22 @@ class TestimonialController extends Controller
             ->make(true);
     }
 
+
+    public function checkPrice($value)
+    {
+        if (gettype($value) == "string") {
+            $temp = 0;
+            for ($i = 0; $i < strlen($value); $i++) {
+                if ((isset($value[$i]) == true && $value[$i] != ".") && $value[$i] != ",") {
+                    $temp = ($temp * 10) + (int)$value[$i];
+                }
+            }
+            return $temp;
+        } else {
+            return $value;
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -51,35 +64,35 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        return view('testimonial.create', [
-            'testimonial' => Testimonial::all()
+        return view('package.create', [
+            'package' => Package::all()
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $testimonial = new Testimonial;
-        $testimonial->name = $request->name;
-        $testimonial->description = $request->description;
-        $testimonial->save();
+        $package = new Package;
+        $package->name = $request->name;
+        $package->price = $request->price;
+        // $package->price = $this->checkPrice($request->price);
+        $package->save();
 
-        return redirect('/dashboard/testimonial')->with('success', 'Berhasil ditambahkan');
-        
+        return redirect('/dashboard/package')->with('success', 'Berhasil ditambahkan');      
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Package $package)
     {
         //
     }
@@ -87,14 +100,14 @@ class TestimonialController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function edit(Testimonial $testimonial)
+    public function edit(Package $package)
     {
-        return view('testimonial.edit', [
-            'testi' => $testimonial,
-            'testimonial' => Testimonial::all()
+        return view('package.edit', [
+            'pack' => $package,
+            'package' => Package::all()
         ]);
     }
 
@@ -102,29 +115,30 @@ class TestimonialController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Testimonial $testimonial)
+    public function update(Request $request, Package $package)
     {
-        $testi = Testimonial::find($testimonial->id);
+        $testi = Package::find($package->id);
         $testi->name = $request->name;
-        $testi->description = $request->description;
+        $testi->price = $request->price;
         $testi->update();
 
-        return redirect('/dashboard/testimonial')->with('success', 'Berhasil diupdate');
 
+        return redirect('/dashboard/package')->with('success', 'Berhasil diupdate');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Testimonial $testimonial)
+    public function destroy(Package $package)
     {
-        Testimonial::destroy($testimonial->id);
-        return redirect('/dashboard/testimonial')->with('success', 'Berhasil di delete');
+        Package::destroy($package->id);
+
+        return redirect('/dashboard/package')->with('success', 'Berhasil di delete');
     }
 }

@@ -13,20 +13,30 @@
                <form action="{{ route('portofolio.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                     <div class="mb-2">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required autofocus maxlength="20" minlength="3">
+                        @error('title')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror  
+                    </div>
+
+
+                    <div class="mb-2">
                         <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}" required onchange="previewImage()">
                         <img class="img-preview img-fluid my-3 col-sm-5">
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}" required autofocus onchange="previewImage()">
                         @error('image')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
-                        @enderror
-                        
+                        @enderror  
                     </div>
 
                     <div class="mb-2">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" rows="3" id="description" name="description" value="{{ old('description') }}" required autofocus></textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" rows="3" id="description" name="description" value="{{ old('description') }}" required></textarea>
                         @error('description')
                             <div class="invalid-feedback">
                                 {{ $message }}
