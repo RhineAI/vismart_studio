@@ -80,7 +80,7 @@
 
                     {{-- Portofolio --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('portofolio.index') }}">
                             <i data-feather="grid" class="align-self-center menu-icon"></i>
                             <span>Portofolio</span>
                             <span class="menu-arrow"></span>
