@@ -18,7 +18,7 @@
                     <span data-feather="plus-circle"></span> 
                 </a>
 
-                {{-- <button onclick="add()">Add</button> --}}
+                <button onclick="add()">Add</button>
             </div>
 
             <div class="box-body table-responsive">
@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
 
-                    {{-- <tbody>
+                    <tbody>
                         @foreach ($testimonial as $item => $key)
                         <tr>
                             <th class=" table-secondary">{{ $item+1 }}</th>
@@ -44,12 +44,12 @@
                                 <form action="{{ route('testimonial.destroy', $key->id) }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button class="btn btn-xs bg-danger border-0" type="submit" onclick="return confirm('Sure?')"><span data-feather='trash-2' ></span></button>  
+                                    <button class="btn btn-xs bg-danger border-0" type="submit" onclick="deleteData()"><span data-feather='trash-2' ></span></button>  
                                 </form>
                             </th>
                         </tr>
                         @endforeach
-                    </tbody> --}}
+                    </tbody>
                     
                 </table>
             </div>
@@ -60,80 +60,43 @@
 
 @includeIf('testimonial.form')
 
-{{-- <script>
-    
-</script> --}}
+<script>
+    var time = document.getElementById("alert");
+
+    setTimeout(function(){
+        time.style.display = "none";
+    }, 2000);
+</script>
 
 @endsection
 
 @push('script')
-<script> 
+<script>
+    function add() {
+        $('#modal-form').modal('show');
+    }
+
+    
 
     let table;
-        table = $('.table-testimonial').DataTable({
-        processing: true,
-        responsive: true,
-        autoWidth: false,
-        serverSide: true,
-        ajax: {
-            url: "{{ route('testimonial.data') }}",
-            type: "POST",
-            data: {  
-                _token: '{{ csrf_token() }}'
-            }
-        },
-        columns: [
-            {data:'DT_RowIndex', searchable: false, sortable: false},
-            {data:'name'},
-            {data:'description'},
-            {data:'action', searchable: false, sortable: false},
-        ]
-    });
+        table = $('.table').DataTable({
+            processing: true,
+            responsive: true,
+            autoWidth: false,
+            serverSide: true,
+            ajax: {
+                url: '{{ route('testimonial.data') }}'',
+            },
+            columns: [
+                {data:'DT_RowIndex', searchable: false, sortable: false},
+                {data:'name'},
+                {data:'description'},
+                {data:'action', searchable: false, sortable: false},
+            ]
+        });
 
-    function deleteData(url) {
-        Swal.fire({
-            title: 'Hapus Data Produk yang dipilih?',
-            icon: 'question',
-            iconColor: '#DC3545',
-            showDenyButton: true,
-            denyButtonColor: '#838383',
-            denyButtonText: 'Batal',
-            confirmButtonText: 'Hapus',
-            confirmButtonColor: '#DC3545'
-            }).then((result) => {
-            if (result.isConfirmed) {
-                $.post(url, {
-                    '_token': $('[name=csrf-token]').attr('content'),
-                    '_method': 'delete'
-                })
-                .done((response) => {
-                    Swal.fire({
-                        title: 'Sukses!',
-                        text: 'Data Produk berhasil dihapus',
-                        icon: 'success',
-                        confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745'
-                    }) 
-                    table.ajax.reload();
-                })
-                .fail((errors) => {
-                    Swal.fire({
-                        title: 'Gagal!',
-                        text: 'Data Produk gagal dihapus',
-                        icon: 'error',
-                        confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545'
-                    })                       
-                    return;
-                });
-            } else if (result.isDenied) {
-                Swal.fire({
-                    title: 'Data Produk batal dihapus',
-                    icon: 'warning',
-                })
-            }
-        })
-    }
+        
+
 
 </script> 
 @endpush

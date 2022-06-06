@@ -21,6 +21,37 @@ class PortofolioController extends Controller
         return view('portofolio.index', compact('portofolio'));
     }
 
+    public function data()
+    {
+        $portofolio = Portofolio::orderBy('id', 'desc')->get();
+
+        return datatables()
+            ->of($portofolio)
+            ->addIndexColumn()
+            ->addColumn('title', function($portofolio) {
+                return $portofolio->title;
+            })
+            ->addColumn('image', function($portofolio) {
+               return '
+               <img width="90%" class="rounded" src="'. asset('storage/'.$portofolio->image) .'">
+               ';
+            })
+            ->addColumn('description', function($portofolio) {
+                return $portofolio->description;
+            })
+            ->addColumn('created', function($portofolio) {
+                return tanggal($portofolio->created_at);
+            })
+            ->addColumn('action', function ($portofolio) {
+                return '
+                    <a href="'. route('portofolio.edit', $portofolio->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <button onclick="deleteData(`'. route('portofolio.destroy', $portofolio->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
+                ';
+            })
+            ->rawColumns(['action', 'image'])
+            ->make(true);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,8 +75,9 @@ class PortofolioController extends Controller
         // return $request->file('image')->store('portofolio');
 
         $validate = $request->validate([
-            'image' => 'image|file|max:2048',
-            'description' => 'required|max:250'
+            'title' => 'required|max:30',
+            'image' => 'image|file|required|max:2048',
+            'description' => 'required|required|max:250'
         ]);
 
         // $data = Portofolio::create($validate);
@@ -98,26 +130,26 @@ class PortofolioController extends Controller
      * @param  \App\Models\Portofolio  $portofolio
      * @return \Illuminate\Http\Response
      */
+    
     public function update(Request $request, Portofolio $portofolio)
     {
         // return $request->file('image')->store('portofolio');
 
         $rules = $request->validate([
+            'title' => 'required|max:30',
             'image' => 'image|file|max:2048',
             'description' => 'required|max:250'
         ]);
-        
-        $newFile = $request->validate($rules);
         
         if($request->file('image')) {
             if($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $newFile['image'] = $request->file('image')->store('portofolio');
+            $rules['image'] = $request->file('image')->store('portofolio');
         }
         
         
-        Portofolio::where('id', $portofolio->id)->update($newFile);
+        Portofolio::where('id', $portofolio->id)->update($rules);
         return redirect('/dashboard/portofolio')->with('success', 'Berhasil diupdate'); 
     }
 
