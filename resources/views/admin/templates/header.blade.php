@@ -41,6 +41,18 @@
         <!-- Responsive datatable examples -->
         <link href="{{ asset('admin/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 
+        <style>
+            .clock {
+                position: absolute;
+                top: 50%;
+                left: 80%;
+                transform: translateX(-50%) translateY(-50%);
+                color: black;
+                font-size: 20px;
+                font-family: 'Times New Roman';
+                letter-spacing: 3px;
+            }
+        </style>
     </head>
 
     <body class="dark-sidenav">
@@ -48,7 +60,7 @@
         <div class="left-sidenav">
             <!-- LOGO -->
             <div class="brand">
-                <a href="dashboard/crm-index.html" class="logo text-white" style="font-size: 2em;">
+                <a href="/dashboard" class="logo text-white" style="font-size: 2em;">
                     <b>Vismart Studio</b>
                 </a>
             </div>
@@ -59,7 +71,7 @@
                     
                     {{-- Dashboard --}}
                     <li>
-                        <a href=""> 
+                        <a href="/dashboard"> 
                             <i data-feather="home" class="align-self-center menu-icon"></i>
                             <span>Dashboard</span>
                             <span class="menu-arrow"></span>
@@ -171,7 +183,7 @@
                     </li> --}}
 
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('auth.logout') }}">
                             <i data-feather="log-out" class="align-self-center menu-icon"></i>
                             <span>Logout</span>
                             <span class="menu-arrow"></span>
@@ -188,12 +200,14 @@
                 <!-- Navbar -->
                 <nav class="navbar-custom">    
                     <ul class="list-unstyled topbar-nav float-right mb-0">         
+                        <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="false" aria-expanded="false">
                                 <i data-feather="bell" class="align-self-center topbar-icon"></i>
                                 <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
                             </a>
+
                             <div class="dropdown-menu dropdown-menu-right dropdown-lg pt-0">
                             
                                 <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">

@@ -59,7 +59,6 @@
         );
     }
 
-    
 
     var time = document.getElementById("alert");
 

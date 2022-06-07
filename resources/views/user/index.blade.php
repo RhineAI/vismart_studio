@@ -23,9 +23,30 @@
                             <th scope="col" class="text-center table-danger" style="color:black;">Username</th>
                             <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Register At</th>
                             <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Last Login At</th>
+                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Last Logout At</th>
                             <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i></th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        @foreach ($user as $key => $item)
+                            <tr>
+                                <th class="text-center">{{ $key+2-1 }}</th>
+                                <th width="20%" class="">{{ $item->name }}</th>
+                                <th width="21%" class="">{{ $item->username }}</th>
+                                <th class="text-center">{{ tanggal($item->created_at) }}</th>
+                                <th class="text-center">{{ tanggal($item->last_login) }}</th>
+                                <th class="text-center">{{ tanggal($item->last_logout) }}</th>
+
+                                <th>
+                                    <a href="{{ route('user.edit', $item->id) }}" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <button onclick="deleteData('{{ route('user.destroy', $item->id)  }}')" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>           
+                                </th>
+                            </tr>
+
+
+                        @endforeach
+                    </tbody>
                     
                 </table>
             </div>

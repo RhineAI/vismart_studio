@@ -81,6 +81,13 @@
                                                         <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Login <i class="fas fa-sign-in-alt ml-1"></i></button>
                                                     </div><!--end col--> 
                                                 </div> <!--end form-group-->                           
+
+                                                <div class="form-group mb-0 row">
+                                                    <div class="col-12 mt-2">
+                                                        <a href="/" class="btn btn-info btn-block waves-effect waves-light" type="button">Back <i class="fas fa-arrow-left ml-1"></i></a>
+                                                    </div><!--end col--> 
+                                                </di
+
                                             </form><!--end form-->
                                         </div>
                                     </div>

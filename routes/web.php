@@ -4,14 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
     DashboardController,
     AuthController,
-    AdvantageController,
-    PackageController,
-    PackageFeatureController,
-    PortofolioController,
-    TestimonialController,
-    UserController
 };
-use App\Http\Controllers\UserController as ControllersUserController;
+use App\Http\Controllers\AdvantageController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PackageController;
+use App\Http\Controllers\PackageFeatureController;
+use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UserController;
+
+// use App\Http\Controllers\UserController ;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,9 +86,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dashboard/advantage/data', [AdvantageController::class, 'data'])->name('advantage.data');
 
     //User
-    
+    Route::resource('dashboard/user', UserController::class);
+    Route::post('/dashboard/user/data', [UserController::class, 'data'])->name('user.data');
+
+    //Logout
+    Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');    
     
 });
 
-Route::resource('dashboard/user', UserController::class);
-Route::post('/dashboard/user/data', [UserController::class, 'data'])->name('user.data');
