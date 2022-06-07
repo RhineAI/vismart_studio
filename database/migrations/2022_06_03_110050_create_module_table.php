@@ -22,8 +22,8 @@ class CreateModuleTable extends Migration
             $table->foreign('advantage_id')
                   ->references('id')
                   ->on('advantage')
-                  ->onUpdate('restrict')
-                  ->onDelete('restrict');
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
     }
 

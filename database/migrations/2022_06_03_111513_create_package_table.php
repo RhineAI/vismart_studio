@@ -23,8 +23,8 @@ class CreatePackageTable extends Migration
             $table->foreign('feature_id')
                   ->references('id')
                   ->on('package_feature')
-                  ->onUpdate('restrict')
-                  ->onDelete('restrict');
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
     }
 
