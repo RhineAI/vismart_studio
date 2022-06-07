@@ -111,7 +111,6 @@ class PortofolioController extends Controller
     {
         return view('portofolio.edit', [
             'portofolio' => $portofolio
-            // 'portofolio' => Portofolio::all()
         ]);
     }
 

@@ -155,20 +155,20 @@
 
                     {{-- User --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('user.index') }}">
                             <i data-feather="users" class="align-self-center menu-icon"></i>
                             <span>Pengguna</span>
                             <span class="menu-arrow"></span>
                         </a>
                     </li>
 
-                    <li>
+                    {{-- <li>
                         <a href="javascript: void(0);">
                             <i data-feather="edit" class="align-self-center menu-icon"></i>
                             <span>Edit Profile</span>
                             <span class="menu-arrow"></span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li>
                         <a href="javascript: void(0);">

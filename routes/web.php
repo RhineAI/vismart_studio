@@ -8,8 +8,10 @@ use App\Http\Controllers\Admin\{
     PackageController,
     PackageFeatureController,
     PortofolioController,
-    TestimonialController
+    TestimonialController,
+    UserController
 };
+use App\Http\Controllers\UserController as ControllersUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,9 +79,14 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('dashboard/package-feature', PackageFeatureController::class);
     Route::post('/dashboard/package-feature/data', [PackageFeatureController::class, 'data'])->name('package-feature.data');
 
-    //Package Advantage
+    //Advantage
     Route::resource('dashboard/advantage', AdvantageController::class);
     Route::post('/dashboard/advantage/data', [AdvantageController::class, 'data'])->name('advantage.data');
 
+    //User
+    
+    
 });
 
+Route::resource('dashboard/user', UserController::class);
+Route::post('/dashboard/user/data', [UserController::class, 'data'])->name('user.data');
