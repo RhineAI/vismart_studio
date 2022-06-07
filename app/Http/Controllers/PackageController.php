@@ -86,8 +86,8 @@ class PackageController extends Controller
         $package = new Package;
         $package->feature_id = $request->feature_id;
         $package->name = $request->name;
-        $package->price = $request->price;
-        // $package->price = $this->checkPrice($request->price);
+        // $package->price = $request->price;
+        $package->price = $this->checkPrice($request->price);
         $package->save();
 
         return redirect('/dashboard/package')->with('success', 'Berhasil ditambahkan');      
@@ -132,9 +132,8 @@ class PackageController extends Controller
     {
         $testi = Package::find($package->id);
         $testi->name = $request->name;
-        $testi->price = $request->price;
+        $testi->price = $this->checkPrice($request->price);
         $testi->update();
-
 
         return redirect('/dashboard/package')->with('success', 'Berhasil diupdate');
     }

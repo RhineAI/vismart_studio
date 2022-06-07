@@ -123,8 +123,5 @@
         })
     }
 
-        
-
-
 </script> 
 @endpush
