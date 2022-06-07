@@ -10,35 +10,25 @@
 
         <div class="box-body">
            <div class="col-lg-5">
-               <form action="{{ route('testimonial.update', $testi->id) }}" method="post">
+               <form action="{{ route('package-feature.update', $fitur->id) }}" method="post">
                 @method('put')
 
                 @csrf
                     <div class="mb-2">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $testi->name) }}" autofocus>
-                        @error('name')
+                        <label for="feature" class="form-label">feature</label>
+                        <input type="text" class="form-control @error('feature') is-invalid @enderror" id="feature" name="feature" value="{{ old('feature', $fitur->feature) }}" autofocus>
+                        @error('feature')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
                         
                     </div>
-
-                    <div class="mb-2">
-                        <label for="description" class="form-label">Testi</label>
-                        <input class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{ old('description', $testi->description) }}" ></input>
-                        @error('description')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>    
            </div>
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">
-            <button type="submit" class="btn btn-primary">Update Testimonial</button>
+            <button type="submit" class="btn btn-primary">Update Feature</button>
             </form>
         </div>
 
