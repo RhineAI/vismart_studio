@@ -143,12 +143,12 @@
                     <li>
                         <a href="javascript: void(0);">
                             <i data-feather="list" class="align-self-center menu-icon"></i>
-                            <span>List Module</span>
+                            <span>Module</span>
                             <span class="menu-arrow"></span>
                         </a>
                     </li>
 
-            {{--    Lainnya    --}}
+                    {{--    Lainnya    --}}
     
                     <hr class="hr-dashed hr-menu">
                     <li class="menu-label my-2">Lainnya</li>

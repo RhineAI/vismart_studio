@@ -19,7 +19,6 @@ class CreateAdvantageTable extends Migration
             $table->string('advantage');
             $table->text('description');
             $table->timestamps();
-
         });
     }
 
