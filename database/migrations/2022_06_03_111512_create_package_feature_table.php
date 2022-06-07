@@ -16,10 +16,7 @@ class CreatePackageFeatureTable extends Migration
         Schema::create('package_feature', function (Blueprint $table) {
             $table->id();
             $table->string('feature');
-            $table->timestamps();
-
-            
-
+            $table->timestamps();     
         });
     }
 

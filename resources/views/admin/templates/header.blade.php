@@ -132,7 +132,7 @@
 
                     {{-- Advantage --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('advantage.index') }}">
                             <i data-feather="award" class="align-self-center menu-icon"></i>
                             <span>Keunggulan</span>
                             <span class="menu-arrow"></span>

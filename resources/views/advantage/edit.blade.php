@@ -10,58 +10,58 @@
 
         <div class="box-body">
            <div class="col-lg-5">
-               <form action="{{ route('portofolio.update', $portofolio->id) }}" method="post" enctype="multipart/form-data">
+               <form action="{{ route('advantage.update', $previllege->id) }}" method="post" enctype="multipart/form-data">
                 @method('put')
 
                 @csrf
                     <div class="mb-2">
-                        <label for="title" class="form-label">Title</label>
-                        <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $portofolio->title) }}" maxlength="20" minlength="3"></input>
-                        @error('title')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>    
-
-                    <div class="mb-2">
                         <label for="image" class="form-label">Image</label>
-                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $portofolio->image }}">
-                        @if($portofolio->image)
-                            <img src="{{ asset('storage/' . $portofolio->image) }}" class="img-preview img-fluid my-3 col-sm-5 d-block">
+                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $previllege->image }}">
+                        @if($previllege->image)
+                            <img src="{{ asset('storage/' . $previllege->image) }}" class="img-preview img-fluid my-3 col-sm-5 d-block">
                         @else
                             <img class="img-preview img-fluid my-3 col-sm-5">
                         @endif
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()" value="{{ old('image', $portofolio->image) }}">
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()" value="{{ old('image', $previllege->image) }}">
 
-                        @error('image')
+                    </div>
+
+                  
+
+                    <div class="mb-2">
+                        <label for="advantage" class="form-label">Advantage</label>
+                        <input class="form-control @error('advantage') is-invalid @enderror" rows="3" id="advantage" name="advantage" value="{{ old('advantage', $previllege->advantage ) }}" required autofocus></input>
+                        @error('advantage')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
-                        
                     </div>
-
+                    
                     <div class="mb-2">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ old('description', $portofolio->description) }}</textarea>
+                        <textarea style="visibility: visible;" class="form-control @error('description') is-invalid @enderror" rows="3" id="description" name="description" required autofocus>{{ old('description',$previllege->description) }}</textarea>
                         @error('description')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>    
+
            </div>
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">
-            <button type="submit" class="btn btn-primary">Update Portofolio</button>
+            <button type="submit" class="btn btn-primary">Update Advantage</button>
             </form>
         </div>
 
     </div>
 </div>
+    
+@endsection
 
+@push('script')
 <script>
     function previewImage() {
         const image = document.querySelector('#image');
@@ -74,8 +74,7 @@
 
         oFReader.onload = function(oFREvent) {
         imgPreview.src = oFREvent.target.result;
+        }
     }
-  }
 </script>
-    
-@endsection
+@endpush

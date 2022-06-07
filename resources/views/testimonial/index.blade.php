@@ -114,7 +114,8 @@
                         text: 'Data Produk berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745'
+                        confirmButtonColor: '#28A745',
+                        timer: 2000
                     }) 
                     table.ajax.reload();
                 })
@@ -124,7 +125,8 @@
                         text: 'Data Produk gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545'
+                        confirmButtonColor: '#DC3545,
+                        timer: 2000
                     })                       
                     return;
                 });
@@ -132,6 +134,7 @@
                 Swal.fire({
                     title: 'Data Produk batal dihapus',
                     icon: 'warning',
+                    timer: 2000
                 })
             }
         })
