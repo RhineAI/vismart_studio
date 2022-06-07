@@ -1,5 +1,5 @@
                 <footer class="footer text-center text-sm-left">
-                    &copy; 2020 Dastyle <span class="d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span>
+                    &copy; 2022 VismartStudio <span class="d-none d-sm-inline-block float-right">Powered by <a href="https://madtive.com/">Madtive Studio</a></span>
                 </footer><!--end footer-->
             </div>
             <!-- end page content -->
@@ -54,6 +54,7 @@
         <link rel="stylesheet" href="sweetalert2.min.css">
         <script src="sweetalert2.all.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
         @stack('script')
         

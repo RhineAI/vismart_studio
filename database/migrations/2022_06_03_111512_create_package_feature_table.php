@@ -15,16 +15,8 @@ class CreatePackageFeatureTable extends Migration
     {
         Schema::create('package_feature', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('package_id');
             $table->string('feature');
-            $table->timestamps();
-
-            $table->foreign('package_id')
-                  ->references('id')
-                  ->on('package')
-                  ->onUpdate('restrict')
-                  ->onDelete('restrict');
-
+            $table->timestamps();     
         });
     }
 

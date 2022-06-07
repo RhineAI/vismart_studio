@@ -64,25 +64,16 @@
 </div>
 
 {{-- @includeIf('portofolio.form') --}}
+@endsection
 
+@push('script')
 <script>
-
-    // @if(Session::has('success'))
-    //     toastr.success("{{ Session::get('success') }}")        
-    // @endif
-
     var time = document.getElementById("alert");
 
     setTimeout(function(){
         time.style.display = "none";
     }, 4000);   
 
-    
-</script>
-@endsection
-
-@push('script')
-<script>
     function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');
@@ -143,7 +134,8 @@
                         text: 'Data berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745'
+                        confirmButtonColor: '#28A745',
+                        timer: 2000
                     }) 
                     table.ajax.reload();
                 })
@@ -153,7 +145,8 @@
                         text: 'Data gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545'
+                        confirmButtonColor: '#DC3545',
+                        timer: 2000
                     })                       
                     return;
                 });
@@ -161,6 +154,7 @@
                 Swal.fire({
                     title: 'Batal dihapus',
                     icon: 'warning',
+                    timer: 2000
                 })
             }
         })

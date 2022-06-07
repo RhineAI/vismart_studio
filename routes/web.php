@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
@@ -64,8 +65,10 @@ Route::post('/dashboard/portofolio/data', [PortofolioController::class, 'data'])
 Route::resource('dashboard/package', PackageController::class);
 Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name('package.data');
 
-
 //Package Feature
 Route::resource('dashboard/package-feature', PackageFeatureController::class);
 Route::post('/dashboard/package-feature/data', [PackageFeatureController::class, 'data'])->name('package-feature.data');
 
+//Package Advantage
+Route::resource('dashboard/advantage', AdvantageController::class);
+Route::post('/dashboard/advantage/data', [AdvantageController::class, 'data'])->name('advantage.data');

@@ -26,9 +26,10 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-danger" style="color:black;">Name</th>
+                            <th width="17%" scope="col" class="text-center table-danger" style="color:black;">Name</th>
                             <th scope="col" class="text-center table-danger" style="color:black;">Description</th>
-                            <th width="13%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
+                            <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
 
@@ -86,6 +87,7 @@
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'name'},
             {data:'description'},
+            {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]
     });
@@ -112,7 +114,8 @@
                         text: 'Data Produk berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745'
+                        confirmButtonColor: '#28A745',
+                        timer: 2000
                     }) 
                     table.ajax.reload();
                 })
@@ -122,7 +125,8 @@
                         text: 'Data Produk gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545'
+                        confirmButtonColor: '#DC3545,
+                        timer: 2000
                     })                       
                     return;
                 });
@@ -130,6 +134,7 @@
                 Swal.fire({
                     title: 'Data Produk batal dihapus',
                     icon: 'warning',
+                    timer: 2000
                 })
             }
         })

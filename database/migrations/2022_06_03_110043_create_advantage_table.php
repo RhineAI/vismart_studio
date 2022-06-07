@@ -15,25 +15,10 @@ class CreateAdvantageTable extends Migration
     {
         Schema::create('advantage', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('service_id');
-            $table->unsignedBigInteger('module_id');
-            $table->string('title');
-            $table->text('description');
             $table->string('image');
+            $table->string('advantage');
+            $table->text('description');
             $table->timestamps();
-
-            $table->foreign('service_id')
-                ->references('id')
-                ->on('service')
-                ->onUpdate('restrict')
-                ->onDelete('restrict');
-
-            $table->foreign('module_id')
-                ->references('id')
-                ->on('module')
-                ->onUpdate('restrict')
-                ->onDelete('restrict');
-
 
         });
     }
