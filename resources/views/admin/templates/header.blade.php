@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.ico') }}">
+        <link rel="icon" type="image/png" href="../img/icon vismart.png"/>
 
         <!-- jvectormap -->
         <link href="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet">

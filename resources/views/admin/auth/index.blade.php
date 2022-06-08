@@ -12,7 +12,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.ico') }}">
+        <link rel="icon" type="image/png" href="../img/icon vismart.png"/>
 
         <!-- App css -->
         <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -86,7 +86,7 @@
                                                     <div class="col-12 mt-2">
                                                         <a href="/" class="btn btn-info btn-block waves-effect waves-light" type="button">Back <i class="fas fa-arrow-left ml-1"></i></a>
                                                     </div><!--end col--> 
-                                                </di
+                                                </div>
 
                                             </form><!--end form-->
                                         </div>
