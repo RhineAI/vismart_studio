@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
@@ -60,6 +61,10 @@ Route::post('/dashboard/testimonial/data', [TestimonialController::class, 'data'
 Route::resource('/dashboard/portofolio', PortofolioController::class);
 Route::post('/dashboard/portofolio/data', [PortofolioController::class, 'data'])->name('portofolio.data');
 
+//List Module
+Route::resource('/dashboard/module', ModuleController::class);
+Route::post('/dashboard/module/data', [ModuleController::class, 'data'])->name('module.data');
+
 //Package
 Route::resource('dashboard/package', PackageController::class);
 Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name('package.data');
@@ -68,4 +73,5 @@ Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name
 //Package Feature
 Route::resource('dashboard/package-feature', PackageFeatureController::class);
 Route::post('/dashboard/package-feature/data', [PackageFeatureController::class, 'data'])->name('package-feature.data');
+
 

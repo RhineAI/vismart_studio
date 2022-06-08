@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="col-md-12 p-2 mb-3" style="background-color: white;">
+<div class="col-md-12 p-2 mb-3 mt-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit</h2>
+            <h2 class="ml-3">Edit Portofolio</h2>
         </div>
 
         <div class="box-body">
@@ -16,7 +16,7 @@
                 @csrf
                     <div class="mb-2">
                         <label for="title" class="form-label">Title</label>
-                        <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $testi->title) }}" maxlength="20" minlength="3"></input>
+                        <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $testi->title) }}" maxlength="20" minlength="3">
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -44,7 +44,7 @@
 
                     <div class="mb-2">
                         <label for="description" class="form-label">Description</label>
-                        <input class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{ old('description', $testi->description) }}" ></input>
+                        <input class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{ old('description', $testi->description) }}" >
                         @error('description')
                             <div class="invalid-feedback">
                                 {{ $message }}

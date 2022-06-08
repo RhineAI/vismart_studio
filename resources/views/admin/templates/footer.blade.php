@@ -1,10 +1,12 @@
                 <footer class="footer text-center text-sm-left">
-                    &copy; 2020 Dastyle <span class="d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span>
+                    <strong>Copyright &copy; 2022 Vismart Studio Supported by<a href="http://madtive.com" target="_blank" rel="noopener noreferrer">&nbsp; Madtive Studio &nbsp;</a>All Right Reserved</strong>
                 </footer><!--end footer-->
             </div>
             <!-- end page content -->
         </div>
         <!-- end page-wrapper -->
+
+        {{-- &copy; 2020 Dastyle <span class="d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span> --}}
 
         
 
