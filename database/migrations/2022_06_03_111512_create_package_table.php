@@ -15,16 +15,12 @@ class CreatePackageTable extends Migration
     {
         Schema::create('package', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('feature_id');
+            // $table->unsignedBigInteger('feature_id');
             $table->string('name');
             $table->integer('price');
+            $table->string('noTelp');
             $table->timestamps();
 
-            $table->foreign('feature_id')
-                  ->references('id')
-                  ->on('package_feature')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
         });
     }
 

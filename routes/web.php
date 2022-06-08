@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\{
     AuthController,
 };
 use App\Http\Controllers\AdvantageController;
+use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
@@ -77,9 +78,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('dashboard/package', PackageController::class);
     Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name('package.data');
 
-    //Package Feature
-    Route::resource('dashboard/package-feature', PackageFeatureController::class);
-    Route::post('/dashboard/package-feature/data', [PackageFeatureController::class, 'data'])->name('package-feature.data');
+    //Feature
+    Route::resource('dashboard/feature', FeatureController::class);
+    Route::post('/dashboard/feature/data', [FeatureController::class, 'data'])->name('feature.data');
 
     //Advantage
     Route::resource('dashboard/advantage', AdvantageController::class);

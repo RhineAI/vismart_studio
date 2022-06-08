@@ -42,7 +42,7 @@
                         
                     </div>
 
-                    <div class="mb-2">
+                    {{-- <div class="mb-2">
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ old('description', $portofolio->description) }}</textarea>
                         @error('description')
@@ -50,7 +50,7 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div>    
+                    </div>     --}}
            </div>
         </div>
 

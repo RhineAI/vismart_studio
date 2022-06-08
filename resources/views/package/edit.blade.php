@@ -47,7 +47,20 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div>    
+                    </div>  
+                    
+                    <div class="mb-2">
+                        <label for="noTelp" class="form-label">No-Telp</label>
+                        <div class="input-group-prepend"> 
+                            <span class="input-group-text">+62</span> 
+                            <input type="number" class="form-control @error('noTelp') is-invalid @enderror" rows="3" id="noTelp" name="noTelp" value="{{ old('noTelp', $pack->noTelp) }}" required minlength="9" maxlength="12"></input>
+                        </div> 
+                        @error('noTelp')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div> 
            </div>
         </div>
 

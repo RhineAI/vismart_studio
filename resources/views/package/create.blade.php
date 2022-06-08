@@ -15,8 +15,11 @@
                     <div class="mb-2">
                         <label for="feature_id" class="form-label">Feature</label>
                         <div class="input-group">
-                            {{-- <input type="text" class="form-control col-xs-1" readonly> --}}
-                            <button type="button" class="btn btn-info btn-md" onclick="addFeature()"><i class="fa-solid fa-circle-plus"></i>Add Features</button>
+                            <select name="feature[]" id="feature" multiple class="chosen-select form-control mb-4">
+                                @foreach ($feature as $item)
+                                    <option value="{{ $item->id }}">{{ $item->feature }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         @error('feature_id')
                             <div class="invalid-feedback">
@@ -47,11 +50,24 @@
                             </div>
                         @enderror
                     </div>    
+
+                    <div class="mb-2">
+                        <label for="noTelp" class="form-label">No-Telp</label>
+                        <div class="input-group-prepend"> 
+                            <span class="input-group-text">+62</span> 
+                            <input type="text" class="form-control @error('noTelp') is-invalid @enderror" rows="3" id="noTelp" name="noTelp" value="{{ old('noTelp') }}" required minlength="9" maxlength="12"></input>
+                        </div> 
+                        @error('noTelp')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div> 
            </div>
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">
-            <button type="submit" class="btn btn-primary">Create Testimonial</button>
+            <button type="submit" class="btn btn-primary">Create Package</button>
             </form>
         </div>
 
@@ -87,8 +103,14 @@
             generateRupiah(this);
         })
 
+        
     function addFeature() {
         $('#modal-feature').modal('show');
     }
+
+    $(document).ready(function () {
+        $(".chosen-select").chosen();
+    });
+
 </script>
 @endpush

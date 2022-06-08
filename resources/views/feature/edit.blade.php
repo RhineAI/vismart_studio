@@ -10,7 +10,7 @@
 
         <div class="box-body">
            <div class="col-lg-5">
-               <form action="{{ route('package-feature.update', $fitur->id) }}" method="post">
+               <form action="{{ route('feature.update', $fitur->id) }}" method="post">
                 @method('put')
 
                 @csrf

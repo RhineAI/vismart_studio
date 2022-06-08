@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feature;
 use App\Models\Package;
 use App\Models\PackageFeature;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class PackageController extends Controller
     public function index()
     {
         $package = Package::all();
-        return view('package.index', compact('package'));
+        $feature = Feature::all();
+        return view('package.index', compact('package', 'feature'));
     }
 
     public function data()
@@ -32,14 +34,17 @@ class PackageController extends Controller
             ->addColumn('price', function($package) {
                 return 'IDR '. format_uang($package->price) .',00';
             })
+            ->addColumn('noTelp', function($package) {
+                return $package->noTelp;
+            })
             ->addColumn('created', function($package) {
                 return tanggal($package->created_at);
             })
             ->addColumn('action', function ($package) {
                 return '
-                    <a href="'. route('testimonial.edit', $package->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <button onclick="showData(`'. route('testimonial.show', $package->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
-                    <button onclick="deleteData(`'. route('testimonial.destroy', $package->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
+                    <button onclick="showData(`'. route('package.show', $package->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
+                    <a href="'. route('package.edit', $package->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <button onclick="deleteData(`'. route('package.destroy', $package->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
             ->rawColumns(['action'])
@@ -71,7 +76,7 @@ class PackageController extends Controller
     {
         return view('package.create', [
             'package' => Package::all(),
-            'feature' => PackageFeature::all()
+            'feature' => Feature::all()
         ]);
     }
 
@@ -84,11 +89,12 @@ class PackageController extends Controller
     public function store(Request $request)
     {
         $package = new Package;
-        $package->feature_id = $request->feature_id;
         $package->name = $request->name;
-        // $package->price = $request->price;
         $package->price = $this->checkPrice($request->price);
+        $package->noTelp = '62 '. $request->noTelp;
         $package->save();
+        
+        $package->feature()->attach($request->feature) ;
 
         return redirect('/dashboard/package')->with('success', 'Berhasil ditambahkan');      
     }
@@ -130,10 +136,13 @@ class PackageController extends Controller
      */
     public function update(Request $request, Package $package)
     {
-        $testi = Package::find($package->id);
-        $testi->name = $request->name;
-        $testi->price = $this->checkPrice($request->price);
-        $testi->update();
+        $package = Package::find($package->id);
+        $package->name = $request->name;
+        $package->price = $this->checkPrice($request->price);
+        $package->noTelp = '+62 '. $request->noTelp;
+        $package->update();
+
+        $package->feature()->sync($request->feature) ;
 
         return redirect('/dashboard/package')->with('success', 'Berhasil diupdate');
     }

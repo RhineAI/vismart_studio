@@ -41,6 +41,10 @@
         <!-- Responsive datatable examples -->
         <link href="{{ asset('admin/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 
+        {{-- Chosen-Select --}}
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css">
+
         <style>
             .clock {
                 position: absolute;
@@ -133,7 +137,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('package-feature.index') }}">
+                                <a class="nav-link" href="{{ route('feature.index') }}">
                                     <i class="ti-control-record"></i>
                                     List Fitur
                                 </a>

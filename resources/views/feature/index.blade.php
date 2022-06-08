@@ -10,15 +10,15 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Package</h2>
-                <a href="/dashboard/package-feature/create" class="btn btn-outline-dark mb-3 p-2">
-                    Create new Package 
+                <h2 class="mb-5">Feature</h2>
+                <a href="/dashboard/feature/create" class="btn btn-outline-dark mb-3 p-2">
+                    Create new Feature
                     <span data-feather="plus-circle"></span> 
                 </a>
             </div>
 
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-package-feature">
+                <table class="table table-bordered table-feature">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
@@ -35,7 +35,7 @@
     </div>
 </div>
 
-@includeIf('package.form')
+{{-- @includeIf('feature') --}}
 
 <script>
 
@@ -53,13 +53,13 @@
 
 
     let table;
-        table = $('.table-package-feature').DataTable({
+        table = $('.table-feature').DataTable({
         processing: true,
         responsive: true,
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('package-feature.data') }}",
+            url: "{{ route('feature.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'

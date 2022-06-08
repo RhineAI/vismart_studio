@@ -10,7 +10,7 @@
 
         <div class="box-body">
            <div class="col-lg-5">
-               <form action="{{ route('package-feature.store') }}" method="post">
+               <form action="{{ route('feature.store') }}" method="post">
                 @csrf
                     <div class="mb-2">
                         <label for="feature" class="form-label">Feature</label>
