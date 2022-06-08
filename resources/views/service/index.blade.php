@@ -1,8 +1,8 @@
 @extends('admin.dashboard')
 
 @section('content')
-<div class="row">
-    <div class="col-md-12 p-2 mb-3 mt-3" style="background-color: white">
+<div class="row mx-3">
+    <div class="col-md-12 p-2 mb-3" style="background-color: white">
 
         @if(session()->has('success'))
             <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
@@ -10,10 +10,9 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Testimonial</h2>
-                
-                <a href="/dashboard/testimonial/create" class="btn btn-outline-dark mb-3 p-2">
-                    Create new testimonial 
+                <h2 class="mb-5">Sercice</h2>
+                <a href="/dashboard/service/create" class="btn btn-outline-dark mb-3 p-2">
+                    Create new Service
                     <span data-feather="plus-circle"></span> 
                 </a>
 
@@ -21,35 +20,18 @@
             </div>
 
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-testimonial">
+                <table class="table table-bordered table-service">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
-                            <th width="17%" scope="col" class="text-center table-danger" style="color:black;">Name</th>
-                            <th scope="col" class="text-center table-danger" style="color:black;">Description</th>
-                            <th width="15%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
-                            <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th scope="col" class="text-center table-danger" style="color:black;">Image</th>
+                            <th scope="col" class="text-center table-danger" style="color:black;">Title</th>
+                            <th scope="col" class="text-center table-danger" style="color:black;">Package</th>
+                            <th scope="col" class="text-center table-danger" style="color:black;">Module</th>
+                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
+                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-
-                    {{-- <tbody>
-                        @foreach ($testimonial as $item => $key)
-                        <tr>
-                            <th class=" table-secondary">{{ $item+1 }}</th>
-                            <th class=" table-secondary">{{ $key->name }}</th>
-                            <th class=" table-secondary">{{ $key->description }}</th>
-                            <th class="table-secondary">
-                                <a href="/dashboard/testimonial/{{ $key->id }}/edit" class="btn btn-xs bg-info"><span data-feather='edit'></span></a>
-                                
-                                <form action="{{ route('testimonial.destroy', $key->id) }}" method="post" class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="btn btn-xs bg-danger border-0" type="submit" onclick="return confirm('Sure?')"><span data-feather='trash-2' ></span></button>  
-                                </form>
-                            </th>
-                        </tr>
-                        @endforeach
-                    </tbody> --}}
                     
                 </table>
             </div>
@@ -58,24 +40,32 @@
     </div>
 </div>
 
+{{-- @includeIf('service.feature') --}}
+
+<script>
+
+</script>
+
 @endsection
 
 @push('script')
-<script> 
+<script>
     var time = document.getElementById("alert");
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 4000); 
+    }, 2000);
+
+
 
     let table;
-        table = $('.table-testimonial').DataTable({
+        table = $('.table-service').DataTable({
         processing: true,
         responsive: true,
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('testimonial.table') }}",
+            url: "{{ route('service.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
@@ -83,16 +73,19 @@
         },
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
-            {data:'name'},
-            {data:'description'},
+            {data:'image'},
+            {data:'title'},
+            {data:'package'},
+            {data:'module'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]
     });
 
+
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Data Produk yang dipilih?',
+            title: 'Hapus Data yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -109,7 +102,7 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Data Produk berhasil dihapus',
+                        text: 'Data berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
                         confirmButtonColor: '#28A745',
@@ -120,17 +113,17 @@
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Data Produk gagal dihapus',
+                        text: 'Data gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545,
+                        confirmButtonColor: '#DC3545',
                         timer: 2000
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Data Produk batal dihapus',
+                    title: 'Batal dihapus',
                     icon: 'warning',
                     timer: 2000
                 })

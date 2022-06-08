@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advantage;
 use App\Models\Module;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,13 @@ class ModuleController extends Controller
             ->addColumn('name', function($module) {
                 return $module->name;
             })
+            ->addColumn('advantage', function ($service) {
+                $advantages = '';
+                foreach ($service->advantage as $key => $value) {
+                    $advantages .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-primary rounded">'. $value->advantage.'</div>';
+                }
+                return $advantages;
+            })
             ->addColumn('created', function($module) {
                 return tanggal($module->created_at);
             })
@@ -49,6 +57,7 @@ class ModuleController extends Controller
     public function create()
     {
         return view('module.create', [
+            'advantage' => Advantage::all(),
             'module' => Module::all()
         ]);
     }
@@ -64,7 +73,8 @@ class ModuleController extends Controller
         $module = new Module;
         $module->name = $request->name;
         $module->save();
- 
+
+        $module->advantage()->attach($request->module); 
 
         return redirect('/dashboard/module')->with('success', 'Berhasil ditambahkan'); 
     }
@@ -106,6 +116,10 @@ class ModuleController extends Controller
         $module = Module::find($module->id);
         $module->name = $request->name;
         $module->update();
+
+        $module->advantage()->sync($request->advantage) ;
+
+
         return redirect('/dashboard/module')->with('success', 'Berhasil diupdate'); 
     }
 

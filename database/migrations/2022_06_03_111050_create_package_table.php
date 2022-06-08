@@ -18,8 +18,8 @@ class CreatePackageTable extends Migration
             // $table->unsignedBigInteger('feature_id');
             $table->string('name');
             $table->integer('price');
-            // $table->string('noTelp');
-            $table->string('link');
+            $table->string('noTelp');
+            // $table->string('link');  
             $table->timestamps();
 
         });

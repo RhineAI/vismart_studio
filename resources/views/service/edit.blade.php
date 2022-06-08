@@ -15,25 +15,18 @@
 
                 @csrf
 
-                    <div class="form-group">
-                        <label for="name">Fitur</label>
-                        <select name="feature[]" id="feature" class="form-control chosen-select" multiple>
-                            @foreach($feature as $key => $f)
-                            <option value="{{ $f->id }}"
-                            @if(!empty($package))
-                                @foreach(@$package->feature as $features)
-                                    @if($features->id == $f->id)
-                                        selected
-                                    @endif
-                                @endforeach
-                            @endif
-                            >{{ ++$key }}. {{ $f->feature }}</option>
-                            @endforeach
-                        </select>
-                        @error('feature') 
-                            <b class="text-danger">{{ $message }}</b>
-                        @enderror  
-                    </div>
+                    <div class="mb-2">
+                        <label for="feature_id" class="form-label">Feature</label>
+                        <div class="input-group">
+                            {{-- <input type="text" class="form-control col-xs-1" readonly> --}}
+                            <button type="button" class="btn btn-info btn-md" onclick="editFeature()"><i class="fa-solid fa-circle-plus"></i>Add Features</button>
+                        </div>
+                        @error('feature_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>   
 
                     <div class="mb-2">
                         <label for="name" class="form-label">Package Name</label>
@@ -60,7 +53,7 @@
                         <label for="noTelp" class="form-label">No-Telp</label>
                         <div class="input-group-prepend"> 
                             <span class="input-group-text">+62</span> 
-                            <input type="text" class="form-control @error('noTelp') is-invalid @enderror" rows="3" id="noTelp" name="noTelp" value="{{ old('noTelp', $pack->noTelp) }}" required minlength="9" maxlength="12"></input>
+                            <input type="number" class="form-control @error('noTelp') is-invalid @enderror" rows="3" id="noTelp" name="noTelp" value="{{ old('noTelp', $pack->noTelp) }}" required minlength="9" maxlength="12"></input>
                         </div> 
                         @error('noTelp')
                             <div class="invalid-feedback">
@@ -72,13 +65,14 @@
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">
-            <button type="submit" class="btn btn-primary">Update Package</button>
+            <button type="submit" class="btn btn-primary">Update Testimonial</button>
             </form>
         </div>
 
     </div>
 </div>
 
+@includeIf('package.feature')  
 @endsection
 
 @push('script')
@@ -109,10 +103,6 @@
     function editFeature() {
         $('#modal-feature').modal('show');
     }
-
-    $(document).ready(function () {
-        $(".chosen-select").chosen();
-    });
 
 </script>
 @endpush

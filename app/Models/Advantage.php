@@ -12,4 +12,9 @@ class Advantage extends Model
     protected $table = 'advantage';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+    public function module() 
+    {
+        return $this->belongsToMany(Module::class, 'module');
+    } 
 }
