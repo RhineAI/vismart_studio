@@ -74,7 +74,7 @@ class PortofolioController extends Controller
 
         $validate = $request->validate([
             'title' => 'required|max:30',
-            'image' => 'image|file|required|max:12000',
+            'image' => 'image|file|required|max:13000',
             // 'description' => 'required|max:2500'
         ]);
 
@@ -82,8 +82,14 @@ class PortofolioController extends Controller
             $validate['image'] = $request->file('image')->store('portofolio');
         }
 
-        Portofolio::create($validate);
- 
+        $title = $request['title'];
+
+        $save = new Portofolio();
+        $save->title = $title;
+        $save->image = $validate['image'];
+        $save->save();
+
+        // Portofolio::create($validate);
 
         return redirect('/dashboard/portofolio')->with('success', 'Berhasil ditambahkan'); 
     }

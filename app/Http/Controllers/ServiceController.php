@@ -95,8 +95,8 @@ class ServiceController extends Controller
         }
 
         $title = $request['title'];
-        $image = $request->file('image');
-
+        $image = $validate['image'];
+        
         $service = new Service;
         $service->title = $title;
         $service->image = $image;

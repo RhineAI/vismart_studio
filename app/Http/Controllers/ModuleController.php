@@ -45,7 +45,7 @@ class ModuleController extends Controller
                     <button onclick="deleteData(`'. route('module.destroy', $module->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'advantage'])
             ->make(true);
     }
 
@@ -74,7 +74,7 @@ class ModuleController extends Controller
         $module->name = $request->name;
         $module->save();
 
-        $module->advantage()->attach($request->module); 
+        $module->advantage()->attach($request->advantage); 
 
         return redirect('/dashboard/module')->with('success', 'Berhasil ditambahkan'); 
     }

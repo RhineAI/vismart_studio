@@ -20,6 +20,11 @@ class Module extends Model
 
     public function advantage() 
     {
-        return $this->belongsToMany(Advantage::class, 'advantage');
+        return $this->belongsToMany(Advantage::class, 'module_advantage');
     } 
+
+    // public function moduleAdvantage() 
+    // {
+    //     return $this->belongsToMany(ModuleAdvantage::class, 'module_advantage', 'module_id');
+    // } 
 }

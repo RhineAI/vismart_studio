@@ -43,7 +43,7 @@ class PackageController extends Controller
                 return 'IDR '. format_uang($package->price) .',00';
             })
             ->addColumn('noTelp', function($package) {
-                return $package->noTelp;
+                return '+'.$package->noTelp;
             })
             ->addColumn('created', function($package) {
                 return tanggal($package->created_at);

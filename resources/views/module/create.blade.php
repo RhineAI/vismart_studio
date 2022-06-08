@@ -50,3 +50,12 @@
 </div>
 
 @endsection
+
+@push('script')
+    <script>
+        $(document).ready(function () {
+            $(".chosen-select").chosen();
+        });
+    </script>
+    
+@endpush
