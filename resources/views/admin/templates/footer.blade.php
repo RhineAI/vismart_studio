@@ -1,5 +1,6 @@
                 <footer class="footer text-center text-sm-left">
-                    <strong>Copyright &copy; 2022 Vismart Studio Supported by<a href="http://madtive.com" target="_blank" rel="noopener noreferrer">&nbsp; Madtive Studio &nbsp;</a>All Right Reserved</strong>
+                    {{-- <strong>Copyright &copy; 2022 Vismart Studio Supported by<a href="http://madtive.com" target="_blank" rel="noopener noreferrer">&nbsp; Madtive Studio &nbsp;</a>All Right Reserved</strong> --}}
+                    &copy; 2022 VismartStudio <span class="d-none d-sm-inline-block float-right">Powered by <a href="https://madtive.com/">Madtive Studio</a></span>
                 </footer><!--end footer-->
             </div>
             <!-- end page content -->
@@ -56,8 +57,45 @@
         <link rel="stylesheet" href="sweetalert2.min.css">
         <script src="sweetalert2.all.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
+        <script>
+            function showTime(){
+                var date = new Date();
+                const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+                var d = days[date.getDay()]; // 0 - 23
+                var h = date.getHours(); // 0 - 23
+                var m = date.getMinutes(); // 0 - 59
+                var s = date.getSeconds(); // 0 - 59
+                var session = "AM";
+                
+                if(h == 0){
+                    h = 12;
+                }
+                
+                if(h > 12){
+                    h = h - 12;
+                    session = "PM";
+                }
+                
+                h = (h < 10) ? "0" + h : h;
+                m = (m < 10) ? "0" + m : m;
+                s = (s < 10) ? "0" + s : s;
+                
+                var time = d + " " + h + ":" + m + ":" + s + " " + session;
+                document.getElementById("MyClockDisplay").innerText = time;
+                document.getElementById("MyClockDisplay").textContent = time;
+                
+                setTimeout(showTime, 1000);
+                
+            }
+
+            showTime();
+        </script>
         @stack('script')
+
+        
         
     </body>
 

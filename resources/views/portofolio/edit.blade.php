@@ -10,13 +10,17 @@
 
         <div class="box-body">
            <div class="col-lg-5">
-               <form action="{{ route('portofolio.update', $testi->id) }}" method="post" enctype="multipart/form-data">
+               <form action="{{ route('portofolio.update', $portofolio->id) }}" method="post" enctype="multipart/form-data">
                 @method('put')
 
                 @csrf
                     <div class="mb-2">
                         <label for="title" class="form-label">Title</label>
+<<<<<<< HEAD
                         <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $testi->title) }}" maxlength="20" minlength="3">
+=======
+                        <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $portofolio->title) }}" maxlength="20" minlength="3"></input>
+>>>>>>> ad010fb4bdae2f3043aec759253c8f8f9051feba
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -26,13 +30,13 @@
 
                     <div class="mb-2">
                         <label for="image" class="form-label">Image</label>
-                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $testi->image }}">
-                        @if($testi->image)
-                            <img src="{{ asset('storage/' . $testi->image) }}" class="img-preview img-fluid my-3 col-sm-5 d-block">
+                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $portofolio->image }}">
+                        @if($portofolio->image)
+                            <img src="{{ asset('storage/' . $portofolio->image) }}" class="img-preview img-fluid my-3 col-sm-5 d-block">
                         @else
                             <img class="img-preview img-fluid my-3 col-sm-5">
                         @endif
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()" value="{{ old('image', $testi->image) }}">
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()" value="{{ old('image', $portofolio->image) }}">
 
                         @error('image')
                             <div class="invalid-feedback">
@@ -44,7 +48,11 @@
 
                     <div class="mb-2">
                         <label for="description" class="form-label">Description</label>
+<<<<<<< HEAD
                         <input class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{ old('description', $testi->description) }}" >
+=======
+                        <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ old('description', $portofolio->description) }}</textarea>
+>>>>>>> ad010fb4bdae2f3043aec759253c8f8f9051feba
                         @error('description')
                             <div class="invalid-feedback">
                                 {{ $message }}

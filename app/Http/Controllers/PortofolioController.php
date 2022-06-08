@@ -76,17 +76,9 @@ class PortofolioController extends Controller
 
         $validate = $request->validate([
             'title' => 'required|max:30',
-            'image' => 'image|file|required|max:2048',
-            'description' => 'required|required|max:250'
+            'image' => 'image|file|required|max:12000',
+            'description' => 'required|max:2500'
         ]);
-
-        // $data = Portofolio::create($validate);
-        
-        // if($request->hasFile('image')) {
-        //     $request->file('image')->move('portofolio-images/', $request->file('image')->getClientOriginalName());
-        //     $request->file('image')->getClientOriginalName();         
-        //     $data->save();
-        // }
 
         if($request->file('image')) {
             $validate['image'] = $request->file('image')->store('portofolio');
@@ -118,8 +110,7 @@ class PortofolioController extends Controller
     public function edit(Portofolio $portofolio)
     {
         return view('portofolio.edit', [
-            'testi' => $portofolio,
-            'portofolio' => Portofolio::all()
+            'portofolio' => $portofolio
         ]);
     }
 
@@ -137,8 +128,8 @@ class PortofolioController extends Controller
 
         $rules = $request->validate([
             'title' => 'required|max:30',
-            'image' => 'image|file|max:2048',
-            'description' => 'required|max:250'
+            'image' => 'image|file|max:12000',
+            'description' => 'required|max:2500'
         ]);
         
         if($request->file('image')) {

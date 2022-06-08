@@ -1,5 +1,6 @@
 @extends('admin.dashboard')
 
+
 @section('content')
 <div class="row mx-3">
     <div class="col-md-12 p-2 mb-3" style="background-color: white">
@@ -10,26 +11,42 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Package</h2>
-                <a href="/dashboard/package/create" class="btn btn-outline-dark mb-3 p-2">
-                    Create new Package 
-                    <span data-feather="plus-circle"></span> 
-                </a>
-
-                {{-- <button onclick="add()">Add</button> --}}
+                <h2 class="mb-5">User</h2>
             </div>
 
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-package">
+                <table class="table table-bordered table-user">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-danger" style="color:black;">Name</th>
-                            <th scope="col" class="text-center table-danger" style="color:black;">Price</th>
-                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
-                            <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th width="17%" scope="col" class="text-center table-danger" style="color:black;">Name</th>
+                            <th scope="col" class="text-center table-danger" style="color:black;">Username</th>
+                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Register At</th>
+                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Last Login At</th>
+                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Last Logout At</th>
+                            <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i></th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        @foreach ($user as $key => $item)
+                            <tr>
+                                <th class="text-center">{{ $key+2-1 }}</th>
+                                <th width="20%" class="">{{ $item->name }}</th>
+                                <th width="21%" class="">{{ $item->username }}</th>
+                                <th class="text-center">{{ tanggal($item->created_at) }}</th>
+                                <th class="text-center">{{ tanggal($item->last_login) }}</th>
+                                <th class="text-center">{{ tanggal($item->last_logout) }}</th>
+
+                                <th>
+                                    <a href="{{ route('user.edit', $item->id) }}" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <button onclick="deleteData('{{ route('user.destroy', $item->id)  }}')" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>           
+                                </th>
+                            </tr>
+
+
+                        @endforeach
+                    </tbody>
                     
                 </table>
             </div>
@@ -38,31 +55,19 @@
     </div>
 </div>
 
-@includeIf('package.form')
-
-<script>
-
-</script>
-
 @endsection
 
 @push('script')
-<script>
-    var time = document.getElementById("alert");
-
-    setTimeout(function(){
-        time.style.display = "none";
-    }, 2000);
-
+<script> 
 
     let table;
-        table = $('.table-package').DataTable({
+        table = $('.table-user').DataTable({
         processing: true,
         responsive: true,
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('package.data') }}",
+            url: "{{ route('user.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
@@ -71,12 +76,12 @@
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'name'},
-            {data:'price'},
-            {data:'created'},
+            {data:'username'},
+            {data:'created_at'},
+            {data:'last_login'},
             {data:'action', searchable: false, sortable: false},
         ]
     });
-
 
     function deleteData(url) {
         Swal.fire({
@@ -111,14 +116,14 @@
                         text: 'Data gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545',
+                        confirmButtonColor: '#DC3545,
                         timer: 2000
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Batal dihapus',
+                    title: 'Data batal dihapus',
                     icon: 'warning',
                     timer: 2000
                 })

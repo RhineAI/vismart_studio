@@ -33,6 +33,9 @@ class TestimonialController extends Controller
             ->addColumn('description', function($testimonial) {
                 return $testimonial->description;
             })
+            ->addColumn('created', function($testimonial) {
+                return tanggal($testimonial->created_at);
+            })
             ->addColumn('action', function ($testimonial) {
                 return '
                     <a href="'. route('testimonial.edit', $testimonial->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
