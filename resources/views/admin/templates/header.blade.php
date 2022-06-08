@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="" name="author" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
@@ -24,6 +26,37 @@
         <link href="{{ asset('admin/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('admin/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
 
+        <!-- Font Awesome -->  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+        <!-- Bootstrap Icons -->  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js">
+
+        <!-- Feather Icons -->  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js">
+
+        <!-- DataTables -->
+        <link href="{{ asset('admin/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('admin/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="{{ asset('admin/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+
+        {{-- Chosen-Select --}}
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css">
+
+        <style>
+            .clock {
+                position: absolute;
+                top: 50%;
+                left: 80%;
+                transform: translateX(-50%) translateY(-50%);
+                color: black;
+                font-size: 20px;
+                font-family: 'Times New Roman';
+                letter-spacing: 3px;
+            }
+        </style>
     </head>
 
     <body class="dark-sidenav">
@@ -31,7 +64,7 @@
         <div class="left-sidenav">
             <!-- LOGO -->
             <div class="brand">
-                <a href="dashboard/crm-index.html" class="logo text-white" style="font-size: 2em;">
+                <a href="http://127.0.0.1:8000/" class="logo text-white" style="font-size: 2em;">
                     <b>Vismart Studio</b>
                 </a>
             </div>
@@ -42,7 +75,7 @@
                     
                     {{-- Dashboard --}}
                     <li>
-                        <a href=""> 
+                        <a href="/dashboard"> 
                             <i data-feather="home" class="align-self-center menu-icon"></i>
                             <span>Dashboard</span>
                             <span class="menu-arrow"></span>
@@ -69,7 +102,7 @@
 
                     {{-- Portofolio --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('portofolio.index') }}">
                             <i data-feather="grid" class="align-self-center menu-icon"></i>
                             <span>Portofolio</span>
                             <span class="menu-arrow"></span>
@@ -97,14 +130,14 @@
 
                         <ul class="nav-second-level" aria-expanded="false">
                             <li class="nav-item">
-                                <a class="nav-link" href="auth-login.html">
+                                <a class="nav-link" href="{{ route('package.index') }}">
                                     <i class="ti-control-record"></i>
                                     List Paket
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="auth-register.html">
+                                <a class="nav-link" href="{{ route('feature.index') }}">
                                     <i class="ti-control-record"></i>
                                     List Fitur
                                 </a>
@@ -115,7 +148,7 @@
 
                     {{-- Advantage --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('advantage.index') }}">
                             <i data-feather="award" class="align-self-center menu-icon"></i>
                             <span>Keunggulan</span>
                             <span class="menu-arrow"></span>
@@ -124,37 +157,37 @@
 
                     {{-- Module --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('module.index') }}">
                             <i data-feather="list" class="align-self-center menu-icon"></i>
-                            <span>List Module</span>
+                            <span>Module</span>
                             <span class="menu-arrow"></span>
                         </a>
                     </li>
 
-            {{--    Lainnya    --}}
+                    {{--    Lainnya    --}}
     
                     <hr class="hr-dashed hr-menu">
                     <li class="menu-label my-2">Lainnya</li>
 
                     {{-- User --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('user.index') }}">
                             <i data-feather="users" class="align-self-center menu-icon"></i>
                             <span>Pengguna</span>
                             <span class="menu-arrow"></span>
                         </a>
                     </li>
 
-                    <li>
+                    {{-- <li>
                         <a href="javascript: void(0);">
                             <i data-feather="edit" class="align-self-center menu-icon"></i>
                             <span>Edit Profile</span>
                             <span class="menu-arrow"></span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('auth.logout') }}">
                             <i data-feather="log-out" class="align-self-center menu-icon"></i>
                             <span>Logout</span>
                             <span class="menu-arrow"></span>
@@ -171,12 +204,14 @@
                 <!-- Navbar -->
                 <nav class="navbar-custom">    
                     <ul class="list-unstyled topbar-nav float-right mb-0">         
+                        <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="false" aria-expanded="false">
                                 <i data-feather="bell" class="align-self-center topbar-icon"></i>
                                 <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
                             </a>
+
                             <div class="dropdown-menu dropdown-menu-right dropdown-lg pt-0">
                             
                                 <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">

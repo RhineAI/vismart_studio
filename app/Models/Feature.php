@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Package extends Model
+class Feature extends Model
 {
     use HasFactory;
 
-    protected $table = 'package';
+    protected $table = 'feature';
     protected $primaryKey = 'id';
     protected $guarded = [];
 
-    public function feature() 
+    public function package() 
     {
-        return $this->belongsToMany(Feature::class, 'package_feature');
+        return $this->belongsToMany(Package::class);
     }    
 }

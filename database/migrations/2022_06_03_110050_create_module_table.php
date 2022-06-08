@@ -15,8 +15,14 @@ class CreateModuleTable extends Migration
     {
         Schema::create('module', function (Blueprint $table) {
             $table->id();
-            $table->string('modul_name');
+            $table->string('name');
             $table->timestamps();
+
+            $table->foreign('advantage_id')
+                  ->references('id')
+                  ->on('advantage')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
     }
 

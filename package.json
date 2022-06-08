@@ -16,6 +16,9 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
-        "sweetalert2": "^11.4.17"
+        "jquery": "^3.6.0",
+        "sweetalert": "^2.1.2",
+        "sweetalert2": "^11.4.17",
+        "toastr": "^2.1.4"
     }
 }

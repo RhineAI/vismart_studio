@@ -15,9 +15,12 @@ class CreatePackageTable extends Migration
     {
         Schema::create('package', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedBigInteger('feature_id');
             $table->string('name');
             $table->integer('price');
+            $table->string('noTelp');
             $table->timestamps();
+
         });
     }
 
