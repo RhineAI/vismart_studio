@@ -98,11 +98,11 @@ class PackageController extends Controller
         $package = new Package;
         $package->name = $request->name;
         $package->price = $this->checkPrice($request->price);
-        // $package->noTelp = '62 '. $request->noTelp;
-        $package->link = $request->noTelp;
+        $package->noTelp = '62 '. $request->noTelp;
+        // $package->noTelp = $request->noTelp;
         $package->save();
         
-        $package->feature()->attach($request->feature) ;
+        $package->feature()->attach($request->feature);
 
         return redirect('/dashboard/package')->with('success', 'Berhasil ditambahkan');      
     }
@@ -133,9 +133,13 @@ class PackageController extends Controller
      */
     public function edit(Package $package)
     {
+        $pack = Package::findOrFail($package->id);
+        $feature = Feature::orderBy('feature', 'ASC')->get();
+
         return view('package.edit', [
             'pack' => $package,
-            'package' => Package::all()
+            'package' => $pack,
+            'feature' => $feature,
         ]);
     }
 

@@ -16,7 +16,7 @@
                 @csrf
                     <div class="mb-2">
                         <label for="title" class="form-label">Title</label>
-                        <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $testi->title) }}" maxlength="20" minlength="3">
+                        <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $portofolio->title) }}" maxlength="20" minlength="3">
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}

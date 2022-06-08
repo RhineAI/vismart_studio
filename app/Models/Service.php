@@ -12,4 +12,14 @@ class Service extends Model
     protected $table = 'service';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+    public function package() 
+    {
+        return $this->belongsToMany(Package::class, 'package');
+    } 
+
+    public function module() 
+    {
+        return $this->belongsToMany(Module::class, 'module');
+    } 
 }
