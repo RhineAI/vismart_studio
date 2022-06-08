@@ -17,7 +17,8 @@ class PackageController extends Controller
     public function index()
     {
         $package = Package::all();
-        $feature = Feature::all();
+        // return json_encode($package);
+        $feature = PackageFeature::all();
         return view('package.index', compact('package', 'feature'));
     }
 
@@ -31,6 +32,13 @@ class PackageController extends Controller
             ->addColumn('name', function($package) {
                 return $package->name;
             })
+            ->addColumn('feature', function ($package) {
+                $features = '';
+                foreach ($package->feature as $key => $value) {
+                    $features .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-primary rounded">'. $value->feature.'</div>';
+                }
+                return $features;
+            })
             ->addColumn('price', function($package) {
                 return 'IDR '. format_uang($package->price) .',00';
             })
@@ -42,12 +50,11 @@ class PackageController extends Controller
             })
             ->addColumn('action', function ($package) {
                 return '
-                    <button onclick="showData(`'. route('package.show', $package->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
-                    <a href="'. route('package.edit', $package->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('package.edit', $package->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('package.destroy', $package->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'feature'])
             ->make(true);
     }
 
@@ -91,7 +98,8 @@ class PackageController extends Controller
         $package = new Package;
         $package->name = $request->name;
         $package->price = $this->checkPrice($request->price);
-        $package->noTelp = '62 '. $request->noTelp;
+        // $package->noTelp = '62 '. $request->noTelp;
+        $package->link = $request->noTelp;
         $package->save();
         
         $package->feature()->attach($request->feature) ;
@@ -107,10 +115,14 @@ class PackageController extends Controller
      */
     public function show(Package $package)
     {
-        return view('package.show', [
-            'pack' => $package,
-            'package' => Package::all()
-        ]);
+        $package = Package::find($package->id);
+
+        dd($package);
+
+        // return view('package.show', [
+        //     'pack' => $package,
+
+        // ]);
     }
 
     /**

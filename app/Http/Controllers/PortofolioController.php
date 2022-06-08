@@ -36,9 +36,7 @@ class PortofolioController extends Controller
                <img width="90%" class="rounded" src="'. asset('storage/'.$portofolio->image) .'">
                ';
             })
-            // ->addColumn('description', function($portofolio) {
-            //     return $portofolio->description;
-            // })
+            
             ->addColumn('created', function($portofolio) {
                 return tanggal($portofolio->created_at);
             })

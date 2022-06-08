@@ -29,7 +29,6 @@
                             <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
                             <th width="13%" scope="col" class="text-center table-danger" style="color:black;">Title</th>
                             <th width="14%" scope="col" class="text-center table-danger" style="color:black;">Image</th>
-                            <th scope="col" class="text-center table-danger" style="color:black;">Description</th>
                             <th width="15%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
                             <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>

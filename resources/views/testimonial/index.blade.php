@@ -1,6 +1,5 @@
 @extends('admin.dashboard')
 
-
 @section('content')
 <div class="row">
     <div class="col-md-12 p-2 mb-3 mt-3" style="background-color: white">
@@ -58,21 +57,16 @@
         </div>
     </div>
 </div>
-<script>
-
-    var time = document.getElementById("alert");
-
-    setTimeout(function(){
-        time.style.display = "none";
-    }, 4000);   
-
-    
-</script>
 
 @endsection
 
 @push('script')
 <script> 
+    var time = document.getElementById("alert");
+
+    setTimeout(function(){
+        time.style.display = "none";
+    }, 4000); 
 
     let table;
         table = $('.table-testimonial').DataTable({

@@ -38,14 +38,7 @@
                             <th class="text-center"><h4>Features</h4></th>
                         </thead>
                         <tbody>
-                            @foreach ($feature as $item)
-                               <tr>
-                                    <th id="boRight">
-                                        <input type="checkbox" name="checkbox[]" id="feature_id">
-                                    </th>
-                                    <th id="feature">{{ $item->feature }}</th>
-                               </tr>
-                            @endforeach
+                            
                         </tbody>
                         
                     </table>

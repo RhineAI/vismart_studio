@@ -49,10 +49,10 @@
             .clock {
                 position: absolute;
                 top: 50%;
-                left: 80%;
+                left: 76%;
                 transform: translateX(-50%) translateY(-50%);
                 color: black;
-                font-size: 20px;
+                font-size: 18px;
                 font-family: 'Times New Roman';
                 letter-spacing: 3px;
             }

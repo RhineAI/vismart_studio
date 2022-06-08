@@ -16,16 +16,22 @@ class CreateServiceTable extends Migration
         Schema::create('service', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('module_id');
+            $table->unsignedBigInteger('package_id');
             $table->string('title');
             $table->string('image');
             $table->timestamps();
 
             $table->foreign('module_id')
-                  ->references('id')
-                  ->on('module')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('module')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
+            $table->foreign('package_id')
+                ->references('id')
+                ->on('package')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
