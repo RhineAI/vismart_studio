@@ -7,7 +7,9 @@ use App\Http\Controllers\Admin\{
 };
 use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\FeatureController;
-use App\Http\Controllers\LogoutController;
+// use App\Http\Controllers\LogoutController;
+// use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
@@ -74,6 +76,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard/portofolio', PortofolioController::class);
     Route::post('/dashboard/portofolio/data', [PortofolioController::class, 'data'])->name('portofolio.data');
 
+    //List Module
+    Route::resource('/dashboard/module', ModuleController::class);
+    Route::post('/dashboard/module/data', [ModuleController::class, 'data'])->name('module.data');
+
     //Package
     Route::resource('dashboard/package', PackageController::class);
     Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name('package.data');
@@ -94,4 +100,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');    
     
 });
+
 

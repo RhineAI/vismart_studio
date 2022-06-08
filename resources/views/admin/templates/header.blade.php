@@ -64,7 +64,7 @@
         <div class="left-sidenav">
             <!-- LOGO -->
             <div class="brand">
-                <a href="/dashboard" class="logo text-white" style="font-size: 2em;">
+                <a href="http://127.0.0.1:8000/" class="logo text-white" style="font-size: 2em;">
                     <b>Vismart Studio</b>
                 </a>
             </div>
@@ -157,7 +157,7 @@
 
                     {{-- Module --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('module.index') }}">
                             <i data-feather="list" class="align-self-center menu-icon"></i>
                             <span>Module</span>
                             <span class="menu-arrow"></span>

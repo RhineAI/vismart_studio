@@ -15,8 +15,7 @@ class CreateModuleTable extends Migration
     {
         Schema::create('module', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('advantage_id');
-            $table->string('modul_name');
+            $table->string('name');
             $table->timestamps();
 
             $table->foreign('advantage_id')

@@ -2,8 +2,8 @@
 
 
 @section('content')
-<div class="row mx-3">
-    <div class="col-md-12 p-2 mb-3" style="background-color: white">
+<div class="row">
+    <div class="col-md-12 p-2 mb-3 mt-3" style="background-color: white">
 
         @if (session()->has('success'))
             <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>  
@@ -29,8 +29,8 @@
                             <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
                             <th width="13%" scope="col" class="text-center table-danger" style="color:black;">Title</th>
                             <th width="14%" scope="col" class="text-center table-danger" style="color:black;">Image</th>
-                            {{-- <th scope="col" class="text-center table-danger" style="color:black;">Description</th> --}}
-                            <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
+                            <th scope="col" class="text-center table-danger" style="color:black;">Description</th>
+                            <th width="15%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
                             <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>

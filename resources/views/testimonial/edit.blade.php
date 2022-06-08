@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="col-md-12 p-2 mb-3" style="background-color: white;">
+<div class="col-md-12 p-2 mb-3 mt-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit</h2>
+            <h2 class="ml-3">Edit Testimonial</h2>
         </div>
 
         <div class="box-body">
@@ -27,7 +27,7 @@
 
                     <div class="mb-2">
                         <label for="description" class="form-label">Testi</label>
-                        <input class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ old('description', $testi->description) }}</input>
+                        <input class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{ old('description', $testi->description) }}">
                         @error('description')
                             <div class="invalid-feedback">
                                 {{ $message }}
