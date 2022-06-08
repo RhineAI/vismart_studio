@@ -16,11 +16,7 @@
                 @csrf
                     <div class="mb-2">
                         <label for="title" class="form-label">Title</label>
-<<<<<<< HEAD
                         <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $testi->title) }}" maxlength="20" minlength="3">
-=======
-                        <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $portofolio->title) }}" maxlength="20" minlength="3"></input>
->>>>>>> ad010fb4bdae2f3043aec759253c8f8f9051feba
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}

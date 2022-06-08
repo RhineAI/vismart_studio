@@ -27,11 +27,7 @@
 
                     <div class="mb-2">
                         <label for="description" class="form-label">Testi</label>
-<<<<<<< HEAD
                         <input class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{ old('description', $testi->description) }}">
-=======
-                        <input class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ old('description', $testi->description) }}</input>
->>>>>>> ad010fb4bdae2f3043aec759253c8f8f9051feba
                         @error('description')
                             <div class="invalid-feedback">
                                 {{ $message }}
