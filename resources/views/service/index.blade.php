@@ -10,7 +10,7 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Sercice</h2>
+                <h2 class="mb-5">Service</h2>
                 <a href="/dashboard/service/create" class="btn btn-outline-dark mb-3 p-2">
                     Create new Service
                     <span data-feather="plus-circle"></span> 
@@ -24,7 +24,7 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-danger" style="color:black;">Image</th>
+                            <th width="18%" scope="col" class="text-center table-danger" style="color:black;">Image</th>
                             <th scope="col" class="text-center table-danger" style="color:black;">Title</th>
                             <th scope="col" class="text-center table-danger" style="color:black;">Package</th>
                             <th scope="col" class="text-center table-danger" style="color:black;">Module</th>

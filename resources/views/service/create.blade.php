@@ -10,11 +10,11 @@
 
         <div class="box-body">
             <div class="col-lg-5">
-                <form action="{{ route('service.store') }}" method="post">
+                <form action="{{ route('service.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-2">
                         <label for="title" class="form-label">Title</label> 
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" rows="3" id="title" name="title" value="{{ old('title') }}" required minlength="9" maxlength="12"></input>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" rows="3" id="title" name="title" value="{{ old('title') }}" required minlength="9" maxlength="50"></input>
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -91,7 +91,7 @@
 
         oFReader.onload = function(oFREvent) {
         imgPreview.src = oFREvent.target.result;
-    }
+        }
   }
 
 </script>

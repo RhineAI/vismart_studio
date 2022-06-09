@@ -82,8 +82,14 @@ class PortofolioController extends Controller
             $validate['image'] = $request->file('image')->store('portofolio');
         }
 
-        Portofolio::create($validate);
- 
+        $title = $request['title'];
+
+        $save = new Portofolio();
+        $save->title = $title;
+        $save->image = $validate['image'];
+        $save->save();
+
+        // Portofolio::create($validate);
 
         return redirect('/dashboard/portofolio')->with('success', 'Berhasil ditambahkan'); 
     }

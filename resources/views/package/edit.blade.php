@@ -14,6 +14,16 @@
                 @method('put')
 
                 @csrf
+                    <div class="mb-2">
+                        <label for="name" class="form-label">Package Name</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $pack->name) }}" autofocus>
+                        @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        
+                    </div>
 
                     <div class="form-group">
                         <label for="name">Fitur</label>
@@ -33,17 +43,6 @@
                         @error('feature') 
                             <b class="text-danger">{{ $message }}</b>
                         @enderror  
-                    </div>
-
-                    <div class="mb-2">
-                        <label for="name" class="form-label">Package Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $pack->name) }}" autofocus>
-                        @error('name')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                        
                     </div>
 
                     <div class="mb-2">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\{
     AuthController,
 };
 use App\Http\Controllers\AdvantageController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\LogoBrandingController;
 use App\Http\Controllers\DesignFeedInstagramController;
@@ -70,9 +71,9 @@ Route::post('/auth/process', [AuthController::class, 'process'])->name('auth.pro
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
-     // Service
-     Route::resource('/dashboard/service', ServiceController::class);
-     Route::post('/dashboard/service/data', [ServiceController::class, 'data'])->name('service.data');
+    // Service
+    Route::resource('/dashboard/service', ServiceController::class);
+    Route::post('/dashboard/service/data', [ServiceController::class, 'data'])->name('service.data');
  
     // Testimonial
     Route::resource('/dashboard/testimonial', TestimonialController::class);
@@ -90,6 +91,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('dashboard/package', PackageController::class);
     Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name('package.data');
 
+    // Client
+    Route::resource('/dashboard/client', ClientController::class);
+    Route::post('/dashboard/client/data', [ClientController::class, 'data'])->name('client.data');
+
     //Feature
     Route::resource('dashboard/feature', FeatureController::class);
     Route::post('/dashboard/feature/data', [FeatureController::class, 'data'])->name('feature.data');
@@ -106,5 +111,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');    
     
 });
+
 
 
