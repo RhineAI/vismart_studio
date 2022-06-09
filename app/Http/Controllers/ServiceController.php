@@ -32,10 +32,10 @@ class ServiceController extends Controller
                 return '
                 <img width="87%" class="rounded" src="'. asset('storage/'.$service->image) .'">
                 ';
-             })
-             ->addColumn('title', function($service) {
-                 return $service->title;
-             })
+            })
+            ->addColumn('title', function($service) {
+                return $service->title;
+            })
             ->addColumn('package', function ($service) {
                 $packages = '';
                 foreach ($service->package as $key => $value) {

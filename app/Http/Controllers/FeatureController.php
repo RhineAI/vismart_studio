@@ -33,7 +33,7 @@ class FeatureController extends Controller
             })
             ->addColumn('action', function ($package) {
                 return '
-                    <a href="'. route('feature.edit', $package->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('feature.edit', $package->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('feature.destroy', $package->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })

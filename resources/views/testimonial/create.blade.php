@@ -9,8 +9,8 @@
         </div>
 
         <div class="box-body">
-           <div class="col-lg-5">
-               <form action="{{ route('testimonial.store') }}" method="post">
+            <div class="col-lg-5">
+                <form action="{{ route('testimonial.store') }}" method="post">
                 @csrf
                     <div class="mb-2">
                         <label for="name" class="form-label">Name</label>
@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="mb-2">
-                        <label for="description" class="form-label">Testi</label>
+                        <label for="description" class="form-label">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" rows="3" id="description" name="description" value="{{ old('description') }}" required autofocus></textarea>
                         @error('description')
                             <div class="invalid-feedback">
@@ -32,7 +32,7 @@
                             </div>
                         @enderror
                     </div>    
-           </div>
+            </div>
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">

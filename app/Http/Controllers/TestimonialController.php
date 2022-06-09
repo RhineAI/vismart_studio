@@ -37,7 +37,7 @@ class TestimonialController extends Controller
             })
             ->addColumn('action', function ($testimonial) {
                 return '
-                    <a href="'. route('testimonial.edit', $testimonial->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('testimonial.edit', $testimonial->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('testimonial.destroy', $testimonial->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })

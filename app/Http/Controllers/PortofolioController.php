@@ -32,9 +32,9 @@ class PortofolioController extends Controller
                 return $portofolio->title;
             })
             ->addColumn('image', function($portofolio) {
-               return '
-               <img width="90%" class="rounded" src="'. asset('storage/'.$portofolio->image) .'">
-               ';
+                return '
+                <img width="90%" class="rounded" src="'. asset('storage/'.$portofolio->image) .'">
+                ';
             })
             
             ->addColumn('created', function($portofolio) {
@@ -42,7 +42,7 @@ class PortofolioController extends Controller
             })
             ->addColumn('action', function ($portofolio) {
                 return '
-                    <a href="'. route('portofolio.edit', $portofolio->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('portofolio.edit', $portofolio->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('portofolio.destroy', $portofolio->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })

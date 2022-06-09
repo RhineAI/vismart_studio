@@ -24,11 +24,11 @@
                 <table class="table table-bordered table-testimonial">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
-                            <th width="20%" scope="col" class="text-center table-danger" style="color:black;">Name</th>
-                            <th scope="col" class="text-center table-danger" style="color:black;">Description</th>
-                            <th width="15%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
-                            <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th scope="col" class="text-center table-success" style="color:black;" width="6%">No</th>
+                            <th width="17%" scope="col" class="text-center table-success" style="color:black;">Name</th>
+                            <th scope="col" class="text-center table-success" style="color:black;">Description</th>
+                            <th width="15%" scope="col" class="text-center table-success" style="color:black;">Created At</th>
+                            <th width="9%" scope="col" class="text-center table-success" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
 
