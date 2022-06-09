@@ -19,7 +19,6 @@ class TestimonialController extends Controller
         return view('testimonial.index', compact('testimonial'));
     }
 
-
     public function data()
     {
         $testimonial = Testimonial::orderBy('id', 'desc')->get();
