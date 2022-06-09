@@ -70,10 +70,10 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        $module = new Module;
+        $module = new Module();
         $module->name = $request->name;
         $module->save();
-
+        
         $module->advantage()->attach($request->advantage); 
 
         return redirect('/dashboard/module')->with('success', 'Berhasil ditambahkan'); 
