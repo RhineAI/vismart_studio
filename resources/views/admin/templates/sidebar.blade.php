@@ -13,7 +13,7 @@
                     
                     {{-- Dashboard --}}
                     <li>
-                        <a href="/dashboard"> 
+                        <a class="nav-link {{ Request::is('/dashboard*') ? 'active' : '' }}" href="/dashboard"> 
                             <i data-feather="home" class="align-self-center menu-icon"></i>
                             <span>Dashboard</span>
                             <span class="menu-arrow"></span>

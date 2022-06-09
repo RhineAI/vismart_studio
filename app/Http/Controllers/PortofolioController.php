@@ -32,9 +32,9 @@ class PortofolioController extends Controller
                 return $portofolio->title;
             })
             ->addColumn('image', function($portofolio) {
-               return '
-               <img width="90%" class="rounded" src="'. asset('storage/'.$portofolio->image) .'">
-               ';
+                return '
+                <img width="90%" class="rounded" src="'. asset('storage/'.$portofolio->image) .'">
+                ';
             })
             
             ->addColumn('created', function($portofolio) {

@@ -27,9 +27,9 @@ class AdvantageController extends Controller
             ->of($advantage)
             ->addIndexColumn()
             ->addColumn('image', function($advantage) {
-               return '
+                return '
                     <img width="90%" class="rounded" src="'. asset('storage/'.$advantage->image) .'">
-               ';
+                ';
             })
             ->addColumn('advantage', function($advantage) {
                 return $advantage->advantage;
