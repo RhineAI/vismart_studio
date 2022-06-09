@@ -115,7 +115,7 @@
   </div>
 </section>
 
-<section class="page-6" id="page-6">
+<section class="testimonial" id="testimonial">
   <div class="container">
       <div class="row align-items-center justify-content-center text-center">
         <div class="col-8 aos-init aos-animate" data-aos="fade-up">
@@ -123,8 +123,8 @@
 
             @foreach ($testimonials as $testimonial)
               <div class="item">
-                <h2 class="fw-bold">" {{ $testimonial->description }} "</h2>
-                <h4 class="fw-bold my-3">{{ $testimonial->name }}</h4>
+                <h2 class="fw-bold mb-4">" {{ $testimonial->description }} "</h2>
+                <h4 class="fw-bold">{{ $testimonial->name }}</h4>
               </div>
             @endforeach
               

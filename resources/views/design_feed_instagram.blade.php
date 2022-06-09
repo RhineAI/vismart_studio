@@ -169,31 +169,19 @@
     </div>
   </section>
   
-  <section class="page-6" id="page-6">
-    <div class="container text-center">
+  <section class="testimonial" id="testimonial">
+    <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-8 aos-init aos-animate" data-aos="fade-up">
             <div class="owl-carousel owl-text owl-theme">
+  
+              @foreach ($testimonials as $testimonial)
                 <div class="item">
-                  <h2 class="fw-bold">" Keren banget Vismart Studio, hasilnya mantep berasa punya tim desain profesional sendiri "</h2>
-                  <h4 class="fw-bold my-3">Fajar Padilah</h4>
-                  <h5>@fjar9</h5>
+                  <h2 class="fw-bold mb-4">" {{ $testimonial->description }} "</h2>
+                  <h4 class="fw-bold">{{ $testimonial->name }}</h4>
                 </div>
-                <div class="item">
-                  <h2 class="fw-bold">" Keren banget Vismart Studio, hasilnya mantep berasa punya tim desain profesional sendiri "</h2>
-                  <h4 class="fw-bold my-3">Iqbal Syafaat</h4>
-                  <h5>@iqbal</h5>
-                </div>
-                <div class="item">
-                  <h2 class="fw-bold">" Keren banget Vismart Studio, hasilnya mantep berasa punya tim desain profesional sendiri "</h2>
-                  <h4 class="fw-bold my-3">Luhung Lugina</h4>
-                  <h5>@Luhung</h5>
-                </div>
-                <div class="item">
-                  <h2 class="fw-bold">" Keren banget Vismart Studio, hasilnya mantep berasa punya tim desain profesional sendiri "</h2>
-                  <h4 class="fw-bold my-3">Mita Amalia</h4>
-                  <h5>@Mita</h5>
-                </div>
+              @endforeach
+                
             </div>
           </div>
         </div>

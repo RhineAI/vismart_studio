@@ -20,7 +20,7 @@ class TestimonialController extends Controller
     }
 
 
-    public function table()
+    public function data()
     {
         $testimonial = Testimonial::orderBy('id', 'desc')->get();
 
