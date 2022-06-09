@@ -16,5 +16,10 @@ class Package extends Model
     public function feature() 
     {
         return $this->belongsToMany(Feature::class, 'package_feature');
-    }    
+    }  
+    
+    public function service() 
+    {
+        return $this->belongsToMany(Service::class, 'service');
+    } 
 }

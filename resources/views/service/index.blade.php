@@ -1,22 +1,18 @@
 @extends('admin.dashboard')
 
-
 @section('content')
 <div class="row mx-3">
     <div class="col-md-12 p-2 mb-3" style="background-color: white">
 
         @if(session()->has('success'))
-            {{-- <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div> --}}
-            <div onload="messageSuccess()" id="messageSuccess" style="visibility: hidden;"></div>
-            
+            <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
         @endif
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Advantage</h2>
-                
-                <a href="/dashboard/advantage/create" class="btn btn-outline-dark mb-3 p-2">
-                    Create new Advantage 
+                <h2 class="mb-5">Service</h2>
+                <a href="/dashboard/service/create" class="btn btn-outline-dark mb-3 p-2">
+                    Create new Service
                     <span data-feather="plus-circle"></span> 
                 </a>
 
@@ -24,12 +20,14 @@
             </div>
 
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-advantage">
+                <table class="table table-bordered table-service">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
-                            <th width="17%" scope="col" class="text-center table-danger" style="color:black;">Image</th>
-                            <th scope="col" class="text-center table-danger" style="color:black;">Advantage</th>
+                            <th width="18%" scope="col" class="text-center table-danger" style="color:black;">Image</th>
+                            <th scope="col" class="text-center table-danger" style="color:black;">Title</th>
+                            <th scope="col" class="text-center table-danger" style="color:black;">Package</th>
+                            <th scope="col" class="text-center table-danger" style="color:black;">Module</th>
                             <th width="12%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
                             <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
@@ -42,51 +40,32 @@
     </div>
 </div>
 
+{{-- @includeIf('service.feature') --}}
+
+<script>
+
+</script>
+
 @endsection
 
 @push('script')
 <script>
-
-    function messageSuccess() {
-        alert(
-            Swal.fire({
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        );
-    }
-
-
     var time = document.getElementById("alert");
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 4000);   
+    }, 2000);
 
-    function previewImage() {
-        const image = document.querySelector('#image');
-        const imgPreview = document.querySelector('.img-preview');
 
-        imgPreview.style.display = 'block';
-
-        const oFReader = new FileReader();
-        oFReader.readAsDataURL(image.files[0]);
-
-        oFReader.onload = function(oFREvent) {
-        imgPreview.src = oFREvent.target.result;
-        }
-    }
 
     let table;
-        table = $('.table-advantage').DataTable({
+        table = $('.table-service').DataTable({
         processing: true,
         responsive: true,
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('advantage.data') }}",
+            url: "{{ route('service.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
@@ -95,19 +74,14 @@
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'image'},
-            {data:'advantage'},
+            {data:'title'},
+            {data:'package'},
+            {data:'module'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]
     });
 
-    // success: function (data) {
-    //     if (data == 'success')
-    //         swal("Added!", "Data has been added", "success");
-    //         window.location('/dashboard/advantage');
-    //     else
-    //         swal("cancelled", "User has not been deleted", "error");
-    //     }
 
     function deleteData(url) {
         Swal.fire({
@@ -133,7 +107,6 @@
                         confirmButtonText: 'Lanjut',
                         confirmButtonColor: '#28A745',
                         timer: 2000
-                        ,
                     }) 
                     table.ajax.reload();
                 })
@@ -145,16 +118,14 @@
                         confirmButtonText: 'Kembali',
                         confirmButtonColor: '#DC3545',
                         timer: 2000
-                        ,
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Data batal dihapus',
+                    title: 'Batal dihapus',
                     icon: 'warning',
                     timer: 2000
-                    ,
                 })
             }
         })
