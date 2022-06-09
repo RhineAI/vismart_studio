@@ -75,42 +75,13 @@
             <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up">Portofolio Vismart Studio</h1>
             <div class="col-12 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                 <div class="owl-carousel owl-images owl-theme">
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/klinik keluarga2.jpg" data-lightbox="roadtrip" data-title="Klinik Keluarga Official Website"><img src="img/portofolio/klinik keluarga2.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/ashanty cosmetics.jpg" data-lightbox="roadtrip" data-title="Ashanty Cosmetics Official Website"><img src="img/portofolio/ashanty cosmetics.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/corps brimob.jpg" data-lightbox="roadtrip" data-title="Sistem Corps Brimob Polri"><img src="img/portofolio/corps brimob.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/tania farfume.jpg" data-lightbox="roadtrip" data-title="Tania Farfume Mobile Apps"><img src="img/portofolio/tania farfume.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/medisy.jpg" data-lightbox="roadtrip" data-title="Medisy Mobile Apps"><img src="img/portofolio/medisy.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/klinik arrahman.jpg" data-lightbox="roadtrip" data-title="Klinik Arrahman Official Website"><img src="img/portofolio/klinik arrahman.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/juzzmeup.jpg" data-lightbox="roadtrip" data-title="Juzzmeup Official Website"><img src="img/portofolio/juzzmeup.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/mobilima.jpg" data-lightbox="roadtrip" data-title="Mobilima Mobile Apps"><img src="img/portofolio/mobilima.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/medisy2.jpg" data-lightbox="roadtrip" data-title="medisy2 Apps"><img src="img/portofolio/medisy2.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/klinik keluarga.jpg" data-lightbox="roadtrip" data-title="Social Media Management Klinik keluarga"><img src="img/portofolio/klinik keluarga.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/klinik marhamah.jpg" data-lightbox="roadtrip" data-title="Social Media Management Klinik Marhamah"><img src="img/portofolio/klinik marhamah.jpg" alt=""></a>
-                    </div>
-                    <div class="item mx-3 my-5">
-                      <a href="img/portofolio/klinik arrahman2.jpg" data-lightbox="roadtrip" data-title="Social Media Management Klinik Arrahman"><img src="img/portofolio/klinik arrahman2.jpg" alt=""></a>
-                    </div>
+
+                @foreach ($portofolios as $portofolio)
+                <div class="item mx-3 my-5">
+                  <a href="{{ asset('storage/' . $portofolio->image) }}" data-lightbox="roadtrip" data-title="{{ $portofolio->title }}"><img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}"></a>
+                </div>
+                @endforeach
+
                 </div>
             </div>
         </div>
