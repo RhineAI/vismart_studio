@@ -22,12 +22,59 @@
 
                     {{-- Service --}}
                     <li>
-                        <a class="nav-link {{ Request::is('dashboard/service*') ? 'active' : '' }}" href="{{ route('service.index') }}">
-                            <i data-feather="inbox" class="align-self-center menu-icon"></i>
+                        <a class="nav-link" href="#">
+                            <i data-feather="award" class="align-self-center menu-icon"></i>
                             <span>Layanan</span>
-                            <span class="menu-arrow"></span>
+                            <span class="menu-arrow">
+                                <i class="mdi mdi-chevron-right"></i>
+                            </span>
                         </a>
-                    </li>
+
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('dashboard/service*') ? 'active' : '' }}" href="{{ route('service.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Utama
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('dashboard/layanan/jasa*') ? 'active' : '' }}"  href="{{ route('jasa.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Jasa 
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan*') ? 'active' : '' }}" href="{{ route('detail_layanan.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Detail Layanan
+                                </a>
+                            </li>   
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan_keuntungan*') ? 'active' : '' }}" href="{{ route('detail_layanan_keuntungan.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Detail Layanan Keuntungan
+                                </a>
+                            </li>   
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan_jasa*') ? 'active' : '' }}" href="{{ route('detail_layanan_jasa.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Detail Layanan Jasa
+                                </a>
+                            </li> 
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan_paket*') ? 'active' : '' }}" href="{{ route('detail_layanan_paket.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Detail Layanan Paket
+                                </a>
+                            </li> 
+
+                        </ul>
+                    </li> 
 
                     {{-- Testimonial --}}
                     <li>
@@ -84,33 +131,22 @@
                         </ul>
                     </li> 
 
-                   {{-- Package --}}
-                   <li>
-                    <a class="nav-link" href="#">
-                        <i data-feather="award" class="align-self-center menu-icon"></i>
-                        <span>Paket</span>
-                        <span class="menu-arrow">
-                            <i class="mdi mdi-chevron-right"></i>
-                        </span>
-                    </a>
+                    {{-- Advantage --}}
+                    <li>
+                        <a class="nav-link {{ Request::is('dashboard/advantage*') ? 'active' : '' }}" href="{{ route('advantage.index') }}">
+                            <i data-feather="user" class="align-self-center menu-icon"></i>
+                            <span>Klien</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                    </li>
 
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('dashboard/advantage*') ? 'active' : '' }}" href="{{ route('advantage.index') }}">
-                                <i class="ti-control-record"></i>
-                                List Previllege/Advantage
-                            </a>
-                        </li>
+                            {{-- <li class="nav-item">
+                                <a class="nav-link {{ Request::is('dashboard/module*') ? 'active' : '' }}" href="{{ route('module.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    List Module
+                                </a>
+                            </li>    --}}
 
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('dashboard/module*') ? 'active' : '' }}" href="{{ route('module.index') }}">
-                                <i class="ti-control-record"></i>
-                                List Advantage Module
-                            </a>
-                        </li>
-
-                    </ul>
-                </li> 
 
                     {{--    Lainnya    --}}
     

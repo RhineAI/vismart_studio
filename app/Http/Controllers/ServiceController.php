@@ -18,7 +18,7 @@ class ServiceController extends Controller
     public function index()
     {
         $service = Service::all();
-        return view('service.index', compact('service'));
+        return view('layanan.service.index', compact('service'));
     }
 
     public function data()
@@ -70,7 +70,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('service.create', [
+        return view('layanan.service.create', [
             'service' => Service::all(),
             'module' => Module::all(),
             'package' => Package::all(),
@@ -106,7 +106,7 @@ class ServiceController extends Controller
         $service->package()->attach($request->package);        
         $service->module()->attach($request->module);        
 
-        return redirect('/dashboard/service')->with('success', 'Berhasil ditambahkan'); 
+        return redirect('/dashboard/layanan/service')->with('success', 'Berhasil ditambahkan'); 
     }
 
     /**
@@ -132,7 +132,7 @@ class ServiceController extends Controller
         $package = Package::orderBy('name', 'ASC')->get();
         $module = Module::orderBy('name', 'ASC')->get();
 
-        return view('service.edit', [
+        return view('layanan.service.edit', [
             'service' => $serv,
             'package' => $package,
             'module' => $module,
@@ -167,7 +167,7 @@ class ServiceController extends Controller
         $service->package()->sync($request->package);        
         $service->module()->sync($request->module);        
 
-        return redirect('/dashboard/service')->with('success', 'Berhasil ditambahkan'); 
+        return redirect('/dashboard/layanan/service')->with('success', 'Berhasil ditambahkan'); 
     }
 
     /**
@@ -183,6 +183,6 @@ class ServiceController extends Controller
         }
 
         Service::destroy($service->id);
-        return redirect('/dashboard/service')->with('success', 'Berhasil di Delete');
+        return redirect('/dashboard/layanan/service')->with('success', 'Berhasil di Delete');
     }
 }
