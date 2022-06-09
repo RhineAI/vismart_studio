@@ -9,8 +9,8 @@
         </div>
 
         <div class="box-body">
-           <div class="col-lg-5">
-               <form action="{{ route('testimonial.update', $testi->id) }}" method="post">
+            <div class="col-lg-5">
+                <form action="{{ route('testimonial.update', $testi->id) }}" method="post">
                 @method('put')
 
                 @csrf
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="mb-2">
-                        <label for="description" class="form-label">Testi</label>
+                        <label for="description" class="form-label">Descrription</label>
                         <input class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{ old('description', $testi->description) }}">
                         @error('description')
                             <div class="invalid-feedback">
@@ -34,7 +34,7 @@
                             </div>
                         @enderror
                     </div>    
-           </div>
+            </div>
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">

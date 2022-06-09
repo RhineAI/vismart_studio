@@ -41,7 +41,7 @@ class ModuleController extends Controller
             })
             ->addColumn('action', function ($module) {
                 return '
-                    <a href="'. route('module.edit', $module->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('module.edit', $module->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('module.destroy', $module->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })

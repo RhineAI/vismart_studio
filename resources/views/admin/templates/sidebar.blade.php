@@ -13,7 +13,7 @@
                     
                     {{-- Dashboard --}}
                     <li>
-                        <a href="/dashboard"> 
+                        <a class="nav-link {{ Request::is('/dashboard*') ? 'active' : '' }}" href="/dashboard"> 
                             <i data-feather="home" class="align-self-center menu-icon"></i>
                             <span>Dashboard</span>
                             <span class="menu-arrow"></span>
@@ -58,7 +58,7 @@
 
                     {{-- Package --}}
                     <li>
-                        <a class="nav-link {{ Request::is('dashboard/package*') ? 'active' : '' }}" href="{{ route('package.index') }}">
+                        <a class="nav-link" href="#">
                             <i data-feather="shopping-bag" class="align-self-center menu-icon"></i>
                             <span>Paket</span>
                             <span class="menu-arrow">
@@ -68,14 +68,14 @@
 
                         <ul class="nav-second-level" aria-expanded="false">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('package.index') }}">
+                                <a class="nav-link {{ Request::is('dashboard/package*') ? 'active' : '' }}" href="{{ route('package.index') }}">
                                     <i class="ti-control-record"></i>
                                     List Paket
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('feature.index') }}">
+                                <a class="nav-link {{ Request::is('dashboard/feature*') ? 'active' : '' }}" href="{{ route('feature.index') }}">
                                     <i class="ti-control-record"></i>
                                     List Fitur
                                 </a>
@@ -84,23 +84,33 @@
                         </ul>
                     </li> 
 
-                    {{-- Advantage --}}
-                    <li>
-                        <a class="nav-link {{ Request::is('dashboard/advantage*') ? 'active' : '' }}" href="{{ route('advantage.index') }}">
-                            <i data-feather="award" class="align-self-center menu-icon"></i>
-                            <span>Keunggulan</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                    </li>
+                   {{-- Package --}}
+                   <li>
+                    <a class="nav-link" href="#">
+                        <i data-feather="award" class="align-self-center menu-icon"></i>
+                        <span>Paket</span>
+                        <span class="menu-arrow">
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </a>
 
-                    {{-- Module --}}
-                    <li>
-                        <a class="nav-link {{ Request::is('dashboard/module*') ? 'active' : '' }}" href="{{ route('module.index') }}">
-                            <i data-feather="list" class="align-self-center menu-icon"></i>
-                            <span>Module</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                    </li>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('dashboard/advantage*') ? 'active' : '' }}" href="{{ route('advantage.index') }}">
+                                <i class="ti-control-record"></i>
+                                List Previllege/Advantage
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('dashboard/module*') ? 'active' : '' }}" href="{{ route('module.index') }}">
+                                <i class="ti-control-record"></i>
+                                List Advantage Module
+                            </a>
+                        </li>
+
+                    </ul>
+                </li> 
 
                     {{--    Lainnya    --}}
     
