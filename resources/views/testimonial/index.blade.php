@@ -75,7 +75,7 @@
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('testimonial.table') }}",
+            url: "{{ route('testimonial.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
