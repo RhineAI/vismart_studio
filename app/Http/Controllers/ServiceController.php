@@ -6,6 +6,7 @@ use App\Models\Module;
 use App\Models\Package;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -29,7 +30,7 @@ class ServiceController extends Controller
             ->addIndexColumn()
             ->addColumn('image', function($service) {
                 return '
-                <img width="90%" class="rounded" src="'. asset('storage/'.$service->image) .'">
+                <img width="87%" class="rounded" src="'. asset('storage/'.$service->image) .'">
                 ';
              })
              ->addColumn('title', function($service) {
@@ -38,7 +39,7 @@ class ServiceController extends Controller
             ->addColumn('package', function ($service) {
                 $packages = '';
                 foreach ($service->package as $key => $value) {
-                    $packages .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-primary rounded">'. $value->name.'</div>';
+                    $packages .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-danger rounded">'. $value->name.'</div>';
                 }
                 return $packages;
             })
@@ -58,7 +59,7 @@ class ServiceController extends Controller
                     <button onclick="deleteData(`'. route('service.destroy', $service->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
-            ->rawColumns(['action', 'package', 'module'])
+            ->rawColumns(['action', 'package', 'module', 'image'])
             ->make(true);
     }
 
@@ -85,13 +86,13 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'title' => 'required|max:30',
-            'image' => 'image|file|required|max:12000',
+            'title' => 'required|max:50',
+            'image' => 'image|file|required|max:16000',
             // 'description' => 'required|max:2500'
         ]);
 
         if($request->file('image')) {
-            $validate['image'] = $request->file('image')->store('portofolio');
+            $validate['image'] = $request->file('image')->store('service');
         }
 
         $title = $request['title'];
@@ -102,8 +103,8 @@ class ServiceController extends Controller
         $service->image = $image;
         $service->save();
         
-        $service->feature()->attach($request->package);        
-        $service->feature()->attach($request->module);        
+        $service->package()->attach($request->package);        
+        $service->module()->attach($request->module);        
 
         return redirect('/dashboard/service')->with('success', 'Berhasil ditambahkan'); 
     }
@@ -127,8 +128,14 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
+        $serv = Service::findOrFail($service->id);
+        $package = Package::orderBy('name', 'ASC')->get();
+        $module = Module::orderBy('name', 'ASC')->get();
+
         return view('service.edit', [
-            'service' => $service
+            'service' => $serv,
+            'package' => $package,
+            'module' => $module,
         ]);
     }
 
@@ -141,7 +148,26 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $validate = $request->validate([
+            'title' => 'required|max:50',
+            'image' => 'image|file|max:16000',
+            // 'description' => 'required|max:2500'
+        ]);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validate['image'] = $request->file('image')->store('service');
+        }
+
+        $service = Service::find($service->id);
+        $service->update($validate);
+        
+        $service->package()->sync($request->package);        
+        $service->module()->sync($request->module);        
+
+        return redirect('/dashboard/service')->with('success', 'Berhasil ditambahkan'); 
     }
 
     /**
@@ -152,6 +178,10 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
+        if($service->image) {
+            Storage::delete($service->image);
+        }
+
         Service::destroy($service->id);
         return redirect('/dashboard/service')->with('success', 'Berhasil di Delete');
     }

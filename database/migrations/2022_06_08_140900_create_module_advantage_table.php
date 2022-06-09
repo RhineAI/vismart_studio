@@ -14,7 +14,7 @@ class CreateModuleAdvantageTable extends Migration
     public function up()
     {
         Schema::create('module_advantage', function (Blueprint $table) {
-            $table->id('module_advantage_id');
+            $table->id();
             $table->unsignedBigInteger('module_id');
             $table->unsignedBigInteger('advantage_id');
             $table->timestamps();
@@ -40,6 +40,6 @@ class CreateModuleAdvantageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('module_advantages');
+        Schema::dropIfExists('module_advantage');
     }
 }

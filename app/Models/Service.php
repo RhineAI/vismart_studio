@@ -15,11 +15,11 @@ class Service extends Model
 
     public function package() 
     {
-        return $this->belongsToMany(Package::class, 'package');
+        return $this->belongsToMany(Package::class, 'service_package');
     } 
 
     public function module() 
     {
-        return $this->belongsToMany(Module::class, 'module');
+        return $this->belongsToMany(Module::class, 'service_module');
     } 
 }
