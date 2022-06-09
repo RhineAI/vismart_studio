@@ -15,8 +15,8 @@ class CreateServiceModuleTable extends Migration
     {
         Schema::create('service_module', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('service_id');
-            $table->unsignedBigInteger('module_id');
+            $table->unsignedBigInteger('service_id')->nullable();
+            $table->unsignedBigInteger('module_id')->nullable();
             $table->timestamps();
 
             $table->foreign('service_id')

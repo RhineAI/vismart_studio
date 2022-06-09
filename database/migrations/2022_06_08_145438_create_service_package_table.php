@@ -15,8 +15,8 @@ class CreateServicePackageTable extends Migration
     {
         Schema::create('service_package', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('service_id');
-            $table->unsignedBigInteger('package_id');
+            $table->unsignedBigInteger('service_id')->nullable();
+            $table->unsignedBigInteger('package_id')->nullable();
             $table->timestamps();
 
             $table->foreign('service_id')

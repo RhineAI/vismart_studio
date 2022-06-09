@@ -14,7 +14,7 @@
                     @csrf
                     <div class="mb-2">
                         <label for="title" class="form-label">Title</label> 
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" rows="3" id="title" name="title" value="{{ old('title') }}" required minlength="9" maxlength="50"></input>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" rows="3" id="title" name="title" value="{{ old('title') }}" required maxlength="50"></input>
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -37,6 +37,7 @@
                         <label for="package" class="form-label">Package</label>
                         <div class="input-group">
                             <select name="package[]" id="package" class="form-control mb-4">
+                                <option value="">Pilih Package</option>
                                 @foreach ($package as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
@@ -53,6 +54,7 @@
                         <label for="module" class="form-label">Module</label>
                         <div class="input-group">
                             <select name="module[]" id="module" class="form-control mb-4">
+                                <option value="">Pilih Module</option>
                                 @foreach ($module as $item)
                                     <option value="{{ $item->id }}">{{ $item->name}}</option>
                                 @endforeach
