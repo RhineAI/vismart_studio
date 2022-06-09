@@ -42,7 +42,7 @@ class PortofolioController extends Controller
             })
             ->addColumn('action', function ($portofolio) {
                 return '
-                    <a href="'. route('portofolio.edit', $portofolio->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('portofolio.edit', $portofolio->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('portofolio.destroy', $portofolio->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })

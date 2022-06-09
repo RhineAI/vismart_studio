@@ -39,7 +39,7 @@ class AdvantageController extends Controller
             })
             ->addColumn('action', function ($advantage) {
                 return '
-                    <a href="'. route('advantage.edit', $advantage->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('advantage.edit', $advantage->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('advantage.destroy', $advantage->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
