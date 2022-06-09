@@ -88,7 +88,6 @@
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]
-        
     });
 
     function deleteData(url) {
@@ -124,7 +123,7 @@
                         text: 'Data Produk gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545,
+                        confirmButtonColor: '#DC3545',
                         timer: 2000
                     })                       
                     return;
