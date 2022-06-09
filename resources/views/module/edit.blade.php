@@ -23,6 +23,22 @@
                             </div>
                         @enderror
                     </div> 
+
+                    <div class="mb-2">
+                        <label for="advantage" class="form-label">Advantage</label>
+                        <div class="input-group">
+                            <select name="advantage[]" id="advantage" multiple class="chosen-select form-control mb-4">
+                                @foreach ($feature as $item)
+                                    <option value="{{ $item->id }}">{{ old($item->feature) }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('advantage')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div> 
             </div>
         </div>
         

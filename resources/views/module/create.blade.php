@@ -22,6 +22,22 @@
                         </div>
                         @enderror
                     </div>
+
+                    <div class="mb-2">
+                        <label for="advantage" class="form-label">Advantage</label>
+                        <div class="input-group">
+                            <select name="advantage[]" id="advantage" multiple class="chosen-select form-control mb-4">
+                                @foreach ($advantage as $item)
+                                    <option value="{{ $item->id }}">{{ $item->advantage }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('advantage')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div> 
             </div>
         </div>
 
@@ -34,3 +50,12 @@
 </div>
 
 @endsection
+
+@push('script')
+    <script>
+        $(document).ready(function () {
+            $(".chosen-select").chosen();
+        });
+    </script>
+    
+@endpush

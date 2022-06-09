@@ -84,7 +84,7 @@
 
                     {{-- Service --}}
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="{{ route('service.index') }}">
                             <i data-feather="inbox" class="align-self-center menu-icon"></i>
                             <span>Layanan</span>
                             <span class="menu-arrow"></span>

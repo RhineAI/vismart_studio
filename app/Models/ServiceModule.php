@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Advantage extends Model
+class ServiceModule extends Model
 {
     use HasFactory;
 
-    protected $table = 'advantage';
+    protected $table = 'service_module';
     protected $primaryKey = 'id';
     protected $guarded = [];
-
-    public function module() 
-    {
-        return $this->belongsToMany(Module::class, 'module');
-    } 
 }

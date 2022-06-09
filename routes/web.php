@@ -13,6 +13,7 @@ use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 
@@ -67,10 +68,14 @@ Route::post('/auth/process', [AuthController::class, 'process'])->name('auth.pro
 // Disini untuk admin
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);
-    
+
+     // Service
+     Route::resource('/dashboard/service', ServiceController::class);
+     Route::post('/dashboard/service/data', [ServiceController::class, 'data'])->name('service.data');
+ 
     // Testimonial
     Route::resource('/dashboard/testimonial', TestimonialController::class);
-    Route::post('/dashboard/testimonial/data', [TestimonialController::class, 'data'])->name('testimonial.data');
+    Route::post('/dashboard/testimonial/table', [TestimonialController::class, 'table'])->name('testimonial.table');
 
     // Portofolio
     Route::resource('/dashboard/portofolio', PortofolioController::class);

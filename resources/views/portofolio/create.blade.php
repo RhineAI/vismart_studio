@@ -22,7 +22,6 @@
                         @enderror  
                     </div>
 
-
                     <div class="mb-2">
                         <label for="image" class="form-label">Image</label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}" required onchange="previewImage()">
@@ -54,6 +53,11 @@
     </div>
 </div>
 
+
+    
+@endsection
+
+@push('script')
 <script>
     function previewImage() {
         const image = document.querySelector('#image');
@@ -70,5 +74,5 @@
   }
 </script>
     
-@endsection
+@endpush
 

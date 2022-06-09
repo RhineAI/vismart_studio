@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Feature;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -21,6 +22,18 @@ class DatabaseSeeder extends Seeder
             'username' => 'vismart_studio',
             'password' => Hash::make('vismart_studio'),
             'remember_token' => NULL
+        ]);
+
+        Feature::create([
+            'feature' => 'Get more Benefits'
+        ]);
+
+        Feature::create([
+            'feature' => 'Unlimited Downloads'
+        ]);
+
+        Feature::create([
+            'feature' => 'Access Premium'
         ]);
     }
 }

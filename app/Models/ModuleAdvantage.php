@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Advantage extends Model
+class ModuleAdvantage extends Model
 {
     use HasFactory;
 
-    protected $table = 'advantage';
+    protected $table = 'module_advantage';
     protected $primaryKey = 'id';
     protected $guarded = [];
 

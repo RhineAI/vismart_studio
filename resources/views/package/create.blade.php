@@ -13,6 +13,16 @@
                <form action="{{ route('package.store') }}" method="post">
                 @csrf
                     <div class="mb-2">
+                        <label for="name" class="form-label">Package Name</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autofocus>
+                        @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-2">
                         <label for="feature_id" class="form-label">Feature</label>
                         <div class="input-group">
                             <select name="feature[]" id="feature" multiple class="chosen-select form-control mb-4">
@@ -27,16 +37,6 @@
                             </div>
                         @enderror
                     </div>   
-
-                    <div class="mb-2">
-                        <label for="name" class="form-label">Package Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autofocus>
-                        @error('name')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
 
                     <div class="mb-2">
                         <label for="price" class="form-label">Price</label>
