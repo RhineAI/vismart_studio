@@ -14,14 +14,13 @@
                 @csrf
                     <div class="mb-2">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required autofocus maxlength="20" minlength="3">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required autofocus maxlength="225" minlength="3">
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror  
                     </div>
-
 
                     <div class="mb-2">
                         <label for="image" class="form-label">Image</label>
@@ -54,6 +53,11 @@
     </div>
 </div>
 
+
+    
+@endsection
+
+@push('script')
 <script>
     function previewImage() {
         const image = document.querySelector('#image');
@@ -70,5 +74,5 @@
   }
 </script>
     
-@endsection
+@endpush
 

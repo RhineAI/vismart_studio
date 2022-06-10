@@ -8,7 +8,6 @@
         @if (session()->has('success'))
             <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>  
         @endif
-       
 
         <div class="box">
             <div class="box-header with-border mx-2">
@@ -18,19 +17,17 @@
                     Create new Portofolio 
                     <span data-feather="plus-circle"></span> 
                 </a>
-
-                {{-- <button onclick="add()" class="btn btn-danger btn-sm">add</button> --}}
             </div>
 
             <div class="box-body table-responsive">
                 <table class="table table-bordered table-portofolio">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center table-danger" style="color:black;" width="6%">No</th>
-                            <th width="13%" scope="col" class="text-center table-danger" style="color:black;">Title</th>
-                            <th width="14%" scope="col" class="text-center table-danger" style="color:black;">Image</th>
-                            <th width="15%" scope="col" class="text-center table-danger" style="color:black;">Created At</th>
-                            <th width="9%" scope="col" class="text-center table-danger" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th scope="col" class="text-center table-success" style="color:black;" width="6%">No</th>
+                            <th width="13%" scope="col" class="text-center table-success" style="color:black;">Title</th>
+                            <th width="14%" scope="col" class="text-center table-success" style="color:black;">Image</th>
+                            <th width="15%" scope="col" class="text-center table-success" style="color:black;">Created At</th>
+                            <th width="9%" scope="col" class="text-center table-success" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
 

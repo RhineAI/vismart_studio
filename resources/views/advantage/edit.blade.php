@@ -25,9 +25,7 @@
                         <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()" value="{{ old('image', $previllege->image) }}">
 
                     </div>
-
-                  
-
+                    
                     <div class="mb-2">
                         <label for="advantage" class="form-label">Advantage</label>
                         <input class="form-control @error('advantage') is-invalid @enderror" rows="3" id="advantage" name="advantage" value="{{ old('advantage', $previllege->advantage ) }}" required autofocus></input>
@@ -36,17 +34,7 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div>
-                    
-                    <div class="mb-2">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea style="visibility: visible;" class="form-control @error('description') is-invalid @enderror" rows="3" id="description" name="description" required autofocus>{{ old('description',$previllege->description) }}</textarea>
-                        @error('description')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>    
+                    </div>  
 
            </div>
         </div>

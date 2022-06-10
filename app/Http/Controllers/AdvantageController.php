@@ -27,22 +27,19 @@ class AdvantageController extends Controller
             ->of($advantage)
             ->addIndexColumn()
             ->addColumn('image', function($advantage) {
-               return '
+                return '
                     <img width="90%" class="rounded" src="'. asset('storage/'.$advantage->image) .'">
-               ';
+                ';
             })
             ->addColumn('advantage', function($advantage) {
                 return $advantage->advantage;
-            })
-            ->addColumn('description', function($advantage) {
-                return $advantage->description;
-            })
+        })
             ->addColumn('created', function($advantage) {
                 return tanggal($advantage->created_at);
             })
             ->addColumn('action', function ($advantage) {
                 return '
-                    <a href="'. route('advantage.edit', $advantage->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('advantage.edit', $advantage->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('advantage.destroy', $advantage->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
@@ -75,17 +72,20 @@ class AdvantageController extends Controller
         $validate = $request->validate([
             'image' => 'image|file|max:12000',
             'advantage' => 'required|min:3|max:100',
-            'description' => 'required|max:2500'
         ]);
 
         if($request->file('image')) {
             $validate['image'] = $request->file('image')->store('advantage');
         }
 
-        // return $validate;
+        $image = $validate['image'];
+        $advantage = $request['advantage'];
 
-        Advantage::create($validate);
- 
+        $save = New Advantage();
+        $save->image = $image;
+        $save->advantage = $advantage;
+        $save->save();
+
         // return response()->json('success', 200);
         return redirect('/dashboard/advantage')->with('success', 'Berhasil ditambahkan'); 
     }
@@ -111,7 +111,6 @@ class AdvantageController extends Controller
     {
         return view('advantage.edit', [
             'previllege' => $advantage,
-            'description' => $advantage->description,
             'advantage' => Advantage::all()
         ]);
     }
@@ -126,9 +125,8 @@ class AdvantageController extends Controller
     public function update(Request $request, Advantage $advantage)
     {
         $rules = $request->validate([
-            'image' => 'image|file|required|max:12000',
+            'image' => 'image|file|max:12000',
             'advantage' => 'required|min:3|max:100',
-            'description' => 'required|max:2500'
         ]);
 
         if($request->file('image')) {
