@@ -62,6 +62,16 @@ Route::get('/smm', function () {
     ]);
 });
 
+Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('portofolio.index');
+
+Route::get('/designfeed', [DesignFeedInstagramController::class, 'index'])->name('portofolio.index');
+
+Route::get('/digitalmarketing', [DigitalMarketingController::class, 'index'])->name('portofolio.index');
+
+Route::get('/smm', [SMMController::class, 'index'])->name('portofolio.index');
+
+Route::get('/marketingcommunications', [MarketingCommunicationsController::class, 'index'])->name('portofolio.index');
+
 // FrontEnd UI/UX
     // Logo Branding
     Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('logobranding.index');
@@ -139,6 +149,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard/client', ClientController::class);
     Route::post('/dashboard/client/data', [ClientController::class, 'data'])->name('client.data');
 
+    //Feature
+    Route::resource('dashboard/feature', FeatureController::class);
+    Route::post('/dashboard/feature/data', [FeatureController::class, 'data'])->name('feature.data');
+
     //Advantage or Previllege
     Route::resource('dashboard/advantage', AdvantageController::class);
     Route::post('/dashboard/advantage/data', [AdvantageController::class, 'data'])->name('advantage.data');
@@ -152,6 +166,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');    
     
 });
-
-
-
