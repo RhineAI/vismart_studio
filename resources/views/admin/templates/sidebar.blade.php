@@ -48,28 +48,28 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan*') ? 'active' : '' }}" href="{{ route('detail_layanan.index') }}">
                                     <i class="ti-control-record"></i>
-                                    Detail Layanan
+                                    Layanan Detail
                                 </a>
                             </li>   
 
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan_keuntungan*') ? 'active' : '' }}" href="{{ route('detail_layanan_keuntungan.index') }}">
                                     <i class="ti-control-record"></i>
-                                    Detail Layanan Keuntungan
+                                    Detail Keuntungan
                                 </a>
                             </li>   
 
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan_jasa*') ? 'active' : '' }}" href="{{ route('detail_layanan_jasa.index') }}">
                                     <i class="ti-control-record"></i>
-                                    Detail Layanan Jasa
+                                    Detail Jasa
                                 </a>
                             </li> 
 
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan_paket*') ? 'active' : '' }}" href="{{ route('detail_layanan_paket.index') }}">
                                     <i class="ti-control-record"></i>
-                                    Detail Layanan Paket
+                                    Detail Paket
                                 </a>
                             </li> 
 

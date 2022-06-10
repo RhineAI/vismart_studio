@@ -1,8 +1,8 @@
 @extends('admin.dashboard')
 
 @section('content')
-<div class="row mx-3">
-    <div class="col-md-12 p-2 mb-3" style="background-color: white">
+<div class="row">
+    <div class="col-md-12 p-2 my-3" style="background-color: white">
 
         @if(session()->has('success'))
             <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
@@ -10,9 +10,9 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Package</h2>
+                <h2 class="mb-5">Detail Jasa</h2>
                 <a href="/dashboard/detail_layanan_jasa/create" class="btn btn-outline-dark mb-3 p-2">
-                    Create new Package 
+                    Tambah Baru
                     <span data-feather="plus-circle"></span> 
                 </a>
 
@@ -23,13 +23,13 @@
                 <table class="table table-bordered table-package">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center table-succes" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">Name</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">Features</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">Price</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">No.Phone</th>
-                            <th width="12%" scope="col" class="text-center table-succes" style="color:black;">Created At</th>
-                            <th width="12%" scope="col" class="text-center table-succes" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Nama</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Fitur</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Harga</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">No.Telepon</th>
+                            <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created At</th>
+                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
                     
