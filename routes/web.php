@@ -6,15 +6,23 @@ use App\Http\Controllers\Admin\{
     AuthController,
 };
 use App\Http\Controllers\AdvantageController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\LogoBrandingController;
+use App\Http\Controllers\DesignFeedInstagramController;
+use App\Http\Controllers\DigitalMarketingController;
+use App\Http\Controllers\SMMController;
+use App\Http\Controllers\MarketingCommunicationsController;
 // use App\Http\Controllers\LogoutController;
 // use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
+
 
 // use App\Http\Controllers\UserController ;
 
@@ -40,26 +48,21 @@ Route::get('/marketingcommunications', function () {
         'title' => 'Marketing Communications'
     ]);
 });
-Route::get('/designfeed', function () {
-    return view('design_feed_instagram', [
-        'title' => 'Design Feed Instagram'
-    ]);
-});
-Route::get('/digitalmarketing', function () {
-    return view('digital_marketing', [
-        'title' => 'Digital Marketing'
-    ]);
-});
 Route::get('/smm', function () {
     return view('smm', [
         'title' => 'Social Media Management'
     ]);
 });
-Route::get('/logobranding', function () {
-    return view('logo_branding', [
-        'title' => 'Logo dan Branding'
-    ]);
-});
+
+Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('portofolio.index');
+
+Route::get('/designfeed', [DesignFeedInstagramController::class, 'index'])->name('portofolio.index');
+
+Route::get('/digitalmarketing', [DigitalMarketingController::class, 'index'])->name('portofolio.index');
+
+Route::get('/smm', [SMMController::class, 'index'])->name('portofolio.index');
+
+Route::get('/marketingcommunications', [MarketingCommunicationsController::class, 'index'])->name('portofolio.index');
 
 Route::get('/auth/login', [AuthController::class, 'auth'])->name('auth.index');
 Route::post('/auth/process', [AuthController::class, 'process'])->name('auth.process');
@@ -67,7 +70,11 @@ Route::post('/auth/process', [AuthController::class, 'process'])->name('auth.pro
 // Disini untuk admin
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);
-    
+
+    // Service
+    Route::resource('/dashboard/service', ServiceController::class);
+    Route::post('/dashboard/service/data', [ServiceController::class, 'data'])->name('service.data');
+ 
     // Testimonial
     Route::resource('/dashboard/testimonial', TestimonialController::class);
     Route::post('/dashboard/testimonial/data', [TestimonialController::class, 'data'])->name('testimonial.data');
@@ -83,6 +90,10 @@ Route::middleware(['auth'])->group(function () {
     //Package
     Route::resource('dashboard/package', PackageController::class);
     Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name('package.data');
+
+    // Client
+    Route::resource('/dashboard/client', ClientController::class);
+    Route::post('/dashboard/client/data', [ClientController::class, 'data'])->name('client.data');
 
     //Feature
     Route::resource('dashboard/feature', FeatureController::class);
@@ -100,5 +111,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');    
     
 });
-
-
