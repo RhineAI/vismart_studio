@@ -22,10 +22,10 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
                             <th width="18%" scope="col" class="text-center table-default" style="color:black;">Gambar
+                            <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
                             </th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Slug</th>
+                            {{-- <th scope="col" class="text-center table-default" style="color:black;">Slug</th> --}}
                             <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
                             <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
@@ -73,8 +73,8 @@
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'image'},
             {data:'title'},
-            {data:'package'},
-            {data:'module'},
+            // {data:'package'},
+            // {data:'module'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]

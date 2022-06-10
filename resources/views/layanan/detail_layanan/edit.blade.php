@@ -10,21 +10,26 @@
 
         <div class="box-body">
             <div class="col-lg-5">
-                <form action="{{ route('package.update', $pack->id) }}" method="post">
+                <form action="/layanan/detail_layanan/{{ $serv->id }}" method="post">
                     @method('put')
 
                     @csrf
                     <div class="mb-2">
-                        <label for="name" class="form-label">Detail Layanan</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                            name="name" value="{{ old('name', $pack->name) }}" autofocus>
-                        @error('name')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+                        <label for="service" class="form-label">Pilih Layanan</label>
+                        <div class="input-group">
+                            <select name="service" id="service" class="form-control mb-4">
+                                {{-- <option value="">{{ old( $detail_service->service ) }}</option> --}}
+                                @foreach ($service as $key => $item )
+                                    <option value="{{ $item }}">{{ $item }}</option>
+                                @endforeach
+                            </select>
                         </div>
+                        @error('service')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
                         @enderror
-
-                    </div>
+                    </div>   
             </div>
         </div>
 

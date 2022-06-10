@@ -67,7 +67,8 @@
                     <div class="mb-1 mt-4">
                         <label for="isFirst" class="form-label">Tampilkan Utama</label>
                         <div class="" >
-                            <input type="checkbox" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="1" {{ old('isFirst') == 1 ? 'checked' : ''}} required> Ya <span>&nbsp;</span> </input>
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="1" {{ old('isFirst') == 1 ? 'checked' : ''}} > Y <span>&nbsp;</span> </input>
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="0" {{ old('isFirst') == 0 ? 'checked' : ''}} > G <span>&nbsp;</span> </input>
                         </div>
 
                         @error('isFirst')

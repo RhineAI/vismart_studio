@@ -17,9 +17,6 @@ use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\DetailServiceController;
-use App\Http\Controllers\DetailServiceJasaController;
-use App\Http\Controllers\DetailServicePackageController;
-use App\Http\Controllers\DetailServicePrevillegeController;
 use App\Http\Controllers\JasaController;
 // use App\Http\Controllers\LogoutController;
 // use App\Http\Controllers\Admin\DashboardController;
@@ -62,16 +59,6 @@ Route::get('/smm', function () {
     ]);
 });
 
-Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('portofolio.index');
-
-Route::get('/designfeed', [DesignFeedInstagramController::class, 'index'])->name('portofolio.index');
-
-Route::get('/digitalmarketing', [DigitalMarketingController::class, 'index'])->name('portofolio.index');
-
-Route::get('/smm', [SMMController::class, 'index'])->name('portofolio.index');
-
-Route::get('/marketingcommunications', [MarketingCommunicationsController::class, 'index'])->name('portofolio.index');
-
 // FrontEnd UI/UX
     // Logo Branding
     Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('logobranding.index');
@@ -110,19 +97,6 @@ Route::middleware(['auth'])->group(function () {
          // Detail Services
          Route::resource('/dashboard/layanan/detail_layanan', DetailServiceController::class);
          Route::post('/dashboard/layanan/detail_layanan/data', [DetailServiceController::class, 'data'])->name('detail_service.data');
-
-         // Detail Service Previlleges
-         Route::resource('/dashboard/layanan/detail_layanan_keuntungan', DetailServicePrevillegeController::class);
-         Route::post('/dashboard/layanan/detail_layanan_keuntungan/data', [DetailServicePrevillegeController::class, 'data'])->name('detail_service_keuntungan.data');
-    
-         // Detail Service - Sub
-         Route::resource('/dashboard/layanan/detail_layanan_jasa', DetailServiceJasaController::class);
-         Route::post('/dashboard/layanan/detail_layanan_jasa/data', [DetailServiceJasaController::class, 'data'])->name('detail_service_jasa.data');
- 
-         // Detail Service Packages
-         Route::resource('/dashboard/layanan/detail_layanan_paket', DetailServicePackageController::class);
-         Route::post('/dashboard/layanan/detail_layanan_paket/data', [DetailServicePackageController::class, 'data'])->name('detail_service_package.data');
- 
     //
         
     // Testimonial
