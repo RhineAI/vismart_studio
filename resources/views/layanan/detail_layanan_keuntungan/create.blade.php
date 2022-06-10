@@ -23,22 +23,6 @@
                     </div>
 
                     <div class="mb-2">
-                        <label for="feature_id" class="form-label">Feature</label>
-                        <div class="input-group">
-                            <select name="feature[]" id="feature" multiple class="chosen-select form-control mb-4">
-                                @foreach ($feature as $item)
-                                    <option value="{{ $item->id }}">{{ $item->feature }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        @error('feature_id')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>   
-
-                    <div class="mb-2">
                         <label for="price" class="form-label">Price</label>
                         <div class="input-group-prepend"> 
                             <span class="input-group-text">IDR.</span> 

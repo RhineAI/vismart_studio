@@ -25,7 +25,7 @@ class DetailServiceJasaController extends Controller
      */
     public function create()
     {
-        return view('layanan.detail_layanan_jasa.create', [
+        return view('layanan/detail_layanan_jasa/create', [
             'service_jasa' => DetailServiceJasa::all()
         ]);
     }
@@ -60,7 +60,9 @@ class DetailServiceJasaController extends Controller
      */
     public function edit(DetailServiceJasa $detailServiceJasa)
     {
-        //
+        return view('layanan/detail_layanan_jasa/edit', [
+            'service_jasa' => DetailServiceJasa::all()
+        ]);
     }
 
     /**

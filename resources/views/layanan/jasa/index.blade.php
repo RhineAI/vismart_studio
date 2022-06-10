@@ -11,7 +11,7 @@
         <div class="box">
             <div class="box-header with-border mx-2">
                 <h2 class="mb-5">Package</h2>
-                <a href="/dashboard/jasa/create" class="btn btn-outline-dark mb-3 p-2">
+                <a href="/dashboard/layanan/jasa/create" class="btn btn-outline-dark mb-3 p-2">
                     Create new Package 
                     <span data-feather="plus-circle"></span> 
                 </a>

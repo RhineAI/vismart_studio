@@ -25,7 +25,7 @@ class DetailServicePackageController extends Controller
      */
     public function create()
     {
-        return view('layanan.detail_layanan_paket.create', [
+        return view('layanan/detail_layanan_paket/create', [
             'service_package' => DetailServicePackage::all()
         ]);
     }
@@ -60,7 +60,9 @@ class DetailServicePackageController extends Controller
      */
     public function edit(DetailServicePackage $detailServicePackage)
     {
-        //
+        return view('layanan/detail_layanan_paket/edit', [
+            'service_package' => DetailServicePackage::all()
+        ]);
     }
 
     /**
