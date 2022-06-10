@@ -25,7 +25,7 @@ class JasaController extends Controller
      */
     public function create()
     {
-        return view('layanan.jasa.create', [
+        return view('layanan/jasa/create', [
             'jasa' => Jasa::all()
         ]);
     }
@@ -60,7 +60,9 @@ class JasaController extends Controller
      */
     public function edit(Jasa $jasa)
     {
-        //
+        return view('layanan/jasa/create', [
+            'jasa' => Jasa::all()
+        ]);
     }
 
     /**

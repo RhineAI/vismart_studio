@@ -25,7 +25,7 @@ class DetailServiceController extends Controller
      */
     public function create()
     {
-        return view('layanan.detail_layanan.create', [
+        return view('layanan/detail_layanan/create', [
             'detail_service' => DetailService::all()
         ]);
     }
@@ -60,7 +60,9 @@ class DetailServiceController extends Controller
      */
     public function edit(DetailService $detailService)
     {
-        //
+        return view('layanan/detail_layanan/edit', [
+            'detail_service' => DetailService::all()
+        ]);
     }
 
     /**

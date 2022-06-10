@@ -11,7 +11,7 @@
         <div class="box">
             <div class="box-header with-border mx-2">
                 <h2 class="mb-5">Detail Paket</h2>
-                <a href="/dashboard/detail_layanan_paket/create" class="btn btn-outline-dark mb-3 p-2">
+                <a href="/dashboard/layanan/detail_layanan_paket/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span> 
                 </a>

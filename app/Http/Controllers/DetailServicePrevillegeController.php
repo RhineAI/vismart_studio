@@ -25,7 +25,7 @@ class DetailServicePrevillegeController extends Controller
      */
     public function create()
     {
-        return view('layanan.detail_layanan_keuntungan.create', [
+        return view('layanan/detail_layanan_keuntungan/create', [
             'service_previllege' => DetailServicePrevillege::all()
         ]);
     }
@@ -60,7 +60,9 @@ class DetailServicePrevillegeController extends Controller
      */
     public function edit(DetailServicePrevillege $detailServicePrevillege)
     {
-        //
+        return view('layanan/detail_layanan_keuntungan/create', [
+            'service_previllege' => DetailServicePrevillege::all()
+        ]);
     }
 
     /**
