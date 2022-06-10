@@ -23,7 +23,7 @@
                     {{-- Service --}}
                     <li>
                         <a class="nav-link" href="#">
-                            <i data-feather="award" class="align-self-center menu-icon"></i>
+                            <i data-feather="inbox" class="align-self-center menu-icon"></i>
                             <span>Layanan</span>
                             <span class="menu-arrow">
                                 <i class="mdi mdi-chevron-right"></i>

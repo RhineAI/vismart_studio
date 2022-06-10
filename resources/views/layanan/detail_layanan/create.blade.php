@@ -2,64 +2,36 @@
 
 @section('content')
 
-<div class="col-md-12 p-2 mb-3" style="background-color: white;">
+<div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Create New Package</h2>
+            <h2>Tambah Baru</h2>
         </div>
 
         <div class="box-body">
-           <div class="col-lg-5">
-               <form action="{{ route('package.store') }}" method="post">
-                @csrf
+            <div class="col-lg-5">
+                <form action="{{ route('package.store') }}" method="post">
+                    @csrf
                     <div class="mb-2">
-                        <label for="name" class="form-label">Package Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autofocus>
+                        <label for="name" class="form-label">Detail Layanan</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                            name="name" value="{{ old('name') }}" required autofocus>
                         @error('name')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
-
-                    <div class="mb-2">
-                        <label for="price" class="form-label">Price</label>
-                        <div class="input-group-prepend"> 
-                            <span class="input-group-text">IDR.</span> 
-                            <input type="text" class="form-control @error('price') is-invalid @enderror" rows="3" id="price" name="price" value="{{ old('price') }}" required maxlength="16"></input>
-                        </div> 
-                        @error('price')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>    
-
-                    <div class="mb-2">
-                        <label for="noTelp" class="form-label">No-Telp</label>
-                        <div class="input-group-prepend"> 
-                            <span class="input-group-text">+62</span> 
-                            <input type="text" class="form-control @error('noTelp') is-invalid @enderror" rows="3" id="noTelp" name="noTelp" value="{{ old('noTelp') }}" required minlength="9" maxlength="12"></input>
-                        </div> 
-                        @error('noTelp')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div> 
-           </div>
+            </div>
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">
-            <button type="submit" class="btn btn-primary">Create Package</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
 
     </div>
 </div>
-
-
-
 @endsection
 
 @push('script')
