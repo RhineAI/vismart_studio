@@ -5,15 +5,15 @@
     <div class="col-md-12 p-2 my-3" style="background-color: white">
 
         @if(session()->has('success'))
-            <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
+        <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
         @endif
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Layanan Detail</h2>
-                <a href="/dashboard/layanan/detail_layanan_paket/create" class="btn btn-outline-dark mb-3 p-2">
+                <h2 class="mb-5">Detail Layanan</h2>
+                <a href="/dashboard/layanan/detail_layanan/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
-                    <span data-feather="plus-circle"></span> 
+                    <span data-feather="plus-circle"></span>
                 </a>
 
             </div>
@@ -23,28 +23,20 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Nama</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Fitur</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Harga</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">No.Telepon</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created At</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Detail Layanan</th>
+                            <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created
+                                At</th>
+                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
+                                    class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-                    
+
                 </table>
             </div>
 
         </div>
     </div>
 </div>
-
-{{-- @includeIf('package.feature') --}}
-
-<script>
-
-</script>
-
 @endsection
 
 @push('script')

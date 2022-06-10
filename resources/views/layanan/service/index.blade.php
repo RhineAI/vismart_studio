@@ -5,18 +5,16 @@
     <div class="col-md-12 p-2 my-3" style="background-color: white">
 
         @if(session()->has('success'))
-            <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
+        <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
         @endif
 
         <div class="box">
             <div class="box-header with-border mx-2">
                 <h2 class="mb-5">Layanan Utama</h2>
-                <a href="/dashboard/service/create" class="btn btn-outline-dark mb-3 p-2">
+                <a href="/dashboard/layanan/service/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
-                    <span data-feather="plus-circle"></span> 
+                    <span data-feather="plus-circle"></span>
                 </a>
-
-                {{-- <button onclick="add()">Add</button> --}}
             </div>
 
             <div class="box-body table-responsive">
@@ -24,23 +22,23 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th width="18%" scope="col" class="text-center table-default" style="color:black;">Gambar</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Paket</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Module</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created At</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th width="18%" scope="col" class="text-center table-default" style="color:black;">Gambar
+                            </th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Slug</th>
+                            <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created
+                                At</th>
+                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
+                                    class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-                    
+
                 </table>
             </div>
 
         </div>
     </div>
 </div>
-
-{{-- @includeIf('service.feature') --}}
 
 <script>
 

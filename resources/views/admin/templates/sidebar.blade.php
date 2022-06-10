@@ -23,7 +23,7 @@
                     {{-- Service --}}
                     <li>
                         <a class="nav-link" href="#">
-                            <i data-feather="award" class="align-self-center menu-icon"></i>
+                            <i data-feather="inbox" class="align-self-center menu-icon"></i>
                             <span>Layanan</span>
                             <span class="menu-arrow">
                                 <i class="mdi mdi-chevron-right"></i>
@@ -48,7 +48,7 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan*') ? 'active' : '' }}" href="{{ route('detail_layanan.index') }}">
                                     <i class="ti-control-record"></i>
-                                    Layanan Detail
+                                    Detail Layanan
                                 </a>
                             </li>   
 
