@@ -28,6 +28,7 @@
                             <th scope="col" class="text-center table-succes" style="color:black;">Features</th>
                             <th scope="col" class="text-center table-succes" style="color:black;">Price</th>
                             <th scope="col" class="text-center table-succes" style="color:black;">No.Phone</th>
+                            <th width="2%" scope="col" class="text-center table-succes" style="color:black;">Tampilkan Utama</th>
                             <th width="12%" scope="col" class="text-center table-succes" style="color:black;">Created At</th>
                             <th width="12%" scope="col" class="text-center table-succes" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
@@ -77,6 +78,7 @@
             {data:'feature'},
             {data:'price'},
             {data:'noTelp'},
+            {data:'mainView'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]

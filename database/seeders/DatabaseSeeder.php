@@ -35,5 +35,13 @@ class DatabaseSeeder extends Seeder
         Feature::create([
             'feature' => 'Access Premium'
         ]);
+
+        Feature::create([
+            'feature' => 'Custom Badges on Profile'
+        ]);
+
+        Feature::create([
+            'feature' => 'Fast Respond Services'
+        ]);
     }
 }
