@@ -45,6 +45,15 @@ class PackageController extends Controller
             ->addColumn('noTelp', function($package) {
                 return '+'.$package->noTelp;
             })
+            ->addColumn('mainView', function($package) {
+                if($package->isFirst == 1){
+                    $isFirst = '<span class="badge badge-info">Ya</span>';   
+                } else{
+                    $isFirst = '<span class="badge badge-info">Tidak</span>';   
+                }
+
+                return $isFirst;
+            })
             ->addColumn('created', function($package) {
                 return tanggal($package->created_at);
             })
@@ -54,7 +63,7 @@ class PackageController extends Controller
                     <button onclick="deleteData(`'. route('package.destroy', $package->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
-            ->rawColumns(['action', 'feature'])
+            ->rawColumns(['action', 'feature', 'mainView'])
             ->make(true);
     }
 
@@ -99,8 +108,10 @@ class PackageController extends Controller
         $package->name = $request->name;
         $package->price = $this->checkPrice($request->price);
         $package->noTelp = '62 '. $request->noTelp;
-        // $package->noTelp = $request->noTelp;
+        $package->isFirst = $request->boolean( key:'isFirst');
         $package->save();
+        
+        // return $package;
         
         $package->feature()->attach($request->feature);
 
@@ -156,6 +167,7 @@ class PackageController extends Controller
         $package->name = $request->name;
         $package->price = $this->checkPrice($request->price);
         $package->noTelp = '+62 '. $request->noTelp;
+        $package->isFirst = $request->boolean( key:'isFirst');
         $package->update();
 
         $package->feature()->sync($request->feature) ;

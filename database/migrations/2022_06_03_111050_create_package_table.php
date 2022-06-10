@@ -19,7 +19,7 @@ class CreatePackageTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('noTelp');
-            // $table->string('link');  
+            $table->boolean('isFirst');  
             $table->timestamps();
 
         });
