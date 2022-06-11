@@ -18,7 +18,7 @@
                             <select name="service" id="service" class="form-control mb-4">
                                 <option value="">-- Pilih Layanan --</option>
                                 @foreach ($service as $key => $item )
-                                    <option value="{{ $item }}">{{ $item }}</option>
+                                    <option value="{{ $key }}">{{ $item->title }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -28,6 +28,56 @@
                             </div>
                         @enderror
                     </div>   
+
+                    <div class="mb-2">
+                        <label for="jasa" class="form-label">Detail Layanan</label>
+                        <div class="input-group">
+                            <select name="jasa[]" id="feature" multiple class="chosen-select form-control mb-4">
+                                @foreach ($jasa as $item)
+                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('jasa')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>   
+
+                    <div class="mb-2">
+                        <label for="advantage" class="form-label">Keunggulan</label>
+                        <div class="input-group">
+                            <select name="advantage[]" id="feature" multiple class="chosen-select form-control mb-4">
+                                @foreach ($advantage as $item)
+                                    <option value="{{ $item->id }}">{{ $item->advantage }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('advantage')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>   
+
+                    <div class="mb-2">
+                        <label for="package" class="form-label">Paket</label>
+                        <div class="input-group">
+                            <select name="package[]" id="feature" multiple class="chosen-select form-control mb-4">
+                                @foreach ($package as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('package')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>   
+
+
             </div>
         </div>
 

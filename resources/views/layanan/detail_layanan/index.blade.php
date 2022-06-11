@@ -19,7 +19,7 @@
             </div>
 
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-package">
+                <table class="table table-bordered table-detail">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
@@ -48,9 +48,8 @@
     }, 2000);
 
 
-
     let table;
-        table = $('.table-package').DataTable({
+        table = $('.table-detail').DataTable({
         processing: true,
         responsive: true,
         autoWidth: false,
@@ -65,6 +64,9 @@
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'layanan'},
+            {data:'jasa'},
+            {data:'keuntungan'},
+            {data:'paket'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]

@@ -16,7 +16,7 @@ class CreateModuleAdvantageTable extends Migration
         Schema::create('module_advantage', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('module_id');
-            $table->unsignedBigInteger('advantage_id');
+            // $table->unsignedBigInteger('advantage_id');
             $table->timestamps();
 
             $table->foreign('module_id')
@@ -25,11 +25,11 @@ class CreateModuleAdvantageTable extends Migration
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
 
-            $table->foreign('advantage_id')
-                  ->references('id')
-                  ->on('advantage')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            // $table->foreign('advantage_id')
+            //       ->references('id')
+            //       ->on('advantage')
+            //       ->onUpdate('cascade')
+            //       ->onDelete('cascade');
         });
     }
 

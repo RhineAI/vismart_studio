@@ -17,15 +17,15 @@ class DetailService extends Model
         return $this->belongsToMany(Service::class);
     }
 
-    public function detail_jasa() {
+    public function jasa() {
         return $this->belongsToMany(Jasa::class, 'detail_service_jasa');
     }
 
-    public function detail_package() {
+    public function package() {
         return $this->belongsToMany(Package::class, 'detail_service_package');
     }
 
-    public function detail_previllege() {
+    public function advantage() {
         return $this->belongsToMany(Advantage::class, 'detail_service_previllege');
     }
 }
