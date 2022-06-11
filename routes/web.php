@@ -11,6 +11,7 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\LogoBrandingController;
 use App\Http\Controllers\DesignFeedInstagramController;
 use App\Http\Controllers\DigitalMarketingController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SMMController;
 use App\Http\Controllers\MarketingCommunicationsController;
 // use App\Http\Controllers\LogoutController;
@@ -37,32 +38,17 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        'title' => 'Home'
-    ]);
-});
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/marketingcommunications', function () {
-    return view('marketing_communications', [
-        'title' => 'Marketing Communications'
-    ]);
-});
-Route::get('/smm', function () {
-    return view('smm', [
-        'title' => 'Social Media Management'
-    ]);
-});
+Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('logobranding.index');
 
-Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('portofolio.index');
+Route::get('/designfeed', [DesignFeedInstagramController::class, 'index'])->name('designfeed.index');
 
-Route::get('/designfeed', [DesignFeedInstagramController::class, 'index'])->name('portofolio.index');
+Route::get('/digitalmarketing', [DigitalMarketingController::class, 'index'])->name('digitalmarketing.index');
 
-Route::get('/digitalmarketing', [DigitalMarketingController::class, 'index'])->name('portofolio.index');
+Route::get('/smm', [SMMController::class, 'index'])->name('smm.index');
 
-Route::get('/smm', [SMMController::class, 'index'])->name('portofolio.index');
-
-Route::get('/marketingcommunications', [MarketingCommunicationsController::class, 'index'])->name('portofolio.index');
+Route::get('/marketingcommunications', [MarketingCommunicationsController::class, 'index'])->name('marketingcommunications.index');
 
 Route::get('/auth/login', [AuthController::class, 'auth'])->name('auth.index');
 Route::post('/auth/process', [AuthController::class, 'process'])->name('auth.process');

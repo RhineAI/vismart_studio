@@ -11,14 +11,6 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href="css/main.css">
 
-    <link rel="stylesheet" href="css/navbar.css">
-
-    <link rel="stylesheet" href="css/footer.css">
-
-    <link rel="stylesheet" href="css/login.css">
-
-    <link rel="stylesheet" href="css/register.css">
-
     <link rel="stylesheet" href="css/owl.carousel.min.css">
 
     <link rel="stylesheet" href="css/owl.theme.default.css">
@@ -37,10 +29,12 @@
     <title>VismartStudio | {{ $title }} </title>
   </head>
   <body>
-
-    {{-- @include('partials.navbar') --}}
     
     @yield('content')
+
+    <button type="button" class="btn rounded-circle btn-floating btn-lg" id="btn-back-to-top">
+      <i class='fa fa-angle-up'></i>
+    </button>
 
     @include('partials.footer')
 
@@ -53,10 +47,41 @@
     <script src="js/lightbox-plus-jquery.js"></script>
     
     <script>
+      
+        // AOS
         AOS.init({
 				easing: 'ease-out-back',
-				duration: 1000
-			});
+				duration: 1500,
+			  });
+
+
+        // Button Back To Top
+        //Get the button
+        let mybutton = document.getElementById("btn-back-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+        scrollFunction();
+        };
+
+        function scrollFunction() {
+        if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+        ) {
+        mybutton.style.display = "block";
+        } else {
+        mybutton.style.display = "none";
+        }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.addEventListener("click", backToTop);
+
+        function backToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+
     </script>
     
     
