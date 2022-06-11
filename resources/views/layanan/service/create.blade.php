@@ -35,7 +35,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-2">
+                    {{-- <div class="mb-2">
                         <label for="title" class="form-label">Slug</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" rows="3" id="title"
                             name="title" value="{{ old('title') }}" required maxlength="50">
@@ -44,7 +44,7 @@
                             {{ $message }}
                         </div>
                         @enderror
-                    </div>
+                    </div> --}}
             </div>
         </div>
 

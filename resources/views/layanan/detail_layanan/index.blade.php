@@ -10,7 +10,7 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Detail Layanan</h2>
+                <h2 class="mb-5">Layanan</h2>
                 <a href="/dashboard/layanan/detail_layanan/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span>
@@ -23,8 +23,8 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Detail Layanan</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created
+                            <th scope="col" class="text-center table-default" style="color:black;">Layanan Tersedia</th>
+                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
                             <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
@@ -56,7 +56,7 @@
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('package.data') }}",
+            url: "{{ route('detail_service.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
@@ -64,10 +64,7 @@
         },
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
-            {data:'name'},
-            {data:'feature'},
-            {data:'price'},
-            {data:'noTelp'},
+            {data:'layanan'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]

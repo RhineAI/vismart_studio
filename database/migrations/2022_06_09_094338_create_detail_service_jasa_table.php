@@ -20,10 +20,10 @@ class CreateDetailServiceJasaTable extends Migration
             $table->timestamps();
 
             $table->foreign('service_id')
-                ->references('id')
-                ->on('service')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            ->references('id')
+            ->on('detail_service')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
 
             $table->foreign('jasa_id')
                 ->references('id')

@@ -61,15 +61,30 @@
                             <span class="input-group-text">+62</span>
                             <input type="text" class="form-control @error('noTelp') is-invalid @enderror" rows="3"
                                 id="noTelp" name="noTelp" value="{{ old('noTelp', $pack->noTelp) }}" required
-                                minlength="9" maxlength="12"></input>
+                                minlength="9" maxlength="12">
                         </div>
                         @error('noTelp')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                         @enderror
+                    </div> 
+
+                    <div class="mb-1 mt-4">
+                        <label for="isFirst" class="form-label">Tampilkan Utama</label>
+                        <div class="" >
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="1" {{ $pack->is_first == 1 ? 'checked' : ''}} > Ya <span>&nbsp;</span> </input>
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="0" {{ $pack->is_first == 0 ? 'checked' : ''}} > G <span>&nbsp;</span> </input>
+
+                        </div>
+
+                        @error('isFirst')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-            </div>
+           </div>
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">

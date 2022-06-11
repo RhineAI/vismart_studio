@@ -19,7 +19,7 @@ class CreateServiceTable extends Migration
             // $table->unsignedBigInteger('package_id');
             $table->string('title');
             $table->string('image');
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->timestamps();
 
             // $table->foreign('module_id')

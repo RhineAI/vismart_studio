@@ -50,28 +50,7 @@
                                     <i class="ti-control-record"></i>
                                     Detail Layanan
                                 </a>
-                            </li>   
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan_keuntungan*') ? 'active' : '' }}" href="{{ route('detail_layanan_keuntungan.index') }}">
-                                    <i class="ti-control-record"></i>
-                                    Detail Keuntungan
-                                </a>
-                            </li>   
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan_jasa*') ? 'active' : '' }}" href="{{ route('detail_layanan_jasa.index') }}">
-                                    <i class="ti-control-record"></i>
-                                    Detail Jasa
-                                </a>
-                            </li> 
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan_paket*') ? 'active' : '' }}" href="{{ route('detail_layanan_paket.index') }}">
-                                    <i class="ti-control-record"></i>
-                                    Detail Paket
-                                </a>
-                            </li> 
+                            </li>  
 
                         </ul>
                     </li> 
