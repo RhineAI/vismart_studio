@@ -43,7 +43,16 @@ class PackageController extends Controller
                 return 'IDR '. format_uang($package->price) .',00';
             })
             ->addColumn('noTelp', function($package) {
-                return '+'.$package->noTelp;
+                return '+'.$package->no_telp;
+            })
+            ->addColumn('mainView', function($package) {
+                if($package->is_first == 1){
+                    $is_first = '<span class="badge badge-info">Ya</span>';   
+                } else{
+                    $is_first = '<span class="badge badge-info">Tidak</span>';   
+                }
+
+                return $is_first;
             })
             ->addColumn('created', function($package) {
                 return tanggal($package->created_at);
@@ -54,7 +63,7 @@ class PackageController extends Controller
                     <button onclick="deleteData(`'. route('package.destroy', $package->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
-            ->rawColumns(['action', 'feature'])
+            ->rawColumns(['action', 'feature', 'mainView'])
             ->make(true);
     }
 
@@ -98,9 +107,11 @@ class PackageController extends Controller
         $package = new Package;
         $package->name = $request->name;
         $package->price = $this->checkPrice($request->price);
-        $package->noTelp = '62 '. $request->noTelp;
-        // $package->noTelp = $request->noTelp;
+        $package->no_telp = '62 '. $request->noTelp;
+        $package->is_first = $request->boolean( key:'isFirst');
         $package->save();
+        
+        // return $package;
         
         $package->feature()->attach($request->feature);
 
@@ -155,7 +166,8 @@ class PackageController extends Controller
         $package = Package::find($package->id);
         $package->name = $request->name;
         $package->price = $this->checkPrice($request->price);
-        $package->noTelp = '+62 '. $request->noTelp;
+        $package->no_telp = '+62 '. $request->noTelp;
+        $package->is_first = $request->boolean( key:'isFirst');
         $package->update();
 
         $package->feature()->sync($request->feature) ;

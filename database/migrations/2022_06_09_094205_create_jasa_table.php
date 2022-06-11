@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePackageTable extends Migration
+class CreateJasaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreatePackageTable extends Migration
      */
     public function up()
     {
-        Schema::create('package', function (Blueprint $table) {
+        Schema::create('jasa', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('feature_id');
-            $table->string('name');
-            $table->integer('price');
-            $table->string('no_telp');
-            $table->boolean('is_first');  
+            $table->string('title');
+            $table->string('image');
+            $table->text('description')->nullable();
             $table->timestamps();
-
         });
     }
 
@@ -32,6 +29,6 @@ class CreatePackageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('package');
+        Schema::dropIfExists('jasa');
     }
 }

@@ -1,52 +1,42 @@
 @extends('admin.dashboard')
 
 @section('content')
-<div class="row mx-3">
-    <div class="col-md-12 p-2 mb-3" style="background-color: white">
+<div class="row">
+    <div class="col-md-12 p-2 my-3" style="background-color: white">
 
         @if(session()->has('success'))
-            <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
+        <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
         @endif
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Package</h2>
-                <a href="/dashboard/package/create" class="btn btn-outline-dark mb-3 p-2">
-                    Create new Package 
-                    <span data-feather="plus-circle"></span> 
+                <h2 class="mb-5">Layanan</h2>
+                <a href="/dashboard/layanan/detail_layanan/create" class="btn btn-outline-dark mb-3 p-2">
+                    Tambah Baru
+                    <span data-feather="plus-circle"></span>
                 </a>
 
-                {{-- <button onclick="add()">Add</button> --}}
             </div>
 
             <div class="box-body table-responsive">
                 <table class="table table-bordered table-package">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center table-succes" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">Name</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">Features</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">Price</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">No.Phone</th>
-                            <th width="2%" scope="col" class="text-center table-succes" style="color:black;">Tampilkan Utama</th>
-                            <th width="12%" scope="col" class="text-center table-succes" style="color:black;">Created At</th>
-                            <th width="12%" scope="col" class="text-center table-succes" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Layanan Tersedia</th>
+                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Created
+                                At</th>
+                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
+                                    class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-                    
+
                 </table>
             </div>
 
         </div>
     </div>
 </div>
-
-{{-- @includeIf('package.feature') --}}
-
-<script>
-
-</script>
-
 @endsection
 
 @push('script')
@@ -66,7 +56,7 @@
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('package.data') }}",
+            url: "{{ route('detail_service.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
@@ -74,11 +64,7 @@
         },
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
-            {data:'name'},
-            {data:'feature'},
-            {data:'price'},
-            {data:'noTelp'},
-            {data:'mainView'},
+            {data:'layanan'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]

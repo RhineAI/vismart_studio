@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServiceModuleTable extends Migration
+class CreateDetailServiceJasaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,21 @@ class CreateServiceModuleTable extends Migration
      */
     public function up()
     {
-        Schema::create('service_module', function (Blueprint $table) {
+        Schema::create('detail_service_jasa', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('service_id')->nullable();
-            $table->unsignedBigInteger('module_id')->nullable();
+            $table->unsignedBigInteger('service_id');
+            $table->unsignedBigInteger('jasa_id');
             $table->timestamps();
 
             $table->foreign('service_id')
+            ->references('id')
+            ->on('detail_service')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreign('jasa_id')
                 ->references('id')
-                ->on('service')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            
-            $table->foreign('module_id')
-                ->references('id')
-                ->on('module')
+                ->on('jasa')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
@@ -40,6 +40,6 @@ class CreateServiceModuleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('service_module');
+        Schema::dropIfExists('detail_service_jasa');
     }
 }
