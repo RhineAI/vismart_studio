@@ -10,11 +10,11 @@
 
         <div class="box-body">
             <div class="col-lg-5">
-                <form action="{{ route('user.update', $user->id) }}" method="post">
+                <form action="{{ route('user.store') }}" method="post">
                 @csrf
                     <div class="mb-2">
                         <label for="name" class="form-label">Nama</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $user->name) }}" autofocus>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autofocus>
                         @error('name')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -25,7 +25,7 @@
 
                     <div class="mb-2">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" value="{{ old('username', $user->username) }}" autofocus>
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" value="{{ old('username') }}" required autofocus>
                         @error('username')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -36,7 +36,7 @@
 
                     <div class="mb-2">
                         <label for="password" class="form-label">Password</label>
-                        <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}" autofocus>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}" required autofocus>
                         @error('password')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -56,4 +56,5 @@
 
     </div>
 </div>
+    
 @endsection

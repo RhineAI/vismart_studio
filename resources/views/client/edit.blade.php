@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="col-md-12 p-2 mb-3" style="background-color: white;">
+<div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit Client</h2>
+            <h2>Edit</h2>
         </div>
 
         <div class="box-body">
@@ -17,33 +17,36 @@
                         <label for="logo" class="form-label">Logo</label>
                         <input type="hidden" name="oldLogo" id="oldLogo" value="{{ $client->logo }}">
 
-                        <img src="{{ asset('storage/' . $client->logo) }}" class="logo-preview img-fluid my-3 col-sm-5 d-block">
+                        <img src="{{ asset('storage/' . $client->logo) }}"
+                            class="logo-preview img-fluid my-3 col-sm-5 d-block">
 
-                        <input type="file" class="form-control @error('logo') is-invalid @enderror" id="logo" name="logo" onchange="previewlogo()" value="{{ old('logo', $client->logo) }}">
+                        <input type="file" class="form-control @error('logo') is-invalid @enderror" id="logo"
+                            name="logo" onchange="previewlogo()" value="{{ old('logo', $client->logo) }}">
 
                         @error('logo')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
-                        
+
                     </div>
 
                     <div class="mb-2">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $client->name) }}" required autofocus>
+                        <label for="name" class="form-label">Nama</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                            name="name" value="{{ old('name', $client->name) }}" required autofocus>
                         @error('name')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
-                        
+
                     </div>
             </div>
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">
-            <button type="submit" class="btn btn-primary">Update client</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
 

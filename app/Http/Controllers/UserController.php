@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DataTables;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
 
     public function data()
     {
-        $user = User::all();
+        $user = User::orderBy('id', 'desc')->get();
 
         return datatables()
             ->of($user)
@@ -40,13 +41,16 @@ class UserController extends Controller
             ->addColumn('last_login', function($user) {
                 return tanggal($user->last_login);
             })
+            ->addColumn('last_logout', function($user) {
+                return tanggal($user->last_logout);
+            })
             ->addColumn('action', function ($user) {
                 return '
                     <a href="'. route('user.edit', $user->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('user.destroy', $user->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
-            ->rawColumn(['action'])
+            ->rawColumns(['action'])
             ->make(true);
     }
 
@@ -57,7 +61,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create', [
+            'user' => User::all()
+        ]);
     }
 
     /**
@@ -68,7 +74,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return redirect('/dashboard/user')->with('success', 'User baru berhasil ditambahkan');
     }
 
     /**
@@ -91,7 +103,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         return view('user.edit', [
-            'user' => $user
+            'user' => $user,
+            'user' => User::all()
         ]);
     }
 
@@ -104,7 +117,13 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user = User::find($user->id);
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->password = $request->password;
+        $user->update();
+
+        return redirect('/dashboard/user')->with('success', 'User berhasil diupdate');
     }
 
     /**
@@ -116,6 +135,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
-        return redirect('/dashboard/user')->with('success', 'Berhasil di Delete');
+        return redirect('/dashboard/user')->with('success', 'User berhasil didelete');
     }
 }

@@ -79,7 +79,7 @@
                     {{-- Testimonial --}}
                     <li>
                         <a class="nav-link {{ Request::is('dashboard/testimonial*') ? 'active' : '' }}" href="{{ route('testimonial.index') }}">
-                            <i data-feather="user-plus" class="align-self-center menu-icon"></i>
+                            <i data-feather="message-circle" class="align-self-center menu-icon"></i>
                             <span>Testimoni</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -134,8 +134,8 @@
                     {{-- Advantage --}}
                     <li>
                         <a class="nav-link {{ Request::is('dashboard/advantage*') ? 'active' : '' }}" href="{{ route('advantage.index') }}">
-                            <i data-feather="user" class="align-self-center menu-icon"></i>
-                            <span>Klien</span>
+                            <i data-feather="award" class="align-self-center menu-icon"></i>
+                            <span>Keuntungan</span>
                             <span class="menu-arrow"></span>
                         </a>
                     </li>
