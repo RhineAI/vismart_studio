@@ -24,9 +24,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-    <link rel="icon" type="image/png" href="img/icon vismart.png"/>
+    <link rel="shortcut icon" href="{{ asset('img/icon vismart.png') }}">
 
-    <title>VismartStudio | {{ $title }} </title>
+    <title>VismartStudio | {{ $title }}</title>
   </head>
   <body>
     

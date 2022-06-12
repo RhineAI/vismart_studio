@@ -18,7 +18,7 @@
             </div>
 
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-package">
+                <table class="table table-bordered table-jasa">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
@@ -52,13 +52,13 @@
 
 
     let table;
-        table = $('.table-package').DataTable({
+        table = $('.table-jasa').DataTable({
         processing: true,
         responsive: true,
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('package.data') }}",
+            url: "{{ route('jasa.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
@@ -66,10 +66,9 @@
         },
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
-            {data:'name'},
-            {data:'feature'},
-            {data:'price'},
-            {data:'noTelp'},
+            {data:'title'},
+            {data:'image'},
+            {data:'description'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]
