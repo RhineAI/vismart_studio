@@ -21,7 +21,7 @@ class CreateDetailServicePackageTable extends Migration
 
             $table->foreign('detail_service_id')
                 ->references('id')
-                ->on('service')
+                ->on('detail_service')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 

@@ -15,8 +15,14 @@ class CreateDetailServiceTable extends Migration
     {
         Schema::create('detail_service', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('service_id');
             $table->timestamps();
 
+            $table->foreign('service_id')
+                  ->references('id')
+                  ->on('service')
+                  ->onUpdate('cascade')
+                  ->onDelete('restrict');
         });
     }
 

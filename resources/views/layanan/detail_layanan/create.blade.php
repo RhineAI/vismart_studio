@@ -17,8 +17,8 @@
                         <div class="input-group">
                             <select name="service" id="service" class="form-control mb-4">
                                 <option value="">-- Pilih Layanan --</option>
-                                @foreach ($service as $key => $item )
-                                    <option value="{{ $key }}">{{ $item->title }}</option>
+                                @foreach ($service as $item )
+                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -97,6 +97,8 @@ Route::middleware(['auth'])->group(function () {
          // Detail Services
          Route::resource('/dashboard/layanan/detail_layanan', DetailServiceController::class);
          Route::post('/dashboard/layanan/detail_layanan/data', [DetailServiceController::class, 'data'])->name('detail_service.data');
+         Route::put('/dashboard/layanan/detail_layanan/{id}/edit', [DetailServiceController::class, 'ubah'])->name('detail_service.ubah');
+         Route::delete('/dashboard/layanan/detail_layanan/{id}/hapus', [DetailServiceController::class, 'hapus'])->name('detail_service.hapus');
     //
         
     // Testimonial

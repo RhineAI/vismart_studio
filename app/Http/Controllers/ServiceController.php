@@ -43,13 +43,6 @@ class ServiceController extends Controller
             //     }
             //     return $packages;
             // })
-            // ->addColumn('module', function ($service) {
-            //     $modules = '';
-            //     foreach ($service->module as $key => $value) {
-            //         $modules .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-primary rounded">'. $value->name.'</div>';
-            //     }
-            //     return $modules;
-            // })
             ->addColumn('created', function($service) {
                 return tanggal($service->created_at);
             })
@@ -72,7 +65,7 @@ class ServiceController extends Controller
     {
         return view('layanan.service.create', [
             'service' => Service::all(),
-            'module' => Module::all(),
+            // 'module' => Module::all(),
             'package' => Package::all(),
         ]);
     }
@@ -130,12 +123,12 @@ class ServiceController extends Controller
     {
         $serv = Service::findOrFail($service->id);
         $package = Package::orderBy('name', 'ASC')->get();
-        $module = Module::orderBy('name', 'ASC')->get();
+        // $module = Module::orderBy('name', 'ASC')->get();
 
         return view('layanan.service.edit', [
             'service' => $serv,
             'package' => $package,
-            'module' => $module,
+            // 'module' => $module,
         ]);
     }
 

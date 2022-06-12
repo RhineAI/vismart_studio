@@ -13,24 +13,24 @@ class CreateDetailInfoServiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_info_service', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('detail_service_id');
-            $table->unsignedBigInteger('service_id');
-            $table->timestamps();
+        // Schema::create('detail_info_service', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->unsignedBigInteger('detail_service_id');
+        //     $table->unsignedBigInteger('service_id');
+        //     $table->timestamps();
             
-            $table->foreign('detail_service_id')
-                ->references('id')
-                ->on('detail_service')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+        //     $table->foreign('detail_service_id')
+        //         ->references('id')
+        //         ->on('detail_service')
+        //         ->onUpdate('cascade')
+        //         ->onDelete('cascade');
 
-            $table->foreign('service_id')
-                ->references('id')
-                ->on('service')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-        });
+        //     $table->foreign('service_id')
+        //         ->references('id')
+        //         ->on('service')
+        //         ->onUpdate('cascade')
+        //         ->onDelete('cascade');
+        // });
     }
 
     /**

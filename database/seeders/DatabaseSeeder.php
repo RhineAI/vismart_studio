@@ -64,29 +64,29 @@ class DatabaseSeeder extends Seeder
 
 
 
-        Service::create([
-            'image' => 'img-seeder/logobranding.png',
-            'title' => 'Logo Branding',
-        ]);
+        // Service::create([
+        //     'image' => 'img-seeder/logobranding.png',
+        //     'title' => 'Logo Branding',
+        // ]);
 
-        Service::create([
-            'image' => 'img-seeder/designfeedinstagram.png',
-            'title' => 'Design Feed Instagram',
-        ]);
+        // Service::create([
+        //     'image' => 'img-seeder/designfeedinstagram.png',
+        //     'title' => 'Design Feed Instagram',
+        // ]);
 
-        Service::create([
-            'image' => 'img-seeder/digitalmarketing.png',
-            'title' => 'Digital Marketing',
-        ]);
+        // Service::create([
+        //     'image' => 'img-seeder/digitalmarketing.png',
+        //     'title' => 'Digital Marketing',
+        // ]);
 
-        Service::create([
-            'image' => 'img-seeder/icon.png',
-            'title' => 'Social Media Management',
-        ]);
+        // Service::create([
+        //     'image' => 'img-seeder/icon.png',
+        //     'title' => 'Social Media Management',
+        // ]);
 
-        Service::create([
-            'image' => 'img-seeder/marketingcommunications.png',
-            'title' => 'Marketing Communications',
-        ]);
+        // Service::create([
+        //     'image' => 'img-seeder/marketingcommunications.png',
+        //     'title' => 'Marketing Communications',
+        // ]);
     }
 }

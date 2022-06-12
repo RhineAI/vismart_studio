@@ -23,7 +23,10 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Layanan Tersedia</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Layanan</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Detail Layanan</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Keuntungan</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Paket</th>
                             <th width="20%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
                             <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
@@ -63,7 +66,7 @@
         },
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
-            {data:'layanan'},
+            {data:'title'},
             {data:'jasa'},
             {data:'keuntungan'},
             {data:'paket'},
