@@ -1,11 +1,10 @@
 @extends('admin.dashboard')
 
 @section('content')
-
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Tambah Baru</h2>
+            <h2 class="ml-3">Form List Paket</h2>
         </div>
 
         <div class="box-body">
@@ -67,8 +66,8 @@
                     <div class="mb-1 mt-4">
                         <label for="isFirst" class="form-label">Tampilkan Utama</label>
                         <div class="" >
-                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="1" {{ old('isFirst') == 1 ? 'checked' : ''}} > Y <span>&nbsp;</span> </input>
-                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="0" {{ old('isFirst') == 0 ? 'checked' : ''}} > G <span>&nbsp;</span> </input>
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="1" {{ old('isFirst') == 1 ? 'checked' : ''}} > Iya <span>&nbsp;</span> </input>
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="0" {{ old('isFirst') == 0 ? 'checked' : ''}} > Tidak <span>&nbsp;</span> </input>
                         </div>
 
                         @error('isFirst')
@@ -87,8 +86,6 @@
 
     </div>
 </div>
-
-
 @includeIf('package.feature')  
 @endsection
 

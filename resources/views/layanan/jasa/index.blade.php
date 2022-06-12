@@ -23,19 +23,17 @@
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
-                            <th width="18%" scope="col" class="text-center table-default" style="color:black;">Gambar
+                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar
                             </th>
                             <th scope="col" class="text-center table-default" style="color:black;">Deskripsi</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created
+                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-
                 </table>
             </div>
-
         </div>
     </div>
 </div>
@@ -47,9 +45,7 @@
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 2000);
-
-
+    }, 3000);
 
     let table;
         table = $('.table-jasa').DataTable({

@@ -5,7 +5,7 @@
     <div class="col-md-12 p-2 my-3" style="background-color: white">
 
         @if(session()->has('success'))
-            <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
+        <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
         @endif
 
         <div class="box">
@@ -24,25 +24,26 @@
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Nama</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Username</th>
-                            <th width="14%" scope="col" class="text-center table-default" style="color:black;">Waktu Register</th>
+                            {{-- <th width="14%" scope="col" class="text-center table-default" style="color:black;">Waktu Register</th>
                             <th width="14%" scope="col" class="text-center table-default" style="color:black;">Terakhir Login</th>
-                            <th width="14%" scope="col" class="text-center table-default" style="color:black;">Terakhir Logout</th>
+                            <th width="14%" scope="col" class="text-center table-default" style="color:black;">Terakhir Logout</th> --}}
                             <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i class="fas fa-regular fa-gears"></i></th>
                         </tr>
-                    </thead>                    
+                    </thead>
                 </table>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
 @push('script')
 <script> 
     var time = document.getElementById("alert");
 
     setTimeout(function(){
-        time.style.display = "none";
-    }, 4000); 
+    time.style.display = "none";
+    }, 3000);
 
     let table;
         table = $('.table-user').DataTable({
@@ -61,9 +62,6 @@
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'name'},
             {data:'username'},
-            {data:'created_at'},
-            {data:'last_login'},
-            {data:'last_logout'},
             {data:'action', searchable: false, sortable: false},
         ]
     });
@@ -90,8 +88,7 @@
                         text: 'Pengguna berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745',
-                        timer: 2000
+                        confirmButtonColor: '#28A745'
                     }) 
                     table.ajax.reload();
                 })
@@ -101,16 +98,14 @@
                         text: 'Pengguna gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545',
-                        timer: 2000
+                        confirmButtonColor: '#DC3545'
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
                     title: 'Pengguna batal dihapus',
-                    icon: 'warning',
-                    timer: 2000
+                    icon: 'warning'
                 })
             }
         })

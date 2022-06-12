@@ -1,6 +1,5 @@
 @extends('admin.dashboard')
 
-
 @section('content')
 <div class="row">
     <div class="col-md-12 p-2 mb-3 mt-3" style="background-color: white">
@@ -12,7 +11,6 @@
         <div class="box">
             <div class="box-header with-border mx-2">
                 <h2 class="mb-5">Klien</h2>
-
                 <a href="/dashboard/client/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span>
@@ -24,17 +22,16 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th width="23%" scope="col" class="text-center table-default" style="color:black;">Logo</th>
+                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Logo</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Nama</th>
-                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Created
+                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
-                            <th width="13%" scope="col" class="text-center table-default" style="color:black;"> <i
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
                 </table>
             </div>
-
         </div>
     </div>
 </div>
@@ -42,12 +39,11 @@
 
 @push('script')
 <script>
-
     var time = document.getElementById("alert");
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 2000);
+    }, 3000);
 
     let table;
             table = $('.table-client').DataTable({
@@ -73,7 +69,7 @@
 
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Data yang dipilih?',
+            title: 'Hapus Klien yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -90,30 +86,27 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Data berhasil dihapus',
+                        text: 'Klien berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745',
-                        timer: 2000
+                        confirmButtonColor: '#28A745'
                     }) 
                     table.ajax.reload();
                 })
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Data gagal dihapus',
+                        text: 'Klien gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545',
-                        timer: 2000
+                        confirmButtonColor: '#DC3545'
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Batal dihapus',
-                    icon: 'warning',
-                    timer: 2000
+                    title: 'Klien batal dihapus',
+                    icon: 'warning'
                 })
             }
         })

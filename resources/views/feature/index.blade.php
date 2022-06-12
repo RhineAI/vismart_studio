@@ -25,7 +25,7 @@
                             <th scope="col" class="text-center table-default" style="color:black;">Fitur</th>
                             <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
-                            <th width="9%" scope="col" class="text-center table-default" style="color:black;"> <i
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
@@ -44,7 +44,7 @@
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 4000);
+    }, 3000);
 
 
     let table;
@@ -71,7 +71,7 @@
 
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Data yang dipilih?',
+            title: 'Hapus Fitur yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -88,30 +88,27 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Data berhasil dihapus',
+                        text: 'Fitur berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745',
-                        timer: 2000
+                        confirmButtonColor: '#28A745'
                     }) 
                     table.ajax.reload();
                 })
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Data gagal dihapus',
+                        text: 'Fitur gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545',
-                        timer: 2000
+                        confirmButtonColor: '#DC3545'
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Batal dihapus',
-                    icon: 'warning',
-                    timer: 2000
+                    title: 'Fitur batal dihapus',
+                    icon: 'warning'
 
                 })
             }

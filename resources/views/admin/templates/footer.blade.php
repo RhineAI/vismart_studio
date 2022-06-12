@@ -1,6 +1,6 @@
                 <footer class="footer text-center text-sm-left">
                     {{-- <strong>Copyright &copy; 2022 Vismart Studio Supported by<a href="http://madtive.com" target="_blank" rel="noopener noreferrer">&nbsp; Madtive Studio &nbsp;</a>All Right Reserved</strong> --}}
-                    &copy; 2022 VismartStudio <span class="d-none d-sm-inline-block float-right">Powered by <a href="http://madtive.com" target="_blank" rel="noopener noreferrer">Madtive Studio</a> </span>
+                    &copy; 2022 Vismart Studio Supported by <a href="http://madtive.com" target="_blank" rel="noopener noreferrer">Madtive Studio</a>
                 </footer><!--end footer-->
             </div>
             <!-- end page content -->
@@ -8,9 +8,6 @@
         <!-- end page-wrapper -->
 
         {{-- &copy; 2020 Dastyle <span class="d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span> --}}
-
-        
-
 
         <!-- jQuery  -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

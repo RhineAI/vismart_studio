@@ -10,12 +10,11 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Layanan</h2>
+                <h2 class="mb-5">Detail Layanan</h2>
                 <a href="/dashboard/layanan/detail_layanan/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span>
                 </a>
-
             </div>
 
             <div class="box-body table-responsive">
@@ -24,16 +23,14 @@
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Layanan Tersedia</th>
-                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Created
+                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-
                 </table>
             </div>
-
         </div>
     </div>
 </div>
@@ -45,9 +42,7 @@
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 2000);
-
-
+    }, 3000);
 
     let table;
         table = $('.table-package').DataTable({
@@ -70,10 +65,9 @@
         ]
     });
 
-
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Data yang dipilih?',
+            title: 'Hapus Detail Layanan yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -90,34 +84,30 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Data berhasil dihapus',
+                        text: 'Detail Layanan berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
                         confirmButtonColor: '#28A745',
-                        timer: 2000
                     }) 
                     table.ajax.reload();
                 })
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Data gagal dihapus',
+                        text: 'Detail Layanan gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
                         confirmButtonColor: '#DC3545',
-                        timer: 2000
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Batal dihapus',
+                    title: 'Detail Layanan Batal dihapus',
                     icon: 'warning',
-                    timer: 2000
                 })
             }
         })
     }
-
 </script> 
 @endpush

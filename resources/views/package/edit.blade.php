@@ -1,18 +1,16 @@
 @extends('admin.dashboard')
 
 @section('content')
-
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit</h2>
+            <h2 class="ml-3">Form List Paket</h2>
         </div>
 
         <div class="box-body">
             <div class="col-lg-5">
                 <form action="{{ route('package.update', $pack->id) }}" method="post">
                     @method('put')
-
                     @csrf
                     <div class="mb-2">
                         <label for="name" class="form-label">Nama Paket</label>
@@ -47,7 +45,7 @@
                     <div class="mb-2">
                         <label for="price" class="form-label">Harga</label>
                         <input type="number" class="form-control @error('price') is-invalid @enderror" id="price"
-                            name="price" value="{{ old('price', $pack->price) }}"></input>
+                            name="price" value="{{ old('price', $pack->price) }}">
                         @error('price')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -60,7 +58,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">+62</span>
                             <input type="text" class="form-control @error('noTelp') is-invalid @enderror" rows="3"
-                                id="noTelp" name="noTelp" value="{{ old('noTelp', $pack->noTelp) }}" required
+                                id="noTelp" name="noTelp" value="{{ old('noTelp', $pack->noTelp) }}" 
                                 minlength="9" maxlength="12">
                         </div>
                         @error('noTelp')
@@ -73,8 +71,8 @@
                     <div class="mb-1 mt-4">
                         <label for="isFirst" class="form-label">Tampilkan Utama</label>
                         <div class="" >
-                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="1" {{ $pack->is_first == 1 ? 'checked' : ''}} > Ya <span>&nbsp;</span> </input>
-                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="0" {{ $pack->is_first == 0 ? 'checked' : ''}} > G <span>&nbsp;</span> </input>
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="1" {{ $pack->is_first == 1 ? 'checked' : ''}} > Iya <span>&nbsp;</span> 
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="0" {{ $pack->is_first == 0 ? 'checked' : ''}} > Tidak <span>&nbsp;</span> 
 
                         </div>
 

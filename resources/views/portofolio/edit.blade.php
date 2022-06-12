@@ -5,7 +5,7 @@
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2 class="ml-3">Edit</h2>
+            <h2 class="ml-3">Form Portofolio</h2>
         </div>
 
         <div class="box-body">
@@ -13,7 +13,6 @@
                 <form action="{{ route('portofolio.update', $portofolio->id) }}" method="post"
                     enctype="multipart/form-data">
                     @method('put')
-
                     @csrf
                     <div class="mb-2">
                         <label for="title" class="form-label">Judul</label>
@@ -28,6 +27,8 @@
 
                     <div class="mb-2">
                         <label for="image" class="form-label">Gambar</label>
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                            name="image" onchange="previewImage()" value="{{ old('image', $portofolio->image) }}">
                         <input type="hidden" name="oldImage" id="oldImage" value="{{ $portofolio->image }}">
                         @if($portofolio->image)
                         <img src="{{ asset('storage/' . $portofolio->image) }}"
@@ -35,9 +36,6 @@
                         @else
                         <img class="img-preview img-fluid my-3 col-sm-5">
                         @endif
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
-                            name="image" onchange="previewImage()" value="{{ old('image', $portofolio->image) }}">
-
                         @error('image')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -71,5 +69,4 @@
     }
   }
 </script>
-    
 @endsection
