@@ -10,7 +10,7 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Testimonial</h2>
+                <h2 class="mb-5">Testimoni</h2>
                 <a href="/dashboard/testimonial/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span>
@@ -26,13 +26,12 @@
                             <th scope="col" class="text-center table-default" style="color:black;">Deskripsi</th>
                             <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
-                            <th width="9%" scope="col" class="text-center table-default" style="color:black;"> <i
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
                 </table>
             </div>
-
         </div>
     </div>
 </div>
@@ -44,7 +43,7 @@
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 4000); 
+    }, 3000); 
 
     let table;
         table = $('.table-testimonial').DataTable({
@@ -70,7 +69,7 @@
 
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Testimonial yang dipilih?',
+            title: 'Hapus Testimoni yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -87,33 +86,31 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Testimonial berhasil dihapus',
+                        text: 'Testimoni berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745',
-                        timer: 2000
+                        confirmButtonColor: '#28A745'
                     }) 
                     table.ajax.reload();
                 })
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Testimonial gagal dihapus',
+                        text: 'Testimoni gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545',
-                        timer: 2000
+                        confirmButtonColor: '#DC3545'
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Testimonial batal dihapus',
-                    icon: 'warning',
-                    timer: 2000
+                    title: 'Testimoni batal dihapus',
+                    icon: 'warning'
                 })
             }
         })
     }
+
 </script> 
 @endpush

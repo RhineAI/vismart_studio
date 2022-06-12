@@ -5,7 +5,7 @@
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit</h2>
+            <h2 class="ml-3">Form Klien</h2>
         </div>
 
         <div class="box-body">
@@ -15,14 +15,11 @@
                     @csrf
                     <div class="mb-2">
                         <label for="logo" class="form-label">Logo</label>
-                        <input type="hidden" name="oldLogo" id="oldLogo" value="{{ $client->logo }}">
-
-                        <img src="{{ asset('storage/' . $client->logo) }}"
-                            class="logo-preview img-fluid my-3 col-sm-5 d-block">
-
                         <input type="file" class="form-control @error('logo') is-invalid @enderror" id="logo"
                             name="logo" onchange="previewlogo()" value="{{ old('logo', $client->logo) }}">
-
+                        <input type="hidden" name="oldLogo" id="oldLogo" value="{{ $client->logo }}">
+                        <img src="{{ asset('storage/' . $client->logo) }}"
+                            class="logo-preview img-fluid my-3 col-sm-5 d-block">
                         @error('logo')
                         <div class="invalid-feedback">
                             {{ $message }}

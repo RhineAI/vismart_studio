@@ -5,7 +5,7 @@
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2 class="ml-3">Tambah Baru</h2>
+            <h2 class="ml-3">Form Portofolio</h2>
         </div>
 
         <div class="box-body">
@@ -62,6 +62,5 @@
     }
   }
 </script>
-    
 @endpush
 

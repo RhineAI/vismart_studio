@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use DataTables;
 
 class UserController extends Controller
 {
@@ -35,18 +34,9 @@ class UserController extends Controller
             ->addColumn('username', function($user) {
                return $user->username;
             })
-            ->addColumn('created_at', function($user) {
-                return tanggal($user->created_at);
-            })
-            ->addColumn('last_login', function($user) {
-                return tanggal($user->last_login);
-            })
-            ->addColumn('last_logout', function($user) {
-                return tanggal($user->last_logout);
-            })
             ->addColumn('action', function ($user) {
                 return '
-                    <a href="'. route('user.edit', $user->id) .'" class="btn btn-xs bg-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('user.edit', $user->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('user.destroy', $user->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
@@ -73,14 +63,15 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $user = new User;
+    {   
+        $user = new User();
         $user->name = $request->name;
         $user->username = $request->username;
         $user->password = bcrypt($request->password);
+
         $user->save();
 
-        return redirect('/dashboard/user')->with('success', 'User baru berhasil ditambahkan');
+        return redirect('/dashboard/user')->with('success', 'Pengguna baru berhasil ditambah');
     }
 
     /**
@@ -97,7 +88,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -112,18 +103,19 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-    {
+    {   
         $user = User::find($user->id);
         $user->name = $request->name;
         $user->username = $request->username;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
+        
         $user->update();
 
-        return redirect('/dashboard/user')->with('success', 'User berhasil diupdate');
+        return redirect('/dashboard/user')->with('success', 'Pengguna berhasil diupdate');
     }
 
     /**
@@ -135,6 +127,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
-        return redirect('/dashboard/user')->with('success', 'User berhasil didelete');
+        return redirect('/dashboard/user')->with('success', 'Pengguna berhasil dihapus');
     }
 }

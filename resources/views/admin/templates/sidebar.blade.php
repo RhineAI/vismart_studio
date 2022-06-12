@@ -119,20 +119,13 @@
                         </a>
                     </li>
 
-                            {{-- <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/module*') ? 'active' : '' }}" href="{{ route('module.index') }}">
-                                    <i class="ti-control-record"></i>
-                                    List Module
-                                </a>
-                            </li>    --}}
-
 
                     {{--    Lainnya    --}}
     
                     <hr class="hr-dashed hr-menu">
                     <li class="menu-label my-2">Lainnya</li>
 
-                    {{-- User --}}
+                    {{-- Users --}}
                     <li>
                         <a href="{{ route('user.index') }}">
                             <i data-feather="users" class="align-self-center menu-icon"></i>
@@ -140,14 +133,6 @@
                             <span class="menu-arrow"></span>
                         </a>
                     </li>
-
-                    {{-- <li>
-                        <a href="javascript: void(0);">
-                            <i data-feather="edit" class="align-self-center menu-icon"></i>
-                            <span>Edit Profile</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                    </li> --}}
 
                     <li>
                         <a href="{{ route('auth.logout') }}">

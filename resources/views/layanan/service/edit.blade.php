@@ -5,7 +5,7 @@
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit</h2>
+            <h2 class="ml-3">Form Layanan Utama</h2>
         </div>
 
         <div class="box-body">
@@ -17,8 +17,7 @@
                     <div class="mb-2">
                         <label for="title" class="form-label">Judul</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" rows="3" id="title"
-                            name="title" value="{{ old('title', $service->title) }}" required minlength="9"
-                            maxlength="50"></input>
+                            name="title" value="{{ old('title', $service->title) }}">
                         @error('title')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -28,6 +27,8 @@
 
                     <div class="mb-2">
                         <label for="image" class="form-label">Gambar</label>
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                            name="image" onchange="previewImage()" value="{{ old('image', $service->image) }}">
                         <input type="hidden" name="oldImage" id="oldImage" value="{{ $service->image }}">
                         @if($service->image)
                         <img src="{{ asset('storage/' . $service->image) }}"
@@ -35,29 +36,12 @@
                         @else
                         <img class="img-preview img-fluid my-3 col-sm-5">
                         @endif
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
-                            name="image" onchange="previewImage()" value="{{ old('image', $service->image) }}">
-
                         @error('image')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                         @enderror
                     </div>
-
-                    {{-- <div class="mb-2">
-                        <label for="title" class="form-label">Slug</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" rows="3" id="title"
-                            name="title" value="{{ old('title') }}" required maxlength="50">
-                        @error('title')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div> --}}
-
-
-
 
             </div>
         </div>
@@ -85,7 +69,6 @@
         oFReader.onload = function(oFREvent) {
         imgPreview.src = oFREvent.target.result;
         }
-  }
-
+}
 </script>
 @endpush

@@ -36,20 +36,6 @@ class ServiceController extends Controller
             ->addColumn('title', function($service) {
                 return $service->title;
             })
-            // ->addColumn('package', function ($service) {
-            //     $packages = '';
-            //     foreach ($service->package as $key => $value) {
-            //         $packages .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-danger rounded">'. $value->name.'</div>';
-            //     }
-            //     return $packages;
-            // })
-            // ->addColumn('module', function ($service) {
-            //     $modules = '';
-            //     foreach ($service->module as $key => $value) {
-            //         $modules .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-primary rounded">'. $value->name.'</div>';
-            //     }
-            //     return $modules;
-            // })
             ->addColumn('created', function($service) {
                 return tanggal($service->created_at);
             })
@@ -87,8 +73,7 @@ class ServiceController extends Controller
     {
         $validate = $request->validate([
             'title' => 'required|max:50',
-            'image' => 'image|file|required|max:16000',
-            // 'description' => 'required|max:2500'
+            'image' => 'image|file|required|max:16000'
         ]);
 
         if($request->file('image')) {
@@ -102,11 +87,8 @@ class ServiceController extends Controller
         $service->title = $title;
         $service->image = $image;
         $service->save();
-        
-        // $service->package()->attach($request->package);        
-        // $service->module()->attach($request->module);        
 
-        return redirect('/dashboard/layanan/service')->with('success', 'Berhasil ditambahkan'); 
+        return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama baru berhasil ditambah'); 
     }
 
     /**
@@ -150,8 +132,7 @@ class ServiceController extends Controller
     {
         $validate = $request->validate([
             'title' => 'required|max:50',
-            'image' => 'image|file|max:16000',
-            // 'description' => 'required|max:2500'
+            'image' => 'image|file|max:16000'
         ]);
 
         if($request->file('image')) {
@@ -162,12 +143,9 @@ class ServiceController extends Controller
         }
 
         $service = Service::find($service->id);
-        $service->update($validate);
-        
-        // $service->package()->sync($request->package);        
-        // $service->module()->sync($request->module);        
+        $service->update($validate);       
 
-        return redirect('/dashboard/layanan/service')->with('success', 'Berhasil ditambahkan'); 
+        return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama berhasil diupdate'); 
     }
 
     /**
@@ -183,6 +161,6 @@ class ServiceController extends Controller
         }
 
         Service::destroy($service->id);
-        return redirect('/dashboard/layanan/service')->with('success', 'Berhasil di Delete');
+        return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama berhasil dihapus');
     }
 }

@@ -11,7 +11,6 @@
         <div class="box">
             <div class="box-header with-border mx-2">
                 <h2 class="mb-5">Portofolio</h2>
-
                 <a href="/dashboard/portofolio/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span>
@@ -23,13 +22,10 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th width="13%" scope="col" class="text-center table-default" style="color:black;">Judul
-                            </th>
-                            <th width="14%" scope="col" class="text-center table-default" style="color:black;">Gambar
-                            </th>
-                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
-                                At</th>
-                            <th width="9%" scope="col" class="text-center table-default" style="color:black;"> <i
+                            <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
+                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar</th>
+                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created At</th>
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
@@ -47,7 +43,7 @@
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 4000);   
+    }, 3000);   
 
     function previewImage() {
         const image = document.querySelector('#image');
@@ -85,10 +81,9 @@
             ]
         });
 
-
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Data yang dipilih?',
+            title: 'Hapus Portofolio yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -105,35 +100,30 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Data berhasil dihapus',
+                        text: 'Portofolio berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745',
-                        timer: 2000
+                        confirmButtonColor: '#28A745'
                     }) 
                     table.ajax.reload();
                 })
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Data gagal dihapus',
+                        text: 'Portofolio gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545',
-                        timer: 2000
+                        confirmButtonColor: '#DC3545'
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Batal dihapus',
-                    icon: 'warning',
-                    timer: 2000
+                    title: 'Portofolio batal dihapus',
+                    icon: 'warning'
                 })
             }
         })
     }
-
-
 </script> 
 @endpush

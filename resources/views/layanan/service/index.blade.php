@@ -22,28 +22,20 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th width="18%" scope="col" class="text-center table-default" style="color:black;">Gambar
+                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar
                             <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
                             </th>
-                            {{-- <th scope="col" class="text-center table-default" style="color:black;">Slug</th> --}}
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created
+                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-
                 </table>
             </div>
-
         </div>
     </div>
 </div>
-
-<script>
-
-</script>
-
 @endsection
 
 @push('script')
@@ -52,9 +44,7 @@
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 2000);
-
-
+    }, 3000);
 
     let table;
         table = $('.table-service').DataTable({
@@ -73,17 +63,14 @@
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'image'},
             {data:'title'},
-            // {data:'package'},
-            // {data:'module'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]
     });
 
-
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Data yang dipilih?',
+            title: 'Hapus Layanan Utama yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -100,30 +87,27 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Data berhasil dihapus',
+                        text: 'Layanan Utama berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
                         confirmButtonColor: '#28A745',
-                        timer: 2000
                     }) 
                     table.ajax.reload();
                 })
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Data gagal dihapus',
+                        text: 'Layanan Utama gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
                         confirmButtonColor: '#DC3545',
-                        timer: 2000
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Batal dihapus',
+                    title: 'Layanan Utama batal dihapus',
                     icon: 'warning',
-                    timer: 2000
                 })
             }
         })

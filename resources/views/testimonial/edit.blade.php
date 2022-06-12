@@ -1,18 +1,16 @@
 @extends('admin.dashboard')
 
 @section('content')
-
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2 class="ml-3">Form Testimonial</h2>
+            <h2 class="ml-3">Form Testimoni</h2>
         </div>
 
         <div class="box-body">
             <div class="col-lg-5">
                 <form action="{{ route('testimonial.update', $testi->id) }}" method="post">
                 @method('put')
-
                 @csrf
                     <div class="mb-2">
                         <label for="name" class="form-label">Nama</label>

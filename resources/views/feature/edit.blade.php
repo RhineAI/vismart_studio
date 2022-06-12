@@ -5,14 +5,13 @@
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit</h2>
+            <h2 class="ml-3">Form List Fitur</h2>
         </div>
 
         <div class="box-body">
             <div class="col-lg-5">
                 <form action="{{ route('feature.update', $fitur->id) }}" method="post">
                     @method('put')
-
                     @csrf
                     <div class="mb-2">
                         <label for="feature" class="form-label">Fitur</label>

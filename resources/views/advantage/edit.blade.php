@@ -5,7 +5,7 @@
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit</h2>
+            <h2 class="ml-3">Form Keuntungan</h2>
         </div>
 
         <div class="box-body">
@@ -17,6 +17,8 @@
                     @csrf
                     <div class="mb-2">
                         <label for="image" class="form-label">Gambar</label>
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                            name="image" onchange="previewImage()" value="{{ old('image', $previllege->image) }}">
                         <input type="hidden" name="oldImage" id="oldImage" value="{{ $previllege->image }}">
                         @if($previllege->image)
                         <img src="{{ asset('storage/' . $previllege->image) }}"
@@ -24,16 +26,13 @@
                         @else
                         <img class="img-preview img-fluid my-3 col-sm-5">
                         @endif
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
-                            name="image" onchange="previewImage()" value="{{ old('image', $previllege->image) }}">
-
                     </div>
 
                     <div class="mb-2">
                         <label for="advantage" class="form-label">Keuntungan</label>
                         <input class="form-control @error('advantage') is-invalid @enderror" rows="3" id="advantage"
                             name="advantage" value="{{ old('advantage', $previllege->advantage ) }}" required
-                            autofocus></input>
+                            autofocus>
                         @error('advantage')
                         <div class="invalid-feedback">
                             {{ $message }}
