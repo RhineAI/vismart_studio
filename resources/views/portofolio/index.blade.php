@@ -1,21 +1,20 @@
 @extends('admin.dashboard')
 
-
 @section('content')
 <div class="row">
-    <div class="col-md-12 p-2 mb-3 mt-3" style="background-color: white">
+    <div class="col-md-12 p-2 my-3" style="background-color: white">
 
         @if (session()->has('success'))
-            <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>  
+        <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
         @endif
 
         <div class="box">
             <div class="box-header with-border mx-2">
                 <h2 class="mb-5">Portofolio</h2>
-                
+
                 <a href="/dashboard/portofolio/create" class="btn btn-outline-dark mb-3 p-2">
-                    Create new Portofolio 
-                    <span data-feather="plus-circle"></span> 
+                    Tambah Baru
+                    <span data-feather="plus-circle"></span>
                 </a>
             </div>
 
@@ -23,43 +22,23 @@
                 <table class="table table-bordered table-portofolio">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center table-success" style="color:black;" width="6%">No</th>
-                            <th width="13%" scope="col" class="text-center table-success" style="color:black;">Title</th>
-                            <th width="14%" scope="col" class="text-center table-success" style="color:black;">Image</th>
-                            <th width="15%" scope="col" class="text-center table-success" style="color:black;">Created At</th>
-                            <th width="9%" scope="col" class="text-center table-success" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
+                            <th width="13%" scope="col" class="text-center table-default" style="color:black;">Judul
+                            </th>
+                            <th width="14%" scope="col" class="text-center table-default" style="color:black;">Gambar
+                            </th>
+                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
+                                At</th>
+                            <th width="9%" scope="col" class="text-center table-default" style="color:black;"> <i
+                                    class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-
-                    {{-- <tbody>
-                        @foreach ($portofolio as $item => $key)
-                        <tr>
-                            <th class=" table-secondary">{{ $item+1 }}</th>
-                            <th class=" table-secondary">
-                                <img class="img-preview img-fluid " onload="previewImage()" style="width:95%;" src="{{ asset('storage/'. $key->image) }}" alt="">
-                            </th>
-                            <th class=" table-secondary">{{ $key->description }}</th>
-                            <th class=" table-secondary">{{ tanggal($key->created_at) }}</th>
-                            <th class="table-secondary">
-                                <a href="/dashboard/portofolio/{{ $key->id }}/edit" class="btn btn-xs bg-info"><span data-feather='edit'></span></a>
-                                <form action="{{ route('portofolio.destroy', $key->id) }}" method="post" class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="btn btn-xs bg-danger border-0" type="submit" onclick="return confirm('Sure?')"><span data-feather='trash-2' ></span></button>  
-                                </form>
-                            </th>
-                        </tr>
-                        @endforeach
-                    </tbody> --}}
-                    
                 </table>
             </div>
 
         </div>
     </div>
 </div>
-
-{{-- @includeIf('portofolio.form') --}}
 @endsection
 
 @push('script')

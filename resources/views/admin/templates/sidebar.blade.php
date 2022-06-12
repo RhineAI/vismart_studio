@@ -58,7 +58,7 @@
                     {{-- Testimonial --}}
                     <li>
                         <a class="nav-link {{ Request::is('dashboard/testimonial*') ? 'active' : '' }}" href="{{ route('testimonial.index') }}">
-                            <i data-feather="user-plus" class="align-self-center menu-icon"></i>
+                            <i data-feather="message-circle" class="align-self-center menu-icon"></i>
                             <span>Testimoni</span>
                             <span class="menu-arrow"></span>
                         </a>

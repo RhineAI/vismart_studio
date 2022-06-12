@@ -2,31 +2,32 @@
 
 @section('content')
 
-<div class="col-md-12 p-2 mb-3" style="background-color: white;">
+<div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Create New Feature</h2>
+            <h2>Tambah Baru</h2>
         </div>
 
         <div class="box-body">
-           <div class="col-lg-5">
-               <form action="{{ route('feature.store') }}" method="post">
-                @csrf
+            <div class="col-lg-5">
+                <form action="{{ route('feature.store') }}" method="post">
+                    @csrf
                     <div class="mb-2">
-                        <label for="feature" class="form-label">Feature</label>
-                        <textarea type="text" class="form-control @error('feature') is-invalid @enderror" id="feature" name="feature" value="{{ old('feature') }}" required autofocus></textarea>
+                        <label for="feature" class="form-label">Fitur</label>
+                        <textarea type="text" class="form-control @error('feature') is-invalid @enderror" id="feature"
+                            name="feature" value="{{ old('feature') }}" required autofocus></textarea>
                         @error('feature')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
-                        
+
                     </div>
-           </div>
+            </div>
         </div>
 
         <div class="box-footer mt-5 mb-4 mx-2">
-            <button type="submit" class="btn btn-primary">Create Feature</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
 
