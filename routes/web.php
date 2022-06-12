@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\{
 use App\Http\Controllers\LogoBrandingController;
 use App\Http\Controllers\DesignFeedInstagramController;
 use App\Http\Controllers\DigitalMarketingController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SMMController;
 use App\Http\Controllers\MarketingCommunicationsController;
 
@@ -42,22 +43,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        'title' => 'Home'
-    ]);
-});
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/marketingcommunications', function () {
-    return view('marketing_communications', [
-        'title' => 'Marketing Communications'
-    ]);
-});
-Route::get('/smm', function () {
-    return view('smm', [
-        'title' => 'Social Media Management'
-    ]);
-});
+Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('logobranding.index');
 
 // FrontEnd UI/UX
     // Logo Branding

@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-12 p-2 my-3" style="background-color: white">
+    <div class="col-md-12 p-2 mb-3 mt-3" style="background-color: white">
 
         @if(session()->has('success'))
         <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
