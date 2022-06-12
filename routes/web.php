@@ -9,28 +9,21 @@ use App\Http\Controllers\Admin\{
 use App\Http\Controllers\LogoBrandingController;
 use App\Http\Controllers\DesignFeedInstagramController;
 use App\Http\Controllers\DigitalMarketingController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SMMController;
 use App\Http\Controllers\MarketingCommunicationsController;
-
 
 use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\DetailServiceController;
 use App\Http\Controllers\JasaController;
-// use App\Http\Controllers\LogoutController;
-// use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
-
-
-// use App\Http\Controllers\UserController ;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,22 +35,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        'title' => 'Home'
-    ]);
-});
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/marketingcommunications', function () {
-    return view('marketing_communications', [
-        'title' => 'Marketing Communications'
-    ]);
-});
-Route::get('/smm', function () {
-    return view('smm', [
-        'title' => 'Social Media Management'
-    ]);
-});
+Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('logobranding.index');
 
 // FrontEnd UI/UX
     // Logo Branding
@@ -74,12 +54,10 @@ Route::get('/smm', function () {
 
     // Marketing Communications
     Route::get('/marketingcommunications', [MarketingCommunicationsController::class, 'index'])->name('marketing.index');
-//
 
-// Login Dashboard
+    // Login Dashboard
     Route::get('/auth/login', [AuthController::class, 'auth'])->name('auth.index');
     Route::post('/auth/process', [AuthController::class, 'process'])->name('auth.process');
-//
 
 // Disini untuk admin
 Route::middleware(['auth'])->group(function () {
@@ -109,17 +87,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard/portofolio', PortofolioController::class);
     Route::post('/dashboard/portofolio/data', [PortofolioController::class, 'data'])->name('portofolio.data');
 
-    //List Module
-    // Route::resource('/dashboard/module', ModuleController::class);
-    // Route::post('/dashboard/module/data', [ModuleController::class, 'data'])->name('module.data');
-
     //Package
-        Route::resource('dashboard/package', PackageController::class);
-        Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name('package.data');
-        //Feature
-        Route::resource('dashboard/feature', FeatureController::class);
-        Route::post('/dashboard/feature/data', [FeatureController::class, 'data'])->name('feature.data');
-     //   
+    Route::resource('dashboard/package', PackageController::class);
+    Route::post('/dashboard/package/data', [PackageController::class, 'data'])->name('package.data');
+    //Feature
+    Route::resource('dashboard/feature', FeatureController::class);
+    Route::post('/dashboard/feature/data', [FeatureController::class, 'data'])->name('feature.data'); 
 
     // Client
     Route::resource('/dashboard/client', ClientController::class);
@@ -133,8 +106,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('dashboard/advantage', AdvantageController::class);
     Route::post('/dashboard/advantage/data', [AdvantageController::class, 'data'])->name('advantage.data');
 
-
-    //User
+    // User
     Route::resource('dashboard/user', UserController::class);
     Route::post('/dashboard/user/data', [UserController::class, 'data'])->name('user.data');
 

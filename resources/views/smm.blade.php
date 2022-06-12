@@ -9,7 +9,7 @@
                 <img src="/img/logo vismart studio.png" class="card-img-top" alt="..." style="width: 200px">
                 <h1 class="mt-5 mb-3 fw-bold">Now Managing Instagram Business is Easier Without Having a Team, Thinking About Content and Design</h1>
                 <p class="fs-4 mb-5">We've Experience about Creative Content, Viral Content & Brand Hacking!</p>
-                <a href="#page-1"><button type="button" class="btn-border-primary btn rounded-pill border-3 p-3 px-5">REACH US!</button></a>
+                <a href="#page-1"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">REACH US!</button></a>
             </div>
         </div>
     </div>
@@ -22,10 +22,10 @@
                 <img src="/img/smm/smm.png" class="img-fluid" alt="..." style="width: 40em">
             </div>
             <div class="col-lg-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
-                <h2 class="fw-bold">Apa itu Social Media Management?</h2><br>
+                <h1 class="fw-bold">Apa itu Social Media Management?</h1><br>
                 <p class="fs-4">Pada intinya, social media management adalah penggunaan berbagai tools, software maupun layanan yang mampu membantu para pebisnis dalam membagikan konten bisnisnya di media sosial.</p>
                 <p class="fs-4">Beberapa hal yang bisa dikategorikan dalam kegiatan social media management adalah menjadwalkan waktu posting di media sosial, melakukan interaksi dengan target audience, sampai mengelola respon di media sosial secara cepat.</p><br>
-                <a href="#column-3"><button type="button" class="btn-white btn rounded-pill border-3 p-3 px-5">NEXT</button></a>
+                <a href="#column-3"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">NEXT</button></a>
             </div>
         </div>
     </div>
@@ -95,7 +95,7 @@
                 <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Konsul yuk terkait bisnis dan branding dari produk kamu!</h1>
                 <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Manto Mukhli Fardi</p>
                 <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0812 3456 7890</p>
-                <a href="https://wa.wizard.id/109912" target="_blank"><button type="button" class="btn-white btn rounded-pill border-3 p-3 px-5 mt-3 mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">Chat Sekarang!</button></a>
+                <a href="https://wa.wizard.id/109912" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">Chat Sekarang!</button></a>
             </div>
         </div>
     </div>
@@ -114,7 +114,6 @@
             autoplay:true,
             autoplayTimeout:4000,
             autoplayHoverPause:true,
-            center:true,
             responsive:{
                 0:{
                     items:1

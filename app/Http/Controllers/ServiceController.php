@@ -80,8 +80,7 @@ class ServiceController extends Controller
     {
         $validate = $request->validate([
             'title' => 'required|max:50',
-            'image' => 'image|file|required|max:16000',
-            // 'description' => 'required|max:2500'
+            'image' => 'image|file|required|max:16000'
         ]);
 
         if($request->file('image')) {
@@ -95,11 +94,8 @@ class ServiceController extends Controller
         $service->title = $title;
         $service->image = $image;
         $service->save();
-        
-        // $service->package()->attach($request->package);        
-        // $service->module()->attach($request->module);        
 
-        return redirect('/dashboard/layanan/service')->with('success', 'Berhasil ditambahkan'); 
+        return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama baru berhasil ditambah'); 
     }
 
     /**
@@ -143,8 +139,7 @@ class ServiceController extends Controller
     {
         $validate = $request->validate([
             'title' => 'required|max:50',
-            'image' => 'image|file|max:16000',
-            // 'description' => 'required|max:2500'
+            'image' => 'image|file|max:16000'
         ]);
 
         if($request->file('image')) {
@@ -155,12 +150,9 @@ class ServiceController extends Controller
         }
 
         $service = Service::find($service->id);
-        $service->update($validate);
-        
-        // $service->package()->sync($request->package);        
-        // $service->module()->sync($request->module);        
+        $service->update($validate);       
 
-        return redirect('/dashboard/layanan/service')->with('success', 'Berhasil ditambahkan'); 
+        return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama berhasil diupdate'); 
     }
 
     /**
@@ -176,6 +168,6 @@ class ServiceController extends Controller
         }
 
         Service::destroy($service->id);
-        return redirect('/dashboard/layanan/service')->with('success', 'Berhasil di Delete');
+        return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama berhasil dihapus');
     }
 }

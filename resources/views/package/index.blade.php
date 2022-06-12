@@ -1,22 +1,20 @@
 @extends('admin.dashboard')
 
 @section('content')
-<div class="row mx-3">
-    <div class="col-md-12 p-2 mb-3" style="background-color: white">
+<div class="row">
+    <div class="col-md-12 p-2 my-3" style="background-color: white">
 
         @if(session()->has('success'))
-            <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
+        <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
         @endif
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Package</h2>
+                <h2 class="mb-5">List Paket</h2>
                 <a href="/dashboard/package/create" class="btn btn-outline-dark mb-3 p-2">
-                    Create new Package 
-                    <span data-feather="plus-circle"></span> 
+                    Tambah baru
+                    <span data-feather="plus-circle"></span>
                 </a>
-
-                {{-- <button onclick="add()">Add</button> --}}
             </div>
 
             <div class="box-body table-responsive">
@@ -24,29 +22,22 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-succes" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">Name</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">Features</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">Price</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">No.Phone</th>
-                            <th width="2%" scope="col" class="text-center table-succes" style="color:black;">Tampilkan Utama</th>
-                            <th width="12%" scope="col" class="text-center table-succes" style="color:black;">Created At</th>
-                            <th width="12%" scope="col" class="text-center table-succes" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th scope="col" class="text-center table-succes" style="color:black;">Nama</th>
+                            <th scope="col" class="text-center table-succes" style="color:black;">Fitur</th>
+                            <th scope="col" class="text-center table-succes" style="color:black;">Harga</th>
+                            <th scope="col" class="text-center table-succes" style="color:black;">No.Telepon</th>
+                            <th width="10%" scope="col" class="text-center table-succes" style="color:black;">Tampilkan Utama</th>
+                            <th width="15%" scope="col" class="text-center table-succes" style="color:black;">Created At</th>
+                            <th width="10%" scope="col" class="text-center table-succes" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-                    
+
                 </table>
             </div>
 
         </div>
     </div>
 </div>
-
-{{-- @includeIf('package.feature') --}}
-
-<script>
-
-</script>
-
 @endsection
 
 @push('script')
@@ -55,9 +46,7 @@
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 2000);
-
-
+    }, 3000);
 
     let table;
         table = $('.table-package').DataTable({
@@ -87,7 +76,7 @@
 
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Data yang dipilih?',
+            title: 'Hapus Paket yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -104,30 +93,27 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Data berhasil dihapus',
+                        text: 'Paket berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745',
-                        timer: 2000
+                        confirmButtonColor: '#28A745'
                     }) 
                     table.ajax.reload();
                 })
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Data gagal dihapus',
+                        text: 'Paket gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545',
-                        timer: 2000
+                        confirmButtonColor: '#DC3545'
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Batal dihapus',
-                    icon: 'warning',
-                    timer: 2000
+                    title: 'Paket batal dihapus',
+                    icon: 'warning'
                 })
             }
         })

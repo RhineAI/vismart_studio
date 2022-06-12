@@ -18,24 +18,22 @@
             </div>
 
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-package">
+                <table class="table table-bordered table-jasa">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
-                            <th width="18%" scope="col" class="text-center table-default" style="color:black;">Gambar
+                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar
                             </th>
                             <th scope="col" class="text-center table-default" style="color:black;">Deskripsi</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;">Created
+                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
-                            <th width="12%" scope="col" class="text-center table-default" style="color:black;"> <i
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-
                 </table>
             </div>
-
         </div>
     </div>
 </div>
@@ -47,18 +45,16 @@
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 2000);
-
-
+    }, 3000);
 
     let table;
-        table = $('.table-package').DataTable({
+        table = $('.table-jasa').DataTable({
         processing: true,
         responsive: true,
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('package.data') }}",
+            url: "{{ route('jasa.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
@@ -66,10 +62,9 @@
         },
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
-            {data:'name'},
-            {data:'feature'},
-            {data:'price'},
-            {data:'noTelp'},
+            {data:'title'},
+            {data:'image'},
+            {data:'description'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]

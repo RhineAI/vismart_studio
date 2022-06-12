@@ -1,11 +1,10 @@
 @extends('admin.dashboard')
 
 @section('content')
-
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit</h2>
+            <h2 class="ml-3">Form Detail Layanan</h2>
         </div>
 
         <div class="box-body">
@@ -15,7 +14,7 @@
                     @csrf
 
                     <div class="mb-2">
-                        <label for="service" class="form-label">Pilih Layanan</label>
+                        <label for="service" class="form-label">Ganti Layanan</label>
                         <div class="input-group">
                             <select name="service" id="service" class="form-control mb-4">
                                 <option value="">-- Pilih Layanan --</option>

@@ -65,7 +65,7 @@ class FeatureController extends Controller
         $feature->feature = $request->feature;
         $feature->save();
 
-        return redirect('/dashboard/feature')->with('success', 'Berhasil ditambahkan');
+        return redirect('/dashboard/feature')->with('success', 'Fitur baru berhasil ditambah');
     }
 
     /**
@@ -106,7 +106,7 @@ class FeatureController extends Controller
         $feature->feature = $request->feature;
         $feature->update();
 
-        return redirect('/dashboard/feature')->with('success', 'Berhasil di update');
+        return redirect('/dashboard/feature')->with('success', 'Fitur berhasil diupdate');
     }
 
     /**
@@ -119,6 +119,6 @@ class FeatureController extends Controller
     {
         Feature::destroy($feature->id);
 
-        return redirect('/dashboard/feature')->with('success', 'Berhasil di delete');
+        return redirect('/dashboard/feature')->with('success', 'Fitur berhasil dihapus');
     }
 }

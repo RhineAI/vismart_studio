@@ -1,19 +1,19 @@
 @extends('admin.dashboard')
 
 @section('content')
-<div class="row mx-3">
-    <div class="col-md-12 p-2 mb-3" style="background-color: white">
+<div class="row">
+    <div class="col-md-12 p-2 my-3" style="background-color: white">
 
         @if(session()->has('success'))
-            <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
+        <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
         @endif
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Feature</h2>
+                <h2 class="mb-5">List Fitur</h2>
                 <a href="/dashboard/feature/create" class="btn btn-outline-dark mb-3 p-2">
-                    Create new Feature
-                    <span data-feather="plus-circle"></span> 
+                    Tambah Baru
+                    <span data-feather="plus-circle"></span>
                 </a>
             </div>
 
@@ -21,26 +21,21 @@
                 <table class="table table-bordered table-feature">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center table-success" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-success" style="color:black;">Feature</th>
-                            <th width="15%" scope="col" class="text-center table-success" style="color:black;">Created At</th>
-                            <th width="9%" scope="col" class="text-center table-success" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
+                            <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Fitur</th>
+                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
+                                At</th>
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
+                                    class="fas fa-regular fa-gears"></i> </th>
                         </tr>
                     </thead>
-                    
+
                 </table>
             </div>
 
         </div>
     </div>
 </div>
-
-{{-- @includeIf('feature') --}}
-
-<script>
-
-</script>
-
 @endsection
 
 @push('script')
@@ -49,7 +44,7 @@
 
     setTimeout(function(){
         time.style.display = "none";
-    }, 4000);
+    }, 3000);
 
 
     let table;
@@ -76,7 +71,7 @@
 
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Data yang dipilih?',
+            title: 'Hapus Fitur yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -93,30 +88,27 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Data berhasil dihapus',
+                        text: 'Fitur berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
-                        confirmButtonColor: '#28A745',
-                        timer: 2000
+                        confirmButtonColor: '#28A745'
                     }) 
                     table.ajax.reload();
                 })
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Data gagal dihapus',
+                        text: 'Fitur gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545',
-                        timer: 2000
+                        confirmButtonColor: '#DC3545'
                     })                       
                     return;
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Batal dihapus',
-                    icon: 'warning',
-                    timer: 2000
+                    title: 'Fitur batal dihapus',
+                    icon: 'warning'
 
                 })
             }

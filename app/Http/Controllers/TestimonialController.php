@@ -70,7 +70,7 @@ class TestimonialController extends Controller
         $testimonial->description = $request->description;
         $testimonial->save();
 
-        return redirect('/dashboard/testimonial')->with('success', 'Berhasil ditambahkan');
+        return redirect('/dashboard/testimonial')->with('success', 'Testimoni baru berhasil ditambah');
         
     }
 
@@ -113,7 +113,7 @@ class TestimonialController extends Controller
         $testi->description = $request->description;
         $testi->update();
 
-        return redirect('/dashboard/testimonial')->with('success', 'Berhasil diupdate');
+        return redirect('/dashboard/testimonial')->with('success', 'Testimoni berhasil diupdate');
 
     }
 
@@ -126,6 +126,6 @@ class TestimonialController extends Controller
     public function destroy(Testimonial $testimonial)
     {
         Testimonial::destroy($testimonial->id);
-        return redirect('/dashboard/testimonial')->with('success', 'Berhasil di delete');
+        return redirect('/dashboard/testimonial')->with('success', 'Testimoni berhasil dihapus');
     }
 }

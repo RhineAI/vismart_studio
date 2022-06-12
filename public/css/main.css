@@ -7,7 +7,14 @@
     --secondary-color: #265F94;
     --tertiary-color: #4A4A4A;
     --shadow-color: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --primary-shadow: rgba(246, 118, 0, 1) 0px 8px 24px;
+    --primary-shadow: rgba(246, 119, 0, 0.473) 0px 8px 24px;
+}
+
+@media only screen and (min-width: 600px)  
+{
+    section {
+        margin-bottom: 5em;
+    }
 }
 
 @keyframes float{
@@ -31,66 +38,52 @@ section {
 .card {
     border: none;
 }
+.btn {
+    border: 0;
+}
 .btn-primary {
     background-color: var(--primary-color);
-    border-color: var(--primary-color);
     color: #fff;
-    box-shadow: var(--shadow-color);
+    box-shadow: var(--primary-shadow);
     transition-duration: 0.4s;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
 }
 .btn-primary:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
+    background-color: #d56802;
     color: #fff;
-    transform: scale(1.05);
-    transition: 0.6s;
-}
-.btn-border-primary {   
-    border-color: var(--primary-color);
-    color: var(--tertiary-color);
-    box-shadow: var(--shadow-color);
-    letter-spacing: 0.2em;
-}
-.btn-border-primary:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: #fff;
-    transform: scale(1.05);
     transition: 0.6s;
 }
 .btn-white {   
     background-color: #fff;
-    border-color: #fff;
     color: var(--primary-color);
     box-shadow: var(--shadow-color);
-    letter-spacing: 0.2em;
-}
-.btn-white:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    color: #fff;
-    transform: scale(1.05);
-    transition: 0.6s;
-}
-
-
-/* Navbar Start */
-.form-control {
-    color: var(--tertiary-color);
-    font-size: 14px;
-    box-shadow: var(--shadow-color);
-    border-radius: 5px;
-}
-.template-sosmed{
-    color: var(--tertiary-color);
-    font-weight: 600;
     letter-spacing: 0.1em;
 }
-.template-sosmed:hover {
-    color: var(--secondary-color);
+.btn-white:hover {
+    background-color: #fafafa;
+    color: var(--primary-color);
+    transition: 0.6s;
 }
-/* Navbar End */
+.badge-primary {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+.badge-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    color: #fff;
+    background-color: var(--primary-color);
+    box-shadow: var(--primary-shadow);
+}
+#btn-back-to-top:hover {
+    background-color: #d56802;
+}
 
 /* Home Start */
 .header {
@@ -119,9 +112,8 @@ section {
     border-radius: 1.5em;
 }
 .service:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-    transform: scale(1.05);
+    background-color: #fafafa;
+    color: var(--tertiary-color);
     transition: 0.6s;
 }
 .page-2-img {
@@ -173,6 +165,9 @@ section {
     background-color: var(--primary-color);
     color: #fff;
 }
+.portofolio {
+    color: var(--tertiary-color);
+}
 .portofolio img {
     box-shadow: var(--shadow-color);
 }
@@ -183,8 +178,9 @@ section {
 .client {
     color: var(--tertiary-color);
 }
-.portofolio {
-    color: var(--tertiary-color);
+.client img:hover {
+    transform: scale(1.06);
+    transition: 0.6s;
 }
 .testimonial {
     color: var(--tertiary-color);
@@ -195,7 +191,7 @@ section {
 .owl-nav .owl-next {
     position: absolute;
     top: calc(50% - 70px);
-    right: -2em;
+    right: -1em;
     opacity: 1;
     font-size: 30px !important;
     z-index: 1;
@@ -203,51 +199,18 @@ section {
 .owl-nav .owl-prev {
     position: absolute;
     top: calc(50% - 70px);
-    left: -2em;
+    left: -1em;
     opacity: 1;
     font-size: 30px !important;
     z-index: 1;
 }
 
-/* Login Start */
-.login {
-    margin-top: 10em;
-}
-.background-login {
-    border: none;
-    box-shadow: var(--shadow-color);
-}
-.username, .password {
-    color: var(--tertiary-color);
-    font-size: 14px;
-    box-shadow: var(--shadow-color);
-    border-radius: 5px;
-    border: 2px solid var(--secondary-color);
-}
-/* Login End */
-
-/* Register Start */
-.register {
-    margin-top: 10em;
-}
-.background-register {
-    border: none;
-    box-shadow: var(--shadow-color);
-}
-.nama, .no-tlp, .username, .email, .password {
-    color: var(--tertiary-color);
-    font-size: 14px;
-    box-shadow: var(--shadow-color);
-    border-radius: 5px;
-    border: 2px solid var(--secondary-color);
-}
-/* Register End */
 
 /* Footer Start */
 footer {
     background-color: var(--secondary-color);
 }
-.footer {
+footer {
     background-color: var(--secondary-color);
     color: #fff;
     margin-bottom: 0;

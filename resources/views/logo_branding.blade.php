@@ -9,7 +9,7 @@
                 <img src="/img/logo vismart studio.png" class="card-img-top" alt="..." style="width: 200px">
                 <h1 class="mt-5 mb-3 fw-bold">Now Managing Instagram Business is Easier Without Having a Team, Thinking About Content and Design</h1>
                 <p class="fs-4 mb-5">We've Experience about Creative Content, Viral Content & Brand Hacking!</p>
-                <a href="#page-1"><button type="button" class="btn-border-primary btn rounded-pill border-3 p-3 px-5">REACH US!</button></a>
+                <a href="#page-1"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">REACH US!</button></a>
             </div>
         </div>
     </div>
@@ -22,13 +22,13 @@
                 <img src="/img/logo_branding/logo branding.png" class="img-fluid rounded-start" alt="..." style="width: 40em">
             </div>
             <div class="col-lg-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
-                <h2 class="fw-bold">Mengapa Harus Memiliki Logo?</h2><br>
+                <h1 class="fw-bold">Mengapa Harus Memiliki Logo?</h1><br>
                 <p class="fs-4">Tahukah Anda, logo merupakan unsur yang paling penting bagi sebuah perusahaan.</p>
                 <p class="fs-4">Sebab, umumnya manusia itu akan cenderung lebih mudah untuk mengingat sesuatu secara
                     visual. Sehingga, desain logo yang memikat tentu akan sangat mendukung brand bisnis dalam menarik
                     minat konsumen.</p>
                 <p class="fs-4">Jadi tunggu apalagi? Yuk segera pesan desain logo untuk perusahaan kamu kepada ahlinya.</p><br>
-                <a href="#column-3"><button type="button" class="btn-white btn rounded-pill border-3 p-3 px-5">NEXT</button></a>
+                <a href="#column-3"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">NEXT</button></a>
             </div>
         </div>
     </div>
@@ -118,12 +118,12 @@
 <section class="testimonial" id="testimonial">
   <div class="container">
       <div class="row align-items-center justify-content-center text-center">
-        <div class="col-8 aos-init aos-animate" data-aos="fade-up">
+        <div class="col-10 aos-init aos-animate" data-aos="fade-up">
           <div class="owl-carousel owl-text owl-theme">
 
             @foreach ($testimonials as $testimonial)
               <div class="item">
-                <h2 class="fw-bold mb-4">" {{ $testimonial->description }} "</h2>
+                <h1 class="fw-bold mb-4">" {{ $testimonial->description }} "</h1>
                 <h4 class="fw-bold">{{ $testimonial->name }}</h4>
               </div>
             @endforeach
@@ -137,7 +137,7 @@
 <section class="pricing">
     <div class="container">
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
-            <h2 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up">Pilih Paket</h2>
+            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up">Pilih Paket</h1>
             <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                 <div class="card mb-4 py-3">
                     <h4 class="fw-bold mt-3">Keren</h4>
@@ -153,7 +153,7 @@
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li>
                             </ul>
-                        <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill border-3 p-3 px-5">Beli Sekarang!</button></a>
+                        <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@
                                 <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
                                 <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li>
                             </ul>
-                        <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill border-3 p-3 px-5">Beli Sekarang!</button></a>
+                        <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
                     </div>
                 </div>
             </div>
@@ -191,7 +191,7 @@
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li>
                             </ul>
-                        <a href="https://wa.wizard.id/0fba2d" target="_blank"><button type="button" class="btn-primary btn rounded-pill border-3 p-3 px-5">Beli Sekarang!</button></a>
+                        <a href="https://wa.wizard.id/0fba2d" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
                     </div>
                 </div>
             </div>
@@ -206,7 +206,7 @@
               <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Konsul yuk terkait bisnis dan branding dari produk kamu!</h1>
               <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Manto Mukhli Fardi</p>
               <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0812 3456 7890</p>
-              <a href="https://wa.wizard.id/e091ae" target="_blank"><button type="button" class="btn-white btn rounded-pill border-3 p-3 px-5 mt-3 mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">Chat Sekarang!</button></a>
+              <a href="https://wa.wizard.id/e091ae" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">Chat Sekarang!</button></a>
           </div>
       </div>
   </div>
@@ -226,7 +226,6 @@
             autoplay:true,
             autoplayTimeout:4000,
             autoplayHoverPause:true,
-            center:true,
             responsive:{
                 0:{
                     items:1
