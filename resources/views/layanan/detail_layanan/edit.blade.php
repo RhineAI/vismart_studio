@@ -9,19 +9,93 @@
 
         <div class="box-body">
             <div class="col-lg-5">
-                <form action="/layanan/detail_layanan/{{ $serv->id }}" method="post">
+                <form action="/layanan/detail_layanan/{{ $id }}" method="post">
                     @method('put')
                     @csrf
+
                     <div class="mb-2">
                         <label for="service" class="form-label">Ganti Layanan</label>
                         <div class="input-group">
                             <select name="service" id="service" class="form-control mb-4">
-                                @foreach ($service as $key => $item )
-                                    <option value="{{ $item }}">{{ $item }}</option>
+                                <option value="">-- Pilih Layanan --</option>
+                                @foreach ($serv as $item )
+                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
                                 @endforeach
                             </select>
                         </div>
                         @error('service')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>   
+
+                    <div class="mb-2">
+                        <label for="jasa" class="form-label">Detail Layanan</label>
+                        <div class="input-group">
+                            <select name="jasa[]" id="feature" multiple class="chosen-select form-control mb-4">
+                                @foreach ($jas as $key => item)
+                                <option value="{{ $item->id }}">
+                                @if(!empty($detail))
+                                    @foreach(@$detail->jasa as $j)
+                                        @if($j->id == $item->id)
+                                            selected
+                                        @endif
+                                    @endforeach
+                                @endif
+                                >{{ ++$key }}. {{ $item->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('jasa')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>   
+
+                    <div class="mb-2">
+                        <label for="advantage" class="form-label">Keunggulan</label>
+                        <div class="input-group">
+                            <select name="advantage[]" id="feature" multiple class="chosen-select form-control mb-4">
+                                @foreach ($advant as $key => item)
+                                <option value="{{ $item->id }}">
+                                @if(!empty($detail))
+                                    @foreach(@$detail->advantage as $a)
+                                        @if($a->id == $item->id)
+                                            selected
+                                        @endif
+                                    @endforeach
+                                @endif
+                                >{{ ++$key }}. {{ $item->advantage }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('advantage')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>   
+
+                    <div class="mb-2">
+                        <label for="package" class="form-label">Paket</label>
+                        <div class="input-group">
+                            <select name="package[]" id="feature" multiple class="chosen-select form-control mb-4">
+                                @foreach ($pack as $key => item)
+                                <option value="{{ $item->id }}">
+                                @if(!empty($detail))
+                                    @foreach(@$detail->package as $p)
+                                        @if($p->id == $item->id)
+                                            selected
+                                        @endif
+                                    @endforeach
+                                @endif
+                                >{{ ++$key }}. {{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('package')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

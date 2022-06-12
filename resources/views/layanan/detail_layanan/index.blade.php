@@ -18,12 +18,15 @@
             </div>
 
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-package">
+                <table class="table table-bordered table-detail">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Layanan Tersedia</th>
-                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
+                            <th scope="col" class="text-center table-default" style="color:black;">Layanan</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Detail Layanan</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Keuntungan</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Paket</th>
+                            <th width="20%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
                             <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
@@ -45,7 +48,7 @@
     }, 3000);
 
     let table;
-        table = $('.table-package').DataTable({
+        table = $('.table-detail').DataTable({
         processing: true,
         responsive: true,
         autoWidth: false,
@@ -59,7 +62,10 @@
         },
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
-            {data:'layanan'},
+            {data:'title'},
+            {data:'jasa'},
+            {data:'keuntungan'},
+            {data:'paket'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]

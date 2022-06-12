@@ -22,7 +22,7 @@ class CreateDetailServiceTable extends Migration
                   ->references('id')
                   ->on('service')
                   ->onUpdate('cascade')
-                  ->onDelete('cascade');
+                  ->onDelete('restrict');
         });
     }
 

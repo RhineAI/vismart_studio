@@ -15,11 +15,11 @@ class CreateDetailServiceJasaTable extends Migration
     {
         Schema::create('detail_service_jasa', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('service_id');
+            $table->unsignedBigInteger('detail_service_id');
             $table->unsignedBigInteger('jasa_id');
             $table->timestamps();
 
-            $table->foreign('service_id')
+            $table->foreign('detail_service_id')
             ->references('id')
             ->on('detail_service')
             ->onUpdate('cascade')

@@ -14,18 +14,19 @@ class DetailService extends Model
     protected $guarded = [];
 
     public function service() {
-        return $this->belongsToMany(Service::class);
+        return $this->belongsToMany(Service::class, 'service');
+        // return $this->hasOne(Service::class, 'id', 'id');
     }
 
-    public function detail_jasa() {
+    public function jasa() {
         return $this->belongsToMany(Jasa::class, 'detail_service_jasa');
     }
 
-    public function detail_package() {
+    public function package() {
         return $this->belongsToMany(Package::class, 'detail_service_package');
     }
 
-    public function detail_previllege() {
+    public function advantage() {
         return $this->belongsToMany(Advantage::class, 'detail_service_previllege');
     }
 }

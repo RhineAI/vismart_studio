@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advantage;
 use App\Models\DetailService;
+use App\Models\Jasa;
+use App\Models\Package;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -22,24 +25,58 @@ class DetailServiceController extends Controller
 
     public function data()
     {
-        $service = DetailService::orderBy('id', 'desc')->get();
+        $service = DetailService::
+        leftJoin('service', 'service.id', 'detail_service.service_id')
+        ->select('detail_service.*', 'title')
+        ->orderBy('id', 'desc')->get();
+
 
         return datatables()
             ->of($service)
             ->addIndexColumn()
-            ->addColumn('layanan', function ($service) {
-                return $service->service;
+            // ->addColumn('layanan', function ($service) {
+            //     return $service->service_id;
+            //     // $serv = $service->service_id ;
+            // })
+
+            ->addColumn('jasa', function ($service) {
+                $jasa_layanan = '';
+                foreach ($service->jasa as $key => $value) {
+                    $jasa_layanan .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-primary rounded">'. $value->title.'</div>';
+                }
+                return $jasa_layanan;
             })
+
+            ->addColumn('keuntungan', function ($service) {
+                $advantages = '';
+                foreach ($service->advantage as $key => $value) {
+                    $advantages .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-warning rounded">'. $value->advantage.'</div>';
+                }
+                return $advantages;
+            })
+
+            ->addColumn('paket', function ($service) {
+                $package = '';
+                foreach ($service->package as $key => $value) {
+                    if ($value->is_first == 1){
+                        $package .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-danger rounded">'. $value->name.'</div>';
+                    } else {
+                        $package .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-warning rounded">'. $value->name.'</div>';
+                    }
+                }
+                return $package;
+            })
+
             ->addColumn('created', function($service) {
                 return tanggal($service->created_at);
             })
             ->addColumn('action', function ($service) {
                 return '
-                    
-                    <button onclick="deleteData(`'. route('detail_layanan.destroy', $service->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
+                    <a href="'. route('detail_service.ubah', $service->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <button onclick="deleteData(`'. route('detail_service.hapus', $service->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['jasa','keuntungan','paket','action'])
             ->make(true);
     }
     // <a href="'. route('detail_layanan.edit', $service->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
@@ -53,7 +90,10 @@ class DetailServiceController extends Controller
     public function create()
     {
         return view('layanan/detail_layanan/create', [
-            'service' => Service::all()->pluck('title')
+            'service' => Service::all(),
+            'advantage' => Advantage::all(),
+            'jasa' => Jasa::all(),
+            'package' => Package::all()
         ]);
     }
 
@@ -65,9 +105,19 @@ class DetailServiceController extends Controller
      */
     public function store(Request $request)
     {
+        // return($request->all());
         $service = new DetailService();
-        $service->service = $request->service;
+        $service->service_id = $request->service;
         $service->save();
+        
+        
+        // $service->service()->attach($request->service);
+        $service->jasa()->attach($request->jasa);
+        $service->advantage()->attach($request->advantage);
+        $service->package()->attach($request->package);
+        
+        
+        // dd($service);
 
         return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Berhasil Ditambahkan');
 
@@ -95,10 +145,23 @@ class DetailServiceController extends Controller
      */
     public function edit(DetailService $detailService)
     {
+        //
+    }
+
+    public function ubah($id)
+    {
+        $detail = DetailService::find($id);
+        $serv = Service::orderBy('title', 'ASC')->get();
+        $jas = Jasa::orderBy('title', 'ASC')->get();
+        $advant = Advantage::orderBy('advantage', 'ASC')->get();
+        $pack = Package::orderBy('name', 'ASC')->get();
+
         return view('layanan/detail_layanan/edit', [
-            'serv' => $detailService,
-            'detail_service' => DetailService::all(),
-            'service' => Service::all()->pluck('title')
+            'layanan' => $detail,
+            'service' => $serv,
+            'jasa' => $jas,
+            'advantage' => $advant,
+            'package' => $pack,
         ]);
     }
 
@@ -111,7 +174,13 @@ class DetailServiceController extends Controller
      */
     public function update(Request $request, DetailService $detailService)
     {
-        //
+        $service = DetailService::find($detailService->id);
+        $service->service_id = $request->service;
+        $service->update();
+
+        $service->jasa()->sync($request->jasa);
+        $service->advantage()->sync($request->advantage);
+        $service->package()->sync($request->package);
     }
 
     /**
@@ -122,7 +191,18 @@ class DetailServiceController extends Controller
      */
     public function destroy(DetailService $detailService)
     {
-        DetailService::find($detailService->id)->destroy();
-        return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Berhasil di delete');
+        $detail = $detailService->id;
+        // return $detail;
+        DetailService::destroy($detail);
+        // $detail->delete();
+        return response(null,200);
+    }
+
+    public function hapus($id)
+    {
+        $hapus = DetailService::find($id);
+        $hapus->delete();   
+
+        return response(null,200);
     }
 }
