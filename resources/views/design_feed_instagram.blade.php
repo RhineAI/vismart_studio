@@ -5,11 +5,10 @@
 <section class="header">
     <div class="container">
         <div class="row text-center align-items-center justify-content-center" style="min-height: 100vh">
-            <div class="col-12">
-                <img src="/img/logo vismart studio.png" class="card-img-top" alt="..." style="width: 200px">
-                <h1 class="mt-5 mb-3 fw-bold">Now Managing Instagram Business is Easier Without Having a Team, Thinking About Content and Design</h1>
-                <p class="fs-4 mb-5">We've Experience about Creative Content, Viral Content & Brand Hacking!</p>
-                <a href="#page-1"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">REACH US!</button></a>
+            <div class="col-10">
+                <img src="/img/logo vismart studio.png" class="img-fluid aos-init aos-animate" data-aos="zoom-in" alt="..." style="width: 20em;">
+                <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">Now Managing Instagram Business is Easier Without Having a Team, Thinking About Content and Design</h1>
+                <a href="#page-1"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-4 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">REACH US!</button></a>
             </div>
         </div>
     </div>
@@ -18,14 +17,14 @@
 <section class="page-1" id="page-1">
     <div class="container">
         <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
-            <div class="col-lg-6 p-5 order-md-last aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+            <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
                 <img src="/img/design_feed_instagram/Design Feed Instagram.png" class="img-fluid" alt="..." style="width: 40em">
             </div>
-            <div class="col-lg-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
-                <h1 class="fw-bold">Apa itu Desain Feed Instagram?</h1><br>
-                <p class="fs-4">Desain feed pada instagram kamu adalah kunci keberhasilan proses branding. Baik itu akun personal maupun akun bisnis. Dari desain feed, audiens bisa mengetahui vibes dan kesan visual yang kamu inginkan.</p>
-                <p class="fs-4">Feed Instagram menjadi media utama ketika kamu ingin mengembangkan sebuah akun. Dari situ, kamu bisa mencapai audiens yang kamu inginkan, menyampaikan branding, dan membangun interaksi atau engagement dengan audiens.</p><br>
-                <a href="#page-2"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">NEXT</button></a>
+            <div class="col-lg-6 p-5">
+                <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">Apa itu Desain Feed Instagram?</h1><br>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">Desain feed pada instagram kamu adalah kunci keberhasilan proses branding. Baik itu akun personal maupun akun bisnis. Dari desain feed, audiens bisa mengetahui vibes dan kesan visual yang kamu inginkan.</p>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">Feed Instagram menjadi media utama ketika kamu ingin mengembangkan sebuah akun. Dari situ, kamu bisa mencapai audiens yang kamu inginkan, menyampaikan branding, dan membangun interaksi atau engagement dengan audiens.</p><br>
+                <a href="#page-2"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
             </div>
         </div>
     </div>
@@ -34,81 +33,81 @@
 <section class="page-2" id="page-2">
     <div class="container">
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
-            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up">Apa yang bisa Vismart Studio lakukan untuk Bisnismu</h1>
+            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Apa yang bisa Kami lakukan untuk Bisnismu</h1>
             <div class="col-12">
             
-            <div class="row my-3" id="1">
-                <div class="col-lg-6 p-5 order-md-last aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+            <div class="row my-5" id="1">
+                <div class="col-lg-6 p-5 d-flex justify-content-center align-items-center order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
                     <img src="/img/design_feed_instagram/profesional.png" class="img-fluid" alt="..." style="width: 25em">
                 </div>
-                <div class="col-lg-6 p-5 text-start aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
-                    <h2 class="fw-bold">Membuat Desain yang Profesional</h2><br>
-                    <ul class="text-black-50">
+                <div class="col-lg-6 p-5 text-start">
+                    <h2 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">Membuat Desain yang Profesional</h2><br>
+                    <ul class="text-black-50 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">
                         <li class="fs-4">Design dibuat Manual, No Template dengan menggunakan Software Design Profesional (Photoshop, Ilustrator, Corel, dan Figma).</li>
                         <li class="fs-4">Dikerjakan oleh Tim Profesional.</li>
                         <li class="fs-4">100% Konsep bisa dibantu oleh Tim Vismart Studio.</li>
                     </ul><br>
-                    <a href="#2"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">NEXT</button></a>
+                    <a href="#2"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
                 </div>
             </div>
 
-            <div class="row my-3" id="2">
-                <div class="col-lg-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+            <div class="row my-5" id="2">
+                <div class="col-lg-6 p-5 d-flex justify-content-center align-items-center p-5 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">
                     <img src="/img/design_feed_instagram/riset.png" class="img-fluid" alt="..." style="width: 25em">
                 </div>
-                <div class="col-lg-6 p-5 text-start aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
-                    <h2 class="fw-bold">Content dibuat dengan Profesional</h2><br>
-                    <ul class="text-black-50">
+                <div class="col-lg-6 p-5 text-start">
+                    <h2 class="fw-bold aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease">Content dibuat dengan Profesional</h2><br>
+                    <ul class="text-black-50 aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
                         <li class="fs-4">Team Content Planner Vismart Studio sudah dilatih dalam membuat konten yang profesional untuk semua client.</li>
                         <li class="fs-4">Konten dibuat dengan tujuan agar bisa mendatangkan sales & meningkatkan interaksi.</li>
                         <li class="fs-4">Team Content Planner akan memberikan Preview Content kepada Client setelah full membuat Plannernya.</li>
                     </ul><br>
-                    <a href="#3"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">NEXT</button></a>
+                    <a href="#3"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
                 </div>
             </div>
 
-            <div class="row my-3" id="3">
-                <div class="col-lg-6 p-5 order-md-last aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+            <div class="row my-5" id="3">
+                <div class="col-lg-6 p-5 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
                     <img src="/img/design_feed_instagram/request1.png" class="img-fluid" alt="..." style="width: 25em">
                 </div>
-                <div class="col-lg-6 p-5 text-start aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
-                    <h2 class="fw-bold">Client Bebas Request Apapun</h2><br>
-                    <ul class="text-black-50">
+                <div class="col-lg-6 p-5 text-start">
+                    <h2 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">Client Bebas Request Apapun</h2><br>
+                    <ul class="text-black-50 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">
                         <li class="fs-4">Client boleh request agar di semua konten ada Logo Brand Client.</li>
                         <li class="fs-4">Client boleh request Visual & Layoutnya sesuai dengan Referensi yang Client inginkan.</li>
                         <li class="fs-4">Client boleh request jika ada goal-goal khusus untuk kontennya.</li>
                     </ul><br>
-                    <a href="#4"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">NEXT</button></a>
+                    <a href="#4"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
                 </div>
             </div>
 
-            <div class="row my-3" id="4">
-                <div class="col-lg-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+            <div class="row my-5" id="4">
+                <div class="col-lg-6 p-5 d-flex justify-content-center align-items-center p-5 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">
                     <img src="/img/design_feed_instagram/sosmed.png" class="img-fluid" alt="..." style="width: 25em">
                 </div>
-                <div class="col-lg-6 p-5 text-start aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
-                    <h2 class="fw-bold">Desain bisa digunakan ke Platform lain</h2><br>
-                    <ul class="text-black-50">
+                <div class="col-lg-6 p-5 text-start" data-aos="fade-left" data-aos-easing="ease">
+                    <h2 class="fw-bold aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease">Desain bisa digunakan ke Platform lain</h2><br>
+                    <ul class="text-black-50 aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
                         <li class="fs-4">Iklan IG Ads & FB Ads.</li>
                         <li class="fs-4">Untuk diberikan ke Agen, Distributor, Reseller Anda.</li>
                         <li class="fs-4">Untuk Anda posting ke WA Story, FB personal, dll.</li>
                         <li class="fs-4">Untuk Anda jadikan konten di Marketplace.</li>
                     </ul><br>
-                    <a href="#5"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">NEXT</button></a>
+                    <a href="#5"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
                 </div>
             </div>
 
-            <div class="row my-3" id="5">
-                <div class="col-lg-6 p-5 order-md-last aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+            <div class="row my-5" id="5">
+                <div class="col-lg-6 p-5 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
                     <img src="/img/design_feed_instagram/happy.png" class="img-fluid" alt="..." style="width: 25em">
                 </div>
-                <div class="col-lg-6 p-5 text-start aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
-                    <h2 class="fw-bold">Keuntungan lain yang Client dapatkan</h2><br>
-                    <ul class="text-black-50">
+                <div class="col-lg-6 p-5 text-start">
+                    <h2 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">Keuntungan lain yang Client dapatkan</h2><br>
+                    <ul class="text-black-50 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">
                         <li class="fs-4">Harga yang Super Terjangkau. Seluruh Paket Vismart Studio dibuat KHUSUS untuk UMKM di Indonesia, sehingga Harga yang Vismart Studio hadirkan juga sangat terjangkau di Kantong para UMKM yang ada.</li>
                         <li class="fs-4">FREE Revisi Desain. Jika ada kesalahan / ada yang tidak sesuai dengan brief yang sudah Anda berikan, Anda bisa mengajukan revisi untuk Project Anda.</li>
                     </ul><br>
-                    <a href="#column-3"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">NEXT</button></a>
+                    <a href="#column-3"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
                 </div>
             </div>
         
@@ -121,7 +120,7 @@
 <section class="column-3" id="column-3">
     <div class="container">
         <div class="row justify-content-center text-center" style="min-height: 100vh">
-            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up">Apa saja konten yang akan Anda dapatkan</h1>
+            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Apa saja konten yang akan Anda dapatkan</h1>
             <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                 <img src="/img/design_feed_instagram/desain produk.png" class="img-fluid mb-3" alt="..." style="width: 15em">
                 <h4 class="fw-bold">Konten Desain Produk</h4>
@@ -153,23 +152,23 @@
 <section class="portofolio" id="portofolio">
     <div class="container">
         <div class="row justify-content-center text-center">
-            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up">Portofolio Vismart Studio</h1>
+            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Portofolio Vismart Studio</h1>
             <div class="col-12 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                 <div class="owl-carousel owl-images owl-theme">
-
-                @foreach ($portofolios as $portofolio)
-                <div class="item mx-3 my-5">
-                  <a href="{{ asset('storage/' . $portofolio->image) }}" data-lightbox="roadtrip" data-title="{{ $portofolio->title }}"><img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}"></a>
-                </div>
-                @endforeach
-
+  
+                  @foreach ($portofolios as $portofolio)
+                  <div class="item mx-3 my-5">
+                    <a href="{{ asset('storage/' . $portofolio->image) }}" data-lightbox="roadtrip" data-title="{{ $portofolio->title }}"><img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}"></a>
+                  </div>
+                  @endforeach
+                    
                 </div>
             </div>
         </div>
     </div>
-  </section>
+</section>
   
-  <section class="testimonial" id="testimonial">
+<section class="testimonial" id="testimonial">
     <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-10 aos-init aos-animate" data-aos="fade-up">
@@ -186,13 +185,13 @@
           </div>
         </div>
     </div>
-  </section>
-
-  <section class="pricing">
+</section>
+  
+<section class="pricing">
     <div class="container">
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
-            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up">Pilih Paket</h1>
-            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Pilih Paket</h1>
+            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
                 <div class="card mb-4 py-3">
                     <h4 class="fw-bold mt-3">Keren</h4>
                     <div class="card-body">
@@ -207,11 +206,11 @@
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li>
                             </ul>
-                        <a href="https://wa.wizard.id/1b9207" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
+                        <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
+            <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                 <div class="card mb-4 py-5"  style="color: #fff; background-color: var(--primary-color);">
                     <h4 class="fw-bold mt-3">Ajib</h4>
                     <div class="card-body">
@@ -226,11 +225,11 @@
                                 <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
                                 <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li>
                             </ul>
-                        <a href="https://wa.wizard.id/589553" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
+                        <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
+            <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
                 <div class="card mb-4 py-3">
                     <h4 class="fw-bold mt-3">Mantap</h4>
                     <div class="card-body">
@@ -245,7 +244,7 @@
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li>
                             </ul>
-                        <a href="https://wa.wizard.id/8acbaf" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
+                        <a href="https://wa.wizard.id/0fba2d" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
                     </div>
                 </div>
             </div>
@@ -254,16 +253,16 @@
 </section>
 
 <section class="contact" id="contact">
-  <div class="container">
-      <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
-          <div class="col-lg-10">
-              <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Konsul yuk terkait bisnis dan branding dari produk kamu!</h1>
-              <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Manto Mukhli Fardi</p>
-              <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0812 3456 7890</p>
-              <a href="https://wa.wizard.id/7cd4ba" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">Chat Sekarang!</button></a>
-          </div>
-      </div>
-  </div>
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
+            <div class="col-lg-8 aos-init aos-animate">
+                <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Konsul yuk terkait bisnis dan branding dari produk kamu!</h1>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Manto Mukhli Fardi</p>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0812 3456 7890</p>
+                <a href="https://wa.wizard.id/7cd4ba" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
+            </div>
+        </div>
+    </div>
 </section>
 
 @endsection
