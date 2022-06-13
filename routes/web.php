@@ -64,6 +64,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
     // Rute Semua Layanan
+
+        // Slug Service 
+        Route::get('/dashboard/layanan/service/makeSlug', [ServiceController::class, 'makeSlug'])->middleware('auth');
+
         // Service
         Route::resource('/dashboard/layanan/service', ServiceController::class);
         Route::post('/dashboard/layanan/service/data', [ServiceController::class, 'data'])->name('service.data');
@@ -72,13 +76,12 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/dashboard/layanan/jasa', JasaController::class);
         Route::post('/dashboard/layanan/jasa/data', [JasaController::class, 'data'])->name('jasa.data');
 
-         // Detail Services
-         Route::resource('/dashboard/layanan/detail_layanan', DetailServiceController::class);
-         Route::post('/dashboard/layanan/detail_layanan/data', [DetailServiceController::class, 'data'])->name('detail_service.data');
-         Route::put('/dashboard/layanan/detail_layanan/{id}/edit', [DetailServiceController::class, 'ubah'])->name('detail_service.ubah');
-         Route::delete('/dashboard/layanan/detail_layanan/{id}/hapus', [DetailServiceController::class, 'hapus'])->name('detail_service.hapus');
-    //
-        
+        // Detail Services
+        Route::resource('/dashboard/layanan/detail_layanan', DetailServiceController::class);
+        Route::post('/dashboard/layanan/detail_layanan/data', [DetailServiceController::class, 'data'])->name('detail_service.data');
+        Route::put('/dashboard/layanan/detail_layanan/{id}/edit', [DetailServiceController::class, 'ubah'])->name('detail_service.ubah');
+        Route::delete('/dashboard/layanan/detail_layanan/{id}/hapus', [DetailServiceController::class, 'hapus'])->name('detail_service.hapus');
+
     // Testimonial
     Route::resource('/dashboard/testimonial', TestimonialController::class);
     Route::post('/dashboard/testimonial/data', [TestimonialController::class, 'data'])->name('testimonial.data');
