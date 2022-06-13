@@ -9,7 +9,7 @@
 
         <div class="box-body">
             <div class="col-lg-5">
-                <form action="{{ route('user.store') }}" method="post">
+                <form action="{{ route('user.store') }}" method="post" id="user-form">
                     @csrf
                     <div class="mb-2">
                         <label for="name" class="form-label">Nama</label>
@@ -36,7 +36,7 @@
                     <div class="mb-2">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
-                            name="password" value="{{ old('password') }}" required>
+                            name="password" value="{{ old('password') }}" required minlength="4">
                         @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -54,3 +54,36 @@
     </div>
 </div>
 @endsection
+
+@push('script')
+<script>
+     $('#user-form').validator().on('submit', function (e) {
+        if (! e.preventDefault()) {
+            $.post($('#user-form').attr('action'), $('#user-form form').serialize());
+                if((response == true) => {
+                    Swal.fire({
+                        title: 'Sukses!',
+                        text: response,
+                        icon: 'success',
+                        confirmButtonText: 'Lanjut',
+                        confirmButtonColor: '#28A745'
+                    })
+                    window.location('/dashboard/user');
+                })
+                else((response ) => {
+                    Swal.fire({
+                        title: 'Gagal!',
+                        text: 'Data Produk yang diinput sudah ada',
+                        icon: 'error',
+                        confirmButtonText: 'Kembali',
+                        confirmButtonColor: '#DC3545'
+                    })
+                    table.ajax.reload();
+    
+                    return;
+                });
+        }
+    });
+</script>
+    
+@endpush

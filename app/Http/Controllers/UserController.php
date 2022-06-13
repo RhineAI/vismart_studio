@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -71,6 +72,8 @@ class UserController extends Controller
 
         $user->save();
 
+        // return redirect('/dashboard/user')->response()->json('Data berhasil disimpan', 200);
+
         return redirect('/dashboard/user')->with('success', 'Pengguna baru berhasil ditambah');
     }
 
@@ -91,11 +94,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
+        // return User::find($id);
+
         return view('user.edit', [
-            'user' => $user,
-            'user' => User::all()
+            'user' => User::find($id),
+            'users' => User::all()
         ]);
     }
 
@@ -106,12 +111,29 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {   
-        $user = User::find($user->id);
+        $user = User::find($id);
+        // $user->name = $request->name;
+        // $user->username = $request->username;
+        // $user->password = bcrypt($request->password);
+
+        // $user = auth()->user();
+        
         $user->name = $request->name;
         $user->username = $request->username;
-        $user->password = bcrypt($request->password);
+
+        if ($request->has('password') && $request->password != "") {
+            if (Hash::check($request->old_password, $user->password)) {
+                if ($request->password == $request->password_confirmation) {
+                    $user->password = bcrypt($request->password);
+                } else {
+                    return response()->json('Konfirmasi password tidak sesuai', 422);
+                }
+            } else {
+                return response()->json('Password lama tidak sesuai', 422);
+            }
+        }
         
         $user->update();
 

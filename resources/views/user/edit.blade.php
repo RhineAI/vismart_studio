@@ -9,7 +9,7 @@
 
         <div class="box-body">
             <div class="col-lg-5">
-                <form action="{{ route('user.update', $user->id) }}" method="post">
+                <form action="{{ route('user.update', $user) }}" method="post">
                     @method('put')
                     @csrf
                     <div class="mb-2">
@@ -35,14 +35,45 @@
                     </div>
 
                     <div class="mb-2">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
-                            password="password" value="{{ old('password', $user->password) }}">
-                        @error('password')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+                        <label for="old_password" class="form-label">Password Lama</label>
+                        <input type="password" name="old_password" class="form-control  @error('old_password') is-invalid @enderror " id="old_password"  
+                        minlength="4">
+                        <div class="col-sm-4">
+                            <span class="help-block with-errors"></span>
+                            @error('old_password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
-                        @enderror
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="password" class="form-label">Password Baru</label>
+                        <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror " id="password"  
+                        minlength="4">
+                        <div class="col-sm-4">
+                            <span class="help-block with-errors"></span>
+                            @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control  @error('password_confirmation') is-invalid @enderror "  
+                        data-match=#password" minlength="4">
+                        <div class="col-sm-4">
+                            <span class="help-block with-errors"></span>
+                            @error('password_confirmation')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
                     </div>
             </div>
         </div>
