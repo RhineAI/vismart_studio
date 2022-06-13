@@ -25,6 +25,8 @@
                             <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar
                             <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
                             </th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Pranala</th>
+                            </th>
                             <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
                             <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
@@ -63,6 +65,7 @@
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'image'},
             {data:'title'},
+            {data:'slug'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]

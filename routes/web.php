@@ -64,6 +64,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
     // Rute Semua Layanan
+
+        // Slug Service 
+        Route::get('/dashboard/layanan/service/makeSlug', [ServiceController::class, 'makeSlug'])->middleware('auth');
+
         // Service
         Route::resource('/dashboard/layanan/service', ServiceController::class);
         Route::post('/dashboard/layanan/service/data', [ServiceController::class, 'data'])->name('service.data');
