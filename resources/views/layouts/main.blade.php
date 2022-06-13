@@ -50,7 +50,7 @@
       
         // AOS
         AOS.init({
-				easing: 'ease-out-back',
+        easing: 'ease-out-back',
 				duration: 1500,
 			  });
 

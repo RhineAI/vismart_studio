@@ -10,11 +10,12 @@
     --primary-shadow: rgba(246, 119, 0, 0.473) 0px 8px 24px;
 }
 
-@media only screen and (min-width: 600px)  
-{
-    section {
-        margin-bottom: 5em;
+@media (max-width:600px){
+    
+    section{
+        padding-bottom: 0;
     }
+
 }
 
 @keyframes float{
@@ -28,6 +29,7 @@
 
 body {
     background-color: white;
+    overflow-x: hidden;
 }
 a{
     text-decoration: none;
