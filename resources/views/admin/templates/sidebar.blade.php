@@ -22,7 +22,7 @@
 
                     {{-- Service --}}
                     <li>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link {{ Request::is('dashboard/layanan*') ? 'active' : '' }}" href="#">
                             <i data-feather="inbox" class="align-self-center menu-icon"></i>
                             <span>Layanan</span>
                             <span class="menu-arrow">
@@ -32,21 +32,21 @@
 
                         <ul class="nav-second-level" aria-expanded="false">
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/service*') ? 'active' : '' }}" href="{{ route('service.index') }}">
+                                <a href="{{ route('service.index') }}">
                                     <i class="ti-control-record"></i>
                                     Utama
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/layanan/jasa*') ? 'active' : '' }}"  href="{{ route('jasa.index') }}">
+                                <a  href="{{ route('jasa.index') }}">
                                     <i class="ti-control-record"></i>
                                     Jasa 
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/layanan/detail_layanan*') ? 'active' : '' }}" href="{{ route('detail_layanan.index') }}">
+                                <a href="{{ route('detail_layanan.index') }}">
                                     <i class="ti-control-record"></i>
                                     Detail Layanan
                                 </a>
@@ -84,7 +84,9 @@
 
                     {{-- Package --}}
                     <li>
-                        <a class="nav-link" href="#">
+                        <a class="  nav-link {{ Request::is('dashboard/package*') ? 'active' : '' }}
+                                    nav-link {{ Request::is('dashboard/feature*') ? 'active' : '' }}" 
+                            class="nav-link" href="#">
                             <i data-feather="shopping-bag" class="align-self-center menu-icon"></i>
                             <span>Paket</span>
                             <span class="menu-arrow">
@@ -94,14 +96,14 @@
 
                         <ul class="nav-second-level" aria-expanded="false">
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/package*') ? 'active' : '' }}" href="{{ route('package.index') }}">
+                                <a href="{{ route('package.index') }}">
                                     <i class="ti-control-record"></i>
                                     List Paket
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard/feature*') ? 'active' : '' }}" href="{{ route('feature.index') }}">
+                                <a href="{{ route('feature.index') }}">
                                     <i class="ti-control-record"></i>
                                     List Fitur
                                 </a>
