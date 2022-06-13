@@ -184,71 +184,76 @@
     <div class="container">
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh;">
             <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Apa yang Kamu Butuhkan?</h1>
-            <div class="col-lg-4 col-md-6 mb-4 text-center aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <div class="feature">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <img src="/img/home/Logo dan Branding Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
-                        </div>
-                        <div class="col-10">
-                            <h2 class="fw-bold">Logo dan Branding</h2>
-                        </div>
-                        <a href="logobranding"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch justify-content-center g-4 py-5">
+                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                  <div class="card feature h-100 text-center">
+                    <div class="image text-center">
+                        <img src="/img/home/Logo dan Branding Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
                     </div>
+                    <div class="text">
+                        <h2 class="px-5 fw-bold">Logo dan Branding</h2>
+                    </div>
+                    <div class="text-center mt-auto">
+                      <a href="logobranding"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                  <div class="card feature h-100 text-center">
+                    <div class="image text-center">
+                        <img src="/img/home/Design Feed Instagram Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
+                    </div>
+                    <div class="text">
+                        <h2 class="px-5 fw-bold">Design Feed Instagram</h2>
+                    </div>
+                    <div class="text-center mt-auto">
+                      <a href="designfeed"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                  <div class="card feature h-100 text-center">
+                    <div class="image text-center">
+                        <img src="/img/home/Digital Marketing Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
+                    </div>
+                    <div class="text">
+                        <h2 class="px-5 fw-bold">Digital Marketing</h2>
+                    </div>
+                    <div class="text-center mt-auto">
+                      <a href="digitalmarketing"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                  <div class="card feature h-100 text-center">
+                    <div class="image text-center">
+                        <img src="/img/home/Social Media Management Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
+                    </div>
+                    <div class="text">
+                        <h2 class="px-5 fw-bold">Social Media Management</h2>
+                    </div>
+                    <div class="text-center mt-auto">
+                      <a href="smm"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                  <div class="card feature h-100 text-center">
+                    <div class="image text-center">
+                        <img src="/img/home/Marketing Communications Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
+                    </div>
+                    <div class="text">
+                        <h2 class="px-5 fw-bold">Marketing Communications</h2>
+                    </div>
+                    <div class="text-center mt-auto">
+                      <a href="marketingcommunications"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+                    </div>
+                  </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4 text-center aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <div class="feature">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <img src="/img/home/Design Feed Instagram Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
-                        </div>
-                        <div class="col-10">
-                            <h2 class="fw-bold" >Desain Feed Instagram</h2>
-                        </div>
-                        <a href="designfeed"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4 text-center aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <div class="feature">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <img src="/img/home/Digital Marketing Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
-                        </div>
-                        <div class="col-10">
-                            <h2 class="fw-bold" >Digital Marketing</h2>
-                        </div>
-                        <a href="digitalmarketing"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4 text-center aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <div class="feature">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <img src="/img/home/Social Media Management Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
-                        </div>
-                        <div class="col-10">
-                            <h2 class="fw-bold" >Social Media Management</h2>
-                        </div>
-                        <a href="smm"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4 text-center aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <div class="feature">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <img src="/img/home/Marketing Communications Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
-                        </div>
-                        <div class="col-10">
-                            <h2 class="fw-bold" >Marketing Communications</h2>
-                        </div>
-                        <a href="marketingcommunications"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>
