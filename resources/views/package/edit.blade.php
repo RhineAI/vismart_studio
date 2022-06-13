@@ -28,13 +28,16 @@
                         <label for="name">Fitur</label>
                         <select name="feature[]" id="feature" class="form-control chosen-select" multiple>
                             @foreach($feature as $key => $f)
-                            <option value="{{ $f->id }}" @if(!empty($package)) @foreach($package->feature as $features)
-                                @if($features->id == $f->id)
-                                selected
-                                @endif
-                                @endforeach
-                                @endif
-                                >{{ ++$key }}. {{ $f->feature }}</option>
+                                <option value="{{ $f->id }}" 
+                                    @if(!empty($package)) 
+                                        @foreach($package->feature as $features)
+                                            @if($features->id == $f->id)
+                                                selected
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                    >{{ ++$key }}. {{ $f->feature }}
+                                </option>
                             @endforeach
                         </select>
                         @error('feature')
@@ -58,8 +61,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">+62</span>
                             <input type="text" class="form-control @error('noTelp') is-invalid @enderror" rows="3"
-                                id="noTelp" name="noTelp" value="{{ old('noTelp', $pack->noTelp) }}" 
-                                minlength="9" maxlength="12">
+                                id="noTelp" name="noTelp" value="{{ old('noTelp', $pack->no_telp) }}" 
+                                minlength="9" maxlength="15">
                         </div>
                         @error('noTelp')
                         <div class="invalid-feedback">

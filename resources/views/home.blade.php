@@ -38,7 +38,8 @@
                 <img src="/img/home/home.png" class="img-fluid page-2-img" alt="..." style="width: 35em">
             </div>
             <div class="col-lg-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">
-                    <a href="#1">
+                {{-- @foreach ($service as $item) --}}
+                    <a href="">
                         <div class="service p-2 px-4 mb-4">
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-lg-2 text-center">
@@ -50,7 +51,9 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#2">
+                    
+                {{-- @endforeach --}}
+                    <a href="#2"> 
                         <div class="service p-2 px-4 mb-4">
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-lg-2 text-center">
@@ -97,7 +100,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </a> --}}
                 
             </div>
         </div>

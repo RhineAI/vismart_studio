@@ -72,7 +72,7 @@ class DetailServiceController extends Controller
             })
             ->addColumn('action', function ($service) {
                 return '
-                    <a href="'. route('detail_service.ubah', $service->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="'. route('detail_layanan.edit', $service->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <button onclick="deleteData(`'. route('detail_service.hapus', $service->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
@@ -143,26 +143,32 @@ class DetailServiceController extends Controller
      * @param  \App\Models\DetailService  $detailService
      * @return \Illuminate\Http\Response
      */
-    public function edit(DetailService $detailService)
+    public function edit($id)
     {
-        //
+        return view('layanan/detail_layanan/edit', [
+            // 'id' => $id,
+            'detail' => DetailService::with(['jasa', 'package', 'advantage'])->findOrFail($id),
+            'package' => Package::orderBy('name', 'ASC')->get(),
+            'jasa' => Jasa::orderBy('title', 'ASC')->get(),
+            'services' => Service::all(),
+            'advantage' => Advantage::orderBy('advantage', 'ASC')->get(),
+        ]);
     }
 
     public function ubah($id)
     {
-        $detail = DetailService::find($id);
-        $serv = Service::orderBy('title', 'ASC')->get();
-        $jas = Jasa::orderBy('title', 'ASC')->get();
-        $advant = Advantage::orderBy('advantage', 'ASC')->get();
-        $pack = Package::orderBy('name', 'ASC')->get();
+        $detail = DetailService::findOrFail($id);
 
-        return view('layanan/detail_layanan/edit', [
-            'layanan' => $detail,
-            'service' => $serv,
-            'jasa' => $jas,
-            'advantage' => $advant,
-            'package' => $pack,
-        ]);
+        dd($detail);
+
+        // return view('layanan/detail_layanan/edit', [
+        //     'detail_id' => $id,
+        //     'layanan' => $detail,
+        //     'services' => Service::all(),
+        //     'jasa' => Jasa::orderBy('title', 'ASC')->get(),
+        //     'advantage' => Advantage::orderBy('advantage', 'ASC')->get(),
+            // 'package' => Package::orderBy('name', 'ASC')->get(),
+        // ]);
     }
 
     /**
@@ -172,15 +178,17 @@ class DetailServiceController extends Controller
      * @param  \App\Models\DetailService  $detailService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DetailService $detailService)
+    public function update(Request $request, $id)
     {
-        $service = DetailService::find($detailService->id);
+        $service = DetailService::find($id);
         $service->service_id = $request->service;
         $service->update();
 
         $service->jasa()->sync($request->jasa);
         $service->advantage()->sync($request->advantage);
         $service->package()->sync($request->package);
+
+        return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Berhasil Diupdate');
     }
 
     /**

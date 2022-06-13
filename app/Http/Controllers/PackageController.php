@@ -47,7 +47,7 @@ class PackageController extends Controller
             })
             ->addColumn('mainView', function($package) {
                 if($package->is_first == 1){
-                    $is_first = '<span class="badge badge-info">Ya</span>';   
+                    $is_first = '<span class="badge badge-primary">Ya</span>';   
                 } else{
                     $is_first = '<span class="badge badge-info">Tidak</span>';   
                 }
