@@ -1,11 +1,10 @@
 @extends('admin.dashboard')
 
 @section('content')
-
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2>Edit</h2>
+            <h2 class="ml-3">Form Layanan Jasa</h2>
         </div>
 
         <div class="box-body">
