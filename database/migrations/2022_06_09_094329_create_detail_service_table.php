@@ -16,6 +16,12 @@ class CreateDetailServiceTable extends Migration
         Schema::create('detail_service', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('service_id');
+            $table->string('question', 255);
+            $table->string('image');
+            $table->string('answer1', 255);
+            $table->string('answer2', 255);
+            $table->string('answer3', 255)->nullable();
+            $table->string('reason', 255)->nullable();
             $table->timestamps();
 
             $table->foreign('service_id')

@@ -22,16 +22,29 @@ class DetailPageController extends Controller
                                 ->find($service->id);
 
         // return $details;
-
         $portofolios = Portofolio::orderBy('title', 'ASC')->get();
         $testimonials = Testimonial::orderBy('name', 'ASC')->get();
 
         if ($slug == 'logobranding') {
-            return view('logo_branding', [
-                "title" => 'Logo Branding',
+            return view('marketing_communications', [
+                'title' => 'Marketing Communications',
+                'question' => $details->question,
+                'image' => $details->image,
+                'answer1' => $details->answer1,
+                'answer2' => $details->answer2,
+                'answer3' => $details->answer3,
+                'reason' => $details->reason,
             ] ,compact('portofolios', 'testimonials', 'details'));
         } else {
-            return redirect('/');
+            return view('detail_page', [
+                'title' => 'Logo Branding',
+                'question' => $details->question,
+                'image' => $details->image,
+                'answer1' => $details->answer1,
+                'answer2' => $details->answer2,
+                'answer3' => $details->answer3,
+                'reason' => $details->reason,
+            ] ,compact('portofolios', 'testimonials', 'details'));
         }
 
         // return $service;

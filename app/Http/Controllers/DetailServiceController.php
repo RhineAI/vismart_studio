@@ -8,6 +8,7 @@ use App\Models\Jasa;
 use App\Models\Package;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DetailServiceController extends Controller
 {
@@ -106,8 +107,35 @@ class DetailServiceController extends Controller
     public function store(Request $request)
     {
         // return($request->all());
+
+        $validate = $request->validate([
+            'question' => 'required|max:225',
+            'image' => 'image|file|required|max:12000',
+            'answer1' => 'required|max:225',
+            'answer2' => 'max:225',
+            'answer3' => 'max:225',
+            'reason' => 'required|max:225',
+            // 'description' => 'required|max:2500'
+        ]);
+
+        if($request->file('image')) {
+            $validate['image'] = $request->file('image')->store('detail_service');
+        }
+
+        $question = $request['question'];
+        $answer1 = $request['answer1'];
+        $answer2 = $request['answer2'];
+        $answer3 = $request['answer3'];
+        $reason = $request['reason'];
+
         $service = new DetailService();
         $service->service_id = $request->service;
+        $service->question = $question;
+        $service->image_animation = $request->image_animation;
+        $service->answer1 = $answer1;
+        $service->answer2 = $answer2;
+        $service->answer3 = $answer3;
+        $service->reason = $reason;
         $service->save();
         
         
@@ -180,9 +208,37 @@ class DetailServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $service = DetailService::find($id);
-        $service->service_id = $request->service;
-        $service->update();
+        $rules = $request->validate([
+            'question' => 'required|max:225',
+            'image' => 'image|file|required|max:12000',
+            'answer1' => 'required|max:225',
+            'answer2' => 'max:225',
+            'answer3' => 'max:225',
+            'reason' => 'required|max:225',
+        ]);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $rules['image'] = $request->file('image')->store('detail_service');
+        }
+
+        // $question = $request['question'];
+        // $answer1 = $request['answer1'];
+        // $answer2 = $request['answer2'];
+        // $answer3 = $request['answer3']; 
+        // $reason = $request['reason'];
+
+        $service = DetailService::where('id', $id)->update($rules);
+        // $service->service_id = $request->service;
+        // $service->question = $question;
+        // $service->image_animation = $request->image_animation;
+        // $service->answer1 = $answer1;
+        // $service->answer2 = $answer2;
+        // $service->answer3 = $answer3;  
+        // $service->reason = $reason;
+        // $service->update();
 
         $service->jasa()->sync($request->jasa);
         $service->advantage()->sync($request->advantage);
