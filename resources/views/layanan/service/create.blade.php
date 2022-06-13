@@ -24,6 +24,17 @@
                     </div>
 
                     <div class="mb-2">
+                        <label for="slug" class="form-label">Pranala</label>
+                        <input type="text" class="form-control @error('slug') is-invalid @enderror" rows="3" id="slug"
+                            name="slug" value="{{ old('slug') }}" required maxlength="50">
+                        @error('slug')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-2">
                         <label for="image" class="form-label">Gambar</label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
                             name="image" value="{{ old('image') }}" required onchange="previewImage()">
@@ -58,8 +69,17 @@
         oFReader.readAsDataURL(image.files[0]);
 
         oFReader.onload = function(oFREvent) {
-        imgPreview.src = oFREvent.target.result;
+            imgPreview.src = oFREvent.target.result;
         }
-}
+    }
+
+    const title = document.querySelector('#title');
+    const slug = document.querySelector('#slug');
+
+    title.addEventListener('change', function() {
+        fetch('/dashboard/layanan/service/makeSlug?title=' + title.value)
+        .then(response => response.json())
+        .then(data => slug.value = data.slug)
+    });
 </script>
 @endpush

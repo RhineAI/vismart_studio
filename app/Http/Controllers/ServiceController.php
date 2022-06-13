@@ -7,6 +7,7 @@ use App\Models\Package;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ServiceController extends Controller
 {
@@ -36,13 +37,9 @@ class ServiceController extends Controller
             ->addColumn('title', function($service) {
                 return $service->title;
             })
-            // ->addColumn('package', function ($service) {
-            //     $packages = '';
-            //     foreach ($service->package as $key => $value) {
-            //         $packages .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-danger rounded">'. $value->name.'</div>';
-            //     }
-            //     return $packages;
-            // })
+            ->addColumn('slug', function($service) {
+                return $service->slug;
+            })
             ->addColumn('created', function($service) {
                 return tanggal($service->created_at);
             })
@@ -80,7 +77,8 @@ class ServiceController extends Controller
     {
         $validate = $request->validate([
             'title' => 'required|max:50',
-            'image' => 'image|file|required|max:16000'
+            'slug' => 'required|unique:service',
+            'image' => 'image|file|required|max:10240'
         ]);
 
         if($request->file('image')) {
@@ -123,8 +121,7 @@ class ServiceController extends Controller
 
         return view('layanan.service.edit', [
             'service' => $serv,
-            'package' => $package,
-            // 'module' => $module,
+            'package' => $package
         ]);
     }
 
@@ -137,10 +134,16 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        $validate = $request->validate([
+        $rules = [
             'title' => 'required|max:50',
             'image' => 'image|file|max:16000'
-        ]);
+        ];
+
+        if ($request->slug != $service->slug) {
+            $rules['slug'] = 'required|unique:service';
+        }
+        
+        $validate = $request->validate($rules);
 
         if($request->file('image')) {
             if($request->oldImage) {
@@ -169,5 +172,11 @@ class ServiceController extends Controller
 
         Service::destroy($service->id);
         return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama berhasil dihapus');
+    }
+
+    public function makeSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Service::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }
