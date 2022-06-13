@@ -68,7 +68,7 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'name' => 'required|max:30',
+            'name' => 'required|max:225',
             'logo' => 'image|file|required|max:10240'
         ]);
 
@@ -115,7 +115,7 @@ class ClientController extends Controller
     public function update(Request $request, Client $client)
     {
         $rules = $request->validate([
-            'name' => 'max:30',
+            'name' => 'max:225',
             'logo' => 'image|file|max:10240'
         ]);
         

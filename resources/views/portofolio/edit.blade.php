@@ -17,7 +17,7 @@
                     <div class="mb-2">
                         <label for="title" class="form-label">Judul</label>
                         <input class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                            value="{{ old('title', $portofolio->title) }}" maxlength="20" minlength="3">
+                            value="{{ old('title', $portofolio->title) }}" maxlength="225" minlength="3">
                         @error('title')
                         <div class="invalid-feedback">
                             {{ $message }}
