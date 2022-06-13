@@ -107,7 +107,7 @@ class PackageController extends Controller
         $package = new Package;
         $package->name = $request->name;
         $package->price = $this->checkPrice($request->price);
-        $package->no_telp = '62 '. $request->noTelp;
+        $package->no_telp = '0'. $request->noTelp;
         $package->is_first = $request->boolean( key:'isFirst');
         $package->save();
         

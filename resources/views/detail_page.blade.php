@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
             <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
-                <img src="{{ $image }}" class="img-fluid" alt="..." style="width: 40em">
+                <img src="{{ asset('storage/'. $details->image) }}" class="img-fluid" alt="..." style="width: 40em">
             </div>
             <div class="col-lg-6 p-5">
                 <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">{{ $question }}</h1><br>
@@ -26,9 +26,9 @@
                 <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{{ $answer2 }}</p>
                 <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{{ $answer3 }}</p>
                 {{-- @if (!empty($detail)) --}}
-                    <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{{ $answer4 }}</p>               
+                    {{-- <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{{ $answer4 }}</p>                --}}
                 {{-- @else --}}
-                    {{-- <br> --}}
+                    <br>
                 {{-- @endif --}}
                 <a href="#column-3"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
             </div>
@@ -110,9 +110,9 @@
               <div class="owl-carousel owl-images owl-theme">
 
                 @foreach ($portofolios as $portofolio)
-                <div class="item mx-3 my-5">
-                  <a href="{{ asset('storage/' . $portofolio->image) }}" data-lightbox="roadtrip" data-title="{{ $portofolio->title }}"><img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}"></a>
-                </div>
+                    <div class="item mx-3 my-5">
+                        <a href="{{ asset('storage/' . $portofolio->image) }}" data-lightbox="roadtrip" data-title="{{ $portofolio->title }}"><img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}"></a>
+                    </div>
                 @endforeach
                   
               </div>
@@ -145,67 +145,38 @@
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
             <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Pilih Paket</h1>
             @foreach ($details->package as $item)
-            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
-                <div class="card mb-4 py-3">
-                    <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
-                    <div class="card-body">
-                        <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }}k </span>/ Month
+                @if ($item->is_first == 1)
+                <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
+                    <div class="card mb-4 py-3">
+                        <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
+                        <div class="card-body">
+                            <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
                             <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
                                 @foreach ($item->feature as $feature)
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
+                                    <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
                                 @endforeach
-                                {{-- <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Kamu Tinggal Terima Beres Aja!</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Posting <b>SETIAP HARI</b> Kec. Hari Libur</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Ide Konten & Materi Konten</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Copywriting konten & Caption</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Hashtag Setiap konten</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Bisa kasi konsep / Referensi design</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li> --}}
                             </ul>
-                        <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
+                            <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p>  </button></a>
+                        </div>
                     </div>
                 </div>
-            </div>
+                @else
+                <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                    <div class="card mb-4 py-5"  style="color: #fff; background-color: var(--primary-color);">
+                        <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
+                        <div class="card-body">
+                            <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
+                                <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
+                                    @foreach ($item->feature as $feature)
+                                        <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
+                                    @endforeach
+                                </ul>
+                            <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p> </button></a>
+                        </div>
+                    </div>
+                </div> 
+                @endif
             @endforeach
-            {{-- <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <div class="card mb-4 py-5"  style="color: #fff; background-color: var(--primary-color);">
-                    <h4 class="fw-bold mt-3">Ajib</h4>
-                    <div class="card-body">
-                        <span class="h2 fw-bold">IDR 1489k </span>/ Month
-                            <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
-                                <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Kamu Tinggal Terima Beres Aja!</li>
-                                <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Posting <b>SETIAP HARI</b> Kec. Hari Libur</li>
-                                <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Ide Konten & Materi Konten</li>
-                                <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Copywriting konten & Caption</li>
-                                <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Hashtag Setiap konten</li>
-                                <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Bisa kasi konsep / Referensi design</li>
-                                <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
-                                <li class="list-group-item list-primary"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li>
-                            </ul>
-                        <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
-                <div class="card mb-4 py-3">
-                    <h4 class="fw-bold mt-3">Mantap</h4>
-                    <div class="card-body">
-                        <span class="h2 fw-bold">IDR 934k </span>/ Month
-                            <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Kamu Tinggal Terima Beres Aja!</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Posting <b>SETIAP HARI</b> Kec. Hari Libur</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Ide Konten & Materi Konten</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Copywriting konten & Caption</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Hashtag Setiap konten</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Bisa kasi konsep / Referensi design</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li>
-                            </ul>
-                        <a href="https://wa.wizard.id/0fba2d" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </div>
 </section>
@@ -216,7 +187,7 @@
             <div class="col-lg-8 aos-init aos-animate">
                 <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Konsul yuk terkait bisnis dan branding dari produk kamu!</h1>
                 <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Manto Mukhli Fardi</p>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0812 3456 7890</p>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0812-3456-7890</p>
                 <a href="https://wa.wizard.id/e091ae" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
             </div>
         </div>

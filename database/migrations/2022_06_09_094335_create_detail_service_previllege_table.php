@@ -15,8 +15,8 @@ class CreateDetailServicePrevillegeTable extends Migration
     {
         Schema::create('detail_service_previllege', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('detail_service_id');
-            $table->unsignedBigInteger('advantage_id');
+            $table->unsignedBigInteger('detail_service_id')->nullable();
+            $table->unsignedBigInteger('advantage_id')->nullable();
             $table->timestamps();
 
             $table->foreign('detail_service_id')

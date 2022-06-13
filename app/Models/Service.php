@@ -8,7 +8,9 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Service extends Model
 {
+    use Sluggable;
     use HasFactory;
+    
 
     protected $table = 'service';
     protected $primaryKey = 'id';

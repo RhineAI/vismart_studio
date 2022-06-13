@@ -131,7 +131,7 @@ class DetailServiceController extends Controller
         $service = new DetailService();
         $service->service_id = $request->service;
         $service->question = $question;
-        $service->image_animation = $request->image_animation;
+        $service->image = $request->image;
         $service->answer1 = $answer1;
         $service->answer2 = $answer2;
         $service->answer3 = $answer3;
@@ -224,21 +224,21 @@ class DetailServiceController extends Controller
             $rules['image'] = $request->file('image')->store('detail_service');
         }
 
-        // $question = $request['question'];
-        // $answer1 = $request['answer1'];
-        // $answer2 = $request['answer2'];
-        // $answer3 = $request['answer3']; 
-        // $reason = $request['reason'];
+        $question = $request['question'];
+        $answer1 = $request['answer1'];
+        $answer2 = $request['answer2'];
+        $answer3 = $request['answer3']; 
+        $reason = $request['reason'];
 
-        $service = DetailService::where('id', $id)->update($rules);
-        // $service->service_id = $request->service;
-        // $service->question = $question;
-        // $service->image_animation = $request->image_animation;
-        // $service->answer1 = $answer1;
-        // $service->answer2 = $answer2;
-        // $service->answer3 = $answer3;  
-        // $service->reason = $reason;
-        // $service->update();
+        $service = DetailService::find($id);
+        $service->service_id = $request->service;
+        $service->question = $question;
+        $service->image = $rules['image'];
+        $service->answer1 = $answer1;
+        $service->answer2 = $answer2;
+        $service->answer3 = $answer3;  
+        $service->reason = $reason;
+        $service->update();
 
         $service->jasa()->sync($request->jasa);
         $service->advantage()->sync($request->advantage);

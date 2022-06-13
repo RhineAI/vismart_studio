@@ -25,11 +25,11 @@ class DetailPageController extends Controller
         $portofolios = Portofolio::orderBy('title', 'ASC')->get();
         $testimonials = Testimonial::orderBy('name', 'ASC')->get();
 
-        if ($slug == 'logobranding') {
+        if ($slug == 'marketing-communications') {
             return view('marketing_communications', [
                 'title' => 'Marketing Communications',
                 'question' => $details->question,
-                'image' => $details->image,
+                'image' => $details,
                 'answer1' => $details->answer1,
                 'answer2' => $details->answer2,
                 'answer3' => $details->answer3,
@@ -37,7 +37,7 @@ class DetailPageController extends Controller
             ] ,compact('portofolios', 'testimonials', 'details'));
         } else {
             return view('detail_page', [
-                'title' => 'Logo Branding',
+                'title' => $details->service_id,
                 'question' => $details->question,
                 'image' => $details->image,
                 'answer1' => $details->answer1,

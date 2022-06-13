@@ -25,7 +25,7 @@
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto my-5">
                 <img src="/img/logo vismart studio white.png" class="img-fluid mb-4" alt="..." style="width: 10em">
               <p>
-                Kami adalah tim kreatif dari PT Madtive Studio Indonesia yang didirikan sejak tahun 2015 yang sudah bekerjasama dengan banyak clients.
+                Kami adalah tim kreatif dari PT <a href="https://madtive.com/" style="color:aquamarine"><i>Madtive Studio</i></a> Indonesia yang didirikan sejak tahun 2015 yang sudah bekerjasama dengan banyak clients.
               </p>
             </div>
             <!-- Grid column -->
@@ -96,7 +96,7 @@
             <div class="col-md-7 col-lg-8 text-center text-md-start">
               <!-- Copyright -->
               <div class="p-3">
-                Copyright 2022 Vismart Studio. All rights reserved.
+                Copyright 2022 <a href="/" style="color:aquamarine">Vismart Studio.</a> All rights reserved.
               </div>
               <!-- Copyright -->
             </div>
@@ -105,7 +105,7 @@
             <!-- Grid column -->
             <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
               <!-- Facebook -->
-              <a
+              <a href="https://www.facebook.com/Madtive" 
                  class="btn badge-primary btn-floating m-1"
                  class="text-white"
                  role="button"
@@ -113,7 +113,7 @@
                 ></a>
   
               <!-- Twitter -->
-              <a
+              <a href="https://twitter.com/madtive_studio"
                  class="btn badge-primary btn-floating m-1"
                  class="text-white"
                  role="button"
@@ -121,7 +121,7 @@
                 ></a>
   
               <!-- Google -->
-              <a
+              <a href="https://madtive.com/"
                  class="btn badge-primary btn-floating m-1"
                  class="text-white"
                  role="button"
@@ -129,7 +129,7 @@
                 ></a>
   
               <!-- Instagram -->
-              <a
+              <a href="https://www.instagram.com/madtive_studio/"
                  class="btn badge-primary btn-floating m-1"
                  class="text-white"
                  role="button"

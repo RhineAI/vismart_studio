@@ -184,14 +184,14 @@
     <div class="container">
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh;">
             <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Apa yang Kamu Butuhkan?</h1>
-
+            
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch justify-content-center g-4 py-5">
-            @foreach ($service as $item)  
-            <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <div class="card feature h-100 text-center">
-                    <div class="image text-center">
-                        <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid my-3" alt="..." style="width: 12em">
-                    </div>
+                @foreach ($service as $item)  
+                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                    <div class="card feature h-100 text-center">
+                        <div class="image text-center">
+                            <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid my-3" alt=" $p" style="width: 12em">
+                        </div>
                     <div class="text">
                         <h2 class="px-5 fw-bold">{{ $item->title }}</h2>
                     </div>

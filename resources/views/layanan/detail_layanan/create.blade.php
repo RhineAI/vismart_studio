@@ -9,7 +9,7 @@
 
         <div class="box-body">
             <div class="col-lg-6">
-                <form action="{{ route('detail_layanan.store') }}" method="post">
+                <form action="{{ route('detail_layanan.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-2">
                         <label for="service" class="form-label">Pilih Layanan</label>

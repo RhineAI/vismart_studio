@@ -9,7 +9,7 @@
 
         <div class="box-body">
             <div class="col-lg-5">
-                <form action="{{ route('detail_layanan.update', $detail->id) }}" method="post">
+                <form action="{{ route('detail_layanan.update', $detail->id) }}" method="post" enctype="multipart/form-data">
                     @method('put')
                     @csrf
 
@@ -52,7 +52,7 @@
                                     name="image" onchange="previewImage()" value="{{ old('image', $detail->image) }}">
                                 <input type="hidden" name="oldImage" id="oldImage" value="{{ $detail->image }}">
                                 @if($detail->image)
-                                    <img src="{{ asset('storage/' . $detail->image) }}" class="img-preview img-fluid my-3 col-sm-5 d-block">
+                                    <img src="{{ asset('storage/'. $detail->image) }}" class="img-preview img-fluid my-3 col-sm-5 d-block">
                                 @else
                                     <img class="img-preview img-fluid my-3 col-sm-5">
                                 @endif
@@ -64,7 +64,7 @@
                             </div>
                             <div class="input-group mb-2">
                                 <div class="col-lg-6 mb-2">
-                                    <label for="answer1" class="form-label">Jawaban 1</label>
+                                    <label for="answer1" class="form-label">Paragraf 1</label>
                                     <textarea class="form-control @error('answer1') is-invalid @enderror" id="answer1" name="answer1" required maxlength="255">{{ old('answer1', $detail->answer1) }}</textarea>
                                     @error('answer1')
                                         <div class="invalid-feedback">
@@ -73,7 +73,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-6 mb-2">
-                                    <label for="answer2" class="form-label">Jawaban 2</label>
+                                    <label for="answer2" class="form-label">Paragraf 2</label>
                                     <textarea class="form-control @error('answer2') is-invalid @enderror" id="answer2" name="answer2" maxlength="255">{{ old('answer2', $detail->answer2) }}</textarea>
                                     @error('answer2')
                                         <div class="invalid-feedback">
@@ -82,7 +82,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-6 mb-2">
-                                    <label for="answer3" class="form-label">Jawaban 3</label>
+                                    <label for="answer3" class="form-label">Paragraf 3</label>
                                     <textarea class="form-control @error('answer3') is-invalid @enderror" id="answer3" name="answer3" maxlength="255">{{ old('answer3', $detail->answer3) }}</textarea>
                                     @error('answer3')
                                         <div class="invalid-feedback">
@@ -95,7 +95,7 @@
 
                         <div class="mb-2">
                             <label for="reason" class="form-label">Custom title (Mengapa) harus menggunakan layanan ini</label>
-                            <input class="form-control @error('reason') is-invalid @enderror" id="reason" name="reason" value="{{ old('reason') }}" required maxlength="255">
+                            <input class="form-control @error('reason') is-invalid @enderror" id="reason" name="reason" value="{{ old('reason', $detail->reason) }}" required maxlength="255">
                             @error('reason')
                             <div class="invalid-feedback">
                                 {{ $message }}

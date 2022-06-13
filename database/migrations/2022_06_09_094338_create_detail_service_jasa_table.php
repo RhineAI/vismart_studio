@@ -15,8 +15,8 @@ class CreateDetailServiceJasaTable extends Migration
     {
         Schema::create('detail_service_jasa', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('detail_service_id');
-            $table->unsignedBigInteger('jasa_id');
+            $table->unsignedBigInteger('detail_service_id')->nullable();
+            $table->unsignedBigInteger('jasa_id')->nullable();
             $table->timestamps();
 
             $table->foreign('detail_service_id')

@@ -15,8 +15,8 @@ class CreateDetailServicePackageTable extends Migration
     {
         Schema::create('detail_service_package', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('detail_service_id');
-            $table->unsignedBigInteger('package_id');
+            $table->unsignedBigInteger('detail_service_id')->nullable();
+            $table->unsignedBigInteger('package_id')->nullable();
             $table->timestamps();
 
             $table->foreign('detail_service_id')
