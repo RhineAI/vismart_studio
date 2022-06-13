@@ -37,12 +37,14 @@
   <div class="container">
       <div class="row justify-content-around text-center">
           <h1 class="fw-bold my-5 px-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Alasan Anda Harus Menggunakan Jasa Logo dan Branding dari Kami</h1>
+          @foreach ($details->advantage as $item)      
           <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-              <img src="/img/logo_branding/proses cepat.png" class="img-fluid mb-3" alt="..." style="width: 5em">
-              <h4 class="fw-bold">Proses Cepat</h4>
-              <p class="text-black-50">Dengan sistem kerja tim yang efisien dan berusaha memberi yang terbaik untuk klien kami.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+              <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid mb-3" alt="..." style="width: 5em">
+              <h4 class="fw-bold">{{ $item->advantage }}</h4>
+              <p class="text-black-50"></p>
+            </div>
+          @endforeach
+          {{-- <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
               <img src="/img/logo_branding/file master.png" class="img-fluid mb-3" alt="..." style="width: 5em">
               <h4 class="fw-bold">File Master</h4>
               <p class="text-black-50">File master edit table diberikan untuk mempermudah klien mencetak dan memperbaiki file.</p>
@@ -51,7 +53,7 @@
               <img src="/img/logo_branding/konsultasi.png" class="img-fluid mb-3" alt="..." style="width: 5em">
               <h4 class="fw-bold">Konsultasi</h4>
               <p class="text-black-50">Anda bebas konsultasi dengan <br> tim kami agar tim kami memahami kebutuhan anda.</p>
-          </div>
+          </div> --}}
       </div>
   </div>
 </section>
@@ -60,12 +62,14 @@
   <div class="container">
       <div class="row justify-content-center text-center" style="min-height: 100vh">
           <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Layanan Jasa Desain Logo</h1>
+          @foreach ( $details->jasa as $item )
           <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-              <img src="/img/logo_branding/logo umkm.png" class="img-fluid rounded-start mb-3" alt="Logo UMKM" style="width: 15em">
-              <h4 class="fw-bold">Logo UMKM</h4>
-              <p class="text-black-50">UMKM harus naik kelas, salah satu kuncinya adalah branding, dan logo adalah salah satunya.</p>
+            <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid rounded-start mb-3" alt="Logo UMKM" style="width: 15em">
+            <h4 class="fw-bold">{{ $item->title }}</h4>
+            <p class="text-black-50">{{ $item->description }}</p>
           </div>
-          <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+          @endforeach
+          {{-- <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
               <img src="/img/logo_branding/logo website.png" class="img-fluid rounded-start mb-3" alt="Logo Web" style="width: 15em">
               <h4 class="fw-bold">Logo Web</h4>
               <p class="text-black-50">Logo dari web itu sendiri penting, menggambarkan produk yang anda produksi.</p>
@@ -90,7 +94,7 @@
               <img src="/img/logo_branding/logo lembaga.png" class="img-fluid rounded-start mb-3" alt="Logo Lembaga" style="width: 15em">
               <h4 class="fw-bold">Logo Lembaga</h4>
               <p class="text-black-50">Dalam sebuah lembaga, logo sering juga disebut sebagai lambang, Vismart Studio menerima jasa pembuatan logo lembaga.</p>
-          </div>
+          </div> --}}
       </div>
   </div>
 </section>
@@ -137,26 +141,31 @@
     <div class="container">
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
             <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Pilih Paket</h1>
+            @foreach ($details->package as $item)
             <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
                 <div class="card mb-4 py-3">
-                    <h4 class="fw-bold mt-3">Keren</h4>
+                    <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
                     <div class="card-body">
-                        <span class="h2 fw-bold">IDR 567k </span>/ Month
+                        <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }}k </span>/ Month
                             <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Kamu Tinggal Terima Beres Aja!</li>
+                                @foreach ($item->feature as $feature)
+                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
+                                @endforeach
+                                {{-- <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Kamu Tinggal Terima Beres Aja!</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Posting <b>SETIAP HARI</b> Kec. Hari Libur</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Ide Konten & Materi Konten</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Copywriting konten & Caption</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Hashtag Setiap konten</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Bisa kasi konsep / Referensi design</li>
                                 <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Admin Posting Di IG & Fb</li>
-                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li>
+                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>Revisi ( Minor ) 2x / Desain</li> --}}
                             </ul>
                         <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+            @endforeach
+            {{-- <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                 <div class="card mb-4 py-5"  style="color: #fff; background-color: var(--primary-color);">
                     <h4 class="fw-bold mt-3">Ajib</h4>
                     <div class="card-body">
@@ -193,7 +202,7 @@
                         <a href="https://wa.wizard.id/0fba2d" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang!</button></a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>

@@ -12,11 +12,24 @@ class HomeController extends Controller
     public function index()
     {
         $clients = Client::all();
-        $detailService = DetailService::all();
-        $service = Service::all();
+        // $detailService = DetailService::all();
+        // $service = Service::where('id', $detailService->service_id)->get();
+        $service = DetailService::
+                leftJoin('service', 'service.id', 'detail_service.service_id')
+                ->select('detail_service.*', 'title', 'image', 'slug')
+                ->orderBy('id', 'asc')->get();
+
+        // return $service;
 
         return view('home', [
             "title" => "Home"
-        ] ,compact('clients', 'detailService', 'service'));
+        ] ,compact('clients', 'service'));
     }
+
+    // public function check() {
+    //     $detailService = DetailService::orderBy('id')->get();
+    //     $service = Service::where('id', $detailService->service_id)->get();
+
+    //     return $service;
+    // }
 }

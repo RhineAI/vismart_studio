@@ -15,7 +15,7 @@
                     <div class="mb-2">
                         <label for="title" class="form-label">Judul</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" rows="3" id="title"
-                            name="title" value="{{ old('title') }}" required maxlength="50">
+                            name="title" value="{{ old('title') }}" required maxlength="100">
                         @error('title')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -26,7 +26,7 @@
                     <div class="mb-2">
                         <label for="slug" class="form-label">Pranala</label>
                         <input type="text" class="form-control @error('slug') is-invalid @enderror" rows="3" id="slug"
-                            name="slug" value="{{ old('slug') }}" required maxlength="50">
+                            name="slug" value="{{ old('slug') }}" readonly required maxlength="100">
                         @error('slug')
                         <div class="invalid-feedback">
                             {{ $message }}

@@ -9,11 +9,15 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Service extends Model
 {
     use HasFactory;
-    use Sluggable;
 
     protected $table = 'service';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+    public function detail_service()
+    {
+        return $this->hasMany(DetailService::class);
+    }
 
     public function package() 
     {

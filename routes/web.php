@@ -15,6 +15,7 @@ use App\Http\Controllers\MarketingCommunicationsController;
 
 use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\DetailServiceController;
 use App\Http\Controllers\JasaController;
@@ -36,24 +37,25 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/check', [HomeController::class, 'check'])->name('home.check');
 
-Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('logobranding.index');
+Route::get('/{slug}', [DetailPageController::class, 'index'])->name('detail_page.index');
 
 // FrontEnd UI/UX
     // Logo Branding
-    Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('logobranding.index');
+    // Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('logobranding.index');
 
     // Design Feed Instagram
-    Route::get('/designfeed', [DesignFeedInstagramController::class, 'index'])->name('designfeed.index');
+    // Route::get('/designfeed', [DesignFeedInstagramController::class, 'index'])->name('designfeed.index');
 
     // Digital Marketing
-    Route::get('/digitalmarketing', [DigitalMarketingController::class, 'index'])->name('digitalmarketing.index');
+    // Route::get('/digitalmarketing', [DigitalMarketingController::class, 'index'])->name('digitalmarketing.index');
 
     // Social MM
-    Route::get('/smm', [SMMController::class, 'index'])->name('smm.index');
+    // Route::get('/smm', [SMMController::class, 'index'])->name('smm.index');
 
     // Marketing Communications
-    Route::get('/marketingcommunications', [MarketingCommunicationsController::class, 'index'])->name('marketing.index');
+    // Route::get('/marketingcommunications', [MarketingCommunicationsController::class, 'index'])->name('marketing.index');
 
     // Login Dashboard
     Route::get('/auth/login', [AuthController::class, 'auth'])->name('auth.index');

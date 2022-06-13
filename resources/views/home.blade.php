@@ -38,21 +38,20 @@
                 <img src="/img/home/home.png" class="img-fluid page-2-img" alt="..." style="width: 35em">
             </div>
             <div class="col-lg-5">
-                    <a href="#1">
-                        <div class="service p-2 px-4 mb-4 aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-lg-2 text-center">
-                                    <img src="/img/home/Logo dan Branding Icon.png" class="img-fluid" alt="..." style="width: 6em">
-                                </div>
-                                <div class="col-lg-10 p-3 text-center text-lg-start">
-                                    <h3 class="fw-bold">Logo dan Branding</h3>
-                                </div>
+                @foreach ($service as $item)     
+                    <div class="service p-2 px-4 mb-4 aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-lg-2 text-center">
+                                <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid" alt="..." style="width: 6em">
+                            </div>
+                            <div class="col-lg-10 p-3 text-center text-lg-start">
+                                <h3 class="fw-bold">{{ $item->title }}</h3>
                             </div>
                         </div>
-                    </a>
-                    
-                {{-- @endforeach --}}
-                    <a href="#2"> 
+                    </div>
+                @endforeach
+
+                    {{-- <a href="#2"> 
                         <div class="service p-2 px-4 mb-4">
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-lg-2 text-center">
@@ -99,8 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a> --}}
-                
+                    </a> --}} 
             </div>
         </div>
     </div>
@@ -188,21 +186,23 @@
             <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Apa yang Kamu Butuhkan?</h1>
 
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch justify-content-center g-4 py-5">
-                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                  <div class="card feature h-100 text-center">
+            @foreach ($service as $item)  
+            <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                <div class="card feature h-100 text-center">
                     <div class="image text-center">
-                        <img src="/img/home/Logo dan Branding Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
+                        <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid my-3" alt="..." style="width: 12em">
                     </div>
                     <div class="text">
-                        <h2 class="px-5 fw-bold">Logo dan Branding</h2>
+                        <h2 class="px-5 fw-bold">{{ $item->title }}</h2>
                     </div>
                     <div class="text-center mt-auto">
-                      <a href="logobranding"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+                        <a href="{{ $item->slug }}"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
                     </div>
-                  </div>
                 </div>
+            </div>
+            @endforeach  
 
-                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                {{-- <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                   <div class="card feature h-100 text-center">
                     <div class="image text-center">
                         <img src="/img/home/Design Feed Instagram Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
@@ -215,6 +215,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                   <div class="card feature h-100 text-center">
                     <div class="image text-center">
@@ -228,6 +229,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                   <div class="card feature h-100 text-center">
                     <div class="image text-center">
@@ -241,6 +243,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                   <div class="card feature h-100 text-center">
                     <div class="image text-center">
@@ -253,7 +256,7 @@
                       <a href="marketingcommunications"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
                     </div>
                   </div>
-                </div>
+                </div> --}}
             </div>
 
         </div>
