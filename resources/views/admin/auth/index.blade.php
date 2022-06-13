@@ -17,7 +17,7 @@
         <!-- App css -->
         <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('admin/assets/css/app-rtl.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('admin/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
 
         <style> 
             body {
@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row vh-100 d-flex justify-content-center">
                 <div class="col-12 align-self-center">
-                    <div class="row">
+                    <div class="row my-3">
                         <div class="col-lg-5 mx-auto">
                             <!-- @if(isset($error))
                             {{ $error }}
@@ -42,7 +42,7 @@
                                 <div class="card-body p-0 auth-header-box">
                                     <div class="text-center p-3">
                                         <h4 class="mt-3 mb-1 font-weight-semibold text-white font-18">Admin | Vismart Studio</h4>   
-                                        <p class="text-muted  mb-0">Login to continue to admin page</p>  
+                                        <p class="text-muted  mb-0">Login untuk ke halaman Admin</p>  
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -68,13 +68,7 @@
                                                     <div class="input-group mb-3">                                  
                                                         <input type="password" class="form-control" name="password" id="userpassword" placeholder="Enter password">
                                                     </div>                               
-                                                </div><!--end form-group--> 
-                    
-                                                <div class="form-group row mt-4">
-                                                    <div class="col-sm-6 text-left">
-                                                        <a href="auth-recover-pw.html" class="text-muted font-13"><i class="dripicons-lock"></i> Forgot password?</a>                                    
-                                                    </div><!--end col--> 
-                                                </div><!--end form-group--> 
+                                                </div><!--end form-group-->  
                     
                                                 <div class="form-group mb-0 row">
                                                     <div class="col-12 mt-2">
@@ -93,7 +87,7 @@
                                     </div>
                                 </div><!--end card-body-->
                                 <div class="card-body bg-light-alt text-center">
-                                    <span class="text-muted d-none d-sm-inline-block">Vismart Studio © 2022 - {{ date('Y') }}</span>                                            
+                                    <span class="text-muted d-none d-sm-inline-block">Vismart Studio © 2022</span>                                            
                                 </div>
                             </div><!--end card-->
                         </div><!--end col-->

@@ -108,7 +108,7 @@ class JasaController extends Controller
         // $service->package()->attach($request->package);        
         // $service->module()->attach($request->module);        
 
-        return redirect('/dashboard/layanan/jasa')->with('success', 'Berhasil ditambahkan'); 
+        return redirect('/dashboard/layanan/jasa')->with('success', 'Layanan Jasa baru berhasil ditambah'); 
     }
 
     /**
@@ -165,7 +165,7 @@ class JasaController extends Controller
         // $service->package()->sync($request->package);        
         // $service->module()->sync($request->module);        
 
-        return redirect('/dashboard/layanan/jasa')->with('success', 'Berhasil ditambahkan'); 
+        return redirect('/dashboard/layanan/jasa')->with('success', 'Layanan Jasa berhasil diupdate'); 
     }
 
     /**
@@ -181,6 +181,6 @@ class JasaController extends Controller
         }
 
         Jasa::destroy($jasa->id);
-        return redirect('/dashboard/layanan/jasa')->with('success', 'Berhasil di Delete');
+        return redirect('/dashboard/layanan/jasa')->with('success', 'Layanan Jasa berhasil dihapus');
     }
 }
