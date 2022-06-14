@@ -196,7 +196,7 @@
                         <h2 class="px-5 fw-bold">{{ $item->title }}</h2>
                     </div>
                     <div class="text-center mt-auto">
-                        <a href="{{ $item->slug }}"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+                        <a href="{{ url('layanan/'.$item->slug) }}"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
                     </div>
                 </div>
             </div>

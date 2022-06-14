@@ -39,7 +39,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/check', [HomeController::class, 'check'])->name('home.check');
 
-Route::get('/{slug}', [DetailPageController::class, 'index'])->name('detail_page.index');
+Route::get('/layanan/{slug}', [DetailPageController::class, 'index'])->name('detail_page.index');
 
 // FrontEnd UI/UX
     // Logo Branding
