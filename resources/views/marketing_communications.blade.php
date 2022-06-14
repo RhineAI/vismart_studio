@@ -18,13 +18,13 @@
     <div class="container">
         <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
             <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
-                <img src="/img/marketing_communications/Marketing Communications.png" class="img-fluid" alt="..." style="width: 40em">
+                <img src="{{ asset('storage/'. $detail->image) }}" class="img-fluid" alt="..." style="width: 40em">
             </div>
             <div class="col-lg-6 p-5">
-                <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">Apa itu Marketing Communication?</h1><br>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">Pada dasarnya, komunikasi adalah proses mengirim pesan dan informasi. Komunikasi dapat dikatakan sukses jika kedua pihak tersebut bisa mengerti dan mengolah pesan yang disampaikan.</p>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">Demikian juga dengan marketing communication. Agar calon konsumen bersedia mengeluarkan uang untuk menggunakan produk dan layanan jasa yang ditawarkan, diperlukan pengertian yang sama. Di mana produk dan layanan jasa yang bersangkutan adalah solusi dari problem mereka.</p><br>
-                <a href="#page-2"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
+                <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">{{ $question }}</h1><br>
+                <div class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{!! $answer !!}</div>               
+                 
+                <a href="#page-2"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>            
             </div>
         </div>
     </div>
@@ -85,7 +85,7 @@
   
                   @foreach ($portofolio as $p)
                   <div class="item mx-3 my-5">
-                    <a href="{{ asset('storage/'. $p->img) }}" data-lightbox="roadtrip" data-title="{{ $p->title }}"><img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}"></a>
+                    <a href="{{ asset('storage/'. $p->img) }}" data-lightbox="roadtrip" data-title="{{ $p->title }}"><img src="{{ asset('storage/' . $p->image) }}" alt="{{ $p->title }}"></a>
                   </div>
                   @endforeach
                     

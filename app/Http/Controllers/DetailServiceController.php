@@ -112,7 +112,7 @@ class DetailServiceController extends Controller
             'question' => 'required|max:225',
             'image' => 'image|file|required|max:12000',
             'answer' => 'required',
-            'reason' => 'required|max:225',
+            // 'reason' => 'required|max:225',
             // 'description' => 'required|max:2500'
         ]);
 
@@ -122,14 +122,14 @@ class DetailServiceController extends Controller
 
         $question = $request['question'];
         $answer = $request['answer'];
-        $reason = $request['reason'];
+        // $reason = $request['reason'];
 
         $service = new DetailService();
         $service->service_id = $request->service;
         $service->question = $question;
         $service->image = $validate['image'];
         $service->answer = $answer;
-        $service->reason = $reason;
+        // $service->reason = $reason;
         $service->save();
         
         
@@ -206,7 +206,7 @@ class DetailServiceController extends Controller
             'question' => 'required|max:225',
             'image' => 'image|file|max:12000',
             'answer' => '',
-            'reason' => 'max:225',
+            // 'reason' => 'max:225',
         ]);
 
         if($request->file('image')) {
@@ -218,14 +218,14 @@ class DetailServiceController extends Controller
 
         $question = $request['question'];
         $answer = $request['answer'];
-        $reason = $request['reason'];
+        // $reason = $request['reason'];
 
         $service = DetailService::find($id);
         $service->service_id = $request->service;
         $service->question = $question;
         // $service->image = $rules['image'];
         $service->answer = $answer; 
-        $service->reason = $reason;
+        // $service->reason = $reason;
         $service->update();
 
         $service->jasa()->sync($request->jasa);

@@ -45,7 +45,7 @@ Route::get('/layanan/{slug}', [DetailPageController::class, 'index'])->name('det
     // Logo Branding
     // Route::get('/logobranding', [LogoBrandingController::class, 'index'])->name('logobranding.index');
 
-    // Design Feed Instagram
+   // Design Feed Instagram
     // Route::get('/designfeed', [DesignFeedInstagramController::class, 'index'])->name('designfeed.index');
 
     // Digital Marketing

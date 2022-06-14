@@ -39,8 +39,17 @@ class DetailPageController extends Controller
                 'portofolio' => $portofolio,
                 'testimonial' => $testimonial,
                 ] ,compact('detail'));
+        } else if($slug == 'design-feed-instagram') {
+            return view('design_feed_instagram', [
+                'title' => $detail->service->title,
+                'question' => $detail->question,
+                'image' => $detail,
+                'answer' => $detail->answer,
+                'reason' => $detail->reason,
+                'portofolio' => $portofolio,
+                'testimonial' => $testimonial,
+                ] ,compact('detail'));
         } else {
-
             // return $portofolio;
             return view('detail_page', [
                 'title' => $detail->service->title,

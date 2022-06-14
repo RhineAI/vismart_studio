@@ -36,7 +36,7 @@
 <section class="column-3" id="column-3">
   <div class="container">
       <div class="row justify-content-around text-center">
-          <h1 class="fw-bold my-5 px-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">{{ $reason }}</h1>
+          <h1 class="fw-bold my-5 px-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Alasan Anda Harus Menggunakan Jasa {{ $title }} dari Kami</h1>
           @foreach ($detail->advantage as $item)      
           <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
               <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid mb-3" alt="..." style="width: 5em">
@@ -61,7 +61,7 @@
 <section class="column-3" id="column-3">
   <div class="container">
       <div class="row justify-content-center text-center" style="min-height: 100vh">
-          <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Layanan Jasa Desain Logo</h1>
+          <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Layanan Jasa {{ $title }}</h1>
           @foreach ( $detail->jasa as $item )
           <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
             <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid rounded-start mb-3" alt="Logo UMKM" style="width: 15em">
