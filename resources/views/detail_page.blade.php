@@ -41,6 +41,7 @@
           <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
               <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid mb-3" alt="..." style="width: 5em">
               <h4 class="fw-bold">{{ $item->advantage }}</h4>
+              <p class="text-black-50">{{ $item->description }}</p>
               <p class="text-black-50"></p>
             </div>
           @endforeach

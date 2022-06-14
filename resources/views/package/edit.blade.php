@@ -49,7 +49,7 @@
                         <label for="price" class="form-label">Harga</label>
                         <div class="input-group-prepend">
                             <span class="input-group-text">IDR.</span> 
-                            <input type="number" class="form-control @error('price') is-invalid @enderror" id="price"
+                            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
                             name="price" value="{{ old('price', $pack->price) }}">
                         </div>
                         @error('price')

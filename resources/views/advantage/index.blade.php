@@ -29,6 +29,7 @@
                             <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar
                             </th>
                             <th scope="col" class="text-center table-default" style="color:black;">Keuntungan</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Deskripsi</th>
                             <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
                             <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
@@ -96,6 +97,7 @@
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'image'},
             {data:'advantage'},
+            {data:'description'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},
         ]

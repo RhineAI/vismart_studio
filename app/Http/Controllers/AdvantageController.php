@@ -72,6 +72,7 @@ class AdvantageController extends Controller
         $validate = $request->validate([
             'image' => 'image|file|max:12000',
             'advantage' => 'required|min:3|max:100',
+            'description' => 'required|max:2500'
         ]);
 
         if($request->file('image')) {
@@ -80,10 +81,12 @@ class AdvantageController extends Controller
 
         $image = $validate['image'];
         $advantage = $request['advantage'];
+        $description = $request['description'];
 
         $save = New Advantage();
         $save->image = $image;
         $save->advantage = $advantage;
+        $save->description = $description;
         $save->save();
 
         // return response()->json('success', 200);
@@ -127,6 +130,7 @@ class AdvantageController extends Controller
         $rules = $request->validate([
             'image' => 'image|file|max:12000',
             'advantage' => 'required|min:3|max:100',
+            'description' => 'required|max:2500'
         ]);
 
         if($request->file('image')) {
