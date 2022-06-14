@@ -44,13 +44,21 @@
                                     Jasa 
                                 </a>
                             </li>
-
+                            
+                            <li class="nav-item">
+                                <a href="{{ route('advantage.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Keunggulan
+                                </a>
+                            </li> 
+                            
                             <li class="nav-item">
                                 <a href="{{ route('detail_layanan.index') }}">
                                     <i class="ti-control-record"></i>
                                     Detail Layanan
                                 </a>
-                            </li>  
+                            </li>
+                            
 
                         </ul>
                     </li> 
@@ -113,13 +121,13 @@
                     </li> 
 
                     {{-- Advantage --}}
-                    <li>
+                    {{-- <li>
                         <a class="nav-link {{ Request::is('dashboard/advantage*') ? 'active' : '' }}" href="{{ route('advantage.index') }}">
                             <i data-feather="award" class="align-self-center menu-icon"></i>
                             <span>Keuntungan</span>
                             <span class="menu-arrow"></span>
                         </a>
-                    </li>
+                    </li> --}}
 
 
                     {{--    Lainnya    --}}

@@ -120,34 +120,17 @@
 <section class="column-3" id="column-3">
     <div class="container">
         <div class="row justify-content-center text-center" style="min-height: 100vh">
-            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Apa saja konten yang akan Anda dapatkan</h1>
+            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Layanan Jasa {{ $title }}</h1>
+            @foreach ( $detail->jasa as $item )
             <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <img src="/img/design_feed_instagram/desain produk.png" class="img-fluid mb-3" alt="..." style="width: 15em">
-                <h4 class="fw-bold">Konten Desain Produk</h4>
+              <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid rounded-start mb-3" alt="Logo UMKM" style="width: 15em">
+              <h4 class="fw-bold">{{ $item->title }}</h4>
+              <p class="text-black-50">{{ $item->description }}</p>
             </div>
-            <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <img src="/img/design_feed_instagram/promo produk.png" class="img-fluid mb-3" alt="..." style="width: 15em">
-                <h4 class="fw-bold">Konten Promo Produk</h4>
-            </div>
-            <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <img src="/img/design_feed_instagram/testimoni.png" class="img-fluid mb-3" alt="..." style="width: 15em">
-                <h4 class="fw-bold">Testimoni Customer</h4>
-            </div>
-            <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <img src="/img/design_feed_instagram/konten edukasi.png" class="img-fluid mb-3" alt="..." style="width: 15em">
-                <h4 class="fw-bold">Konten Edukasi</h4>
-            </div>
-            <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <img src="/img/design_feed_instagram/ig stories.png" class="img-fluid mb-3" alt="..." style="width: 15em">
-                <h4 class="fw-bold">Instagram Stories</h4>
-            </div>
-            <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <img src="/img/design_feed_instagram/request.png" class="img-fluid mb-3" alt="..." style="width: 15em">
-                <h4 class="fw-bold">Request Sesuka Hati</h4>
-            </div>
+            @endforeach
         </div>
     </div>
-</section>
+  </section>
 
 <section class="portofolio" id="portofolio">
     <div class="container">
