@@ -33,7 +33,7 @@ class PortofolioController extends Controller
             })
             ->addColumn('image', function($portofolio) {
                 return '
-                <img width="90%" class="rounded" src="'. asset('storage/'.$portofolio->image) .'">
+                <img width="90%" class="rounded" src="'. asset('storage/'.$portofolio->img) .'">
                 ';
             })
             
@@ -86,7 +86,7 @@ class PortofolioController extends Controller
 
         $save = new Portofolio();
         $save->title = $title;
-        $save->image = $validate['image'];
+        $save->img = $validate['image'];
         $save->save();
 
         // Portofolio::create($validate);
@@ -142,9 +142,15 @@ class PortofolioController extends Controller
             }
             $rules['image'] = $request->file('image')->store('portofolio');
         }
+
+        $title = $request['title'];
+        $image = $rules['image'];
         
-        
-        Portofolio::where('id', $portofolio->id)->update($rules);
+        $save = Portofolio::where('id', $portofolio->id);
+        $save->title = $title;
+        $save->img = $image;
+        $save->update();
+        // Portofolio::where('id', $portofolio->id)->update($rules);
         return redirect('/dashboard/portofolio')->with('success', 'Portofolio berhasil diupdate'); 
     }
 

@@ -85,7 +85,7 @@
     </script>
     
     
-    <script src="js/owl.carousel.js"></script>
+    <script src="/js/owl.carousel.js"></script>
 
     @stack('scripts')
 

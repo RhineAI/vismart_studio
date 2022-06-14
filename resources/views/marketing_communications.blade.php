@@ -83,9 +83,9 @@
             <div class="col-12 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                 <div class="owl-carousel owl-images owl-theme">
   
-                  @foreach ($portofolios as $portofolio)
+                  @foreach ($portofolio as $p)
                   <div class="item mx-3 my-5">
-                    <a href="{{ asset('storage/' . $portofolio->image) }}" data-lightbox="roadtrip" data-title="{{ $portofolio->title }}"><img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}"></a>
+                    <a href="{{ asset('storage/'. $p->img) }}" data-lightbox="roadtrip" data-title="{{ $p->title }}"><img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}"></a>
                   </div>
                   @endforeach
                     

@@ -105,13 +105,13 @@
           <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Portofolio Vismart Studio</h1>
           <div class="col-12 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
               <div class="owl-carousel owl-images owl-theme">
-
-                @foreach ($portofolios as $portofolio)
+                @foreach ($portofolio as $item)
                     <div class="item mx-3 my-5">
-                        <a href="{{ asset('storage/' . $portofolio->image) }}" data-lightbox="roadtrip" data-title="{{ $portofolio->title }}"><img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}"></a>
+                        {{-- {{ trim($item->img) }} --}}
+                        <a href="{{ asset('storage/'. $item->img) }}" data-lightbox="roadtrip" data-title="{{ $item->title }}"><img src="{{ asset('storage/' . $item->img) }}" alt="{{ $item->title }}"></a>
                     </div>
+                    {{-- {{ json_encode($item->img) }} --}}
                 @endforeach
-                  
               </div>
           </div>
       </div>
@@ -124,12 +124,15 @@
         <div class="col-10 aos-init aos-animate" data-aos="fade-up">
           <div class="owl-carousel owl-text owl-theme">
 
-            @foreach ($testimonials as $testimonial)
-              <div class="item">
-                <h1 class="fw-bold mb-4">" {{ $testimonial->description }} "</h1>
-                <h4 class="fw-bold">{{ $testimonial->name }}</h4>
-              </div>
-            @endforeach
+            {{-- @if () --}}
+                @foreach ($testimonial as $item)
+                    <div class="item">
+                    <h1 class="fw-bold mb-4">"{{ $item->description }}"</h1>
+                    <h4 class="fw-bold">{{ $item->name }}</h4>
+                    </div>
+                @endforeach
+            {{-- @endif --}}
+           
               
           </div>
         </div>

@@ -18,6 +18,10 @@ class DetailService extends Model
         return $this->belongsTo(Service::class);
     }
 
+    // public function testimonial() {
+    //     return $this->hasOne(Testimonial::class);
+    // }
+
     public function jasa() {
         return $this->belongsToMany(Jasa::class, 'detail_service_jasa');
     }
