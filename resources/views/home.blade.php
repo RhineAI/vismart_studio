@@ -42,7 +42,7 @@
                     <div class="service p-2 px-4 mb-4 aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease">
                         <div class="row justify-content-center align-items-center">
                             <div class="col-lg-2 text-center">
-                                <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid" alt="..." style="width: 6em">
+                                <img src="{{ asset('storage/'. $item->logo) }}" class="img-fluid" alt="..." style="width: 6em">
                             </div>
                             <div class="col-lg-10 p-3 text-center text-lg-start">
                                 <h3 class="fw-bold">{{ $item->title }}</h3>

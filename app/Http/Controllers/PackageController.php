@@ -43,7 +43,7 @@ class PackageController extends Controller
                 return 'IDR '. format_uang($package->price) .',00';
             })
             ->addColumn('noTelp', function($package) {
-                return '+'.$package->no_telp;
+                return $package->no_telp;
             })
             ->addColumn('mainView', function($package) {
                 if($package->is_first == 1){

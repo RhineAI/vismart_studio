@@ -28,7 +28,7 @@
                     <div class="mb-2">
                         <label for="slug" class="form-label">Pranala</label>
                         <input type="text" class="form-control @error('slug') is-invalid @enderror" rows="3" id="slug"
-                            name="slug" value="{{ old('slug', $service->slug) }}" required maxlength="50">
+                            name="slug" value="{{ old('slug', $service->slug) }}" maxlength="50" readonly>
                         @error('slug')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -37,17 +37,17 @@
                     </div>
 
                     <div class="mb-2">
-                        <label for="image" class="form-label">Gambar</label>
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
-                            name="image" onchange="previewImage()" value="{{ old('image', $service->image) }}">
-                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $service->image }}">
-                        @if($service->image)
-                        <img src="{{ asset('storage/' . $service->image) }}"
+                        <label for="logo" class="form-label">Gambar</label>
+                        <input type="file" class="form-control @error('logo') is-invalid @enderror" id="logo"
+                            name="logo" onchange="previewImage()" value="{{ old('logo', $service->logo) }}">
+                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $service->logo }}">
+                        @if($service->logo)
+                        <img src="{{ asset('storage/' . $service->logo) }}"
                             class="img-preview img-fluid my-3 col-sm-5 d-block">
                         @else
                         <img class="img-preview img-fluid my-3 col-sm-5">
                         @endif
-                        @error('image')
+                        @error('logo')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -69,7 +69,7 @@
 @push('script')
 <script>
     function previewImage() {
-        const image = document.querySelector('#image');
+        const image = document.querySelector('#logo');
         const imgPreview = document.querySelector('.img-preview');
 
         imgPreview.style.display = 'block';

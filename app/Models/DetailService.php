@@ -14,8 +14,8 @@ class DetailService extends Model
     protected $guarded = [];
 
     public function service() {
-        return $this->belongsTo(Service::class, 'service');
-        // return $this->hasOne(Service::class, 'id', 'id');
+        // return $this->belongsTo(Service::class, 'service','service_id', 'id');
+        return $this->belongsTo(Service::class);
     }
 
     public function jasa() {

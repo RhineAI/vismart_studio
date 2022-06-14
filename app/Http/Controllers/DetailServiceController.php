@@ -131,7 +131,7 @@ class DetailServiceController extends Controller
         $service = new DetailService();
         $service->service_id = $request->service;
         $service->question = $question;
-        $service->image = $request->image;
+        $service->image = $validate['image'];
         $service->answer1 = $answer1;
         $service->answer2 = $answer2;
         $service->answer3 = $answer3;
@@ -210,7 +210,7 @@ class DetailServiceController extends Controller
     {
         $rules = $request->validate([
             'question' => 'required|max:225',
-            'image' => 'image|file|required|max:12000',
+            'image' => 'image|file|max:12000',
             'answer1' => 'required|max:225',
             'answer2' => 'max:225',
             'answer3' => 'max:225',
@@ -233,7 +233,7 @@ class DetailServiceController extends Controller
         $service = DetailService::find($id);
         $service->service_id = $request->service;
         $service->question = $question;
-        $service->image = $rules['image'];
+        // $service->image = $rules['image'];
         $service->answer1 = $answer1;
         $service->answer2 = $answer2;
         $service->answer3 = $answer3;  

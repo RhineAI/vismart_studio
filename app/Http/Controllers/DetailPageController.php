@@ -16,35 +16,38 @@ class DetailPageController extends Controller
     {
         $service = Service::where('slug', $slug)->first();
 
-        $details = DetailService::with(['advantage', 'jasa', 'package.feature'])
-                                ->leftJoin('service', 'service.id', '=', 'detail_service.service_id')
+        $detail = DetailService::with(['service', 'advantage', 'jasa', 'package.feature'])
                                 ->select('*')
-                                ->find($service->id);
+                                ->where('service_id', $service->id)->first();
 
-        // return $details;
+        // return $detail->service->title;
+
+        // $detail = DetailService::with(['advantage', 'jasa', 'package.feature'])->leftJoin('service', 'service.id', 'detail_service.service_id')->select('*')->findOrFail($service->id);
+
+        // dd($detail);
         $portofolios = Portofolio::orderBy('title', 'ASC')->get();
         $testimonials = Testimonial::orderBy('name', 'ASC')->get();
 
         if ($slug == 'marketing-communications') {
             return view('marketing_communications', [
                 'title' => 'Marketing Communications',
-                'question' => $details->question,
-                'image' => $details,
-                'answer1' => $details->answer1,
-                'answer2' => $details->answer2,
-                'answer3' => $details->answer3,
-                'reason' => $details->reason,
-            ] ,compact('portofolios', 'testimonials', 'details'));
+                'question' => $detail->question,
+                'image' => $detail,
+                'answer1' => $detail->answer1,
+                'answer2' => $detail->answer2,
+                'answer3' => $detail->answer3,
+                'reason' => $detail->reason,
+            ] ,compact('portofolios', 'testimonials', 'detail'));
         } else {
             return view('detail_page', [
-                'title' => $details->service_id,
-                'question' => $details->question,
-                'image' => $details->image,
-                'answer1' => $details->answer1,
-                'answer2' => $details->answer2,
-                'answer3' => $details->answer3,
-                'reason' => $details->reason,
-            ] ,compact('portofolios', 'testimonials', 'details'));
+                'title' => $detail->service->title,
+                'question' => $detail->question,
+                'image' => $detail,
+                'answer1' => $detail->answer1,
+                'answer2' => $detail->answer2,
+                'answer3' => $detail->answer3,
+                'reason' => $detail->reason,
+            ] ,compact('portofolios', 'testimonials', 'detail'));
         }
 
         // return $service;

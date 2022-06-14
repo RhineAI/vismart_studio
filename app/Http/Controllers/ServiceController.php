@@ -31,7 +31,7 @@ class ServiceController extends Controller
             ->addIndexColumn()
             ->addColumn('image', function($service) {
                 return '
-                <img width="87%" class="rounded" src="'. asset('storage/'.$service->image) .'">
+                <img width="87%" class="rounded" src="'. asset('storage/'.$service->logo) .'">
                 ';
             })
             ->addColumn('title', function($service) {
@@ -78,19 +78,19 @@ class ServiceController extends Controller
         $validate = $request->validate([
             'title' => 'required|max:50',
             'slug' => 'required|unique:service',
-            'image' => 'image|file|required|max:10240'
+            'logo' => 'image|file|required|max:10240'
         ]);
 
-        if($request->file('image')) {
-            $validate['image'] = $request->file('image')->store('service');
+        if($request->file('logo')) {
+            $validate['logo'] = $request->file('logo')->store('service');
         }
 
         $title = $request['title'];
-        $image = $validate['image'];
+        $logo = $validate['logo'];
         
         $service = new Service;
         $service->title = $title;
-        $service->image = $image;
+        $service->logo = $logo;
         $service->save();
 
         return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama baru berhasil ditambah'); 
@@ -136,20 +136,20 @@ class ServiceController extends Controller
     {
         $rules = [
             'title' => 'required|max:50',
-            'image' => 'image|file|max:16000'
+            'logo' => 'image|file|max:16000'
         ];
 
         if ($request->slug != $service->slug) {
-            $rules['slug'] = 'required|unique:service';
+            $rules['slug'] = 'unique:service';
         }
         
         $validate = $request->validate($rules);
 
-        if($request->file('image')) {
+        if($request->file('logo')) {
             if($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $validate['image'] = $request->file('image')->store('service');
+            $validate['logo'] = $request->file('logo')->store('service');
         }
 
         $service = Service::find($service->id);

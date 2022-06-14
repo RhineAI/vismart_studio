@@ -26,7 +26,7 @@
                     <div class="mb-2">
                         <label for="slug" class="form-label">Pranala</label>
                         <input type="text" class="form-control @error('slug') is-invalid @enderror" rows="3" id="slug"
-                            name="slug" value="{{ old('slug') }}" required maxlength="50">
+                            name="slug" value="{{ old('slug') }}" required maxlength="50" readonly>
                         @error('slug')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -35,11 +35,11 @@
                     </div>
 
                     <div class="mb-2">
-                        <label for="image" class="form-label">Gambar</label>
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
-                            name="image" value="{{ old('image') }}" required onchange="previewImage()">
+                        <label for="logo" class="form-label">Gambar</label>
+                        <input type="file" class="form-control @error('logo') is-invalid @enderror" id="logo"
+                            name="logo" value="{{ old('logo') }}" required onchange="previewImage()">
                         <img class="img-preview img-fluid my-3 col-sm-5">
-                        @error('image')
+                        @error('logo')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -60,7 +60,7 @@
 @push('script')
 <script>
     function previewImage() {
-        const image = document.querySelector('#image');
+        const image = document.querySelector('#logo');
         const imgPreview = document.querySelector('.img-preview');
 
         imgPreview.style.display = 'block';

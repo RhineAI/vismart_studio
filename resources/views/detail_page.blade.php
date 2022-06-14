@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
             <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
-                <img src="{{ asset('storage/'. $details->image) }}" class="img-fluid" alt="..." style="width: 40em">
+                <img src="{{ asset('storage/'. $detail->image) }}" class="img-fluid" alt="..." style="width: 40em">
             </div>
             <div class="col-lg-6 p-5">
                 <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">{{ $question }}</h1><br>
@@ -40,7 +40,7 @@
   <div class="container">
       <div class="row justify-content-around text-center">
           <h1 class="fw-bold my-5 px-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">{{ $reason }}</h1>
-          @foreach ($details->advantage as $item)      
+          @foreach ($detail->advantage as $item)      
           <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
               <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid mb-3" alt="..." style="width: 5em">
               <h4 class="fw-bold">{{ $item->advantage }}</h4>
@@ -65,7 +65,7 @@
   <div class="container">
       <div class="row justify-content-center text-center" style="min-height: 100vh">
           <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Layanan Jasa Desain Logo</h1>
-          @foreach ( $details->jasa as $item )
+          @foreach ( $detail->jasa as $item )
           <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
             <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid rounded-start mb-3" alt="Logo UMKM" style="width: 15em">
             <h4 class="fw-bold">{{ $item->title }}</h4>
@@ -144,8 +144,23 @@
     <div class="container">
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
             <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Pilih Paket</h1>
-            @foreach ($details->package as $item)
+            @foreach ($detail->package as $item)
                 @if ($item->is_first == 1)
+                <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                    <div class="card mb-4 py-5"  style="color: #fff; background-color: var(--primary-color);">
+                        <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
+                        <div class="card-body">
+                            <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
+                                <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
+                                    @foreach ($item->feature as $feature)
+                                        <li class="list-group-item" style="color:#fff; background-color: var(--primary-color); "><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
+                                    @endforeach
+                                </ul>
+                            <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p> </button></a>
+                        </div>
+                    </div>
+                </div> 
+                @else
                 <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
                     <div class="card mb-4 py-3">
                         <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
@@ -160,21 +175,6 @@
                         </div>
                     </div>
                 </div>
-                @else
-                <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                    <div class="card mb-4 py-5"  style="color: #fff; background-color: var(--primary-color);">
-                        <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
-                        <div class="card-body">
-                            <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
-                                <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
-                                    @foreach ($item->feature as $feature)
-                                        <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
-                                    @endforeach
-                                </ul>
-                            <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p> </button></a>
-                        </div>
-                    </div>
-                </div> 
                 @endif
             @endforeach
         </div>

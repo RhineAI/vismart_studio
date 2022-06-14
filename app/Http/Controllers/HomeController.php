@@ -16,7 +16,7 @@ class HomeController extends Controller
         // $service = Service::where('id', $detailService->service_id)->get();
         $service = DetailService::
                 leftJoin('service', 'service.id', 'detail_service.service_id')
-                ->select('detail_service.*', 'title', 'slug')
+                ->select('detail_service.*', 'title', 'logo', 'slug')
                 ->orderBy('id', 'asc')->get();
 
         // return $service;
