@@ -27,7 +27,7 @@ class DetailService extends Model
     }
 
     public function package() {
-        return $this->belongsToMany(Package::class, 'detail_service_package');
+        return $this->belongsToMany(Package::class, 'detail_service_package')->withTimestamps()->orderByPivot('updated_at', 'desc');
     }
 
     public function advantage() {

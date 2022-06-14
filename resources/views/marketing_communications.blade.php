@@ -85,7 +85,7 @@
   
                   @foreach ($portofolio as $p)
                   <div class="item mx-3 my-5">
-                    <a href="{{ asset('storage/'. $p->img) }}" data-lightbox="roadtrip" data-title="{{ $p->title }}"><img src="{{ asset('storage/' . $p->image) }}" alt="{{ $p->title }}"></a>
+                    <a href="{{ asset('storage/'. $p->img) }}" data-lightbox="roadtrip" data-title="{{ $p->title }}"><img src="{{ asset('storage/' . $p->img) }}" alt="{{ $p->title }}"></a>
                   </div>
                   @endforeach
                     

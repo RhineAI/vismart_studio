@@ -59,10 +59,10 @@ class DetailServiceController extends Controller
             ->addColumn('paket', function ($service) {
                 $package = '';
                 foreach ($service->package as $key => $value) {
-                    if ($value->is_first == 1){
-                        $package .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-danger rounded">'. $value->name.'</div>';
-                    } else {
+                    if ($value->is_first == 0){
                         $package .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-warning rounded">'. $value->name.'</div>';
+                    } else {
+                        $package .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-danger rounded">'. $value->name.'</div>';
                     }
                 }
                 return $package;
