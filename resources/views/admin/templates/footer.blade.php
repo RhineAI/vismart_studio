@@ -9,6 +9,10 @@
 
         {{-- &copy; 2020 Dastyle <span class="d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span> --}}
 
+        {{-- Trix Editor --}}
+        <script type="text/javascript" src="/js/trix.js"></script>
+
+
         <!-- jQuery  -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         {{-- <script src="{{ asset('admin/assets/js/jquery.min.js') }}') }}"></script> --}}

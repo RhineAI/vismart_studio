@@ -111,9 +111,7 @@ class DetailServiceController extends Controller
         $validate = $request->validate([
             'question' => 'required|max:225',
             'image' => 'image|file|required|max:12000',
-            'answer1' => 'required|max:225',
-            'answer2' => 'max:225',
-            'answer3' => 'max:225',
+            'answer' => 'required',
             'reason' => 'required|max:225',
             // 'description' => 'required|max:2500'
         ]);
@@ -123,18 +121,14 @@ class DetailServiceController extends Controller
         }
 
         $question = $request['question'];
-        $answer1 = $request['answer1'];
-        $answer2 = $request['answer2'];
-        $answer3 = $request['answer3'];
+        $answer = $request['answer'];
         $reason = $request['reason'];
 
         $service = new DetailService();
         $service->service_id = $request->service;
         $service->question = $question;
         $service->image = $validate['image'];
-        $service->answer1 = $answer1;
-        $service->answer2 = $answer2;
-        $service->answer3 = $answer3;
+        $service->answer = $answer;
         $service->reason = $reason;
         $service->save();
         
@@ -211,10 +205,8 @@ class DetailServiceController extends Controller
         $rules = $request->validate([
             'question' => 'required|max:225',
             'image' => 'image|file|max:12000',
-            'answer1' => 'required|max:225',
-            'answer2' => 'max:225',
-            'answer3' => 'max:225',
-            'reason' => 'required|max:225',
+            'answer' => '',
+            'reason' => 'max:225',
         ]);
 
         if($request->file('image')) {
@@ -225,18 +217,14 @@ class DetailServiceController extends Controller
         }
 
         $question = $request['question'];
-        $answer1 = $request['answer1'];
-        $answer2 = $request['answer2'];
-        $answer3 = $request['answer3']; 
+        $answer = $request['answer'];
         $reason = $request['reason'];
 
         $service = DetailService::find($id);
         $service->service_id = $request->service;
         $service->question = $question;
         // $service->image = $rules['image'];
-        $service->answer1 = $answer1;
-        $service->answer2 = $answer2;
-        $service->answer3 = $answer3;  
+        $service->answer = $answer; 
         $service->reason = $reason;
         $service->update();
 

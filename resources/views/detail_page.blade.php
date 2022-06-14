@@ -22,11 +22,8 @@
             </div>
             <div class="col-lg-6 p-5">
                 <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">{{ $question }}</h1><br>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{{ $answer1 }}</p>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{{ $answer2 }}</p>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{{ $answer3 }}</p>
+                <div class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{!! $answer !!}</div>               
                 {{-- @if (!empty($detail)) --}}
-                    {{-- <p class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{{ $answer4 }}</p>                --}}
                 {{-- @else --}}
                     <br>
                 {{-- @endif --}}

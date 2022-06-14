@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('admin.main')
 
 @section('content')
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
@@ -50,35 +50,19 @@
                                 </div>
                                 @enderror
                             </div>
-                            <div class="input-group mb-2">
-                                <div class="col-lg-6 mb-2">
-                                    <label for="answer1" class="form-label">Jawaban 1</label>
-                                    <textarea class="form-control @error('answer1') is-invalid @enderror" id="answer1" name="answer1" value="{{ old('answer1') }}" required maxlength="255"></textarea>
-                                    @error('answer1')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                            
+                                <div class="col-lg-12 mb-2">
+                                    <div class="col-lg-12 mb-2">
+                                        <label for="answer" class="form-label">Jawaban</label>
+                                        @error('answer')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                        <input type="hidden" class="form-control" id="answer" name="answer" value="{{ old('answer') }}" required maxlength="255">
+                                    <trix-editor input="answer"></trix-editor>
                                 </div>
-                                <div class="col-lg-6 mb-2">
-                                    <label for="answer2" class="form-label">Jawaban 2</label>
-                                    <textarea class="form-control @error('answer2') is-invalid @enderror" id="answer2" name="answer2" value="{{ old('answer2') }}" maxlength="255"></textarea>
-                                    @error('answer2')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 mb-2">
-                                    <label for="answer3" class="form-label">Jawaban 3</label>
-                                    <textarea class="form-control @error('answer3') is-invalid @enderror" id="answer3" name="answer3" value="{{ old('answer3') }}" maxlength="255"></textarea>
-                                    @error('answer3')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
+                            
                         </div>
 
                         <div class="mb-2">

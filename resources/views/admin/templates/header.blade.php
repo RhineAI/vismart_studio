@@ -42,8 +42,10 @@
         <link href="{{ asset('admin/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 
         {{-- Chosen-Select --}}
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css">
+
+        {{-- Trix Editor --}}
+        <link rel="stylesheet" type="text/css" href="/css/trix.css">
 
         <style>
             .clock {

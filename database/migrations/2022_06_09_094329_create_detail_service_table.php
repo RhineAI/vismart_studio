@@ -18,9 +18,7 @@ class CreateDetailServiceTable extends Migration
             $table->unsignedBigInteger('service_id');
             $table->string('question', 255);
             $table->string('image');
-            $table->string('answer1', 255);
-            $table->string('answer2', 255);
-            $table->string('answer3', 255)->nullable();
+            $table->text('answer', 255);
             $table->string('reason', 255)->nullable();
             $table->timestamps();
 

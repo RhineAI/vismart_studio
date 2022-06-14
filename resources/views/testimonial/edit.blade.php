@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('admin.main')
 
 @section('content')
 <div class="col-md-12 p-2 my-3" style="background-color: white;">

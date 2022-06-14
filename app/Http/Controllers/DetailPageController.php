@@ -33,9 +33,7 @@ class DetailPageController extends Controller
                 'title' => 'Marketing Communications',
                 'question' => $detail->question,
                 'image' => $detail,
-                'answer1' => $detail->answer1,
-                'answer2' => $detail->answer2,
-                'answer3' => $detail->answer3,
+                'answer' => $detail->answer,
                 'reason' => $detail->reason,
             ] ,compact('portofolios', 'testimonials', 'detail'));
         } else {
@@ -43,9 +41,7 @@ class DetailPageController extends Controller
                 'title' => $detail->service->title,
                 'question' => $detail->question,
                 'image' => $detail,
-                'answer1' => $detail->answer1,
-                'answer2' => $detail->answer2,
-                'answer3' => $detail->answer3,
+                'answer' => $detail->answer,
                 'reason' => $detail->reason,
             ] ,compact('portofolios', 'testimonials', 'detail'));
         }
