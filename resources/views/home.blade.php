@@ -264,14 +264,14 @@
 </section>
 
 <section class="client" id="client">
-    <div class="container text-center py-5">
+    <div class="container text-center py-3">
         <div class="row justify-content-center text-center">
             <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Client Vismart Studio</h2>
             <div class="col-10 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                 <div class="owl-carousel owl-images owl-theme">
 
                 @foreach ($clients as $client)
-                    <div class="item mx-5">
+                    <div class="item mx-5 mb-5">
                         <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}">
                     </div>
                 @endforeach

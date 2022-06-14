@@ -28,10 +28,10 @@
                     <div class="mb-2">
                         <label for="image" class="form-label">Gambar</label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
-                            name="image" onchange="previewImage()" value="{{ old('image', $portofolio->image) }}">
-                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $portofolio->image }}">
-                        @if($portofolio->image)
-                        <img src="{{ asset('storage/' . $portofolio->image) }}"
+                            name="image" onchange="previewImage()" value="{{ old('image', $portofolio->img) }}">
+                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $portofolio->img }}">
+                        @if($portofolio->img)
+                        <img src="{{ asset('storage/' . $portofolio->img) }}"
                             class="img-preview img-fluid my-3 col-sm-5 d-block">
                         @else
                         <img class="img-preview img-fluid my-3 col-sm-5">

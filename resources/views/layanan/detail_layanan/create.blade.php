@@ -29,8 +29,8 @@
                     </div>   
 
                     <div class="mb-4 p-3" style="border: 1px dotted black;">
-                        <p class="text-center">Form untuk bagian depan halaman</p>
-                    
+                        <p class="text-center " style="font-size:25px;">Form untuk bagian info halaman</p>
+                        <br>
                         <div class="mb-2">
                             <label for="question" class="form-label">Custom title untuk Pertanyaan Mengenai Layanan</label>
                             <input type="text" class="form-control mb-3 @error('question') is-invalid @enderror" id="question" name="question" value="{{ old('question') }}" required maxlength="255">
@@ -65,7 +65,7 @@
                             
                         </div>
 
-                        <div class="mb-2">
+                        {{-- <div class="mb-2">
                             <label for="reason" class="form-label">Custom title (Mengapa?) harus menggunakan layanan ini</label>
                             <input class="form-control @error('reason') is-invalid @enderror" id="reason" name="reason" value="{{ old('reason') }}" required maxlength="255">
                             @error('reason')
@@ -73,8 +73,9 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> --}}
                     </div>
+                </div>
 
 
                     <div class="mb-2">

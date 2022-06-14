@@ -76,7 +76,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-2">
+                        {{-- <div class="mb-2">
                             <label for="reason" class="form-label">Custom title (Mengapa) harus menggunakan layanan ini</label>
                             <input class="form-control @error('reason') is-invalid @enderror" id="reason" name="reason" value="{{ old('reason', $detail->reason) }}" required maxlength="255">
                             @error('reason')
@@ -84,7 +84,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> --}}
                     </div>
 
 

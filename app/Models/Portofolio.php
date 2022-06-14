@@ -10,6 +10,6 @@ class Portofolio extends Model
     use HasFactory;
 
     protected $table = 'portofolio';
-    protected $primaryKey = 'id';
-    protected $guarded = [];
+    // public $primaryKey = 'id';
+    // protected $guarded = [];
 }

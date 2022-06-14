@@ -19,7 +19,7 @@ class CreateDetailServiceTable extends Migration
             $table->string('question', 255);
             $table->string('image');
             $table->text('answer', 255);
-            $table->string('reason', 255)->nullable();
+            // $table->string('reason', 255)->nullable();
             $table->timestamps();
 
             $table->foreign('service_id')
