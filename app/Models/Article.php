@@ -12,4 +12,13 @@ class Article extends Model
     protected $table = 'article';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }

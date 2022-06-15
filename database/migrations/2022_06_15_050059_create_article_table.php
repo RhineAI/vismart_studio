@@ -18,8 +18,8 @@ class CreateSettingTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('image');
-            $table->string('excerpt');
-            $table->string('body');
+            $table->text('excerpt');
+            $table->text('body');
             $table->timestamp('published_at');
             $table->timestamps();
         });
