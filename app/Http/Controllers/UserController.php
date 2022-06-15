@@ -128,10 +128,10 @@ class UserController extends Controller
                 if ($request->password == $request->password_confirmation) {
                     $user->password = bcrypt($request->password);
                 } else {
-                    return response()->json('Konfirmasi password tidak sesuai', 422);
+                    return redirect('/dashboard/user')->with('error', 'Konfirmasi password tidak sesuai!');
                 }
             } else {
-                return response()->json('Password lama tidak sesuai', 422);
+                return redirect('/dashboard/user')->with('error', 'Password lama tidak sesuai!');
             }
         }
         
