@@ -148,6 +148,7 @@
                                 >{{ ++$key }}. {{ $item->name }}</option>
                                 @endforeach
                             </select>
+                            <span class="placeholder col-12 bg-light">MAX 3 Select : Kiri | Tengah | Kanan</span>
                         </div>
                         @error('package')
                             <div class="invalid-feedback">
@@ -171,7 +172,33 @@
 <script>
 
     $(document).ready(function () {
-        $(".chosen-select").chosen();
+        $(".chosen-select-deselect").chosen({allow_single_deselect:true});
+        $(".chosen-select").chosen({ max_selected_options:3});
+        $(".chosen-select").bind("chosen:maxselected", function () { 
+            let timerInterval
+            Swal.fire({
+                title: 'Max Selected is 3!',
+                html: '<b></b>',
+                timer: 1650,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+                }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
+         });
+        // $(".chosen-select").chosen().change( function () { alert("change"); } );
     });
 
     function previewImage() {
