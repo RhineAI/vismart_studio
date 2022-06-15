@@ -144,6 +144,15 @@
                         </a>
                     </li>
 
+                     {{-- Users --}}
+                     <li>
+                        <a href="{{ route('setting.index') }}">
+                            <i data-feather="settings" class="align-self-center menu-icon"></i>
+                            <span>Pengaturan</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="{{ route('auth.logout') }}">
                             <i data-feather="log-out" class="align-self-center menu-icon"></i>

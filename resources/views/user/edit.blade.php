@@ -3,6 +3,7 @@
 @section('content')
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
+
         <div class="box-header" style="margin-bottom: 50px;">
             <h2 class="ml-3">Form Pengguna</h2>
         </div>
@@ -65,7 +66,7 @@
                     <div class="mb-2">
                         <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control  @error('password_confirmation') is-invalid @enderror "  
-                        data-match=#password" minlength="4">
+                        data-match="#password" minlength="4">
                         <div class="col-sm-4">
                             <span class="help-block with-errors"></span>
                             @error('password_confirmation')

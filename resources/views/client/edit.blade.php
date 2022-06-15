@@ -31,7 +31,7 @@
                     <div class="mb-2">
                         <label for="name" class="form-label">Nama</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                            name="name" value="{{ old('name', $client->name) }}" required autofocus>
+                            name="name" value="{{ old('name', $client->name) }}" autofocus>
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
