@@ -23,6 +23,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 /*
@@ -115,6 +116,10 @@ Route::middleware(['auth'])->group(function () {
     // User
     Route::resource('dashboard/user', UserController::class);
     Route::post('/dashboard/user/data', [UserController::class, 'data'])->name('user.data');
+
+    //Setting
+    Route::resource('/dashboard/setting', SettingController::class);
+    Route::get('/dashboard/setting/{id}/index', [SettingController::class, 'ubah'])->name('setting.ubah');
 
     //Logout
     Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');    
