@@ -135,7 +135,7 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $rules = [
-            'title' => 'required|max:50',
+            'title' => 'max:50',
             'logo' => 'image|file|max:16000'
         ];
 

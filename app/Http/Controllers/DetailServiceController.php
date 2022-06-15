@@ -141,7 +141,7 @@ class DetailServiceController extends Controller
         
         // dd($service);
 
-        return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Berhasil Ditambahkan');
+        return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Detail Layanan baru berhasil ditambah');
 
 
         // $service->service()->attach($request->service);
@@ -232,7 +232,7 @@ class DetailServiceController extends Controller
         $service->advantage()->sync($request->advantage);
         $service->package()->sync($request->package);
 
-        return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Berhasil Diupdate');
+        return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Detail Layanan berhasil diupdate');
     }
 
     /**

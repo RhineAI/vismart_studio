@@ -90,7 +90,7 @@ class AdvantageController extends Controller
         $save->save();
 
         // return response()->json('success', 200);
-        return redirect('/dashboard/advantage')->with('success', 'Keuntungan baru berhasil ditambah'); 
+        return redirect('/dashboard/advantage')->with('success', 'Keunggulan baru berhasil ditambah'); 
     }
 
     /**
@@ -129,8 +129,8 @@ class AdvantageController extends Controller
     {
         $rules = $request->validate([
             'image' => 'image|file|max:12000',
-            'advantage' => 'required|min:3|max:100',
-            'description' => 'required|max:2500'
+            'advantage' => 'min:3|max:100',
+            'description' => 'max:2500'
         ]);
 
         if($request->file('image')) {
@@ -142,7 +142,7 @@ class AdvantageController extends Controller
         
         
         Advantage::where('id', $advantage->id)->update($rules);
-        return redirect('/dashboard/advantage')->with('success', 'Keuntungan berhasil diupdate'); 
+        return redirect('/dashboard/advantage')->with('success', 'Keunggulan berhasil diupdate'); 
     }
 
     /**
@@ -160,6 +160,6 @@ class AdvantageController extends Controller
         }
 
         Advantage::destroy($advantage->id);
-        return redirect('/dashboard/advantage')->with('success', 'Keuntungan berhasil dihapus');
+        return redirect('/dashboard/advantage')->with('success', 'Keunggulan berhasil dihapus');
     }
 }
