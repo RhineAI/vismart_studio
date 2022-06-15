@@ -14,7 +14,7 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Keuntungan</h2>
+                <h2 class="mb-5">Keunggulan</h2>
                 <a href="/dashboard/advantage/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span>
@@ -28,7 +28,7 @@
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
                             <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar
                             </th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Keuntungan</th>
+                            <th scope="col" class="text-center table-default" style="color:black;">Keunggulan</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Deskripsi</th>
                             <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
@@ -105,7 +105,7 @@
 
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Keuntungan yang dipilih?',
+            title: 'Hapus Keunggulan yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -122,7 +122,7 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Keuntungan berhasil dihapus',
+                        text: 'Keunggulan berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
                         confirmButtonColor: '#28A745'
@@ -133,7 +133,7 @@
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Keuntungan gagal dihapus',
+                        text: 'Keunggulan gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
                         confirmButtonColor: '#DC3545'
@@ -143,7 +143,7 @@
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Keuntungan batal dihapus',
+                    title: 'Keunggulan batal dihapus',
                     icon: 'warning'
                     ,
                 })

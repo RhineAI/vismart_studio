@@ -41,7 +41,7 @@
                         <label for="price" class="form-label">Harga</label>
                         <div class="input-group-prepend"> 
                             <span class="input-group-text">IDR.</span> 
-                            <input type="text" class="form-control @error('price') is-invalid @enderror" rows="3" id="price" name="price" value="{{ old('price') }}" required maxlength="16"></input>
+                            <input type="text" class="form-control @error('price') is-invalid @enderror" rows="3" id="price" name="price" value="{{ old('price') }}" required maxlength="16">
                         </div> 
                         @error('price')
                             <div class="invalid-feedback">
@@ -54,7 +54,7 @@
                         <label for="noTelp" class="form-label">No.Telepon</label>
                         <div class="input-group-prepend"> 
                             <span class="input-group-text">+62</span> 
-                            <input type="text" class="form-control @error('noTelp') is-invalid @enderror" rows="3" id="noTelp" name="noTelp" value="{{ old('noTelp') }}" required minlength="9" maxlength="12"></input>
+                            <input type="text" class="form-control @error('noTelp') is-invalid @enderror" rows="3" id="noTelp" name="noTelp" value="{{ old('noTelp') }}" required minlength="9" maxlength="12">
                         </div> 
                         @error('noTelp')
                             <div class="invalid-feedback">
@@ -66,8 +66,8 @@
                     <div class="mb-1 mt-4">
                         <label for="isFirst" class="form-label">Tampilkan Utama</label>
                         <div class="" >
-                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="1" {{ old('isFirst') == 1 ? 'checked' : ''}} > Iya <span>&nbsp;</span> </input>
-                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="0" {{ old('isFirst') == 0 ? 'checked' : ''}} > Tidak <span>&nbsp;</span> </input>
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="1" {{ old('isFirst') == 1 ? 'checked' : ''}} > Iya <span>&nbsp;</span> 
+                            <input type="radio" class="btn-check rounded p-2 @error('isFirst') is-invalid @enderror" id="isFirst" name="isFirst" value="0" {{ old('isFirst') == 0 ? 'checked' : ''}} > Tidak <span>&nbsp;</span> 
                         </div>
 
                         @error('isFirst')

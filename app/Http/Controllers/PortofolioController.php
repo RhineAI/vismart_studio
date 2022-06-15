@@ -131,7 +131,7 @@ class PortofolioController extends Controller
         // return $request->file('image')->store('portofolio');
 
         $rules = $request->validate([
-            'title' => 'required|max:225',
+            'title' => 'max:225',
             'image' => 'image|file|max:12000',
             // 'description' => 'required|max:2500'
         ]);
