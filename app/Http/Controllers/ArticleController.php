@@ -88,7 +88,8 @@ class ArticleController extends Controller
 
         Article::create($validate);
 
-        return redirect('/dashboard/article')->with('success', 'Artikel baru berhasil ditambah');
+        return redirect()->route('article.index')->with(['success' => 'Berhasil Disimpan!']);
+        // return redirect('/dashboard/article')->with('success', 'Artikel baru berhasil ditambah');
     }
 
     /**
@@ -150,7 +151,8 @@ class ArticleController extends Controller
         $article = article::find($article->id);
         $article->update($validate);       
 
-        return redirect('/dashboard/article')->with('success', 'Artikel berhasil diupdate');
+        return redirect()->route('article.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/article')->with('success', 'Artikel berhasil diupdate');
     }
 
     /**
@@ -166,7 +168,9 @@ class ArticleController extends Controller
         }
 
         Article::destroy($article->id);
-        return redirect('/dashboard/article')->with('success', 'Artikel berhasil dihapus');
+
+        return redirect()->route('article.index')->with(['success' => 'Berhasil Dihapus!']);
+        // return redirect('/dashboard/article')->with('success', 'Artikel berhasil dihapus');
     }
 
     public function makeSlug(Request $request)

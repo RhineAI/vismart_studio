@@ -91,7 +91,8 @@ class PortofolioController extends Controller
 
         // Portofolio::create($validate);
 
-        return redirect('/dashboard/portofolio')->with('success', 'Portofolio baru berhasil ditambah'); 
+        return redirect()->route('portofolio.index')->with(['success' => 'Berhasil Disimpan!']);
+        // return redirect('/dashboard/portofolio')->with('success', 'Portofolio baru berhasil ditambah'); 
     }
 
     /**
@@ -151,7 +152,9 @@ class PortofolioController extends Controller
         $save->img = $image;
         $save->update();
         // Portofolio::where('id', $portofolio->id)->update($rules);
-        return redirect('/dashboard/portofolio')->with('success', 'Portofolio berhasil diupdate'); 
+
+        return redirect()->route('portofolio.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/portofolio')->with('success', 'Portofolio berhasil diupdate'); 
     }
 
     /**
@@ -169,6 +172,8 @@ class PortofolioController extends Controller
         }
 
         Portofolio::destroy($portofolio->id);
-        return redirect('/dashboard/portofolio')->with('success', 'Portofolio berhasil dihapus');
+
+        return redirect()->route('portofolio.index')->with(['success' => 'Berhasil Dihapus!']);
+        // return redirect('/dashboard/portofolio')->with('success', 'Portofolio berhasil dihapus');
     }
 }

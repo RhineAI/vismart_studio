@@ -73,8 +73,8 @@ class UserController extends Controller
         $user->save();
 
         // return redirect('/dashboard/user')->response()->json('Data berhasil disimpan', 200);
-
-        return redirect('/dashboard/user')->with('success', 'Pengguna baru berhasil ditambah');
+        return redirect()->route('user.index')->with(['success' => 'Berhasil Disimpan!']);
+        // return redirect('/dashboard/user')->with('success', 'Pengguna baru berhasil ditambah');
     }
 
     /**
@@ -137,7 +137,8 @@ class UserController extends Controller
         
         $user->update();
 
-        return redirect('/dashboard/user')->with('success', 'Pengguna berhasil diupdate');
+        return redirect()->route('user.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/user')->with('success', 'Pengguna berhasil diupdate');
     }
 
     /**
@@ -149,6 +150,8 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
-        return redirect('/dashboard/user')->with('success', 'Pengguna berhasil dihapus');
+
+        return redirect()->route('user.index')->with(['success' => 'Berhasil Dihapus!']);
+        // return redirect('/dashboard/user')->with('success', 'Pengguna berhasil dihapus');
     }
 }

@@ -141,11 +141,8 @@ class DetailServiceController extends Controller
         
         // dd($service);
 
-        return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Detail Layanan baru berhasil ditambah');
-
-
-        // $service->service()->attach($request->service);
-
+        return redirect()->route('detail_layanan.index')->with(['success' => 'Berhasil Disimpan!']);
+        // return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Detail Layanan baru berhasil ditambah');
     }
 
     /**
@@ -232,7 +229,8 @@ class DetailServiceController extends Controller
         $service->advantage()->sync($request->advantage);
         $service->package()->sync($request->package);
 
-        return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Detail Layanan berhasil diupdate');
+        return redirect()->route('detail_layanan.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/layanan/detail_layanan')->with('success', 'Detail Layanan berhasil diupdate');
     }
 
     /**
@@ -255,6 +253,7 @@ class DetailServiceController extends Controller
         $hapus = DetailService::find($id);
         $hapus->delete();   
 
-        return response(null,200);
+        return redirect()->route('detail_layanan.index')->with(['success' => 'Berhasil Dihapus!']);
+        // return response(null,200);
     }
 }

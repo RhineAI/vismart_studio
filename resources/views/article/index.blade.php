@@ -3,14 +3,9 @@
 @section('content')
 <div class="row">
     <div class="col-md-12 p-2 my-3" style="background-color: white">
-
         {{-- @if(session()->has('success'))
-        <div onload="messageSuccess()" id="messageSuccess" style="visibility: hidden;"></div>
-        @endif --}}
-
-        @if(session()->has('success'))
         <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
-        @endif
+        @endif --}}
 
         <div class="box">
             <div class="box-header with-border mx-2">
