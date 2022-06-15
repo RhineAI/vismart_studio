@@ -24,7 +24,18 @@
                         @enderror
                     </div>
 
-                    <div class="mb-2">
+                    <div class="mb-2 ">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="usernem"
+                            name="usernem" value="{{ old('username', $user->username) }}">
+                        @error('username')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    {{-- <div class="mb-2">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
                             name="username" value="{{ old('username', $user->username) }}">
@@ -33,7 +44,7 @@
                             {{ $message }}
                         </div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     <div class="mb-2">
                         <label for="old_password" class="form-label">Password Lama</label>

@@ -121,7 +121,7 @@ class UserController extends Controller
         // $user = auth()->user();
         
         $user->name = $request->name;
-        $user->username = $request->username;
+        $user->username = $request->usernem;
 
         if ($request->has('password') && $request->password != "") {
             if (Hash::check($request->old_password, $user->password)) {

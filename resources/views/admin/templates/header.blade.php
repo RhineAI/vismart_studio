@@ -57,7 +57,7 @@
             .clock {
                 position: absolute;
                 top: 50%;
-                left: 80%;
+                left: 84%;
                 transform: translateX(-50%) translateY(-50%);
                 color: black;
                 font-size: 20px;

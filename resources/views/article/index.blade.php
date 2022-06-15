@@ -10,7 +10,7 @@
         <div class="box">
             <div class="box-header with-border mx-2">
                 <h2 class="mb-5">Artikel</h2>
-                <a href="/dashboard/advantage/create" class="btn btn-outline-dark mb-3 p-2">
+                <a href="/dashboard/article/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span>
                 </a>
@@ -83,7 +83,7 @@
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('advantage.data') }}",
+            url: "{{ route('article.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'

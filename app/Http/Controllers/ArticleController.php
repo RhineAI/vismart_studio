@@ -20,6 +20,10 @@ class ArticleController extends Controller
         $article = Article::all();
         return view('article.index', compact('article'));
 
+        
+    }
+
+    public function data() {
         $article = Article::orderBy('id', 'desc')->get();
 
         return datatables()
@@ -175,7 +179,7 @@ class ArticleController extends Controller
 
     public function makeSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Service::class, 'slug', $request->title);
+        $slug = SlugService::createSlug(Article::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
 }

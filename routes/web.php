@@ -86,6 +86,10 @@ Route::middleware(['auth'])->group(function () {
          Route::get('/dashboard/layanan/detail_layanan/{id}/edit', [DetailServiceController::class, 'ubah'])->name('detail_layanan.ubah');
          Route::delete('/dashboard/layanan/detail_layanan/{id}/hapus', [DetailServiceController::class, 'hapus'])->name('detail_service.hapus');
     //
+
+    // Testimonial
+    Route::resource('/dashboard/article', ArticleController::class);
+    Route::post('/dashboard/article/data', [ArticleController::class, 'data'])->name('article.data');
         
     // Testimonial
     Route::resource('/dashboard/testimonial', TestimonialController::class);
