@@ -88,7 +88,7 @@ class ArticleController extends Controller
 
         Article::create($validate);
 
-        return redirect('/dashboard/article')->with('success', 'Layanan Utama baru berhasil ditambah');
+        return redirect('/dashboard/article')->with('success', 'Artikel baru berhasil ditambah');
     }
 
     /**
@@ -150,7 +150,7 @@ class ArticleController extends Controller
         $article = article::find($article->id);
         $article->update($validate);       
 
-        return redirect('/dashboard/layanan/article')->with('success', 'Layanan Utama berhasil diupdate');
+        return redirect('/dashboard/article')->with('success', 'Artikel berhasil diupdate');
     }
 
     /**

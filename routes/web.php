@@ -14,6 +14,7 @@ use App\Http\Controllers\SMMController;
 use App\Http\Controllers\MarketingCommunicationsController;
 
 use App\Http\Controllers\AdvantageController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\FeatureController;
