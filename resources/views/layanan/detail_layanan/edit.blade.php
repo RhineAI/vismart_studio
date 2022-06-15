@@ -71,7 +71,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                    <input type="hidden" class="form-control" id="answer" name="answer" value="{{ old('answer', $detail->answer) }}" required maxlength="255">
+                                    <input type="hidden" class="form-control" id="answer" name="answer" value="{{ old('answer', $detail->answer) }}" maxlength="255">
                                 <trix-editor input="answer"></trix-editor>
                             </div>
                         </div>

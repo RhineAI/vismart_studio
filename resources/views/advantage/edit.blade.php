@@ -5,7 +5,7 @@
 <div class="col-md-12 p-2 my-3" style="background-color: white;">
     <div class="box">
         <div class="box-header" style="margin-bottom: 50px;">
-            <h2 class="ml-3">Form Keuntungan</h2>
+            <h2 class="ml-3">Form Keunggulan</h2>
         </div>
 
         <div class="box-body">
@@ -29,10 +29,9 @@
                     </div>
 
                     <div class="mb-2">
-                        <label for="advantage" class="form-label">Keuntungan</label>
+                        <label for="advantage" class="form-label">Keunggulan</label>
                         <input class="form-control @error('advantage') is-invalid @enderror" rows="3" id="advantage"
-                            name="advantage" value="{{ old('advantage', $previllege->advantage ) }}" required
-                            autofocus>
+                            name="advantage" value="{{ old('advantage', $previllege->advantage ) }}" autofocus>
                         @error('advantage')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -43,7 +42,7 @@
                     <div class="mb-2">
                         <label for="description" class="form-label">Deskripsi</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="3"
-                            name="description" required>{{ old('description', $previllege->description) }}</textarea>
+                            name="description">{{ old('description', $previllege->description) }}</textarea>
                         @error('description')
                         <div class="invalid-feedback">
                             {{ $message }}
