@@ -5,6 +5,7 @@ use App\Models\Client;
 use App\Models\Home;
 use App\Models\DetailService;
 use App\Models\Service;
+use App\Models\SettingHome;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $clients = Client::all();
-        // $detailService = DetailService::all();
+        $setting_home = SettingHome::first();
         // $service = Service::where('id', $detailService->service_id)->get();
         $service = DetailService::
                 leftJoin('service', 'service.id', 'detail_service.service_id')
@@ -23,7 +24,7 @@ class HomeController extends Controller
 
         return view('home', [
             "title" => "Home"
-        ] ,compact('clients', 'service'));
+        ] ,compact('clients', 'service', 'setting_home'));
     }
 
     // public function check() {

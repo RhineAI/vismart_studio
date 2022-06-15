@@ -119,7 +119,7 @@ Route::middleware(['auth'])->group(function () {
 
     //Setting
     Route::resource('/dashboard/setting', SettingController::class);
-    Route::get('/dashboard/setting/{id}/index', [SettingController::class, 'ubah'])->name('setting.ubah');
+    Route::put('/dashboard/setting/{id}/setting_home', [SettingController::class, 'updateHome'])->name('setting.updateHome');
 
     //Logout
     Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');    

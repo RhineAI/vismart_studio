@@ -63,6 +63,15 @@
                         </ul>
                     </li> 
 
+                     {{-- Article --}}
+                     {{-- <li>
+                        <a class="nav-link {{ Request::is('dashboard/article*') ? 'active' : '' }}" href="{{ route('article.index') }}">
+                            <i data-feather="message-circle" class="align-self-center menu-icon"></i>
+                            <span>Article</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                    </li> --}}
+
                     {{-- Testimonial --}}
                     <li>
                         <a class="nav-link {{ Request::is('dashboard/testimonial*') ? 'active' : '' }}" href="{{ route('testimonial.index') }}">
