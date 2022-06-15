@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advantage;
+use App\Models\SettingDashboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,6 +17,8 @@ class AdvantageController extends Controller
     public function index()
     {
         $advantage = Advantage::all();
+        // $setting = SettingDashboard::first();
+
         return view('advantage.index', compact('advantage'));
     }
 
@@ -33,7 +36,10 @@ class AdvantageController extends Controller
             })
             ->addColumn('advantage', function($advantage) {
                 return $advantage->advantage;
-        })
+            })
+            ->addColumn('description', function($advantage) {
+                return $advantage->description;
+            })
             ->addColumn('created', function($advantage) {
                 return tanggal($advantage->created_at);
             })
@@ -55,7 +61,8 @@ class AdvantageController extends Controller
     public function create()
     {
         return view('advantage.create', [
-            'advantage' => Advantage::all()
+            'advantage' => Advantage::all(),
+            // 'setting' =>  SettingDashboard::first()
         ]);
     }
 
@@ -114,7 +121,8 @@ class AdvantageController extends Controller
     {
         return view('advantage.edit', [
             'previllege' => $advantage,
-            'advantage' => Advantage::all()
+            'advantage' => Advantage::all(),
+            // 'setting' =>  SettingDashboard::first()
         ]);
     }
 

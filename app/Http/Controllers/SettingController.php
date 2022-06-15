@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Setting;
+use App\Models\SettingDashboard;
 use App\Models\SettingHome;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class SettingController extends Controller
     {
         $setting = Setting::first();
         $setting_home = SettingHome::first();
-        return view('setting.index', compact('setting', 'setting_home'));
+        $setting_dashboard = SettingDashboard::first();
+        return view('setting.index', compact('setting', 'setting_home', 'setting_dashboard'));
     }
 
     /**
@@ -70,6 +72,14 @@ class SettingController extends Controller
     public function edit($id)
     {
        
+    }
+
+    public function updateDashboard(Request $request, $id) {
+        $update = SettingDashboard::find($id);
+        $update->clock = $request->boolean( key:'clock');
+        $update->update();
+
+        return redirect()->route('setting.index')->with(['success' => 'Pengaturan Berhasil Disimpan!']);
     }
 
     public function updateHome(Request $request, $id)

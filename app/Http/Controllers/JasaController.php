@@ -147,6 +147,7 @@ class JasaController extends Controller
      */
     public function update(Request $request, Jasa $jasa)
     {
+        // return $request;
         $validate = $request->validate([
             'title' => 'max:50',
             'image' => 'image|file|max:16000',

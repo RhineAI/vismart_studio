@@ -11,6 +11,49 @@
                 <h2 class="mb-5">Pengaturan</h2>
             </div>
 
+            <div class="box-body dashboard table-responsive">
+                <form action="{{ route('setting.updateDashboard', $setting_dashboard->id) }}" method="post">
+                    @csrf
+                    @method('put')
+                    <table class="table table-bordered rounded">
+                        <thead>
+                            <tr>
+                                <th width="20%" scope="col" class="text-center" style="color:black; background-color:#43e6d8;font-size:22px;"width="6%">Dashboard Settings</th>
+                                <th width="8%" scope="col" class="text-center" style="color:black; background-color:#43e6d8;font-size:22px;">Tampilkan</th>
+                                <th width="8%" scope="col" class="text-center" style="color:black; background-color:#43e6d8;font-size:22px;">Tidak</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <div class="clock">
+                                    <th style="font-size:23px;">Jam</th>
+                                    <th>
+                                        <div class="d-flex justify-content-center">    
+                                            <input type="radio" class="btn-check" id="d-block" name="clock" value="1" style="height:28px; width:26px; vertical-align: middle;"
+                                            {{ !empty($setting_dashboard) ? ($setting_dashboard->clock == 1 ? 'checked' : '') : '' }}>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="d-flex justify-content-center">    
+                                            <input type="radio" class="btn-check" id="d-none" name="clock" value="0" style="height:28px; width:26px; vertical-align: middle;"
+                                            {{ !empty($setting_dashboard) ? ($setting_dashboard->clock == 0 ? 'checked' : '') : '' }}>
+                                        </div>
+                                    </th>
+                                </div>     
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+
+            <div class="box-footer dashboard-page my-3 mx-4 d-flex justify-content-end">
+                <button type="submit" id="submit" class="btn btn-outline-success">Update <i class="fa-solid fa-check"></i></button>
+                </form>
+            </div>
+
+
+            <br><br><br><br>  
+
+
             <div class="box-body home-page table-responsive">
                 <form action="{{ route('setting.updateHome', $setting_home->id) }}" method="post">
                     @csrf
@@ -177,7 +220,11 @@
                 </form>
             </div>
 
+
+
             <br><br><br><br>  
+
+
            
             <div class="box-body detail-page table-responsive">
                 <form action="{{ route('setting.update', $setting->id) }}" method="post" id="formAdd">

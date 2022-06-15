@@ -131,6 +131,7 @@ Route::middleware(['auth'])->group(function () {
     //Setting
     Route::resource('/dashboard/setting', SettingController::class);
     Route::put('/dashboard/setting/{id}/setting_home', [SettingController::class, 'updateHome'])->name('setting.updateHome');
+    Route::put('/dashboard/setting/{id}/setting_dashboard', [SettingController::class, 'updateDashboard'])->name('setting.updateDashboard');
 
     //Logout
     Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');    

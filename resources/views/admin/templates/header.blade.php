@@ -57,12 +57,16 @@
             .clock {
                 position: absolute;
                 top: 50%;
-                left: 84%;
+                left: 10%;
                 transform: translateX(-50%) translateY(-50%);
                 color: black;
                 font-size: 20px;
                 font-family: 'Times New Roman';
+                color:#567dc7;
                 letter-spacing: 3px;
+                padding: 12px;
+                border-radius: 25px;
+                background-color:#e9eef7;
             }
         </style>
     </head>

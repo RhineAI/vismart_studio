@@ -130,13 +130,13 @@
                     </li> 
 
                     {{-- Advantage --}}
-                    {{-- <li>
+                    <li>
                         <a class="nav-link {{ Request::is('dashboard/advantage*') ? 'active' : '' }}" href="{{ route('advantage.index') }}">
                             <i data-feather="award" class="align-self-center menu-icon"></i>
                             <span>Keuntungan</span>
                             <span class="menu-arrow"></span>
                         </a>
-                    </li> --}}
+                    </li>
 
 
                     {{--    Lainnya    --}}

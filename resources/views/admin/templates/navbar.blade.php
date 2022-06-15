@@ -1,4 +1,4 @@
-<style>
+{{-- <style>
     #img {
         height: 51px;
         width: 51px;
@@ -19,41 +19,67 @@
         padding-top:20px;
         /* padding-left: 20px; */
     }
-</style>
+</style> --}}
 
 <nav class="navbar-custom"> 
+    <ul class="list-unstyled topbar-nav float-right mb-0">  
     
-
-    {{-- <ul class="list-unstyled topbar-nav float-right mb-0">     
-        <!-- User Account: style can be found in dropdown.less -->
-        <li class="dropdown user user-menu open">
-            <a href="#" class="" data-toggle="dropdown">
-                <img src="/img/icon.png" id="img" class="user-image images-profile"
-                    alt="User Image">
+        <li class="dropdown notification-list">
+            <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="false" aria-expanded="false">
+                <i data-feather="bell" class="align-self-center topbar-icon"></i>
+                <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
             </a>
-            <span id="username" class="hidden-xs mt-2">{{ auth()->user()->name }}</span>
-            <ul class="dropdown-menu"> --}}
-                <!-- User image -->
-                {{-- <li class="user-header">
-                    <img src="/img/icon.png" id="img2" class="img-circle images-profile"
-                        alt="User Image">
-                    <p>
-                        <b>Username</b> : {{ auth()->user()->username }}
-                    </p>
-                </li> --}}
-                <!-- Menu Footer-->
-                {{-- <li class="user-footer">
-                    <div class=""> --}}
-                        {{-- <a href="{{ route('user.profile') }}" class="btn btn-success btn-flat btn-sm"><i class="fa fa-pen-to-square"></i> Update Profile</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
-                        {{-- <a href="{{ route('auth.logout') }}" class="btn btn-danger btn-flat btn-sm"
-                            onclick="$('#logout-form').submit()"><i class="fa fa-arrow-right-from-bracket"></i> Logout</a>
-                    </div>
-                </li>
-            </ul>
-        </li> --}}
+            <div class="dropdown-menu dropdown-menu-right dropdown-lg pt-0">
+            
+                <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">
+                    Notifications <span class="badge badge-primary badge-pill">2</span>
+                </h6> 
+                <div class="notification-menu" data-simplebar>
+                    <!-- item-->
+                    <a href="#" class="dropdown-item py-3">
+                        <small class="float-right text-muted pl-2">2 min ago</small>
+                        <div class="media">
+                            <div class="avatar-md bg-soft-primary">
+                                <i data-feather="shopping-cart" class="align-self-center icon-xs"></i>
+                            </div>
+                            <div class="media-body align-self-center ml-2 text-truncate">
+                                <h6 class="my-0 font-weight-normal text-dark">Your order is placed</h6>
+                                <small class="text-muted mb-0">Dummy text of the printing and industry.</small>
+                            </div><!--end media-body-->
+                        </div><!--end media-->
+                    </a><!--end-item-->
+                    
+                </div>
+                <!-- All-->
+                <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
+                    View all <i class="fi-arrow-right"></i>
+                </a>
+            </div>
+        </li>
 
+        <li class="dropdown">
+            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="false" aria-expanded="false">
+                <img src="/img/icon.png" alt="profile-user" class="mx-1 rounded-circle"></img>                                 
+                <span class="ml-1 nav-user-name hidden-sm">{{ auth()->user()->name }}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#"><i data-feather="user" class="align-self-center icon-xs icon-dual mr-1"></i> Profile</a>
+                {{-- <a class="dropdown-item" href=""><i data-feather="settings" class="align-self-center icon-xs icon-dual mr-1"></i> Settings</a> --}}
+                <div class="dropdown-divider mb-0"></div>
+                <a class="dropdown-item" href="{{ route('auth.logout') }}"><i data-feather="power" class="align-self-center icon-xs icon-dual mr-1"></i> Logout</a>
+            </div>
+        </li>
+    @php
+        $conn = mysqli_connect("localhost", "root", "", "vismartstudio");
+
+        $setting = "SELECT clock FROM setting_dashboard ";
+    @endphp
+
+    @if ($setting == true)
         <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+    @endif
     </ul>        
 
 </nav>
