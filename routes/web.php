@@ -14,6 +14,7 @@ use App\Http\Controllers\SMMController;
 use App\Http\Controllers\MarketingCommunicationsController;
 
 use App\Http\Controllers\AdvantageController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\FeatureController;
@@ -110,8 +111,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dashboard/feature/data', [FeatureController::class, 'data'])->name('feature.data');
 
     //Advantage or Previllege
-    Route::resource('dashboard/advantage', AdvantageController::class);
+    Route::resource('/dashboard/advantage', AdvantageController::class);
     Route::post('/dashboard/advantage/data', [AdvantageController::class, 'data'])->name('advantage.data');
+
+    // Article
+    Route::resource('/dashboard/article', ArticleController::class);
+    Route::post('/dashboard/article/data', [ArticleController::class, 'data'])->name('article.data');
+        // Slug Service 
+        Route::get('/dashboard/article/makeSlug', [ServiceController::class, 'makeSlug'])->middleware('auth');
 
     // User
     Route::resource('dashboard/user', UserController::class);
