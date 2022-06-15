@@ -26,6 +26,7 @@ class DetailPageController extends Controller
         // $detail = DetailService::with(['advantage', 'jasa', 'package.feature'])->leftJoin('service', 'service.id', 'detail_service.service_id')->select('*')->findOrFail($service->id);
 
         // dd($detail);
+        $setting = DB::table('setting')->all();
         $portofolio = DB::table('portofolio')->orderBy('title', 'DESC')->get();
         $testimonial = Testimonial::orderBy('name', 'DESC')->get();
 
@@ -38,7 +39,7 @@ class DetailPageController extends Controller
                 'reason' => $detail->reason,
                 'portofolio' => $portofolio,
                 'testimonial' => $testimonial,
-                ] ,compact('detail'));
+                ] ,compact('detail', 'setting'));
         } else if($slug == 'design-feed-instagram') {
             return view('design_feed_instagram', [
                 'title' => $detail->service->title,
@@ -48,7 +49,7 @@ class DetailPageController extends Controller
                 'reason' => $detail->reason,
                 'portofolio' => $portofolio,
                 'testimonial' => $testimonial,
-                ] ,compact('detail'));
+                ] ,compact('detail', 'setting'));
         } else {
             // return $portofolio;
             return view('detail_page', [
@@ -59,7 +60,7 @@ class DetailPageController extends Controller
                 'reason' => $detail->reason,
                 'portofolio' => $portofolio,
                 'testimonial' => $testimonial,
-                ] ,compact('detail'));
+                ] ,compact('detail', 'setting'));
         }
 
         // return $service;
