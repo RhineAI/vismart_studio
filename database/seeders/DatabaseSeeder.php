@@ -50,16 +50,19 @@ class DatabaseSeeder extends Seeder
         Advantage::create([
             'image' => 'img/icon.png',
             'advantage' => 'For Web Design',
+            'description' => 'ehe'
         ]);
 
         Advantage::create([
             'image' => 'img/icon.png',
             'advantage' => 'Coding Tutorials',
+            'description' => 'ehe'
         ]);
 
         Advantage::create([
             'image' => 'img/icon.png',
             'advantage' => 'HD Templates',
+            'description' => 'ehe'
         ]);
 
 
