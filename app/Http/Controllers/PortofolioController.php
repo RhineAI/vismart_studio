@@ -132,7 +132,7 @@ class PortofolioController extends Controller
 
         $rules = $request->validate([
             'title' => 'required|max:225',
-            'image' => 'image|file|max:12000',
+            'image' => 'image|file|required|max:12000',
             // 'description' => 'required|max:2500'
         ]);
         

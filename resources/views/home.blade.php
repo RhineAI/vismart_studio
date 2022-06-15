@@ -190,7 +190,7 @@
                 <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                     <div class="card feature h-100 text-center">
                         <div class="image text-center">
-                            <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid my-3" alt=" $p" style="width: 12em">
+                            <img src="{{ asset('storage/'. $item->logo) }}" class="img-fluid my-3" alt=" $p" style="width: 12em">
                         </div>
                     <div class="text">
                         <h2 class="px-5 fw-bold">{{ $item->title }}</h2>
