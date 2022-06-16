@@ -2,6 +2,24 @@
 
 @section('content')
 
+<header class="header aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+    <nav class="navbar nav-home navbar-expand-lg fixed-top py-3">
+        <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"><img src="/img/logo vismart studio.png" class="img-fluid" alt="..." style="width: 5em;"></a>
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+            
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ms-2"><a href="#" class="nav-link text-uppercase font-weight-bold">Home</a></li>
+                    <li class="nav-item ms-2"><a href="#page-2" class="nav-link text-uppercase font-weight-bold">Services</a></li>
+                    <li class="nav-item ms-2"><a href="#client" class="nav-link text-uppercase font-weight-bold">Our Clients</a></li>
+                    <li class="nav-item ms-2"><a href="#article" class="nav-link text-uppercase font-weight-bold">Article</a></li>
+                    <li class="nav-item ms-2"><a href="#contact" class="nav-link text-uppercase font-weight-bold">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
 <section class="header">
     <div class="container">
         <div class="row text-center align-items-center justify-content-center" style="min-height: 100vh">
@@ -51,54 +69,6 @@
                     </div>
                 @endforeach
 
-                    {{-- <a href="#2"> 
-                        <div class="service p-2 px-4 mb-4">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-lg-2 text-center">
-                                    <img src="/img/home/Design Feed Instagram Icon.png" class="img-fluid" alt="..." style="width: 6em">
-                                </div>
-                                <div class="col-lg-10 p-3 text-center text-lg-start">
-                                    <h3 class="fw-bold">Desain Feed Instagram</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#3">
-                        <div class="service p-2 px-4 mb-4 aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-lg-2 text-center">
-                                    <img src="/img/home/Digital Marketing Icon.png" class="img-fluid" alt="..." style="width: 6em">
-                                </div>
-                                <div class="col-lg-10 p-3 text-center text-lg-start">
-                                    <h3 class="fw-bold">Digital Marketing</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#4">
-                        <div class="service p-2 px-4 mb-4 aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-lg-2 text-center">
-                                    <img src="/img/home/Social Media Management Icon.png" class="img-fluid" alt="..." style="width: 6em">
-                                </div>
-                                <div class="col-lg-10 p-3 text-center text-lg-start">
-                                    <h3 class="fw-bold">Social Media Management</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#5">
-                        <div class="service p-2 px-4 mb-4 aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-lg-2 text-center">
-                                    <img src="/img/home/Marketing Communications Icon.png" class="img-fluid" alt="..." style="width: 6em">
-                                </div>
-                                <div class="col-lg-10 p-3 text-center text-lg-start">
-                                    <h3 class="fw-bold">Marketing Communications</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a> --}} 
             </div>
         </div>
     </div>
@@ -190,73 +160,17 @@
                 <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                     <div class="card feature h-100 text-center">
                         <div class="image text-center">
-                            <img src="{{ asset('storage/'. $item->logo) }}" class="img-fluid my-3" alt=" $p" style="width: 12em">
+                            <img src="{{ asset('storage/'. $item->logo) }}" class="img-fluid my-3" alt="{{ $item->title }}" style="width: 12em">
                         </div>
-                    <div class="text">
-                        <h2 class="px-5 fw-bold">{{ $item->title }}</h2>
-                    </div>
-                    <div class="text-center mt-auto">
-                        <a href="{{ url('layanan/'.$item->slug) }}"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+                        <div class="text">
+                            <h2 class="px-5 fw-bold">{{ $item->title }}</h2>
+                        </div>
+                        <div class="text-center mt-auto">
+                            <a href="{{ url('layanan/'.$item->slug) }}"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @endforeach  
-
-                {{-- <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                  <div class="card feature h-100 text-center">
-                    <div class="image text-center">
-                        <img src="/img/home/Design Feed Instagram Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
-                    </div>
-                    <div class="text">
-                        <h2 class="px-5 fw-bold">Design Feed Instagram</h2>
-                    </div>
-                    <div class="text-center mt-auto">
-                      <a href="designfeed"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                  <div class="card feature h-100 text-center">
-                    <div class="image text-center">
-                        <img src="/img/home/Digital Marketing Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
-                    </div>
-                    <div class="text">
-                        <h2 class="px-5 fw-bold">Digital Marketing</h2>
-                    </div>
-                    <div class="text-center mt-auto">
-                      <a href="digitalmarketing"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                  <div class="card feature h-100 text-center">
-                    <div class="image text-center">
-                        <img src="/img/home/Social Media Management Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
-                    </div>
-                    <div class="text">
-                        <h2 class="px-5 fw-bold">Social Media Management</h2>
-                    </div>
-                    <div class="text-center mt-auto">
-                      <a href="smm"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                  <div class="card feature h-100 text-center">
-                    <div class="image text-center">
-                        <img src="/img/home/Marketing Communications Icon.png" class="img-fluid my-3" alt="..." style="width: 12em">
-                    </div>
-                    <div class="text">
-                        <h2 class="px-5 fw-bold">Marketing Communications</h2>
-                    </div>
-                    <div class="text-center mt-auto">
-                      <a href="marketingcommunications"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mb-5 fs-5 fw-bold">CLICK HERE</button></a>
-                    </div>
-                  </div>
-                </div> --}}
+                @endforeach 
             </div>
 
         </div>
@@ -282,6 +196,62 @@
         </div>
     </div>
 </section>
+
+<section class="article" id="article">
+    <div class="container py-3">
+        <div class="row justify-content-center">
+            <h1 class="fw-bold my-5 text-center aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Artikel Terbaru</h2>
+            <div class="col-11 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                <div class="owl-carousel owl-text owl-theme">
+
+                    <div class="col my-5 mx-3">
+                        <div class="card h-100">
+                          <img src="img/artikel.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h4 class="card-title fw-bold">Card title</h4>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <a href="post" class="btn btn-primary">Go somewhere</a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col my-5 mx-3">
+                        <div class="card h-100">
+                          <img src="img/artikel.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h4 class="card-title fw-bold">Card title</h4>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <a href="post" class="btn btn-primary">Go somewhere</a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col my-5 mx-3">
+                        <div class="card h-100">
+                          <img src="img/artikel.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h4 class="card-title fw-bold">Card title</h4>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <a href="post" class="btn btn-primary">Go somewhere</a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col my-5 mx-3">
+                        <div class="card h-100">
+                          <img src="img/artikel.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h4 class="card-title fw-bold">Card title</h4>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <a href="post" class="btn btn-primary">Go somewhere</a>
+                          </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 <section class="contact" id="contact">
     <div class="container">
@@ -320,6 +290,40 @@
                 }
             }
         })
+
+        $(".owl-text").owlCarousel({
+            loop:true,
+            margin:30,
+            nav:true,
+            autoplay:true,
+            autoplayTimeout:4000,
+            autoplayHoverPause:true,
+            navText:[
+                "<i class='fa fa-angle-left'></i>",
+                "<i class='fa fa-angle-right'></i>"
+            ],
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                1000:{
+                    items:3
+                }
+            }
+        })
+
+        $(function () {
+            $(window).on('scroll', function () {
+                if ( $(window).scrollTop() > 500 ) {
+                    $('.nav-home').addClass('active');
+                } else {
+                    $('.nav-home').removeClass('active');
+                }
+            });
+        });
 
     </script>
 @endpush

@@ -2,17 +2,21 @@
 
 @section('content')
 
-<section class="header">
-    <div class="container">
-        <div class="row text-center align-items-center justify-content-center" style="min-height: 100vh">
-            <div class="col-10">
-                <img src="/img/logo vismart studio.png" class="img-fluid aos-init aos-animate" data-aos="zoom-in" alt="..." style="width: 20em;">
-                <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">Now Managing Instagram Business is Easier Without Having a Team, Thinking About Content and Design</h1>
-                <a href="#page-1"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-4 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">REACH US!</button></a>
+<header class="navpage aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+    <nav class="navbar nav-page navbar-expand-lg fixed-top py-3">
+        <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"><img src="/img/logo vismart studio.png" class="img-fluid" alt="..." style="width: 5em;"></a>
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+            
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ms-2"><a href="/" class="nav-link text-uppercase font-weight-bold">Home</a></li>
+                    <li class="nav-item ms-2"><a href="#portofolio" class="nav-link text-uppercase font-weight-bold">Portofolio</a></li>
+                    <li class="nav-item ms-2"><a href="#contact" class="nav-link text-uppercase font-weight-bold">Contact Us</a></li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
+</header>
 
 <section class="page-1" id="page-1">
     <div class="container">
@@ -319,6 +323,16 @@
             wrapAround: true,
             showImageNumberLabel: false
         })
+
+        $(function () {
+            $(window).on('scroll', function () {
+                if ( $(window).scrollTop() > 10 ) {
+                    $('.nav-page').addClass('active');
+                } else {
+                    $('.nav-page').removeClass('active');
+                }
+            });
+        });
 
     </script>
 
