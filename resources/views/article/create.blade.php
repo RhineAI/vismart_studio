@@ -11,7 +11,7 @@
     <div class="box body ">
         <form method="POST" action="/dashboard/article" class="mb-5 mx-3" enctype="multipart/form-data">
             @csrf
-            <div class="mb-3 col-md-6">
+            <div class="mb-3">
                 <label for="title" class="form-label">Judul</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ old('title') }}">
                 @error('title')
@@ -20,16 +20,7 @@
                     </div>
                 @enderror
             </div>
-            <div class="mb-3 col-md-6">
-                <label for="slug" class="form-label">Pranala</label>
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug') }}">
-                @error('slug')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-    
+
             <div class="mb-3">
             <label for="image" class="form-label">Gambar</label>
             <img class="img-preview img-fluid mb-3 col-sm-5">
@@ -46,12 +37,12 @@
                 @error('body')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
-                <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+                <input id="summernote" type="hidden" name="body" value="{{ old('body') }}">
                 <trix-editor input="body"></trix-editor>
             </div>
         
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Create Post</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
 
@@ -61,11 +52,15 @@
 
 @push('script')
 <script>
+    $(document).ready(function() {
+        $('#summernote').summernote()
+    })
+    
     const title = document.querySelector('#title');
-    const slug = document.querySelector('#slug');
+    const title = document.querySelector('#slug');
 
     title.addEventListener('change', function() {
-        fetch('/dashboard/article/makeSlug?title=' + title.value)
+        fetch('/dashboard/article/articleSlug?title=' + title.value)
         .then(response => response.json())
         .then(data => slug.value = data.slug)
     });

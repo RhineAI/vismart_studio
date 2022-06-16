@@ -63,10 +63,10 @@
                         </ul>
                     </li> 
 
-                     {{-- Article --}}
-                     <li>
+                    {{-- Article --}}
+                    <li>
                         <a class="nav-link {{ Request::is('dashboard/article*') ? 'active' : '' }}" href="{{ route('article.index') }}">
-                            <i data-feather="message-circle" class="align-self-center menu-icon"></i>
+                            <i data-feather="book-open" class="align-self-center menu-icon"></i>
                             <span>Article</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -104,7 +104,7 @@
                         <a class="  nav-link {{ Request::is('dashboard/package*') ? 'active' : '' }}
                                     nav-link {{ Request::is('dashboard/feature*') ? 'active' : '' }}" 
                             class="nav-link" href="#">
-                            <i data-feather="shopping-bag" class="align-self-center menu-icon"></i>
+                            <i data-feather="package" class="align-self-center menu-icon"></i>
                             <span>Paket</span>
                             <span class="menu-arrow">
                                 <i class="mdi mdi-chevron-right"></i>
@@ -162,8 +162,8 @@
                         </a>
                     </li>
 
-                     {{-- Users --}}
-                     {{-- <li>
+                    {{-- Users --}}
+                    <li>
                         <a href="{{ route('setting.index') }}">
                             <i data-feather="settings" class="align-self-center menu-icon"></i>
                             <span>Pengaturan</span>
