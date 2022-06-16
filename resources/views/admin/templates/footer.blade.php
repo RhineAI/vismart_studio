@@ -9,6 +9,12 @@
 
         {{-- &copy; 2020 Dastyle <span class="d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span> --}}
 
+        @push('name')
+        {{-- Summerrnote Editorr --}}
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <script type="text/javascript" src="/js/summernote.js"></script>
+        @endpush
+        
         {{-- Trix Editor --}}
         <script type="text/javascript" src="/js/trix.js"></script>
 

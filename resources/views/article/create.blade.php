@@ -113,6 +113,24 @@
 
 @push('script')
 <script>
+    $(document).ready(function() {
+        $('#summernote').summernote()
+    })
+    
+    const title = document.querySelector('#title');
+    const title = document.querySelector('#slug');
+
+    title.addEventListener('change', function() {
+        fetch('/dashboard/article/articleSlug?title=' + title.value)
+        .then(response => response.json())
+        .then(data => slug.value = data.slug)
+    });
+    
+    document.addEventListener('trix-file-accept',function(e) 
+    {
+        e.preventDefault()
+    })
+
     function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');

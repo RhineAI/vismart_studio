@@ -15,6 +15,8 @@ class CreateArticleTable extends Migration
     {
         Schema::create('article', function (Blueprint $table) {
             $table->id();
+            // $table->foreignId('user_id');
+            // $table->foreignId('category_id');
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('author');
@@ -26,7 +28,7 @@ class CreateArticleTable extends Migration
             
             $table->foreign('category_id')
                 ->references('id')
-                ->on('category')
+                ->on('categories')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

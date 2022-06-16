@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Categories;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class ArticleController extends Controller
     public function index()
     {
         $article = Article::all();
-        $category = Category::all();
+        $category = Categories::all();
         $service = Service::orderBy('id', 'desc');
         // $category = Category::orderBy('id', 'DESC');
         return view('article.index', compact('article', 'category'));
@@ -41,6 +42,9 @@ class ArticleController extends Controller
             <img width="90%" class="rounded" src="'. asset('storage/'. $article->image) .'">
             ';
         })
+        ->addColumn('author', function($article) {
+            return $article->author;
+        })
         ->addColumn('title', function($article) {
             return $article->title;
         })
@@ -58,7 +62,6 @@ class ArticleController extends Controller
         })
         ->addColumn('action', function ($article) {
             return '
-                <a href="/dashboard/article{{ $article->slug }}" class="btn btn-xs bg-success"><i class="fa-solid fa-eye"></i></a>
                 <a href="'. route('article.edit', $article->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                 <button onclick="deleteData(`'. route('article.destroy', $article->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
             ';
@@ -76,7 +79,7 @@ class ArticleController extends Controller
     {
         return view('article.create', [
             'article' => Article::all(),
-            'service' => Service::orderBy('id', 'desc')
+            'category' => Categories::orderBy('id', 'desc')
         ]);
     }
 
@@ -89,8 +92,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
+            'author' => 'required|max:255',
             'title' => 'required|max:225',
-            'slug' => 'required|unique:article',
             'image' => 'image|file|required|max:10240',
             'author' => 'required',
             'body' => 'required'
@@ -117,7 +120,6 @@ class ArticleController extends Controller
         $save->save;
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Disimpan!']);
-        // return redirect('/dashboard/article')->with('success', 'Artikel baru berhasil ditambah');
     }
 
     /**
@@ -145,7 +147,7 @@ class ArticleController extends Controller
         return view('article.edit', [
             'detail' => $id,
             'article' => Article::all(),
-            'service' => Service::orderBy('id', 'desc')
+            'category' => Categories::orderBy('id', 'desc')
         ]);
     }
 
@@ -163,10 +165,6 @@ class ArticleController extends Controller
             'slug' => 'required|unique:article',
             'image' => 'image|file|required|max:10240',
         ];
-
-        if ($request->slug != $article->slug) {
-            $rules['slug'] = 'unique:article';
-        }
         
         if($request->file('image')) {
             if($request->oldImage) {
@@ -188,7 +186,6 @@ class ArticleController extends Controller
         $update->update();       
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Diperbarui!']);
-        // return redirect('/dashboard/article')->with('success', 'Artikel berhasil diupdate');
     }
 
     /**
@@ -206,12 +203,10 @@ class ArticleController extends Controller
         Article::destroy($article->id);
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Dihapus!']);
-        // return redirect('/dashboard/article')->with('success', 'Artikel berhasil dihapus');
     }
 
-    public function makeSlug(Request $request)
+    public function articleSlug(Request $request)
     {
         $slug = SlugService::createSlug(Article::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
-    }
-}
+    }}
