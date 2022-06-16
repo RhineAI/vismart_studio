@@ -122,7 +122,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard/article', ArticleController::class);
     Route::post('/dashboard/article/data', [ArticleController::class, 'data'])->name('article.data');
         // Slug Service 
-        Route::get('/dashboard/article/makeSlug', [ServiceController::class, 'makeSlug'])->middleware('auth');
+        Route::get('/dashboard/article/articleSlug', [ServiceController::class, 'articleSlug'])->middleware('auth');
 
     // User
     Route::resource('dashboard/user', UserController::class);

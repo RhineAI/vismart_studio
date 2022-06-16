@@ -34,6 +34,9 @@ class ArticleController extends Controller
             <img width="90%" class="rounded" src="'. asset('storage/'. $article->image) .'">
             ';
         })
+        ->addColumn('author', function($article) {
+            return $article->author;
+        })
         ->addColumn('title', function($article) {
             return $article->title;
         })
@@ -48,7 +51,6 @@ class ArticleController extends Controller
         })
         ->addColumn('action', function ($article) {
             return '
-                <a href="/dashboard/article{{ $article->slug }}" class="btn btn-xs bg-success"><i class="fa-solid fa-eye"></i></a>
                 <a href="'. route('article.edit', $article->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                 <button onclick="deleteData(`'. route('article.destroy', $article->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
             ';
@@ -78,8 +80,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
+            'author' => 'required|max:255',
             'title' => 'required|max:225',
-            'slug' => 'required|unique:article',
             'image' => 'image|file|required|max:10240',
             'body' => 'required'
         ]);
@@ -88,12 +90,11 @@ class ArticleController extends Controller
             $validate['image'] = $request->file('image')->store('post-images');
         }
 
-        $validate['excerpt'] = Str::limit(strip_tags($request->body), 100);
+        $validate['slug'] = Str::slug($request->title);
 
         Article::create($validate);
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Disimpan!']);
-        // return redirect('/dashboard/article')->with('success', 'Artikel baru berhasil ditambah');
     }
 
     /**
@@ -131,32 +132,28 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $validate = [
+        $rules = [
+            'author' => 'max:255',
             'title' => 'max:225',
             'image' => 'image|file|max:10240',
             'body' => 'max:3000'
         ];
-
-        if ($request->slug != $article->slug) {
-            $rules['slug'] = 'unique:article';
-        }
         
         $validate = $request->validate($rules);
 
-        if($request->file('logo')) {
+        if($request->file('image')) {
             if($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $validate['logo'] = $request->file('logo')->store('article');
+            $validate['image'] = $request->file('image')->store('article');
         }
 
-        $validdatedData['excerpt'] = Str::limit(strip_tags($request->body), 100);
+        $validate['slug'] = Str::slug($request->title);
 
         $article = article::find($article->id);
         $article->update($validate);       
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Diperbarui!']);
-        // return redirect('/dashboard/article')->with('success', 'Artikel berhasil diupdate');
     }
 
     /**
@@ -174,12 +171,10 @@ class ArticleController extends Controller
         Article::destroy($article->id);
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Dihapus!']);
-        // return redirect('/dashboard/article')->with('success', 'Artikel berhasil dihapus');
     }
 
-    public function makeSlug(Request $request)
+    public function articleSlug(Request $request)
     {
         $slug = SlugService::createSlug(Article::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
-    }
-}
+    }}

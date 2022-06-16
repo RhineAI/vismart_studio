@@ -8,8 +8,9 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends Model
 {
-    use Sluggable;
     use HasFactory;
+    use Sluggable;
+
 
     protected $table = 'article';
     protected $primaryKey = 'id';

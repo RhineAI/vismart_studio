@@ -92,17 +92,18 @@
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'image'},
+            {data:'author'},
             {data:'title'},
             {data:'slug'},
             {data:'body'},
             {data:'created'},
-            {data:'action', searchable: false, sortable: false},
+            {data:'action', searchable: false, sortable: false}
         ]
     });
 
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Keunggulan yang dipilih?',
+            title: 'Hapus Artikel yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -119,7 +120,7 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Keunggulan berhasil dihapus',
+                        text: 'Artikel berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
                         confirmButtonColor: '#28A745'
@@ -130,7 +131,7 @@
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Keunggulan gagal dihapus',
+                        text: 'Artikel gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
                         confirmButtonColor: '#DC3545'
@@ -140,7 +141,7 @@
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Keunggulan batal dihapus',
+                    title: 'Artikel batal dihapus',
                     icon: 'warning'
                     ,
                 })
