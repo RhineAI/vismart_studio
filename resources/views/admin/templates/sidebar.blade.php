@@ -138,6 +138,15 @@
                         </a>
                     </li>
 
+                    {{-- Categories --}}
+                    <li>
+                        <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
+                            <i data-feather="layers" class="align-self-center menu-icon"></i>
+                            <span>Kategori</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                    </li>
+
 
                     {{--    Lainnya    --}}
     
