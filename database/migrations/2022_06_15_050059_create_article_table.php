@@ -17,11 +17,18 @@ class CreateArticleTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('image');
-            $table->text('excerpt');
+            $table->string('author');
+            $table->unsignedBigInteger('category_id');
+            $table->string('photo');
+            // $table->text('excerpt');
             $table->text('body');
-            $table->timestamp('published_at');
             $table->timestamps();
+            
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('category')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

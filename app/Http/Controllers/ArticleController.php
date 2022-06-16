@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -18,13 +20,18 @@ class ArticleController extends Controller
     public function index()
     {
         $article = Article::all();
-        return view('article.index', compact('article'));
+        $category = Category::all();
+        $service = Service::orderBy('id', 'desc');
+        // $category = Category::orderBy('id', 'DESC');
+        return view('article.index', compact('article', 'category'));
 
         
     }
 
     public function data() {
-        $article = Article::orderBy('id', 'desc')->get();
+        $article = Article::leftJoin('categories', 'categories.id', 'article.category_id')
+                            ->select('*', 'category')
+                            ->orderBy('id', 'desc')->get();
 
         return datatables()
         ->of($article)
@@ -37,11 +44,14 @@ class ArticleController extends Controller
         ->addColumn('title', function($article) {
             return $article->title;
         })
-        ->addColumn('slug', function($article) {
-            return $article->slug;
+        // ->addColumn('slug', function($article) {
+        //     return $article->slug;
+        // })
+        ->addColumn('author', function($article) {
+            return $article->author;
         })
         ->addColumn('body', function($article) {
-            return $article->body;
+            return Str::limit(strip_tags($article->body), 100);
         })
         ->addColumn('created', function($article) {
             return tanggal($article->created_at);
@@ -65,7 +75,8 @@ class ArticleController extends Controller
     public function create()
     {
         return view('article.create', [
-            'article' => Article::all()
+            'article' => Article::all(),
+            'service' => Service::orderBy('id', 'desc')
         ]);
     }
 
@@ -81,6 +92,7 @@ class ArticleController extends Controller
             'title' => 'required|max:225',
             'slug' => 'required|unique:article',
             'image' => 'image|file|required|max:10240',
+            'author' => 'required',
             'body' => 'required'
         ]);
 
@@ -88,9 +100,21 @@ class ArticleController extends Controller
             $validate['image'] = $request->file('image')->store('post-images');
         }
 
-        $validate['excerpt'] = Str::limit(strip_tags($request->body), 100);
+        $title = $request['title'];
+        $slug = $request['slug'];
+        $image = $request['image'];
+        $author = $request['author'];
+        $body = $request['body'];
 
-        Article::create($validate);
+        // Article::create($validate);
+        $save = new Article();
+        $save->title = $title;
+        $save->slug = $slug;
+        $save->photo = $image;
+        $save->author = $author;
+        $save->category_id = $request->category;
+        $save->body = $body;
+        $save->save;
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Disimpan!']);
         // return redirect('/dashboard/article')->with('success', 'Artikel baru berhasil ditambah');
@@ -105,7 +129,8 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         return view('article.show', [
-            'article' => $article
+            'article' => $article->id,
+            'service' => Service::orderBy('id', 'desc')
         ]);
     }
 
@@ -115,10 +140,12 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
         return view('article.edit', [
-            'article' => $article
+            'detail' => $id,
+            'article' => Article::all(),
+            'service' => Service::orderBy('id', 'desc')
         ]);
     }
 
@@ -131,29 +158,34 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $validate = [
+        $rules = [
             'title' => 'max:225',
-            'image' => 'image|file|max:10240',
-            'body' => 'max:3000'
+            'slug' => 'required|unique:article',
+            'image' => 'image|file|required|max:10240',
         ];
 
         if ($request->slug != $article->slug) {
             $rules['slug'] = 'unique:article';
         }
         
-        $validate = $request->validate($rules);
-
-        if($request->file('logo')) {
+        if($request->file('image')) {
             if($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $validate['logo'] = $request->file('logo')->store('article');
+            $rules['image'] = $request->file('image')->store('portofolio');
         }
 
-        $validdatedData['excerpt'] = Str::limit(strip_tags($request->body), 100);
+        $title = $rules['title'];
+        $slug = $rules['slug'];
+        $image = $rules['image'];
 
-        $article = article::find($article->id);
-        $article->update($validate);       
+        $update = Article::find($article->id);
+        $update->title = $title;
+        $update->slug = $slug;
+        $update->photo = $image;
+        $update->author = $request->author;
+        $update->body = $request->body;
+        $update->update();       
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Diperbarui!']);
         // return redirect('/dashboard/article')->with('success', 'Artikel berhasil diupdate');

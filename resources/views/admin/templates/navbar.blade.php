@@ -22,9 +22,6 @@
 </style> --}}
 
 <nav class="navbar-custom"> 
-    <button class="nav-link button-menu-mobile">
-        <i data-feather="menu" class="align-self-center topbar-icon"></i>
-    </button>
     <ul class="list-unstyled topbar-nav float-right mb-0">  
     
         <li class="dropdown notification-list">
