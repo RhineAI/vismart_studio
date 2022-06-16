@@ -1,5 +1,5 @@
 <nav class="navbar-custom"> 
-    {{-- <ul class="list-unstyled topbar-nav float-right mb-0">         
-        <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-    </ul>         --}}
+    <button class="nav-link button-menu-mobile">
+        <i data-feather="menu" class="align-self-center topbar-icon"></i>
+    </button>
 </nav>

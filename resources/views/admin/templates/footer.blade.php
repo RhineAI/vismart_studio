@@ -1,4 +1,4 @@
-                <footer class="footer text-center text-sm-left">
+                <footer class="footer text-center text-sm-left" style="background-color: white">
                     {{-- <strong>Copyright &copy; 2022 Vismart Studio Supported by<a href="http://madtive.com" target="_blank" rel="noopener noreferrer">&nbsp; Madtive Studio &nbsp;</a>All Right Reserved</strong> --}}
                     &copy; 2022 Vismart Studio Supported by <a href="http://madtive.com" target="_blank" rel="noopener noreferrer">Madtive Studio</a>
                 </footer><!--end footer-->
