@@ -169,7 +169,7 @@
                             <span>Pengaturan</span>
                             <span class="menu-arrow"></span>
                         </a>
-                    </li> --}}
+                    </li>
 
                     <li>
                         <a href="{{ route('auth.logout') }}">
