@@ -72,12 +72,16 @@
             </div>
         </li>
     @php
-        $conn = mysqli_connect("localhost", "root", "", "vismartstudio");
+        use App\Models\SettingDashboard;
 
-        $setting = "SELECT clock FROM setting_dashboard ";
+        $setting = SettingDashboard::first();
+
+        // $conn = mysqli_connect("localhost", "root", "", "vismartstudio");
+
+        // $setting = "SELECT clock FROM setting_dashboard ";
     @endphp
 
-    @if ($setting == true)
+    @if ($setting->clock == true)
         <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
     @endif
     </ul>        

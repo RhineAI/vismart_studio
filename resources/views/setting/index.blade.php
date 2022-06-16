@@ -25,7 +25,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <div class="clock">
+                                <div class="jam">
                                     <th style="font-size:23px;">Jam</th>
                                     <th>
                                         <div class="d-flex justify-content-center">    
