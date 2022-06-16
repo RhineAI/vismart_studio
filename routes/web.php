@@ -94,7 +94,7 @@ Route::middleware(['auth'])->group(function () {
          Route::delete('/dashboard/layanan/detail_layanan/{id}/hapus', [DetailServiceController::class, 'hapus'])->name('detail_service.hapus');
     //
 
-    // Testimonial
+    // Article
     Route::resource('/dashboard/article', ArticleController::class);
     Route::post('/dashboard/article/data', [ArticleController::class, 'data'])->name('article.data');
         

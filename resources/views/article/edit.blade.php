@@ -26,7 +26,7 @@
                     <h2 class="text-center">Form Article</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('article.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('article.update', $article->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="form-group col-md-11 mb-3" style="margin:auto;">
@@ -51,10 +51,10 @@
                         </div>
 
                         <div class="form-group col-md-11 mb-3" style="margin: auto;">
-                            <label for="user" class="form-label">Author</label>
-                            <input type="text" class="form-control @error('user') is-invalid @enderror" rows="3" id="user"
-                                name="user" value="{{ old('user', auth()->user()->name) }}" readonly>
-                            @error('user')
+                            <label for="author" class="form-label">Author</label>
+                            <input type="text" class="form-control @error('author') is-invalid @enderror" rows="3" id="author"
+                                name="author" value="{{ old('author', $article->author) }}" readonly>
+                            @error('author')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -67,8 +67,8 @@
                                 <select name="category" id="category" class="form-control mb-4">
                                     <option value="">-- Pilih Kategori --</option>
                                     @foreach ($category as $item)
-                                        @if(old('category', $detail->category_id) == $article->id)
-                                            <option value="{{ $item->id }}" selected>{{ $item->category }}</option>
+                                        @if(old('category', $article->category_id) == $item->id)
+                                            <option value="{{ $item->id }}" selected>{{ $item->categories }}</option>
                                         @else
                                             <option value="{{ $item->id }}">{{ $item->category }}</option>
                                         @endif
@@ -84,6 +84,7 @@
 
                         <div class="form-group col-md-11 mb-3" style="margin: auto;">
                             <label for="image" class="form-label">Gambar</label>
+                            <input type="file" name="image" id="image" class="form-control" onchange="previewImage()" @error('image') is-invalid @enderror" value="{{ old('image', $article->photo) }}">
                             {{-- <img class="img-preview img-fluid my-3 col-sm-5"> --}}
                             <input type="hidden" name="oldImage" id="oldImage" value="{{ $article->photo }}">
                             @if($article->photo)

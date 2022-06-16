@@ -65,11 +65,30 @@
 
                     {{-- Article --}}
                     <li>
-                        <a class="nav-link {{ Request::is('dashboard/article*') ? 'active' : '' }}" href="{{ route('article.index') }}">
+                        <a class="nav-link {{ Request::is('dashboard/article*') ? 'active' : '' }}" href="#">
                             <i data-feather="book-open" class="align-self-center menu-icon"></i>
-                            <span>Article</span>
-                            <span class="menu-arrow"></span>
+                            <span>Artikel</span>
+                            <span class="menu-arrow">
+                                <i class="mdi mdi-chevron-right"></i>
+                            </span>
                         </a>
+
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item">
+                                <a href="{{ route('article.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Buat Artikel
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('categories.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Kategori
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
 
                     {{-- Testimonial --}}
@@ -139,13 +158,13 @@
                     </li>
 
                     {{-- Categories --}}
-                    <li>
+                    {{-- <li>
                         <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
                             <i data-feather="layers" class="align-self-center menu-icon"></i>
                             <span>Kategori</span>
                             <span class="menu-arrow"></span>
                         </a>
-                    </li>
+                    </li> --}}
 
 
                     {{--    Lainnya    --}}

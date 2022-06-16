@@ -8,8 +8,8 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends Model
 {
-    use HasFactory;
     use Sluggable;
+    use HasFactory;
 
 
     protected $table = 'article';

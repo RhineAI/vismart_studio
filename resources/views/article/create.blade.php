@@ -50,10 +50,10 @@
                         </div>
 
                         <div class="form-group col-md-11 mb-3" style="margin: auto;">
-                            <label for="user" class="form-label">Author</label>
-                            <input type="text" class="form-control @error('user') is-invalid @enderror" rows="3" id="user"
-                                name="user" value="{{ old('user', auth()->user()->name) }}" required readonly>
-                            @error('user')
+                            <label for="author" class="form-label">Author</label>
+                            <input type="text" class="form-control @error('author') is-invalid @enderror" rows="3" id="author"
+                                name="author" value="{{ old('author', auth()->user()->name) }}" required readonly>
+                            @error('author')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -66,7 +66,7 @@
                                 <select name="category" id="category" class="form-control mb-4">
                                     <option value="">-- Pilih Kategori --</option>
                                     @foreach ($category as $item )
-                                        <option value="{{ $item->id }}">{{ $item->category }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->categories }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -113,24 +113,6 @@
 
 @push('script')
 <script>
-    $(document).ready(function() {
-        $('#summernote').summernote()
-    })
-    
-    const title = document.querySelector('#title');
-    const title = document.querySelector('#slug');
-
-    title.addEventListener('change', function() {
-        fetch('/dashboard/article/articleSlug?title=' + title.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
-    });
-    
-    document.addEventListener('trix-file-accept',function(e) 
-    {
-        e.preventDefault()
-    })
-
     function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');

@@ -22,7 +22,8 @@ class ArticleController extends Controller
     {
         $article = Article::all();
         $category = Categories::all();
-        $service = Service::orderBy('id', 'desc');
+        // return $category;
+        // $service = Service::orderBy('id', 'desc');
         // $category = Category::orderBy('id', 'DESC');
         return view('article.index', compact('article', 'category'));
 
@@ -31,7 +32,7 @@ class ArticleController extends Controller
 
     public function data() {
         $article = Article::leftJoin('categories', 'categories.id', 'article.category_id')
-                            ->select('*', 'category')
+                            ->select('article.*', 'categories')
                             ->orderBy('id', 'desc')->get();
 
         return datatables()
@@ -39,12 +40,12 @@ class ArticleController extends Controller
         ->addIndexColumn()
         ->addColumn('image', function($article) {
             return '
-            <img width="90%" class="rounded" src="'. asset('storage/'. $article->image) .'">
+            <img width="90%" class="rounded" src="'. asset('storage/'. $article->photo) .'">
             ';
         })
-        ->addColumn('author', function($article) {
-            return $article->author;
-        })
+        // ->addColumn('author', function($article) {
+        //     return $article->author;
+        // })
         ->addColumn('title', function($article) {
             return $article->title;
         })
@@ -77,9 +78,12 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        // $category = Categories::orderBy('id', 'desc');
+        // return $category;
+
         return view('article.create', [
             'article' => Article::all(),
-            'category' => Categories::orderBy('id', 'desc')
+            'category' => Categories::orderBy('id', 'desc')->get()
         ]);
     }
 
@@ -105,7 +109,7 @@ class ArticleController extends Controller
 
         $title = $request['title'];
         $slug = $request['slug'];
-        $image = $request['image'];
+        $image = $validate['image'];
         $author = $request['author'];
         $body = $request['body'];
 
@@ -113,11 +117,11 @@ class ArticleController extends Controller
         $save = new Article();
         $save->title = $title;
         $save->slug = $slug;
-        $save->photo = $image;
         $save->author = $author;
         $save->category_id = $request->category;
+        $save->photo = $image;
         $save->body = $body;
-        $save->save;
+        $save->save();
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Disimpan!']);
     }
@@ -142,12 +146,12 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
         return view('article.edit', [
-            'detail' => $id,
-            'article' => Article::all(),
-            'category' => Categories::orderBy('id', 'desc')
+            'article' => $article,
+            // 'article' => Article::all(),
+            'category' => Categories::all()
         ]);
     }
 
@@ -158,32 +162,36 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
         $rules = [
-            'title' => 'max:225',
             'slug' => 'required|unique:article',
-            'image' => 'image|file|required|max:10240',
+            'photo' => 'image|file|max:10240',
         ];
         
         if($request->file('image')) {
             if($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $rules['image'] = $request->file('image')->store('portofolio');
+            $rules['photo'] = $request->file('image')->store('portofolio');
         }
 
-        $title = $rules['title'];
-        $slug = $rules['slug'];
-        $image = $rules['image'];
+        // $request['photo'] = $request->photo;
 
-        $update = Article::find($article->id);
-        $update->title = $title;
-        $update->slug = $slug;
-        $update->photo = $image;
-        $update->author = $request->author;
-        $update->body = $request->body;
-        $update->update();       
+        // $slug = $rules['slug'];
+        // $image = $rules['image'];
+
+        // $update = Article::find($article->id);
+        // $update->title = $request->title;
+        // $update->slug = $slug;
+        // $update->author = $request->author;
+        // $update->category_id = $request->category;
+        // $update->photo = $image;
+        // $update->body = $request->body;
+        // $update->update();      
+        
+        Article::where('id', $id)->update($rules);
+        
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Diperbarui!']);
     }
