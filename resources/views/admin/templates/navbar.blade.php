@@ -22,11 +22,9 @@
 </style> --}}
 
 <nav class="navbar-custom"> 
-<<<<<<< HEAD
     <button class="nav-link button-menu-mobile">
         <i data-feather="menu" class="align-self-center topbar-icon"></i>
     </button>
-=======
     <ul class="list-unstyled topbar-nav float-right mb-0">  
     
         <li class="dropdown notification-list">
@@ -91,5 +89,4 @@
     @endif
     </ul>        
 
->>>>>>> 361ba68d107eae5bd7eff509a4579bfee1cf4e40
 </nav>

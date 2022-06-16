@@ -57,44 +57,12 @@
                             </div>
                             @enderror
                         </div>
-<<<<<<< HEAD
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a href="/dashboard/portofolio" class="btn btn-danger">Kembali</a>
                     </form>                                           
                 </div><!--end card-body-->
             </div><!--end card-->
         </div><!--end col-->
-=======
-                        @enderror
-                    </div>
-
-                    {{-- <div class="mb-2">
-                        <label for="img" class="form-label">Gambar</label>
-                        <input type="file" class="form-control @error('img') is-invalid @enderror" id="img"
-                            name="img" onchange="previewImage()" value="{{ old('img', $portofolio->img) }}">
-                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $portofolio->img }}">
-                        @if($portofolio->img)
-                        <img src="{{ asset('storage/' . $portofolio->img) }}"
-                            class="img-preview img-fluid my-3 col-sm-5 d-block">
-                        @else
-                        <img class="img-preview img-fluid my-3 col-sm-5">
-                        @endif
-                        @error('img')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-
-                    </div> --}}
-            </div>
-        </div>
-
-        <div class="box-footer mt-5 mb-4 mx-2">
-            <button type="submit" class="btn btn-primary">Simpan</button>
-            </form>
-        </div>
-
->>>>>>> 361ba68d107eae5bd7eff509a4579bfee1cf4e40
     </div>
 </div>
 
