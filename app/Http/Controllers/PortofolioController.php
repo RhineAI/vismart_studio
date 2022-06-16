@@ -91,7 +91,8 @@ class PortofolioController extends Controller
 
         // Portofolio::create($validate);
 
-        return redirect('/dashboard/portofolio')->with('success', 'Portofolio baru berhasil ditambah'); 
+        return redirect()->route('portofolio.index')->with(['success' => 'Berhasil Disimpan!']);
+        // return redirect('/dashboard/portofolio')->with('success', 'Portofolio baru berhasil ditambah'); 
     }
 
     /**
@@ -126,12 +127,12 @@ class PortofolioController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function update(Request $request, Portofolio $portofolio)
+    public function update(Request $request, $id)
     {
-        // return $request->file('image')->store('portofolio');
+        // return $request;
 
         $rules = $request->validate([
-            'title' => 'max:225',
+            'title' => 'required|max:225',
             'image' => 'image|file|max:12000',
             // 'description' => 'required|max:2500'
         ]);
@@ -140,18 +141,20 @@ class PortofolioController extends Controller
             if($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $rules['image'] = $request->file('image')->store('portofolio');
+            $rules['img'] = $request->file('image')->store('portofolio');
         }
 
-        $title = $request['title'];
-        $image = $rules['image'];
+        // $title = $request['title'];
+        // // $image = $rules['image'];
         
-        $save = Portofolio::where('id', $portofolio->id);
-        $save->title = $title;
-        $save->img = $image;
-        $save->update();
-        // Portofolio::where('id', $portofolio->id)->update($rules);
-        return redirect('/dashboard/portofolio')->with('success', 'Portofolio berhasil diupdate'); 
+        // $save = Portofolio::where('id', $id);
+        // $save->title = $title;
+        // $save->img = $rules['image'];
+        // $save->update();
+        Portofolio::where('id', $id)->update($rules);
+
+        return redirect()->route('portofolio.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/portofolio')->with('success', 'Portofolio berhasil diupdate'); 
     }
 
     /**
@@ -162,13 +165,15 @@ class PortofolioController extends Controller
      */
     public function destroy(Portofolio $portofolio)
     {
-        if($portofolio->image) {
-            Storage::delete($portofolio->image);
+        if($portofolio->img) {
+            Storage::delete($portofolio->img);
         //     Public::delete($portofolio->image);
             // File::delete(public_path('portofolio-images/'. $portofolio->image));
         }
 
         Portofolio::destroy($portofolio->id);
-        return redirect('/dashboard/portofolio')->with('success', 'Portofolio berhasil dihapus');
+
+        return redirect()->route('portofolio.index')->with(['success' => 'Berhasil Dihapus!']);
+        // return redirect('/dashboard/portofolio')->with('success', 'Portofolio berhasil dihapus');
     }
 }

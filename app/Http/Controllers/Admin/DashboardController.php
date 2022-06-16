@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\Package;
 use App\Models\Portofolio;
+use App\Models\SettingDashboard;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,8 @@ class DashboardController extends Controller
         $paket = Package::count();
         $portofolio = Portofolio::count();
         $testimonial = Testimonial::count();
+
+        // $setting = SettingDashboard::first();
 
         return view('admin.dashboard', compact('layanan', 'paket', 'portofolio', 'testimonial'));
     }

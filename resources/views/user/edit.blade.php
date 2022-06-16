@@ -23,7 +23,7 @@
         <div class="col-lg-8" style="margin: auto">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Form Klien</h2>
+                    <h2 class="text-center">Form Pengguna</h2>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('user.update', $user) }}" method="post">

@@ -14,6 +14,7 @@ use App\Http\Controllers\SMMController;
 use App\Http\Controllers\MarketingCommunicationsController;
 
 use App\Http\Controllers\AdvantageController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\FeatureController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 /*
@@ -38,6 +40,12 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/check', [HomeController::class, 'check'])->name('home.check');
+
+Route::get('/post', function () {
+    return view('post', [
+        'title' => 'post'
+    ]);
+});
 
 Route::get('/layanan/{slug}', [DetailPageController::class, 'index'])->name('detail_page.index');
 
@@ -84,6 +92,10 @@ Route::middleware(['auth'])->group(function () {
          Route::get('/dashboard/layanan/detail_layanan/{id}/edit', [DetailServiceController::class, 'ubah'])->name('detail_layanan.ubah');
          Route::delete('/dashboard/layanan/detail_layanan/{id}/hapus', [DetailServiceController::class, 'hapus'])->name('detail_service.hapus');
     //
+
+    // Testimonial
+    Route::resource('/dashboard/article', ArticleController::class);
+    Route::post('/dashboard/article/data', [ArticleController::class, 'data'])->name('article.data');
         
     // Testimonial
     Route::resource('/dashboard/testimonial', TestimonialController::class);
@@ -109,12 +121,23 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dashboard/feature/data', [FeatureController::class, 'data'])->name('feature.data');
 
     //Advantage or Previllege
-    Route::resource('dashboard/advantage', AdvantageController::class);
+    Route::resource('/dashboard/advantage', AdvantageController::class);
     Route::post('/dashboard/advantage/data', [AdvantageController::class, 'data'])->name('advantage.data');
+
+    // Article
+    Route::resource('/dashboard/article', ArticleController::class);
+    Route::post('/dashboard/article/data', [ArticleController::class, 'data'])->name('article.data');
+        // Slug Service 
+        Route::get('/dashboard/article/makeSlug', [ServiceController::class, 'makeSlug'])->middleware('auth');
 
     // User
     Route::resource('dashboard/user', UserController::class);
     Route::post('/dashboard/user/data', [UserController::class, 'data'])->name('user.data');
+
+    //Setting
+    Route::resource('/dashboard/setting', SettingController::class);
+    Route::put('/dashboard/setting/{id}/setting_home', [SettingController::class, 'updateHome'])->name('setting.updateHome');
+    Route::put('/dashboard/setting/{id}/setting_dashboard', [SettingController::class, 'updateDashboard'])->name('setting.updateDashboard');
 
     //Logout
     Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');    

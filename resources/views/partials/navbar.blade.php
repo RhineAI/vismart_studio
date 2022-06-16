@@ -1,4 +1,3 @@
-
   <section class="header fixed-top">
     <style>
       .clock {

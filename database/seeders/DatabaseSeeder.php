@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use App\Models\Advantage;
 use App\Models\Feature;
 use App\Models\Service;
+use App\Models\Setting;
+use App\Models\SettingDashboard;
+use App\Models\SettingHome;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -65,7 +68,30 @@ class DatabaseSeeder extends Seeder
             'description' => 'HD template for your Web Design'
         ]);
 
+        Setting::create([
+            'is_landing_page' => true,
+            'is_info' => true,
+            'is_previllege' => true,
+            'is_jasa' => true,
+            'is_portofolio' => true,
+            'is_testimonial' => true,
+            'is_package' => true,
+        ]);
 
+        SettingHome::create([
+            'landing_page' => true,
+            'info' => true,
+            'logo_branding' => true,
+            'design_feed' => true,
+            'digital_marketing' => true,
+            'smm' => true,
+            'marketing_communications' => true,
+            'client' => true,
+        ]);
+
+        SettingDashboard::create([
+            'clock' => true
+        ]);
 
         // Service::create([
         //     'image' => 'img-seeder/logobranding.png',

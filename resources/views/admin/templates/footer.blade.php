@@ -12,6 +12,8 @@
         {{-- Trix Editor --}}
         <script type="text/javascript" src="/js/trix.js"></script>
 
+        {{-- Toastr --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
         <!-- jQuery  -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -65,6 +67,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.proto.js"></script>
 
         <script>
+            @if(session()->has('success'))
+                toastr.success('{{ session('success') }}', 'TERIMA KASIH!'); 
+
+                @elseif(session()->has('error'))
+
+                toastr.error('{{ session('error') }}', 'GAGAL!'); 
+            @endif
+
             function showTime(){
                 var date = new Date();
                 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];

@@ -19,12 +19,6 @@
     </div><!--end col-->
 </div><!--end row-->
 
-<div class="col-md-12 p-2 mb-3" style="background-color: white">
-
-    @if(session()->has('success'))
-    <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
-    @endif
-
     <div class="box">
         <div class="box-header with-border mx-2">
             <h2 class="mb-5 text-center">Layanan Jasa</h2>

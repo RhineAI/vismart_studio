@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advantage;
+use App\Models\SettingDashboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,6 +17,8 @@ class AdvantageController extends Controller
     public function index()
     {
         $advantage = Advantage::all();
+        // $setting = SettingDashboard::first();
+
         return view('advantage.index', compact('advantage'));
     }
 
@@ -33,7 +36,10 @@ class AdvantageController extends Controller
             })
             ->addColumn('advantage', function($advantage) {
                 return $advantage->advantage;
-        })
+            })
+            ->addColumn('description', function($advantage) {
+                return $advantage->description;
+            })
             ->addColumn('created', function($advantage) {
                 return tanggal($advantage->created_at);
             })
@@ -55,7 +61,8 @@ class AdvantageController extends Controller
     public function create()
     {
         return view('advantage.create', [
-            'advantage' => Advantage::all()
+            'advantage' => Advantage::all(),
+            // 'setting' =>  SettingDashboard::first()
         ]);
     }
 
@@ -89,8 +96,8 @@ class AdvantageController extends Controller
         $save->description = $description;
         $save->save();
 
-        // return response()->json('success', 200);
-        return redirect('/dashboard/advantage')->with('success', 'Keunggulan baru berhasil ditambah'); 
+        return redirect()->route('advantage.index')->with(['success' => 'Berhasil Disimpan!']);
+        // return redirect('/dashboard/advantage')->with('success', 'Keunggulan baru berhasil ditambah'); 
     }
 
     /**
@@ -114,7 +121,8 @@ class AdvantageController extends Controller
     {
         return view('advantage.edit', [
             'previllege' => $advantage,
-            'advantage' => Advantage::all()
+            'advantage' => Advantage::all(),
+            // 'setting' =>  SettingDashboard::first()
         ]);
     }
 
@@ -142,7 +150,9 @@ class AdvantageController extends Controller
         
         
         Advantage::where('id', $advantage->id)->update($rules);
-        return redirect('/dashboard/advantage')->with('success', 'Keunggulan berhasil diupdate'); 
+        return redirect()->route('advantage.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/advantage')->with('success', 'Keunggulan berhasil diupdate'); 
+
     }
 
     /**
@@ -160,6 +170,8 @@ class AdvantageController extends Controller
         }
 
         Advantage::destroy($advantage->id);
-        return redirect('/dashboard/advantage')->with('success', 'Keunggulan berhasil dihapus');
+        return redirect()->route('advantage.index')->with(['success' => 'Berhasil Dihapus!']);
+        // return redirect('/dashboard/advantage')->with('success', 'Keunggulan berhasil dihapus');
+
     }
 }

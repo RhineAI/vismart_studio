@@ -2,33 +2,39 @@
 
 @section('content')
 
-<section class="header">
-    <div class="container">
-        <div class="row text-center align-items-center justify-content-center" style="min-height: 100vh">
-            <div class="col-10">
-                <img src="/img/logo vismart studio.png" class="img-fluid aos-init aos-animate" data-aos="zoom-in" alt="..." style="width: 20em;">
-                <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">Now Managing Instagram Business is Easier Without Having a Team, Thinking About Content and Design</h1>
-                <a href="#page-1"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-4 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">REACH US!</button></a>
+<header class="navpage aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+    <nav class="navbar nav-page navbar-expand-lg fixed-top py-3">
+        <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"><img src="/img/logo vismart studio.png" class="img-fluid" alt="..." style="width: 5em;"></a>
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+            
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ms-2"><a href="/" class="nav-link text-uppercase font-weight-bold">Home</a></li>
+                    <li class="nav-item ms-2"><a href="#portofolio" class="nav-link text-uppercase font-weight-bold">Portofolio</a></li>
+                    <li class="nav-item ms-2"><a href="#contact" class="nav-link text-uppercase font-weight-bold">Contact Us</a></li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
+</header>
 
-<section class="page-1" id="page-1">
-    <div class="container">
-        <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
-            <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
-                <img src="{{ asset('storage/'. $detail->image) }}" class="img-fluid" alt="..." style="width: 40em">
-            </div>
-            <div class="col-lg-6 p-5">
-                <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">{{ $question }}</h1><br>
-                <div class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{!! $answer !!}</div>               
-                     
-                <a href="#page-2"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
+@if ($setting->is_info == 1)
+    <section class="page-1" id="page-1">
+        <div class="container">
+            <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
+                <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
+                    <img src="{{ asset('storage/'. $detail->image) }}" class="img-fluid" alt="..." style="width: 40em">
+                </div>
+                <div class="col-lg-6 p-5">
+                    <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">{{ $question }}</h1><br>
+                    <div class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{!! $answer !!}</div>               
+                        
+                    <a href="#page-2"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+@endif
 
 <section class="page-2" id="page-2">
     <div class="container">
@@ -117,6 +123,32 @@
     </div>
 </section>
 
+@if(!$detail->advantage->isEmpty())
+
+<section class="column-3" id="column-3">
+  <div class="container">
+      <div class="row justify-content-around text-center">
+          <h1 class="fw-bold my-5 px-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Alasan Anda Harus Menggunakan Jasa {{ $title }} dari Kami</h1>
+          @foreach ($detail->advantage as $item)      
+          <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+              <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid mb-3" alt="..." style="width: 5em">
+              <h4 class="fw-bold">{{ $item->advantage }}</h4>
+              <p class="text-black-50">{{ $item->description }}</p>
+              <p class="text-black-50"></p>
+            </div>
+          @endforeach
+      </div>
+  </div>
+</section>
+
+@elseif(!$detail->advantage->isNotEmpty())
+<section>
+</section>
+@endif
+
+
+@if(!$detail->jasa->isEmpty())
+
 <section class="column-3" id="column-3">
     <div class="container">
         <div class="row justify-content-center text-center" style="min-height: 100vh">
@@ -130,7 +162,12 @@
             @endforeach
         </div>
     </div>
-  </section>
+</section>
+
+@elseif(!$detail->advantage->isNotEmpty())
+<section>
+</section>
+@endif
 
 <section class="portofolio" id="portofolio">
     <div class="container">
@@ -169,6 +206,9 @@
         </div>
     </div>
 </section>
+
+
+@if(!$detail->package->isEmpty())
   
 <section class="pricing">
     <div class="container">
@@ -210,6 +250,11 @@
         </div>
     </div>
 </section>
+
+@elseif(!$detail->package->isNotEmpty())
+<section>
+</section>
+@endif
 
 <section class="contact" id="contact">
     <div class="container">
@@ -279,6 +324,16 @@
             wrapAround: true,
             showImageNumberLabel: false
         })
+
+        $(function () {
+            $(window).on('scroll', function () {
+                if ( $(window).scrollTop() > 10 ) {
+                    $('.nav-page').addClass('active');
+                } else {
+                    $('.nav-page').removeClass('active');
+                }
+            });
+        });
 
     </script>
 

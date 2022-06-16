@@ -115,7 +115,9 @@ class PackageController extends Controller
         
         $package->feature()->attach($request->feature);
 
-        return redirect('/dashboard/package')->with('success', 'Paket baru berhasil ditambah');      
+        return redirect()->route('package.index')->with(['success' => 'Berhasil Disimpan!']);
+
+        // return redirect('/dashboard/package')->with('success', 'Paket baru berhasil ditambah');      
     }
 
     /**
@@ -172,7 +174,9 @@ class PackageController extends Controller
 
         $package->feature()->sync($request->feature) ;
 
-        return redirect('/dashboard/package')->with('success', 'Paket berhasil diupdate');
+        return redirect()->route('package.index')->with(['success' => 'Berhasil Diperbarui!']);
+
+        // return redirect('/dashboard/package')->with('success', 'Paket berhasil diupdate');
     }
 
     /**
@@ -185,6 +189,8 @@ class PackageController extends Controller
     {
         Package::destroy($package->id);
 
-        return redirect('/dashboard/package')->with('success', 'Paket berhasil dihapus');
+        return redirect()->route('package.index')->with(['success' => 'Berhasil Dihapus!']);
+
+        // return redirect('/dashboard/package')->with('success', 'Paket berhasil dihapus');
     }
 }

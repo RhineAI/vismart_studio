@@ -78,7 +78,8 @@ class ClientController extends Controller
 
         Client::create($validate);
 
-        return redirect('/dashboard/client')->with('success', 'Klien baru berhasil ditambah');
+        return redirect()->route('client.index')->with(['success' => 'Berhasil Disimpan!']);
+        // return redirect('/dashboard/client')->with('success', 'Klien baru berhasil ditambah');
     }
 
     /**
@@ -128,7 +129,9 @@ class ClientController extends Controller
         
         
         Client::where('id', $client->id)->update($rules);
-        return redirect('/dashboard/client')->with('success', 'Klien berhasil diupdate');
+
+        return redirect()->route('client.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/client')->with('success', 'Klien berhasil diupdate');
     }
 
     /**
@@ -144,6 +147,8 @@ class ClientController extends Controller
         }
 
         Client::destroy($client->id);
-        return redirect('/dashboard/client')->with('success', 'Klien berhasil dihapus');
+
+        return redirect()->route('client.index')->with(['success' => 'Berhasil Dihapus!']);
+        // return redirect('/dashboard/client')->with('success', 'Klien berhasil dihapus');
     }
 }
