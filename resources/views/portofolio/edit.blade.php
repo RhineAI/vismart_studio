@@ -41,8 +41,26 @@
                             {{ $message }}
                         </div>
                         @enderror
-
                     </div>
+
+                    {{-- <div class="mb-2">
+                        <label for="img" class="form-label">Gambar</label>
+                        <input type="file" class="form-control @error('img') is-invalid @enderror" id="img"
+                            name="img" onchange="previewImage()" value="{{ old('img', $portofolio->img) }}">
+                        <input type="hidden" name="oldImage" id="oldImage" value="{{ $portofolio->img }}">
+                        @if($portofolio->img)
+                        <img src="{{ asset('storage/' . $portofolio->img) }}"
+                            class="img-preview img-fluid my-3 col-sm-5 d-block">
+                        @else
+                        <img class="img-preview img-fluid my-3 col-sm-5">
+                        @endif
+                        @error('img')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+
+                    </div> --}}
             </div>
         </div>
 

@@ -15,6 +15,7 @@ class CreateSettingTable extends Migration
     {
         Schema::create('setting', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_landing_page');  
             $table->boolean('is_info');  
             $table->boolean('is_previllege');  
             $table->boolean('is_jasa');  

@@ -18,22 +18,23 @@
     </nav>
 </header>
 
-<section class="page-1" id="page-1">
-    <div class="container">
-        <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
-            <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
-                <img src="{{ asset('storage/'. $detail->image) }}" class="img-fluid" alt="..." style="width: 40em">
-            </div>
-            <div class="col-lg-6 p-5">
-                <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">{{ $question }}</h1><br>
-                <div class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{!! $answer !!}</div>               
-                <br>
-                <br>
-                <a href="#page-2"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>
+@if ($setting->is_info == 1)
+    <section class="page-1" id="page-1">
+        <div class="container">
+            <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
+                <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
+                    <img src="{{ asset('storage/'. $detail->image) }}" class="img-fluid" alt="..." style="width: 40em">
+                </div>
+                <div class="col-lg-6 p-5">
+                    <h1 class="fw-bold aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease">{{ $question }}</h1><br>
+                    <div class="fs-4 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">{!! $answer !!}</div>               
+                    
+                    <a href="#page-2"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">NEXT</button></a>            
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+@endif
 
 
 <section class="page-2" id="page-2">

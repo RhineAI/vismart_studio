@@ -2,22 +2,22 @@
 
 @section('content')
 
-<header class="navpage aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-    <nav class="navbar nav-page navbar-expand-lg fixed-top py-3">
-        <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"><img src="/img/logo vismart studio.png" class="img-fluid" alt="..." style="width: 5em;"></a>
-            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
-            
-            <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item ms-2"><a href="/" class="nav-link text-uppercase font-weight-bold">Home</a></li>
-                    <li class="nav-item ms-2"><a href="#portofolio" class="nav-link text-uppercase font-weight-bold">Portofolio</a></li>
-                    <li class="nav-item ms-2"><a href="#contact" class="nav-link text-uppercase font-weight-bold">Contact Us</a></li>
-                </ul>
+@if($setting->is_landing_page == 1)
+<section class="header">
+    <div class="container">
+        <div class="row text-center align-items-center justify-content-center" style="min-height: 100vh">
+            <div class="col-10">
+                <img src="/img/logo vismart studio.png" class="img-fluid aos-init aos-animate" data-aos="zoom-in" alt="..." style="width: 20em;">
+                <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">Now Managing Instagram Business is Easier Without Having a Team, Thinking About Content and Design</h1>
+                <a href="#page-1"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-4 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">REACH US!</button></a>
             </div>
         </div>
-    </nav>
-</header>
+    </div>
+</section>
+@endif
 
+
+@if ($setting->is_info == 1)  
 <section class="page-1" id="page-1">
     <div class="container">
         <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
@@ -34,10 +34,11 @@
         </div>
     </div>
 </section>
+@endif
 
 
-@if(!$detail->advantage->isEmpty())
-
+@if ($setting->is_previllege == 1)  
+    @if(!$detail->advantage->isEmpty())
 <section class="column-3" id="column-3">
   <div class="container">
       <div class="row justify-content-around text-center">
@@ -53,15 +54,15 @@
       </div>
   </div>
 </section>
-
-@elseif(!$detail->advantage->isNotEmpty())
+    @elseif(!$detail->advantage->isNotEmpty())
 <section>
 </section>
+    @endif
 @endif
 
 
-@if(!$detail->jasa->isEmpty())
-
+@if ($setting->is_jasa == 1)  
+    @if(!$detail->jasa->isEmpty())
 <section class="column-3" id="column-3">
   <div class="container">
       <div class="row justify-content-center text-center" style="min-height: 100vh">
@@ -76,13 +77,15 @@
       </div>
   </div>
 </section>
-
-@elseif(!$detail->jasa->isNotEmpty())
+    @elseif(!$detail->jasa->isNotEmpty())
 <section>
 </section>
+    @endif
 @endif
 
 
+@if ($setting->is_portofolio == 1)  
+    @if(!$portofolio->isEmpty())
 <section class="portofolio" id="portofolio">
   <div class="container">
       <div class="row justify-content-center text-center">
@@ -101,7 +104,15 @@
       </div>
   </div>
 </section>
+    @elseif(!$portofolio->isNotEmpty())
+<section>
+</section>
+    @endif
+@endif
 
+
+@if ($setting->is_testimonial == 1)  
+    @if(!$testimonial->isEmpty())
 <section class="testimonial" id="testimonial">
   <div class="container">
       <div class="row align-items-center justify-content-center text-center">
@@ -123,57 +134,79 @@
       </div>
   </div>
 </section>
-
-
-@if(!$detail->package->isEmpty())
-
-<section class="pricing">
-    <div class="container">
-        <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
-            {{-- <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Pilih Paket</h1> --}}
-                <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Pilih Paket</h1>
-            {{-- @elseif (!empty($detail->package)) --}}
-                @foreach ($detail->package as $item)
-                @if ($item->is_first == 1)
-                    <div class="col-lg-4 aos-init  aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                        <div class="card mb-4 py-5"  style="color: #fff; background-color: var(--primary-color);">
-                            <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
-                            <div class="card-body">
-                                <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
-                                    <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
-                                        @foreach ($item->feature as $feature)
-                                            <li class="list-group-item" style="color:#fff; background-color: var(--primary-color); "><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
-                                        @endforeach
-                                    </ul>
-                                <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p> </button></a>
-                            </div>
-                        </div>
-                    </div> 
-                    @else
-                    <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
-                        <div class="card mb-4 py-3">
-                            <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
-                            <div class="card-body">
-                                <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
-                                <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
-                                    @foreach ($item->feature as $feature)
-                                        <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
-                                    @endforeach
-                                </ul>
-                                <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p>  </button></a>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
-                @endforeach
-            </div>
-        </div>
-</section>
-
-@elseif(!$detail->package->isNotEmpty())
+    @elseif(!$testimonial->isNotEmpty())
 <section>
 </section>
+    @endif
 @endif
+
+
+@if ($setting->is_package == 1)  
+    @if(!$detail->package->isEmpty())
+    <section class="pricing">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
+                {{-- <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Pilih Paket</h1> --}}
+                    <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Pilih Paket</h1>
+                {{-- @elseif (!empty($detail->package)) --}}
+                    @foreach ($detail->package as $item)
+                        @if ($item->is_first == 1)
+                            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                                <div class="card mb-4 py-5"  style="color: #fff; background-color: var(--primary-color);">
+                                    <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
+                                    <div class="card-body">
+                                        <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
+                                            <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
+                                                @foreach ($item->feature as $feature)
+                                                    <li class="list-group-item" style="color:#fff; background-color: var(--primary-color); "><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
+                                                @endforeach
+                                            </ul>
+                                        <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p> </button></a>
+                                    </div>
+                                </div>
+                            </div> 
+                        @elseif ($item->is_first == 0)
+                            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
+                                <div class="card mb-4 py-3">
+                                    <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
+                                    <div class="card-body">
+                                        <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
+                                        <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
+                                            @foreach ($item->feature as $feature)
+                                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
+                                            @endforeach
+                                        </ul>
+                                        <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p>  </button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @elseif ($item->is_first = 0)
+                            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
+                                <div class="card mb-4 py-3">
+                                    <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
+                                    <div class="card-body">
+                                        <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
+                                        <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
+                                            @foreach ($item->feature as $feature)
+                                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
+                                            @endforeach
+                                        </ul>
+                                        <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p>  </button></a>
+                                    </div>
+                                </div>
+                            </div>  
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+    </section>
+
+    @elseif(!$detail->package->isNotEmpty())
+    <section>
+    </section>
+    @endif
+@endif
+
 
 <section class="contact" id="contact">
     <div class="container">

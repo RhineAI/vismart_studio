@@ -93,7 +93,9 @@ class ServiceController extends Controller
         $service->logo = $logo;
         $service->save();
 
-        return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama baru berhasil ditambah'); 
+        return redirect()->route('service.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama baru berhasil ditambah'); 
+
     }
 
     /**
@@ -155,7 +157,9 @@ class ServiceController extends Controller
         $service = Service::find($service->id);
         $service->update($validate);       
 
-        return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama berhasil diupdate'); 
+        return redirect()->route('service.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama berhasil diupdate'); 
+
     }
 
     /**
@@ -171,7 +175,9 @@ class ServiceController extends Controller
         }
 
         Service::destroy($service->id);
-        return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama berhasil dihapus');
+        return redirect()->route('service.index')->with(['success' => 'Berhasil Diperbarui!']);
+        // return redirect('/dashboard/layanan/service')->with('success', 'Layanan Utama berhasil dihapus');
+
     }
 
     public function makeSlug(Request $request)

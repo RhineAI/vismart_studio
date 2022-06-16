@@ -4,9 +4,9 @@
 <div class="row">
     <div class="col-md-12 p-2 my-3" style="background-color: white">
 
-        @if(session()->has('success'))
+        {{-- @if(session()->has('success'))
         <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
-        @endif
+        @endif --}}
 
         @if(session()->has('error'))
         <div class="p-3 bg-danger text-white" id="alert">{{ session()->get('error') }}</div>

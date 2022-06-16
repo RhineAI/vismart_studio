@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Setting;
+use App\Models\SettingDashboard;
+use App\Models\SettingHome;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
@@ -15,7 +17,9 @@ class SettingController extends Controller
     public function index()
     {
         $setting = Setting::first();
-        return view('setting.index', compact('setting'));
+        $setting_home = SettingHome::first();
+        $setting_dashboard = SettingDashboard::first();
+        return view('setting.index', compact('setting', 'setting_home', 'setting_dashboard'));
     }
 
     /**
@@ -70,10 +74,28 @@ class SettingController extends Controller
        
     }
 
-    public function ubah($id)
+    public function updateDashboard(Request $request, $id) {
+        $update = SettingDashboard::find($id);
+        $update->clock = $request->boolean( key:'clock');
+        $update->update();
+
+        return redirect()->route('setting.index')->with(['success' => 'Pengaturan Berhasil Disimpan!']);
+    }
+
+    public function updateHome(Request $request, $id)
     {
-        $setting = Setting::find($id);
-        return view('setting.index', compact('setting'));
+        $update = SettingHome::find($id);
+        $update->landing_page = $request->boolean( key:'landing_page');
+        $update->info = $request->boolean( key:'info');
+        $update->logo_branding = $request->boolean( key:'logo_branding');
+        $update->design_feed = $request->boolean( key:'design_feed');
+        $update->digital_marketing = $request->boolean( key:'digital_marketing');
+        $update->marketing_communications = $request->boolean( key:'marketing_communications');
+        $update->client = $request->boolean( key:'client');
+        $update->update();
+
+        return redirect()->route('setting.index')->with(['success' => 'Pengaturan Berhasil Disimpan!']);
+        // return redirect('/dashboard/setting')->with('success', 'Berhasil di Update');
     }
 
     /**
@@ -92,9 +114,11 @@ class SettingController extends Controller
         $update->is_portofolio = $request->boolean( key:'is_portofolio');
         $update->is_testimonial = $request->boolean( key:'is_testimonial');
         $update->is_package = $request->boolean( key:'is_package');
+        $update->is_landing_page = $request->boolean( key:'is_landing_page');
         $update->update();
 
-        return redirect('/dashboard/setting')->with('success', 'Berhasil Diupdate');
+        return redirect()->route('setting.index')->with(['success' => 'Pengaturan Berhasil Disimpan!']);
+        // return redirect('/dashboard/setting')->with('success', 'Berhasil Diupdate');
     }
 
     /**
