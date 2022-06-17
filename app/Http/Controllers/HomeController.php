@@ -23,13 +23,21 @@ class HomeController extends Controller
 
         $article = Article::leftJoin('categories', 'categories.id', 'article.category_id')
                 ->select('article.*', 'categories')
-                ->orderBy('id', 'desc')->get();
+                ->latest()->take(3)->get();
 
         // return $service;
 
         return view('home', [
             "title" => "Home"
         ] ,compact('clients', 'service', 'setting', 'article'));
+    }
+
+    public function blog($slug) {
+        $article = Article::with('category')->where('slug', $slug)->first();
+
+        // return $article->photo;
+
+        return view('posts', compact('article'));
     }
 
     // public function check() {

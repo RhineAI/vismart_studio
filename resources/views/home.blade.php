@@ -152,7 +152,7 @@
 <section class="page-3" id="page-3">
     <div class="container">
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh;">
-            <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Apa yang Kamu Butuhkan?</h1>
+            <h1 class="fw-bold my-3 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Apa yang Kamu Butuhkan?</h1>
             
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch justify-content-center g-4 py-5">
                 @foreach ($service as $item)  
@@ -180,7 +180,7 @@
     <section class="client" id="client">
         <div class="container text-center py-3">
             <div class="row justify-content-center text-center">
-                <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Client Vismart Studio</h2>
+                <h1 class="fw-bold my-3 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Client Vismart Studio</h2>
                 <div class="col-10 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                     <div class="owl-carousel owl-images owl-theme">
 
@@ -198,26 +198,29 @@
     </section>
 @endif
 
-<section class="article" id="article">
+<section class="posts" id="posts">
     <div class="container py-3">
-        <div class="row justify-content-center">
-            <h1 class="fw-bold my-5 text-center aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Artikel Terbaru</h2>
+        <div class="row justify-content-center justify-content-center text-center" style="min-height: 100vh;">
+            <h1 class="fw-bold my-3 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Artikel Terbaru</h2>
 
-            @foreach ($article as $item)
-                <div class="col-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                    <div class="card h-100">
-                        <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
-                        <div class="card-body p-3">
-                        <h5 class="card-title fw-bold">{{ $item->title }}</h5>
-                        <p class="card-text">{{ Str::limit(strip_tags($item->body), 120) }}</p>
-                        <a href="{{ url('article/'. $item->slug) }}" class="btn btn-primary">Baca Selengkapnya</a>
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch justify-content-center g-4 py-5">
+
+                @foreach ($article as $item)
+                    <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                        <div class="card article">
+                            <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
+                            <div class="card-body p-4 text-start">
+                                <h5 class="card-title fw-bold">{{ $item->title }}</h5>
+                                <p class="card-text">{{ Str::limit(strip_tags($item->body), 120) }}</p>
+                                <a href="{{ url('article/'. $item->slug) }}" class="btn btn-primary">Baca Selengkapnya</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
 
-            <a href=""><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
+                <a href="posts"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mt-5 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Read More</button></a>
 
+            </div>
         </div>
     </div>
 </section>

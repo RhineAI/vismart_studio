@@ -51,6 +51,17 @@
                         </div>
 
                         <div class="form-group col-md-11 mb-3" style="margin: auto;">
+                            <label for="body" class="form-label">Kutipan Artikel</label>
+                            @error('body')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <textarea name="body" id="summernote">{{ $article->body }}</textarea>
+                            {{-- <input type="hidden" class="form-control" id="body" name="body" value="{{ old('body', $article->body) }}" maxlength="255"> --}}
+                        </div>
+
+                        <div class="form-group col-md-11 mb-3" style="margin: auto;">
                             <label for="author" class="form-label">Author</label>
                             <input type="text" class="form-control @error('author') is-invalid @enderror" rows="3" id="author"
                                 name="author" value="{{ old('author', $article->author) }}" readonly>
@@ -61,7 +72,7 @@
                             @enderror
                         </div>       
 
-                        <div class="form-group col-md-11 mb-3" style="margin: auto;">
+                        <div class="form-group col-md-11 mb-2" style="margin: auto;">
                             <label for="category" class="form-label">Category</label>
                             <div class="input-group">
                                 <select name="category" id="category" class="form-control mb-4">
@@ -82,7 +93,7 @@
                             @enderror
                         </div>  
 
-                        <div class="form-group col-md-11 mb-3" style="margin: auto;">
+                        <div class="form-group col-md-11 mb-5" style="margin: auto;">
                             <label for="image" class="form-label">Gambar</label>
                             <input type="file" name="image" id="image" class="form-control" onchange="previewImage()" @error('image') is-invalid @enderror value="{{ old('image', $article->photo) }}">
                             {{-- <img class="img-preview img-fluid my-3 col-sm-5"> --}}
@@ -99,17 +110,6 @@
                             @enderror
                         </div>
 
-                        <div class="form-group col-md-11 mb-3" style="margin: auto;">
-                            <label for="body" class="form-label">Kutipan Artikel</label>
-                            @error('answer')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            {{-- <textarea name="body" id="summernote" cols="30" rows="10">{{ $article->body }}</textarea> --}}
-                            <input type="hidden" class="form-control" id="body" name="body" value="{{ old('body', $article->body) }}" maxlength="255">
-                            <trix-editor input="body"></trix-editor>
-                        </div>
                         
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a href="/dashboard/article" class="btn btn-danger">Kembali</a>

@@ -38,7 +38,7 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group col-md-11 mb-3" style="margin:auto;">
+                        <div class="form-group col-md-11 mb-2" style="margin:auto;">
                             <label for="slug" class="form-label">Pranala</label>
                             <input type="text" class="form-control @error('slug') is-invalid @enderror" rows="3" id="slug"
                                 name="slug" value="{{ old('slug') }}" required maxlength="50" readonly>
@@ -47,6 +47,18 @@
                                     {{ $message }}
                                 </div>
                             @enderror
+                        </div>
+
+                        <div class="form-group col-md-11 mb-5" style="margin: auto;">
+                            <label for="body" class="form-label">Kutipan Artikel</label>
+                            @error('answer')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <textarea name="body" id="summernote"></textarea>
+                            {{-- <input type="hidden" class="form-control" id="body" name="body" value="{{ old('body') }}" required maxlength="255">
+                            <trix-editor input="body"></trix-editor> --}}
                         </div>
 
                         <div class="form-group col-md-11 mb-3" style="margin: auto;">
@@ -87,18 +99,6 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
-
-                        <div class="form-group col-md-11 mb-3" style="margin: auto;">
-                            <label for="body" class="form-label">Kutipan Artikel</label>
-                            @error('answer')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            {{-- <textarea name="body" id="summernote" cols="30" rows="10"></textarea> --}}
-                            <input type="hidden" class="form-control" id="body" name="body" value="{{ old('body') }}" required maxlength="255">
-                            <trix-editor input="body"></trix-editor>
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Simpan</button>

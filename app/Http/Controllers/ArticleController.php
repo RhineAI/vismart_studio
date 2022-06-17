@@ -164,17 +164,23 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'slug' => 'unique:article',
-            'photo' => 'image|file|max:10240',
-        ];
-        
+        $rules = $request->validate([
+            // 'slug' => 'unique:article',
+            'photo' => 'image|mimes:png,jpg,gif|max:10240',
+        ]);
+
+        $rules['slug'] = $request->slug;
+        $rules['author'] = $request->author;
+        $rules['category_id'] = $request->category;
+
         if($request->file('image')) {
             if($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $rules['photo'] = $request->file('image')->store('portofolio');
+            $rules['photo'] = $request->file('image')->store('post-images');
         }
+
+        $rules['body'] = $request->body;
 
         // $request['photo'] = $request->photo;
 

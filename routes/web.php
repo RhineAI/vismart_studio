@@ -26,6 +26,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
@@ -43,6 +44,8 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/check', [HomeController::class, 'check'])->name('home.check');
+
+Route::get('/posts', [PostsController::class, 'index'])->name('posts.index');
 
 Route::get('/layanan/{slug}', [DetailPageController::class, 'index'])->name('detail_page.index');
 Route::get('/article/{slug}', [PostController::class, 'index'])->name('post.index');

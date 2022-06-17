@@ -233,9 +233,40 @@ section {
     .nav-page .nav-link:focus {
         color: var(--tertiary-color);
         text-decoration: none;
-}
+    }
 }
 
+
+
+.nav-article {
+    transition: all 0.6s;
+    background: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-article .nav-link {
+    color: var(--tertiary-color);
+}
+
+.nav-article .nav-link:hover,
+.nav-article .nav-link:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-article .navbar-brand {
+    opacity: 100;
+}
+
+/* pagination */
+.page-item.active .page-link {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.page-link {
+    color: var(--secondary-color);
+    padding: 1em 1.5em;
+}
 
 
 /* Home Start */
@@ -338,11 +369,18 @@ section {
 .testimonial {
     color: var(--tertiary-color);
 }
-.article {
+.posts {
     color: var(--tertiary-color);
 }
-.article .card {
+.article {
+    color: var(--tertiary-color);
     box-shadow: var(--shadow-color);
+    margin: 1em;
+    transition-duration: 0.6;
+}
+.article:hover {
+    transform: scale(1.05);
+    transition: 0.6s;
 }
 .owl-nav {
     color: var(--primary-color)
