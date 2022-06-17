@@ -84,5 +84,12 @@
         <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
     @endif
     </ul>        
+    <ul class="list-unstyled topbar-nav mb-0">                        
+        <li>
+            <button class="nav-link button-menu-mobile">
+                <i data-feather="menu" class="align-self-center topbar-icon"></i>
+            </button>
+        </li>                          
+    </ul>
 
 </nav>

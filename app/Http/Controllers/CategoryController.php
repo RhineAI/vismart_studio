@@ -33,7 +33,7 @@ class CategoryController extends Controller
             })
             ->addColumn('action', function ($categories) {
                 return '
-                    <a href="'. route('categories.edit', $categories->id) .'" class="btn btn-xs bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <button onclick="editForm(`'. route('categories.update', $categories->id) .'`)" class="edit btn btn-xs btn-success btn-flat"><i class="fa-solid fa-pen-to-square"></i></button>
                     <button onclick="deleteData(`'. route('categories.destroy', $categories->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
                 ';
             })
@@ -62,7 +62,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $categories = new Categories();
-        $categories->categories = $request->categories;
+        $categories->categories = $request->nama_kategori;
         $categories->save();
 
         return redirect()->route('categories.index')->with(['success' => 'Berhasil Disimpan!']);
@@ -77,7 +77,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $satuan = Categories::find($id);
+        
+        return response()->json($satuan);
     }
 
     /**
@@ -89,7 +91,7 @@ class CategoryController extends Controller
     public function edit(Categories $categories)
     {
         return view('categories/edit', [
-            'category' => $categories,
+            'det' => $categories->id,
             'categories' => Categories::all()
         ]);
     }
@@ -103,8 +105,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $categories = Categories::findOrFail($id);
-        $categories->categories = $request->categories;
+        $categories = Categories::find($id);
+        $categories->categories = $request->nama_kategori;
         $categories->update();
 
         return redirect()->route('categories.index')->with(['success' => 'Berhasil Diperbarui!']);

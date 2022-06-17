@@ -21,10 +21,11 @@
         <div class="box">
             <div class="box-header with-border mx-2">
                 <h2 class="my-5 text-center">Kategori</h2>
-                <a href="/dashboard/categories/create" class="btn btn-outline-dark mb-3 p-2">
-                    Tambah Baru
+                <button onclick="addForm('{{ route('categories.store') }}')"
+                    class="btn btn-outline-dark mb-3 p-2">
+                    Tambah
                     <span data-feather="plus-circle"></span>
-                </a>
+                </button>
             </div>
 
             <div class="box-body table-responsive">
@@ -43,15 +44,17 @@
             </div>
         </div>
 </div>
+
+@includeIf('categories.form')
 @endsection
 
 @push('script')
 <script> 
-    var time = document.getElementById("alert");
+    // var time = document.getElementById("alert");
 
-    setTimeout(function(){
-        time.style.display = "none";
-    }, 3000); 
+    // setTimeout(function(){
+    //     time.style.display = "none";
+    // }, 3000); 
 
     let table;
         table = $('.table-categories').DataTable({
@@ -73,6 +76,78 @@
             {data:'action', searchable: false, sortable: false},
         ]
     });
+
+    $('#modal-form').validator().on('submit', function (e) {
+        if (! e.preventDefault()) {
+            $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
+                .done((response) => {
+                    $('#modal-form').modal('hide');
+                    Swal.fire({
+                        title: 'Sukses!',
+                        text: response,
+                        icon: 'success',
+                        confirmButtonText: 'Lanjut',
+                        confirmButtonColor: '#28A745'
+                    })
+                    table.ajax.reload();
+                })
+                .fail((errors) => {
+                    Swal.fire({
+                        title: 'Gagal!',
+                        text: 'Kategori yang diinput sudah ada',
+                        icon: 'error',
+                        confirmButtonText: 'Kembali',
+                        confirmButtonColor: '#DC3545'
+                    })
+                    table.ajax.reload();
+    
+                    return;
+            });
+        }
+    });
+
+    function addForm(url) {
+            $('#modal-form').modal('show')
+            $('#modal-form .modal-title').text('Tambah Kategori Baru');
+
+            $('#modal-form form')[0].reset();
+            $('#modal-form form').attr('action', url);
+            $('#modal-form [name=_method]').val('post');
+            $('#modal-form [name=nama_kategori]').focus();
+        }
+
+    $(document).on('click', '.edit', function (event) {
+        let nama_kategori = $(this).data('kategori')
+        let url = $(this).data('route')
+
+        let data = {
+            nama_kategori: nama_kategori,
+            url: url
+        }
+
+        editForm(data)
+    })
+        
+    function editForm(url) {
+        $('#modal-form').modal('show')
+        $('#modal-form .modal-title').text('Edit Kategori');
+
+        $('#modal-form form')[0].reset();
+        $('#modal-form form').attr('action', url);
+        $('#modal-form [name=_method]').val('put');
+        $('#modal-form [name=nama_kategori]').focus();
+
+        $.get(url)
+            .done((response) => {
+                $('#modal-form [name=nama_kategori]').val(response.categories);
+            })
+            .fail((errors) => {
+                alert('Gagal mengubah data!');
+                return;
+            });
+    }
+
+
 
     function deleteData(url) {
         Swal.fire({
