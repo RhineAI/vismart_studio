@@ -165,7 +165,7 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'slug' => 'required|unique:article',
+            'slug' => 'unique:article',
             'photo' => 'image|file|max:10240',
         ];
         

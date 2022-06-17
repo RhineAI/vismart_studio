@@ -59,6 +59,9 @@
         <!-- App js -->
         <script src="{{ asset('admin/assets/js/app.js') }}"></script>
 
+        <!--  -->
+        <script src="/js/summernote-ext-specialcahrs.js"></script>
+
         {{-- Toastr --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
