@@ -72,10 +72,9 @@
             </div>
         </li>
     @php
-        use App\Models\SettingDashboard;
+    use App\Models\SettingDashboard;
 
-        $setting = SettingDashboard::first();
-
+    $setting = SettingDashboard::first();
         // $conn = mysqli_connect("localhost", "root", "", "vismartstudio");
 
         // $setting = "SELECT clock FROM setting_dashboard ";

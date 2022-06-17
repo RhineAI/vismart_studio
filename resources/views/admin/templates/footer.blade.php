@@ -1,4 +1,4 @@
-                <footer class="footer text-center text-sm-left">
+                <footer class="footer text-center text-sm-left" style="background-color: white">
                     {{-- <strong>Copyright &copy; 2022 Vismart Studio Supported by<a href="http://madtive.com" target="_blank" rel="noopener noreferrer">&nbsp; Madtive Studio &nbsp;</a>All Right Reserved</strong> --}}
                     &copy; 2022 Vismart Studio Supported by <a href="http://madtive.com" target="_blank" rel="noopener noreferrer">Madtive Studio</a>
                 </footer><!--end footer-->
@@ -9,6 +9,12 @@
 
         {{-- &copy; 2020 Dastyle <span class="d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span> --}}
 
+        @push('name')
+        {{-- Summerrnote Editorr --}}
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <script type="text/javascript" src="/js/summernote.js"></script>
+        @endpush
+        
         {{-- Trix Editor --}}
         <script type="text/javascript" src="/js/trix.js"></script>
 
@@ -62,6 +68,26 @@
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
+        {{-- // $(document).ready(function() {
+            //     $(".btn").click(function() {
+            //         var val = parseInt($('#cou-nt').text());
+            //         var ez = val;
+            //         var hd = document.getElementByClassName('notifi');
+        
+            //         // Check for the button clicked
+            //         if ($(this).hasClass('btn-primary')) {
+            //             $('#cou-nt').text(val + 1);
+            //         } else if (hd.on('click')) {
+            //             $('#cou-nt').text(ez - val);
+            //         }
+            //     });
+            // }); --}}
+        <!-- include libraries(jQuery, bootstrap) -->
+        {{-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
         {{-- Choosen Select --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.proto.js"></script>
@@ -74,6 +100,13 @@
 
                 toastr.error('{{ session('error') }}', 'GAGAL!'); 
             @endif
+
+            $(document).ready(function() {
+                $('#summernote').summernote({
+                    height: 200,
+                });
+            });
+           
 
             function showTime(){
                 var date = new Date();

@@ -17,16 +17,17 @@
             </div>
 
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-advantage">
+                <table class="table table-bordered table-article">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
                             <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar
                             </th>
+                            <th width="13%" scope="col" class="text-center table-default" style="color:black;">Author</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Pranala</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Kutipan Artikel</th>
-                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;">Kategori</th>
+                            <th width="17%" scope="col" class="text-center table-default" style="color:black;">Kutipan Artikel</th>
+                            <th width="10%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>
                             <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
                                     class="fas fa-regular fa-gears"></i> </th>
@@ -77,7 +78,7 @@
     }
 
     let table;
-        table = $('.table-advantage').DataTable({
+        table = $('.table-article').DataTable({
         processing: true,
         responsive: true,
         autoWidth: false,
@@ -92,17 +93,18 @@
         columns: [
             {data:'DT_RowIndex', searchable: false, sortable: false},
             {data:'image'},
+            {data:'author'},
             {data:'title'},
-            {data:'slug'},
+            {data:'categories'},
             {data:'body'},
             {data:'created'},
-            {data:'action', searchable: false, sortable: false},
+            {data:'action', searchable: false, sortable: false}
         ]
     });
 
     function deleteData(url) {
         Swal.fire({
-            title: 'Hapus Keunggulan yang dipilih?',
+            title: 'Hapus Artikel yang dipilih?',
             icon: 'question',
             iconColor: '#DC3545',
             showDenyButton: true,
@@ -119,7 +121,7 @@
                 .done((response) => {
                     Swal.fire({
                         title: 'Sukses!',
-                        text: 'Keunggulan berhasil dihapus',
+                        text: 'Artikel berhasil dihapus',
                         icon: 'success',
                         confirmButtonText: 'Lanjut',
                         confirmButtonColor: '#28A745'
@@ -130,7 +132,7 @@
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Keunggulan gagal dihapus',
+                        text: 'Artikel gagal dihapus',
                         icon: 'error',
                         confirmButtonText: 'Kembali',
                         confirmButtonColor: '#DC3545'
@@ -140,7 +142,7 @@
                 });
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: 'Keunggulan batal dihapus',
+                    title: 'Artikel batal dihapus',
                     icon: 'warning'
                     ,
                 })

@@ -1,12 +1,23 @@
 @extends('admin.main')
 
 @section('content')
+<!-- Page-Title -->
 <div class="row">
-    <div class="col-md-12 p-2 my-3" style="background-color: white">
-
-        {{-- @if (session()->has('success'))
-        <div class="p-3 bg-success text-white" id="alert">{{ session()->get('success') }}</div>
-        @endif --}}
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <div class="row">
+                <div class="col">
+                    <h4 class="page-title mb-1"><b>Portofolio</b></h4>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Portofolio</li>
+                    </ol>
+                </div><!--end col-->
+            </div><!--end row-->                                                              
+        </div><!--end page-title-box-->
+    </div><!--end col-->
+</div><!--end row-->
+<div class="col-md-12 p-2 mb-3" style="background-color: white">
 
         <div class="box">
             <div class="box-header with-border mx-2">
@@ -32,7 +43,30 @@
                 </table>
             </div>
 
+    <div class="box">
+        <div class="box-header with-border mx-2">
+            <h2 class="mb-5 text-center">Portofolio</h2>
+            <a href="/dashboard/portofolio/create" class="btn btn-outline-dark mb-3 p-2">
+                Tambah Baru
+                <span data-feather="plus-circle"></span>
+            </a>
         </div>
+
+        <div class="box-body table-responsive">
+            <table class="table table-bordered table-portofolio">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
+                        <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
+                        <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar</th>
+                        <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created At</th>
+                        <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
+                                class="fas fa-regular fa-gears"></i> </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
     </div>
 </div>
 @endsection
