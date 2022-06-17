@@ -3,24 +3,10 @@
 @section('content')
 
 <header class="header aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-    <nav class="navbar nav-home navbar-expand-lg fixed-top py-3">
-        <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"><img src="/img/logo vismart studio.png" class="img-fluid" alt="..." style="width: 5em;"></a>
-            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
-            
-            <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item ms-2"><a href="#" class="nav-link text-uppercase font-weight-bold">Home</a></li>
-                    <li class="nav-item ms-2"><a href="#page-2" class="nav-link text-uppercase font-weight-bold">Services</a></li>
-                    <li class="nav-item ms-2"><a href="#client" class="nav-link text-uppercase font-weight-bold">Our Clients</a></li>
-                    <li class="nav-item ms-2"><a href="#article" class="nav-link text-uppercase font-weight-bold">Article</a></li>
-                    <li class="nav-item ms-2"><a href="#contact" class="nav-link text-uppercase font-weight-bold">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('partials.navbar')
 </header>
 
-@if ($setting->is_landing_page == 1)
+@if ($setting->landing_page == 1)
 <section class="header">
     <div class="container">
         <div class="row text-center align-items-center justify-content-center" style="min-height: 100vh">
@@ -33,7 +19,7 @@
     </section>
 @endif
 
-@if ($setting_home->info == 1)
+@if ($setting->info == 1)
     <section class="page-1" id="page-1">
         <div class="container">
             <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh">
@@ -82,7 +68,7 @@
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
             <div class="col-12">
             
-            @if ($setting_home->logo_branding == 1)
+            @if ($setting->logo_branding == 1)
                 <div class="row my-5" id="1">
                     <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
                         <img src="/img/home/Logo dan Branding Icon.png" class="img-fluid" alt="..." style="width: 25em">
@@ -99,7 +85,7 @@
                 </div>              
             @endif
              
-            @if ($setting_home->design_feed == 1)
+            @if ($setting->design_feed == 1)
                 <div class="row my-5" id="2">
                     <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">
                         <img src="/img/home/Design Feed Instagram Icon.png" class="img-fluid" alt="..." style="width: 25em">
@@ -113,7 +99,7 @@
                 </div>
             @endif
 
-            @if ($setting_home->digital_marketing == 1)
+            @if ($setting->digital_marketing == 1)
                 <div class="row my-5" id="3">
                     <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
                         <img src="/img/home/Digital Marketing Icon.png" class="img-fluid" alt="..." style="width: 25em">
@@ -128,7 +114,7 @@
                 </div>
             @endif
 
-            @if ($setting_home->smm == 1)
+            @if ($setting->smm == 1)
                 <div class="row my-5" id="4">
                     <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 aos-init aos-animate" data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">
                         <img src="/img/home/Social Media Management Icon.png" class="img-fluid" alt="..." style="width: 25em">
@@ -142,7 +128,7 @@
                 </div>
             @endif
 
-            @if ($setting_home->marketing_communications == 1)
+            @if ($setting->marketing_communications == 1)
                 <div class="row my-5" id="5">
                     <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 order-md-last aos-init aos-animate" data-aos="fade-left" data-aos-easing="ease" data-aos-delay="100">
                         <img src="/img/home/Marketing Communications Icon.png" class="img-fluid" alt="..." style="width: 25em">
@@ -190,7 +176,7 @@
     </div>
 </section>
 
-@if ($setting_home->client == 1)
+@if ($setting->client == 1)
     <section class="client" id="client">
         <div class="container text-center py-3">
             <div class="row justify-content-center text-center">
@@ -273,9 +259,9 @@
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
             <div class="col-lg-8 aos-init aos-animate">
                 <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Saatnya menumbuhkan Bisnismu dengan Konten-konten yang lebih Menjual & Profesional</h1>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Manto Mukhli Fardi</p>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0812 3456 7890</p>
-                <a href="https://wa.wizard.id/3ce917" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Vismart Studio</p>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0878 3637 0765</p>
+                <a href="https://wa.wizard.id/001e1c" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
             </div>
         </div>
     </div>

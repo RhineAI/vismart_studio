@@ -60,19 +60,16 @@
                     </div>
 
                     <div class="mb-2">
-                        <label for="noTelp" class="form-label">No.Telepon</label>
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">+62</span>
-                            <input type="text" class="form-control @error('noTelp') is-invalid @enderror" rows="3"
-                                id="noTelp" name="noTelp" value="{{ old('noTelp', $pack->no_telp) }}" 
-                                minlength="9" maxlength="15">
-                        </div>
-                        @error('noTelp')
+                        <label for="link" class="form-label">Nama Paket</label>
+                        <input type="text" class="form-control @error('link') is-invalid @enderror" id="link"
+                            name="link" value="{{ old('link', $pack->link) }}" autofocus>
+                        @error('link')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                         @enderror
-                    </div> 
+
+                    </div>
 
                     <div class="mb-1 mt-4">
                         <label for="isFirst" class="form-label">Tampilkan Utama</label>

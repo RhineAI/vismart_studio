@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $clients = Client::all();
-        $setting_home = SettingHome::first();
+        $setting = SettingHome::first();
         // $service = Service::where('id', $detailService->service_id)->get();
         $service = DetailService::
                 leftJoin('service', 'service.id', 'detail_service.service_id')
@@ -24,7 +24,7 @@ class HomeController extends Controller
 
         return view('home', [
             "title" => "Home"
-        ] ,compact('clients', 'service', 'setting_home'));
+        ] ,compact('clients', 'service', 'setting'));
     }
 
     // public function check() {

@@ -42,8 +42,8 @@ class PackageController extends Controller
             ->addColumn('price', function($package) {
                 return 'IDR '. format_uang($package->price) .',00';
             })
-            ->addColumn('noTelp', function($package) {
-                return $package->no_telp;
+            ->addColumn('link', function($package) {
+                return $package->link;
             })
             ->addColumn('mainView', function($package) {
                 if($package->is_first == 1){
@@ -107,7 +107,7 @@ class PackageController extends Controller
         $package = new Package;
         $package->name = $request->name;
         $package->price = $this->checkPrice($request->price);
-        $package->no_telp = '0'. $request->noTelp;
+        $package->link = '0'. $request->link;
         $package->is_first = $request->boolean( key:'isFirst');
         $package->save();
         
@@ -168,7 +168,7 @@ class PackageController extends Controller
         $package = Package::find($package->id);
         $package->name = $request->name;
         $package->price = $this->checkPrice($request->price);
-        $package->no_telp = '+62 '. $request->noTelp;
+        $package->link = $request->link;
         $package->is_first = $request->boolean( key:'isFirst');
         $package->update();
 

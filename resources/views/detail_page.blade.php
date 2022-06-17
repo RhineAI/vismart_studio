@@ -2,6 +2,10 @@
 
 @section('content')
 
+<header class="navpage aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+    @include('partials.navpage')
+</header>
+
 @if($setting->is_landing_page == 1)
 <section class="header">
     <div class="container">
@@ -113,30 +117,30 @@
 
 @if ($setting->is_testimonial == 1)  
     @if(!$testimonial->isEmpty())
-<section class="testimonial" id="testimonial">
-  <div class="container">
-      <div class="row align-items-center justify-content-center text-center">
-        <div class="col-10 aos-init aos-animate" data-aos="fade-up">
-          <div class="owl-carousel owl-text owl-theme">
+        <section class="testimonial" id="testimonial">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-10 aos-init aos-animate" data-aos="fade-up">
+                <div class="owl-carousel owl-text owl-theme">
 
-            {{-- @if () --}}
-                @foreach ($testimonial as $item)
-                    <div class="item">
-                    <h1 class="fw-bold mb-4">"{{ $item->description }}"</h1>
-                    <h4 class="fw-bold">{{ $item->name }}</h4>
-                    </div>
-                @endforeach
-            {{-- @endif --}}
-           
-              
-          </div>
+                    {{-- @if () --}}
+                        @foreach ($testimonial as $item)
+                            <div class="item">
+                            <h1 class="fw-bold mb-4">"{{ $item->description }}"</h1>
+                            <h4 class="fw-bold">{{ $item->name }}</h4>
+                            </div>
+                        @endforeach
+                    {{-- @endif --}}
+                
+                    
+                </div>
+                </div>
+            </div>
         </div>
-      </div>
-  </div>
-</section>
+        </section>
     @elseif(!$testimonial->isNotEmpty())
-<section>
-</section>
+        <section>
+        </section>
     @endif
 @endif
 
@@ -213,9 +217,9 @@
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
             <div class="col-lg-8 aos-init aos-animate">
                 <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Konsul yuk terkait bisnis dan branding dari produk kamu!</h1>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Manto Mukhli Fardi</p>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0812-3456-7890</p>
-                <a href="https://wa.wizard.id/e091ae" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Vismart Studio</p>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0878 3637 0765</p>
+                <a href="https://wa.wizard.id/d53b5b" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
             </div>
         </div>
     </div>

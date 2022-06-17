@@ -3,20 +3,22 @@
 @section('content')
 
 <header class="navpage aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-    <nav class="navbar nav-page navbar-expand-lg fixed-top py-3">
-        <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"><img src="/img/logo vismart studio.png" class="img-fluid" alt="..." style="width: 5em;"></a>
-            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
-            
-            <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item ms-2"><a href="/" class="nav-link text-uppercase font-weight-bold">Home</a></li>
-                    <li class="nav-item ms-2"><a href="#portofolio" class="nav-link text-uppercase font-weight-bold">Portofolio</a></li>
-                    <li class="nav-item ms-2"><a href="#contact" class="nav-link text-uppercase font-weight-bold">Contact Us</a></li>
-                </ul>
+    @include('partials.navpage')
+</header>
+
+@if($setting->is_landing_page == 1)
+<section class="header">
+    <div class="container">
+        <div class="row text-center align-items-center justify-content-center" style="min-height: 100vh">
+            <div class="col-10">
+                <img src="/img/logo vismart studio.png" class="img-fluid aos-init aos-animate" data-aos="zoom-in" alt="..." style="width: 20em;">
+                <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">Now Managing Instagram Business is Easier Without Having a Team, Thinking About Content and Design</h1>
+                <a href="#page-1"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-4 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">REACH US!</button></a>
             </div>
         </div>
-    </nav>
-</header>
+    </div>
+</section>
+@endif
 
 @if ($setting->is_info == 1)
     <section class="page-1" id="page-1">
@@ -226,7 +228,7 @@
                                         <li class="list-group-item" style="color:#fff; background-color: var(--primary-color); "><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
                                     @endforeach
                                 </ul>
-                            <a href="https://wa.wizard.id/4349a1" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p> </button></a>
+                            <a href="{{ $item->link }}" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p> </button></a>
                         </div>
                     </div>
                 </div> 
@@ -241,7 +243,7 @@
                                     <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
                                 @endforeach
                             </ul>
-                            <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p>  </button></a>
+                            <a href="{{ $item->link }}" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p>  </button></a>
                         </div>
                     </div>
                 </div>
@@ -261,9 +263,9 @@
         <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
             <div class="col-lg-8 aos-init aos-animate">
                 <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Konsul yuk terkait bisnis dan branding dari produk kamu!</h1>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Manto Mukhli Fardi</p>
-                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0812 3456 7890</p>
-                <a href="https://wa.wizard.id/7cd4ba" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Vismart Studio</p>
+                <p class="fs-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">0878 3637 0765</p>
+                <a href="https://wa.wizard.id/d53b5b" target="_blank"><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
             </div>
         </div>
     </div>

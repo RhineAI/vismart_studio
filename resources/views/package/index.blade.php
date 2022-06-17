@@ -25,7 +25,7 @@
                             <th scope="col" class="text-center table-succes" style="color:black;">Nama</th>
                             <th scope="col" class="text-center table-succes" style="color:black;">Fitur</th>
                             <th scope="col" class="text-center table-succes" style="color:black;">Harga</th>
-                            <th scope="col" class="text-center table-succes" style="color:black;">No.Telepon</th>
+                            <th scope="col" class="text-center table-succes" style="color:black;">Link Wa</th>
                             <th width="10%" scope="col" class="text-center table-succes" style="color:black;">Tampilkan Utama</th>
                             <th width="15%" scope="col" class="text-center table-succes" style="color:black;">Created At</th>
                             <th width="10%" scope="col" class="text-center table-succes" style="color:black;"> <i class="fas fa-regular fa-gears"></i> </th>
@@ -66,7 +66,7 @@
             {data:'name'},
             {data:'feature'},
             {data:'price'},
-            {data:'noTelp'},
+            {data:'link'},
             {data:'mainView'},
             {data:'created'},
             {data:'action', searchable: false, sortable: false},

@@ -25,7 +25,7 @@
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto my-5">
                 <img src="/img/logo vismart studio white.png" class="img-fluid mb-4" alt="..." style="width: 10em">
               <p>
-                Kami adalah tim kreatif dari PT <a href="https://madtive.com/" style="color:aquamarine"><i>Madtive Studio</i></a> Indonesia yang didirikan sejak tahun 2015 yang sudah bekerjasama dengan banyak clients.
+                Kami adalah tim kreatif dari PT <a href="https://madtive.com/" style="color: #fff" class="fw-bold">Madtive Studio</a> Indonesia yang didirikan sejak tahun 2015 yang sudah bekerjasama dengan banyak clients mulai dari UMKM, Perusahaan menengah keatas hingga pemerintahan. 
               </p>
             </div>
             <!-- Grid column -->
@@ -42,10 +42,13 @@
                 <a href="#page-2" class="text-white">Services</a>
               </p>
               <p>
-                <a href="#page-3" class="text-white">Detail Services</a>
+                <a href="#page-3" class="text-white">Our Clients</a>
               </p>
               <p>
-                <a href="#client" class="text-white">Our Clients</a>
+                <a href="#client" class="text-white">Article</a>
+              </p>
+              <p>
+                <a href="#contact" class="text-white">Contact Us</a>
               </p>
             </div>
             <!-- Grid column -->
@@ -68,6 +71,9 @@
               </p>
               <p>
                 <a class="text-white">Social Media Management</a>
+              </p>
+              <p>
+                <a class="text-white">Marketing Communications</a>
               </p>
             </div>
   
@@ -96,7 +102,7 @@
             <div class="col-md-7 col-lg-8 text-center text-md-start">
               <!-- Copyright -->
               <div class="p-3">
-                Copyright 2022 <a href="/" style="color:aquamarine">Vismart Studio.</a> All rights reserved.
+                Copyright 2022 <a href="/" style="color: #fff">Vismart Studio.</a> All rights reserved.
               </div>
               <!-- Copyright -->
             </div>
