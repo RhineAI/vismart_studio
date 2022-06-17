@@ -50,14 +50,29 @@
         {{-- Chosen-Select --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css">
 
+        @push('script')
+        {{-- Summerrnote Editor --}}
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/summernote.css">
+        @endpush
+
         {{-- Trix Editor --}}
         <link rel="stylesheet" type="text/css" href="/css/trix.css">
 
+        <!-- include summernote css/js -->
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+
         <style>
+            trix-toolbar [data-trix-button-group="file-tools"] {
+                display: none;
+            }
             .clock {
                 position: absolute;
                 top: 50%;
-                left: 10%;
+                left: 12%;
                 transform: translateX(-50%) translateY(-50%);
                 color: black;
                 font-size: 20px;

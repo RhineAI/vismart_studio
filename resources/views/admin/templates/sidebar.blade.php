@@ -63,13 +63,32 @@
                         </ul>
                     </li> 
 
-                     {{-- Article --}}
-                     <li>
-                        <a class="nav-link {{ Request::is('dashboard/article*') ? 'active' : '' }}" href="{{ route('article.index') }}">
-                            <i data-feather="message-circle" class="align-self-center menu-icon"></i>
-                            <span>Article</span>
-                            <span class="menu-arrow"></span>
+                    {{-- Article --}}
+                    <li>
+                        <a class="nav-link {{ Request::is('dashboard/article*') ? 'active' : '' }}" href="#">
+                            <i data-feather="book-open" class="align-self-center menu-icon"></i>
+                            <span>Artikel</span>
+                            <span class="menu-arrow">
+                                <i class="mdi mdi-chevron-right"></i>
+                            </span>
                         </a>
+
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item">
+                                <a href="{{ route('article.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Buat Artikel
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('categories.index') }}">
+                                    <i class="ti-control-record"></i>
+                                    Kategori
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
 
                     {{-- Testimonial --}}
@@ -104,7 +123,7 @@
                         <a class="  nav-link {{ Request::is('dashboard/package*') ? 'active' : '' }}
                                     nav-link {{ Request::is('dashboard/feature*') ? 'active' : '' }}" 
                             class="nav-link" href="#">
-                            <i data-feather="shopping-bag" class="align-self-center menu-icon"></i>
+                            <i data-feather="package" class="align-self-center menu-icon"></i>
                             <span>Paket</span>
                             <span class="menu-arrow">
                                 <i class="mdi mdi-chevron-right"></i>
@@ -138,6 +157,15 @@
                         </a>
                     </li>
 
+                    {{-- Categories --}}
+                    {{-- <li>
+                        <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
+                            <i data-feather="layers" class="align-self-center menu-icon"></i>
+                            <span>Kategori</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                    </li> --}}
+
 
                     {{--    Lainnya    --}}
     
@@ -153,14 +181,14 @@
                         </a>
                     </li>
 
-                     {{-- Users --}}
-                     {{-- <li>
+                    {{-- Setting --}}
+                    <li>
                         <a href="{{ route('setting.index') }}">
                             <i data-feather="settings" class="align-self-center menu-icon"></i>
                             <span>Pengaturan</span>
                             <span class="menu-arrow"></span>
                         </a>
-                    </li> --}}
+                    </li>
 
                     <li>
                         <a href="{{ route('auth.logout') }}">

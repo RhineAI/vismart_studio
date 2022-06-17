@@ -22,9 +22,6 @@
 </style> --}}
 
 <nav class="navbar-custom"> 
-    <button class="nav-link button-menu-mobile">
-        <i data-feather="menu" class="align-self-center topbar-icon"></i>
-    </button>
     <ul class="list-unstyled topbar-nav float-right mb-0">  
     
         <li class="dropdown notification-list">
@@ -75,10 +72,9 @@
             </div>
         </li>
     @php
-        use App\Models\SettingDashboard;
+    use App\Models\SettingDashboard;
 
-        $setting = SettingDashboard::first();
-
+    $setting = SettingDashboard::first();
         // $conn = mysqli_connect("localhost", "root", "", "vismartstudio");
 
         // $setting = "SELECT clock FROM setting_dashboard ";

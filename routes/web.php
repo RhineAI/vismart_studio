@@ -16,6 +16,8 @@ use App\Http\Controllers\MarketingCommunicationsController;
 use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\DetailServiceController;
@@ -93,7 +95,7 @@ Route::middleware(['auth'])->group(function () {
          Route::delete('/dashboard/layanan/detail_layanan/{id}/hapus', [DetailServiceController::class, 'hapus'])->name('detail_service.hapus');
     //
 
-    // Testimonial
+    // Article
     Route::resource('/dashboard/article', ArticleController::class);
     Route::post('/dashboard/article/data', [ArticleController::class, 'data'])->name('article.data');
         
@@ -124,11 +126,23 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard/advantage', AdvantageController::class);
     Route::post('/dashboard/advantage/data', [AdvantageController::class, 'data'])->name('advantage.data');
 
+    //Categories
+    // Route::resource('/dashboard/categories', CategoriesController::class);
+    // Route::get('/dashboard/categories/{id}/edit', [CategoriesController::class, 'edid'])->name('categories.edid');
+    // Route::put('/dashboard/categories/update', [CategoriesController::class, 'apded'])->name('categories.apded');
+    // Route::post('/dashboard/categories/data', [CategoriesController::class, 'data'])->name('categories.data');
+    // Route::delete('/dashboard/categories/{id}/hapus', [CategoriesController::class, 'hapus'])->name('categories.hapus');
+    
+     // Category
+     Route::resource('dashboard/categories', CategoryController::class);
+     Route::post('/dashboard/categories/data', [CategoryController::class, 'data'])->name('category.data');
+ 
+
     // Article
     Route::resource('/dashboard/article', ArticleController::class);
     Route::post('/dashboard/article/data', [ArticleController::class, 'data'])->name('article.data');
         // Slug Service 
-        Route::get('/dashboard/article/makeSlug', [ServiceController::class, 'makeSlug'])->middleware('auth');
+        Route::get('/dashboard/article/articleSlug', [ServiceController::class, 'articleSlug'])->middleware('auth');
 
     // User
     Route::resource('dashboard/user', UserController::class);

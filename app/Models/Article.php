@@ -11,6 +11,7 @@ class Article extends Model
     use Sluggable;
     use HasFactory;
 
+
     protected $table = 'article';
     protected $primaryKey = 'id';
     protected $guarded = [];
@@ -22,5 +23,9 @@ class Article extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
     }
 }
