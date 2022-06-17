@@ -26,12 +26,12 @@
                     <h2 class="text-center">Form Kategori</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('categories.update', $categories->id) }}" method="post">
-                        @method('put')
+                    <form action="{{ route('categories.update', $category->id) }}" method="post">
                         @csrf
+                        @method('put')
                         <div class="form-group">
                             <label for="categories" class="form-label">Nama</label>
-                            <input type="text" class="form-control @error('categories') is-invalid @enderror" id="categories" name="categories" value="{{ old('categories', $categories->categories) }}" autofocus>
+                            <input type="text" class="form-control @error('categories') is-invalid @enderror" id="categories" name="categories" value="{{ old('categories', ($category->categories)) }}" autofocus>
                             @error('categories')
                                 <div class="invalid-feedback">
                                     {{ $message }}

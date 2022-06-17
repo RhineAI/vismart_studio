@@ -17,6 +17,7 @@ use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\DetailServiceController;
@@ -126,8 +127,16 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dashboard/advantage/data', [AdvantageController::class, 'data'])->name('advantage.data');
 
     //Categories
-    Route::resource('/dashboard/categories', CategoriesController::class);
-    Route::post('/dashboard/categories/data', [CategoriesController::class, 'data'])->name('categories.data');
+    // Route::resource('/dashboard/categories', CategoriesController::class);
+    // Route::get('/dashboard/categories/{id}/edit', [CategoriesController::class, 'edid'])->name('categories.edid');
+    // Route::put('/dashboard/categories/update', [CategoriesController::class, 'apded'])->name('categories.apded');
+    // Route::post('/dashboard/categories/data', [CategoriesController::class, 'data'])->name('categories.data');
+    // Route::delete('/dashboard/categories/{id}/hapus', [CategoriesController::class, 'hapus'])->name('categories.hapus');
+    
+     // Category
+     Route::resource('dashboard/categories', CategoryController::class);
+     Route::post('/dashboard/categories/data', [CategoryController::class, 'data'])->name('category.data');
+ 
 
     // Article
     Route::resource('/dashboard/article', ArticleController::class);

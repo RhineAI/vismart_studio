@@ -60,7 +60,7 @@
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('categories.data') }}",
+            url: "{{ route('category.data') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
