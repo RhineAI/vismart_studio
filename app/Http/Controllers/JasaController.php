@@ -179,11 +179,14 @@ class JasaController extends Controller
      */
     public function destroy(Jasa $jasa)
     {
+        // return $jasa->id;
         if($jasa->image) {
             Storage::delete($jasa->image);
         }
 
-        Jasa::destroy($jasa->id);
+        $hapus = Jasa::find($jasa->id);
+        $hapus->delete();
+        // Jasa::destroy($jasa->id);
         return redirect()->route('jasa.jasax')->with(['success' => 'Berhasil Diperbarui!']);
         // return redirect('/dashboard/layanan/jasa')->with('success', 'Layanan Jasa berhasil dihapus');
     }

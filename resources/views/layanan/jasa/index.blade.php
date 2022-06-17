@@ -109,17 +109,17 @@
                         confirmButtonColor: '#28A745'
 
                     }) 
-                    table.ajax.reload();
                 })
                 .fail((errors) => {
                     Swal.fire({
                         title: 'Gagal!',
-                        text: 'Layanan Jasa gagal dihapus',
-                        icon: 'error',
-                        confirmButtonText: 'Kembali',
-                        confirmButtonColor: '#DC3545'
-
+                        text: 'Layanan Jasa berhasil dihapus',
+                        icon: 'success',
+                        confirmButtonText: 'Lanjut',
+                        confirmButtonColor: '#28A745'
                     })                       
+                    table.ajax.reload();
+
                     return;
                 });
             } else if (result.isDenied) {
