@@ -106,13 +106,13 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <textarea name="body" id="summernote" cols="30" rows="10">{{ $article->body }}</textarea>
-                            {{-- <input type="hidden" class="form-control" id="answer" name="answer" value="{{ old('answer') }}" maxlength="255">
-                            <trix-editor input="answer"></trix-editor> --}}
+                            {{-- <textarea name="body" id="summernote" cols="30" rows="10">{{ $article->body }}</textarea> --}}
+                            <input type="hidden" class="form-control" id="body" name="body" value="{{ old('body') }}" maxlength="255">
+                            <trix-editor input="body"></trix-editor>
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="/dashboard/layanan/article" class="btn btn-danger">Kembali</a>
+                        <a href="/dashboard/article" class="btn btn-danger">Kembali</a>
                     </form>                                           
                 </div><!--end card-body-->
             </div><!--end card-->
