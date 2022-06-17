@@ -20,34 +20,9 @@
 </div><!--end row-->
 <div class="col-md-12 p-2 mb-3" style="background-color: white">
 
-        <div class="box">
-            <div class="box-header with-border mx-2">
-                <h2 class="mb-5">List Fitur</h2>
-                <a href="/dashboard/feature/create" class="btn btn-outline-dark mb-3 p-2">
-                    Tambah Baru
-                    <span data-feather="plus-circle"></span>
-                </a>
-            </div>
-
-            <div class="box-body table-responsive">
-                <table class="table table-bordered table-feature">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
-                            <th scope="col" class="text-center table-default" style="color:black;">Fitur</th>
-                            <th width="15%" scope="col" class="text-center table-default" style="color:black;">Created
-                                At</th>
-                            <th width="10%" scope="col" class="text-center table-default" style="color:black;"> <i
-                                    class="fas fa-regular fa-gears"></i> </th>
-                        </tr>
-                    </thead>
-
-                </table>
-            </div>
-
     <div class="box">
         <div class="box-header with-border mx-2">
-            <h2 class="mb-5 text-center">List Fitur</h2>
+            <h2 class="my-5 text-center">List Fitur</h2>
             <a href="/dashboard/feature/create" class="btn btn-outline-dark mb-3 p-2">
                 Tambah Baru
                 <span data-feather="plus-circle"></span>

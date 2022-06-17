@@ -8,7 +8,7 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Pengaturan</h2>
+                <h2 class="my-5 text-center">Pengaturan</h2>
             </div>
 
             <div class="box-body dashboard table-responsive">
@@ -58,7 +58,7 @@
                 <form action="{{ route('setting.updateHome', $setting_home->id) }}" method="post">
                     @csrf
                     @method('put')
-                    <table class="table table-bordered rounded">
+                    <table class="table table-bordered rounded table-striped">
                         <thead>
                             <tr>
                                 <th width="20%" scope="col" class="text-center" style="color:black; background-color:#43e6d8;font-size:22px;"width="6%">Home Settings</th>
@@ -230,7 +230,7 @@
                 <form action="{{ route('setting.update', $setting->id) }}" method="post" id="formAdd">
                     @csrf
                     @method('put')
-                    <table class="table table-bordered rounded">
+                    <table class="table table-bordered rounded table-striped">
                         <thead>
                             <tr>
                                 <th width="20%" scope="col" class="text-center" style="color:black; background-color:#43e6d8;font-size:22px;"width="6%">Detail Page Settings</th>
@@ -275,7 +275,7 @@
                                 </div>     
                             </tr>
 
-                            <tr style="background-color:#edfaf9;">
+                            <tr>
                                 <div class="section-previllege">
                                     <th style="font-size:23px;">Section Keunggulan</th>
                                     <th>
@@ -311,7 +311,7 @@
                                 </div>
                             </tr>
 
-                            <tr style="background-color:#edfaf9;">
+                            <tr>
                                 <div class="section-portofolio">
                                     <th style="font-size:23px;">Section Portofolio</th>
                                     <th>
@@ -347,7 +347,7 @@
                                 </div>
                             </tr>
 
-                            <tr style="background-color:#edfaf9;">      
+                            <tr>      
                                 <div class="section-package">
                                     <th style="font-size:23px;">Section Paket</th>
                                     <th>

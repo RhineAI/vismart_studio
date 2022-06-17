@@ -25,7 +25,7 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5 text-center">Testimoni</h2>
+                <h2 class="my-5 text-center">Testimoni</h2>
                 <a href="/dashboard/testimonial/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span>

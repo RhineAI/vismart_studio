@@ -202,52 +202,22 @@
     <div class="container py-3">
         <div class="row justify-content-center">
             <h1 class="fw-bold my-5 text-center aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Artikel Terbaru</h2>
-            <div class="col-11 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-                <div class="owl-carousel owl-text owl-theme">
 
-                    <div class="col my-5 mx-3">
-                        <div class="card h-100">
-                          <img src="img/artikel.jpg" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h4 class="card-title fw-bold">Card title</h4>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="post" class="btn btn-primary">Go somewhere</a>
-                          </div>
+            @foreach ($article as $item)
+                <div class="col-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                    <div class="card h-100">
+                        <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
+                        <div class="card-body p-3">
+                        <h5 class="card-title fw-bold">{{ $item->title }}</h5>
+                        <p class="card-text">{{ Str::limit(strip_tags($item->body), 120) }}</p>
+                        <a href="{{ url('article/'. $item->slug) }}" class="btn btn-primary">Baca Selengkapnya</a>
                         </div>
                     </div>
-                    <div class="col my-5 mx-3">
-                        <div class="card h-100">
-                          <img src="img/artikel.jpg" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h4 class="card-title fw-bold">Card title</h4>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="post" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col my-5 mx-3">
-                        <div class="card h-100">
-                          <img src="img/artikel.jpg" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h4 class="card-title fw-bold">Card title</h4>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="post" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col my-5 mx-3">
-                        <div class="card h-100">
-                          <img src="img/artikel.jpg" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h4 class="card-title fw-bold">Card title</h4>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="post" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                        </div>
-                    </div>
-                    
                 </div>
-            </div>
+            @endforeach
+
+            <a href=""><button type="button" class="btn-white btn rounded-pill p-3 px-5 mt-3 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Chat Sekarang!</button></a>
+
         </div>
     </div>
 </section>

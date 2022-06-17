@@ -84,7 +84,7 @@
 
                         <div class="form-group col-md-11 mb-3" style="margin: auto;">
                             <label for="image" class="form-label">Gambar</label>
-                            <input type="file" name="image" id="image" class="form-control" onchange="previewImage()" @error('image') is-invalid @enderror" value="{{ old('image', $article->photo) }}">
+                            <input type="file" name="image" id="image" class="form-control" onchange="previewImage()" @error('image') is-invalid @enderror value="{{ old('image', $article->photo) }}">
                             {{-- <img class="img-preview img-fluid my-3 col-sm-5"> --}}
                             <input type="hidden" name="oldImage" id="oldImage" value="{{ $article->photo }}">
                             @if($article->photo)
@@ -107,7 +107,7 @@
                                 </div>
                             @enderror
                             {{-- <textarea name="body" id="summernote" cols="30" rows="10">{{ $article->body }}</textarea> --}}
-                            <input type="hidden" class="form-control" id="body" name="body" value="{{ old('body') }}" maxlength="255">
+                            <input type="hidden" class="form-control" id="body" name="body" value="{{ old('body', $article->body) }}" maxlength="255">
                             <trix-editor input="body"></trix-editor>
                         </div>
                         

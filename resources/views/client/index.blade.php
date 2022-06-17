@@ -21,7 +21,7 @@
 
     <div class="box">
         <div class="box-header with-border mx-2">
-            <h2 class="mb-5 text-center">Klien</h2>
+            <h2 class="my-5 text-center">Klien</h2>
             <a href="/dashboard/client/create" class="btn btn-outline-dark mb-3 p-2">
                 Tambah Baru
                 <span data-feather="plus-circle"></span>

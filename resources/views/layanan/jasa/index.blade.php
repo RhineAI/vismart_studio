@@ -19,9 +19,11 @@
     </div><!--end col-->
 </div><!--end row-->
 
+<div class="col-md-12 p-2 mb-3" style="background-color: white">
+
     <div class="box">
         <div class="box-header with-border mx-2">
-            <h2 class="mb-5 text-center">Layanan Jasa</h2>
+            <h2 class="my-5 text-center">Layanan Jasa</h2>
             <a href="/dashboard/layanan/jasa/create" class="btn btn-outline-dark mb-3 p-2">
                 Tambah Baru
                 <span data-feather="plus-circle"></span>

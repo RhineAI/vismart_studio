@@ -30,7 +30,7 @@ class ArticleController extends Controller
         
     }
 
-    public function data() {
+    public function table() {
         $article = Article::leftJoin('categories', 'categories.id', 'article.category_id')
                             ->select('article.*', 'categories')
                             ->orderBy('id', 'desc')->get();

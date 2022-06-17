@@ -155,7 +155,7 @@
                 {{-- @elseif (!empty($detail->package)) --}}
                     @foreach ($detail->package as $item)
                         @if ($item->is_first == 1)
-                            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                            <div class="col-lg-4 col-order-1 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                                 <div class="card mb-4 py-5"  style="color: #fff; background-color: var(--primary-color);">
                                     <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
                                     <div class="card-body">
@@ -169,7 +169,7 @@
                                     </div>
                                 </div>
                             </div> 
-                        @elseif ($item->is_first == 0)
+                        @else
                             <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
                                 <div class="card mb-4 py-3">
                                     <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
@@ -184,21 +184,6 @@
                                     </div>
                                 </div>
                             </div>
-                        @elseif ($item->is_first = 0)
-                            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="200">
-                                <div class="card mb-4 py-3">
-                                    <h4 class="fw-bold mt-3">{{ $item->name }}</h4>
-                                    <div class="card-body">
-                                        <span class="h2 fw-bold">IDR {{ floatval($item->price) / 1000 }} k </span>/ Month
-                                        <ul class="list-group list-group-flush fa-ul text-start p-3 mb-3">
-                                            @foreach ($item->feature as $feature)
-                                                <li class="list-group-item"><i class="fa-solid fa-check fa-li"></i>{{ $feature->feature }}</li>
-                                            @endforeach
-                                        </ul>
-                                        <a href="https://wa.wizard.id/5e107e" target="_blank"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 fs-5 fw-bold">Beli Sekarang! <p style="margin-top: -17px"></p>  </button></a>
-                                    </div>
-                                </div>
-                            </div>  
                         @endif
                     @endforeach
                 </div>

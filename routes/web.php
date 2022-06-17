@@ -25,6 +25,7 @@ use App\Http\Controllers\JasaController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageFeatureController;
 use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
@@ -43,13 +44,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/check', [HomeController::class, 'check'])->name('home.check');
 
-Route::get('/post', function () {
-    return view('post', [
-        'title' => 'post'
-    ]);
-});
-
 Route::get('/layanan/{slug}', [DetailPageController::class, 'index'])->name('detail_page.index');
+Route::get('/article/{slug}', [PostController::class, 'index'])->name('post.index');
 
 // FrontEnd UI/UX
     // Logo Branding
@@ -97,7 +93,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Article
     Route::resource('/dashboard/article', ArticleController::class);
-    Route::post('/dashboard/article/data', [ArticleController::class, 'data'])->name('article.data');
+    Route::post('/dashboard/article/table', [ArticleController::class, 'table'])->name('article.table');
         
     // Testimonial
     Route::resource('/dashboard/testimonial', TestimonialController::class);

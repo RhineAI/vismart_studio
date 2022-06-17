@@ -6,6 +6,7 @@ use App\Models\Home;
 use App\Models\DetailService;
 use App\Models\Service;
 use App\Models\SettingHome;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,11 +21,15 @@ class HomeController extends Controller
                 ->select('detail_service.*', 'title', 'logo', 'slug')
                 ->orderBy('id', 'asc')->get();
 
+        $article = Article::leftJoin('categories', 'categories.id', 'article.category_id')
+                ->select('article.*', 'categories')
+                ->orderBy('id', 'desc')->get();
+
         // return $service;
 
         return view('home', [
             "title" => "Home"
-        ] ,compact('clients', 'service', 'setting'));
+        ] ,compact('clients', 'service', 'setting', 'article'));
     }
 
     // public function check() {

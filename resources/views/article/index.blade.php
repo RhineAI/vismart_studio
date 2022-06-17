@@ -9,7 +9,7 @@
 
         <div class="box">
             <div class="box-header with-border mx-2">
-                <h2 class="mb-5">Artikel</h2>
+                <h2 class="my-5 text-center">Artikel</h2>
                 <a href="/dashboard/article/create" class="btn btn-outline-dark mb-3 p-2">
                     Tambah Baru
                     <span data-feather="plus-circle"></span>
@@ -55,13 +55,7 @@
             })
         );
     }
-
-
-    var time = document.getElementById("alert");
-
-    setTimeout(function(){
-        time.style.display = "none";
-    }, 3000);   
+  
 
     function previewImage() {
         const image = document.querySelector('#image');
@@ -84,7 +78,7 @@
         autoWidth: false,
         serverSide: true,
         ajax: {
-            url: "{{ route('article.data') }}",
+            url: "{{ route('article.table') }}",
             type: "POST",
             data: {  
                 _token: '{{ csrf_token() }}'
