@@ -67,23 +67,23 @@
 
 @if ($setting->is_jasa == 1)  
     @if(!$detail->jasa->isEmpty())
-<section class="column-3" id="column-3">
-  <div class="container">
-      <div class="row justify-content-center text-center" style="min-height: 100vh">
-          <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Layanan Jasa {{ $title }}</h1>
-          @foreach ( $detail->jasa as $item )
-          <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
-            <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid rounded-start mb-3" alt="Logo UMKM" style="width: 15em">
-            <h4 class="fw-bold">{{ $item->title }}</h4>
-            <p class="text-black-50">{{ $item->description }}</p>
-          </div>
-          @endforeach
-      </div>
-  </div>
-</section>
+        <section class="column-3" id="column-3">
+            <div class="container">
+                <div class="row justify-content-center text-center" style="min-height: 100vh">
+                    <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Layanan Jasa {{ $title }}</h1>
+                    @foreach ( $detail->jasa as $item )
+                    <div class="col-lg-4 col-md-6 p-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                        <img src="{{ asset('storage/'. $item->image) }}" class="img-fluid rounded-start mb-3" alt="Logo UMKM" style="width: 15em">
+                        <h4 class="fw-bold">{{ $item->title }}</h4>
+                        <p class="text-black-50">{{ $item->description }}</p>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
     @elseif(!$detail->jasa->isNotEmpty())
-<section>
-</section>
+        <section id="column-3">
+        </section>
     @endif
 @endif
 
@@ -109,7 +109,7 @@
   </div>
 </section>
     @elseif(!$portofolio->isNotEmpty())
-<section>
+<section id="portofolio">
 </section>
     @endif
 @endif
@@ -147,7 +147,7 @@
 
 @if ($setting->is_package == 1)  
     @if(!$detail->package->isEmpty())
-    <section class="pricing">
+    <section class="pricing" id="pricing">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center" style="min-height: 100vh">
                 {{-- <h1 class="fw-bold my-5 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Pilih Paket</h1> --}}
@@ -191,7 +191,7 @@
     </section>
 
     @elseif(!$detail->package->isNotEmpty())
-    <section>
+    <section id="pricing">
     </section>
     @endif
 @endif
