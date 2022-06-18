@@ -21,8 +21,8 @@ class HomeController extends Controller
                 ->select('detail_service.*', 'title', 'logo', 'slug')
                 ->orderBy('id', 'asc')->get();
 
-        $article = Article::leftJoin('categories', 'categories.id', 'article.category_id')
-                ->select('article.*', 'categories')
+        $article = Article::with(['categories'])
+                ->select('*')
                 ->latest()->take(3)->get();
 
         // return $service;
@@ -33,7 +33,7 @@ class HomeController extends Controller
     }
 
     public function blog($slug) {
-        $article = Article::with('category')->where('slug', $slug)->first();
+        $article = Article::with(['categories'])->where('slug', $slug)->first();
 
         // return $article->photo;
 

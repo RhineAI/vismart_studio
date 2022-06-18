@@ -31,9 +31,9 @@ class ArticleController extends Controller
     }
 
     public function table() {
-        $article = Article::leftJoin('categories', 'categories.id', 'article.category_id')
-                            ->select('article.*', 'categories')
-                            ->orderBy('id', 'desc')->get();
+        $article = Article::orderBy('id', 'desc')->get();
+        // leftJoin('categories', 'categories.id', 'article.category_id')
+        //                     ->select('article.*', 'categories')
 
         return datatables()
         ->of($article)
@@ -49,9 +49,13 @@ class ArticleController extends Controller
         ->addColumn('title', function($article) {
             return $article->title;
         })
-        // ->addColumn('slug', function($article) {
-        //     return $article->slug;
-        // })
+        ->addColumn('categories', function($article) {
+            $category = '';
+                foreach ($article->categories as $key => $value) {
+                    $category .= '<div style="text-left" class="py-1 text-white mb-2 ml-2 px-2 mr-5 bg-info rounded">'. $value->categories.'</div>';
+                }
+                return $category;
+        })
         ->addColumn('author', function($article) {
             return $article->author;
         })
@@ -67,7 +71,7 @@ class ArticleController extends Controller
                 <button onclick="deleteData(`'. route('article.destroy', $article->id) .'`)" class="btn btn-xs btn-danger btn-flat delete"><i class="fa-solid fa-trash-can"></i></button>
             ';
         })
-        ->rawColumns(['action', 'image'])
+        ->rawColumns(['action', 'image', 'categories'])
         ->make(true);
     }
 
@@ -118,10 +122,12 @@ class ArticleController extends Controller
         $save->title = $title;
         $save->slug = $slug;
         $save->author = $author;
-        $save->category_id = $request->category;
+        // $save->category_id = $request->category;
         $save->photo = $image;
         $save->body = $body;
         $save->save();
+
+        $save->categories()->attach($request->category);
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Disimpan!']);
     }
@@ -169,9 +175,10 @@ class ArticleController extends Controller
             'photo' => 'image|mimes:png,jpg,gif|max:10240',
         ]);
 
-        $rules['slug'] = $request->slug;
-        $rules['author'] = $request->author;
-        $rules['category_id'] = $request->category;
+        // $rules['title'] = $request->title;
+        // $rules['slug'] = $request->slug;
+        // $rules['author'] = $request->author;
+        // $rules['category_id'] = $request->category;
 
         if($request->file('image')) {
             if($request->oldImage) {
@@ -180,23 +187,27 @@ class ArticleController extends Controller
             $rules['photo'] = $request->file('image')->store('post-images');
         }
 
-        $rules['body'] = $request->body;
+        
+
+        // $rules['body'] = $request->body;
 
         // $request['photo'] = $request->photo;
 
         // $slug = $rules['slug'];
-        // $image = $rules['image'];
+        // $image = $rules['photo'];
 
-        // $update = Article::find($article->id);
-        // $update->title = $request->title;
-        // $update->slug = $slug;
-        // $update->author = $request->author;
-        // $update->category_id = $request->category;
-        // $update->photo = $image;
-        // $update->body = $request->body;
-        // $update->update();      
+        $update = Article::find($id);
+        $update->title = $request->title;
+        $update->slug = $request->slug;
+        $update->author = $request->author;
+        $update->photo = $rules['photo'];
+        $update->body = $request->body;
+        $update->update();      
         
-        Article::where('id', $id)->update($rules);
+        // $update = Article::where('id', $id)->update($rules);
+        
+        $update->categories()->sync($request->category);
+        // return $request->category;
         
 
         return redirect()->route('article.index')->with(['success' => 'Berhasil Diperbarui!']);

@@ -75,14 +75,18 @@
                         <div class="form-group col-md-11 mb-2" style="margin: auto;">
                             <label for="category" class="form-label">Category</label>
                             <div class="input-group">
-                                <select name="category" id="category" class="form-control mb-4">
-                                    <option value="">-- Pilih Kategori --</option>
-                                    @foreach ($category as $item)
-                                        @if(old('category', $article->category_id) == $item->id)
-                                            <option value="{{ $item->id }}" selected>{{ $item->categories }}</option>
-                                        @else
-                                            <option value="{{ $item->id }}">{{ $item->category }}</option>
-                                        @endif
+                                <select name="category[]" id="category" multiple class="form-control chosen-select" multiple>
+                                    @foreach($category as $key => $c)
+                                        <option value="{{ $c->id }}" 
+                                            @if(!empty($article)) 
+                                                @foreach($article->categories as $category)
+                                                    @if($category->id == $c->id)
+                                                        selected
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                            >{{ ++$key }}. {{ $c->categories }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -144,6 +148,10 @@
         fetch('/dashboard/layanan/service/makeSlug?title=' + title.value)
         .then(response => response.json())
         .then(data => slug.value = data.slug)
+    });
+
+    $(document).ready(function () {
+        $(".chosen-select").chosen();
     });
 </script>
 @endpush

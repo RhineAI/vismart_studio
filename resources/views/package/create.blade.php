@@ -47,8 +47,12 @@
                                     @endforeach
                                 </select>
                             </div>
-                        @enderror
-                    </div>   
+                            @error('feature')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>   
 
                     <div class="mb-2">
                         <label for="price" class="form-label">Harga</label>

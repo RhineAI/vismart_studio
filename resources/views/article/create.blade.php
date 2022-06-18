@@ -75,8 +75,8 @@
                         <div class="form-group col-md-11 mb-3" style="margin: auto;">
                             <label for="category" class="form-label">Category</label>
                             <div class="input-group">
-                                <select name="category" id="category" class="form-control mb-4">
-                                    <option value="">-- Pilih Kategori --</option>
+                                <select name="category[]" id="category" multiple class="chosen-select form-control mb-4">
+                                    {{-- <option value="">-- Pilih Kategori --</option> --}}
                                     @foreach ($category as $item )
                                         <option value="{{ $item->id }}">{{ $item->categories }}</option>
                                     @endforeach
@@ -134,6 +134,10 @@
         fetch('/dashboard/layanan/service/makeSlug?title=' + title.value)
         .then(response => response.json())
         .then(data => slug.value = data.slug)
+    });
+
+    $(document).ready(function () {
+        $(".chosen-select").chosen();
     });
 </script>
 @endpush

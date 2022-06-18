@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index($slug) {
 
-        $article = Article::with('category')->where('slug', $slug)->first();
+        $article = Article::with(['categories'])->where('slug', $slug)->first();
 
         // return $article->photo;
 

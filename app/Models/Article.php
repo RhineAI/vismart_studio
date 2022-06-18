@@ -11,6 +11,9 @@ class Article extends Model
     use Sluggable;
     use HasFactory;
 
+    public function categories() {
+        return $this->belongsToMany(Categories::class, 'article_categories');
+    }
 
     protected $table = 'article';
     protected $primaryKey = 'id';

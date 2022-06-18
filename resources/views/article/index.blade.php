@@ -23,9 +23,9 @@
                             <th scope="col" class="text-center table-default" style="color:black;" width="6%">No</th>
                             <th width="20%" scope="col" class="text-center table-default" style="color:black;">Gambar
                             </th>
-                            <th width="13%" scope="col" class="text-center table-default" style="color:black;">Author</th>
+                            <th width="11%" scope="col" class="text-center table-default" style="color:black;">Author</th>
                             <th scope="col" class="text-center table-default" style="color:black;">Judul</th>
-                            <th width="10%" scope="col" class="text-center table-default" style="color:black;">Kategori</th>
+                            <th width="8%" scope="col" class="text-center table-default" style="color:black;">Kategori</th>
                             <th width="17%" scope="col" class="text-center table-default" style="color:black;">Kutipan Artikel</th>
                             <th width="10%" scope="col" class="text-center table-default" style="color:black;">Created
                                 At</th>

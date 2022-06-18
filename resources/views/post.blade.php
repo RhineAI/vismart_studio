@@ -15,7 +15,9 @@
                     <h2>{{ $article->title }}</h2>
                 </div>
                 <div class="article__categories mb-4">
-                    <span class="badge badge-primary py-2 px-3">{{ $article->category->categories }}</span>
+                    @foreach ($article->categories as $item)
+                        <span class="badge badge-primary py-2 px-3">{{ $item->categories }}</span>
+                    @endforeach
                 </div>
                 <div class="article__image mb-3">
                     <div style="max-height: 400px; overflow:hidden">
