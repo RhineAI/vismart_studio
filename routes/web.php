@@ -31,6 +31,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SitemapController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +50,8 @@ Route::get('/posts', [PostsController::class, 'index'])->name('posts.index');
 
 Route::get('/layanan/{slug}', [DetailPageController::class, 'index'])->name('detail_page.index');
 Route::get('/article/{slug}', [PostController::class, 'index'])->name('post.index');
+
+Route::get('/sitemap', [SitemapController::class, 'index']);
 
 // FrontEnd UI/UX
     // Logo Branding
