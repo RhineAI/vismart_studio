@@ -5,7 +5,7 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item ms-2"><a href="/" class="nav-link text-uppercase">Home</a></li>
-                <li class="nav-item ms-2"><a href="#portofolio" class="nav-link text-uppercase">Portofolio</a></li>
+                <li class="nav-item ms-2"><a href="../posts" class="nav-link text-uppercase">Blogs</a></li>
                 <li class="nav-item ms-2"><a href="#contact" class="nav-link text-uppercase">Contact Us</a></li>
             </ul>
         </div>

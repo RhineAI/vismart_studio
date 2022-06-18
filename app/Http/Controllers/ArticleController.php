@@ -170,37 +170,26 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $article = Article::find($id);
+
         $rules = $request->validate([
-            // 'slug' => 'unique:article',
             'photo' => 'image|mimes:png,jpg,gif|max:10240',
         ]);
-
-        // $rules['title'] = $request->title;
-        // $rules['slug'] = $request->slug;
-        // $rules['author'] = $request->author;
-        // $rules['category_id'] = $request->category;
 
         if($request->file('image')) {
             if($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $rules['photo'] = $request->file('image')->store('post-images');
+            $image = $request->file('image')->store('post-images');
+        } else {
+            $image = $article->photo;
         }
-
-        
-
-        // $rules['body'] = $request->body;
-
-        // $request['photo'] = $request->photo;
-
-        // $slug = $rules['slug'];
-        // $image = $rules['photo'];
 
         $update = Article::find($id);
         $update->title = $request->title;
         $update->slug = $request->slug;
         $update->author = $request->author;
-        $update->photo = $rules['photo'];
+        $update->photo = $image;
         $update->body = $request->body;
         $update->update();      
         
@@ -209,7 +198,6 @@ class ArticleController extends Controller
         $update->categories()->sync($request->category);
         // return $request->category;
         
-
         return redirect()->route('article.index')->with(['success' => 'Berhasil Diperbarui!']);
     }
 

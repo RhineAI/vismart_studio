@@ -73,7 +73,7 @@
                         </div>       
 
                         <div class="form-group col-md-11 mb-2" style="margin: auto;">
-                            <label for="category" class="form-label">Category</label>
+                            <label for="category[]" class="form-label">Category</label>
                             <div class="input-group">
                                 <select name="category[]" id="category" multiple class="form-control chosen-select" multiple>
                                     @foreach($category as $key => $c)
