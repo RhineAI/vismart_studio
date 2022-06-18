@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-4">
                             <label for="name">Jasa</label>
                             <select name="jasa[]" id="jasa" class="form-control chosen-select" multiple>
                                 @foreach($jasa as $key => $j)

@@ -81,7 +81,7 @@
                                 
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-4">
                             <label for="jasa" class="form-label">Detail Layanan</label>
                             <div class="input-group">
                                 <select name="jasa[]" id="feature" multiple class="chosen-select form-control mb-4">

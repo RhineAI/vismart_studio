@@ -14,7 +14,7 @@
 <!-- Remove the container if you want to extend the Footer to full width. -->
 
     <!-- Footer -->
-    <footer>
+    <footer id="footer">
       <!-- Grid container -->
       <div class="container p-5 pb-0">
         <!-- Section: Links -->
@@ -36,19 +36,19 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto my-5">
               <h5 class="text-uppercase mb-4 fw-bold">Menu</h5>
               <p>
-                <a href="#" class="text-white">Home</a>
+                <a href="/" class="text-white">Home</a>
               </p>
               <p>
-                <a href="#page-2" class="text-white">Services</a>
+                <a href="/#page-2" class="text-white">Services</a>
               </p>
               <p>
-                <a href="#page-3" class="text-white">Our Clients</a>
+                <a href="/#page-3" class="text-white">Our Clients</a>
               </p>
               <p>
-                <a href="#client" class="text-white">Article</a>
+                <a href="/#client" class="text-white">Article</a>
               </p>
               <p>
-                <a href="#contact" class="text-white">Contact Us</a>
+                <a href="/#contact" class="text-white">Contact Us</a>
               </p>
             </div>
             <!-- Grid column -->
@@ -60,21 +60,23 @@
               <h5 class="text-uppercase mb-4 fw-bold">
                 Best Services
               </h5>
-              <p>
-                <a class="text-white">Logo dan Branding</a>
-              </p>
-              <p>
-                <a class="text-white">Design Feed Instagram</a>
-              </p>
-              <p>
-                <a class="text-white">Digital Marketing</a>
-              </p>
-              <p>
-                <a class="text-white">Social Media Management</a>
-              </p>
-              <p>
-                <a class="text-white">Marketing Communications</a>
-              </p>
+              <?php
+                  use App\Models\DetailService;
+
+                   $servic = DetailService::leftJoin('service', 'service.id', 'detail_service.service_id')
+                        ->select('detail_service.*', 'title', 'logo', 'slug')
+                        ->orderBy('id', 'asc')->get();
+                   foreach ($servic as $item ) {
+                    
+                      
+              ?>   
+                <p>
+                  <a href="{{ url('layanan/'.$item->slug) }}" class="text-white">{{ $item->title }}</a>
+                </p>
+   
+              <?php
+                  }
+              ?>
             </div>
   
             <!-- Grid column -->
