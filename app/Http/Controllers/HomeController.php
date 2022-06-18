@@ -37,7 +37,7 @@ class HomeController extends Controller
 
         // return $article->photo;
 
-        return view('posts', compact('article'));
+        return view('articles', compact('article'));
     }
 
     // public function check() {

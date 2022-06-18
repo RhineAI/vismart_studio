@@ -10,7 +10,7 @@ class PostsController extends Controller
     public function index() {
         $article = Article::latest()->paginate(6)->withQueryString();
 
-        return view('posts', [
+        return view('articles', [
            "title" => "Blogs"
         ], compact('article'));
     }

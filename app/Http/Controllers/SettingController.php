@@ -90,6 +90,7 @@ class SettingController extends Controller
         $update->logo_branding = $request->boolean( key:'logo_branding');
         $update->design_feed = $request->boolean( key:'design_feed');
         $update->digital_marketing = $request->boolean( key:'digital_marketing');
+        $update->smm = $request->boolean( key:'smm');
         $update->marketing_communications = $request->boolean( key:'marketing_communications');
         $update->client = $request->boolean( key:'client');
         $update->update();

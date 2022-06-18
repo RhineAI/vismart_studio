@@ -196,9 +196,11 @@
             </div>
         </div>
     </section>
+@else
+    <div style="margin-top: -200px"></div>
 @endif
 
-<section class="posts" id="posts">
+<section class="posts" id="article">
     <div class="container py-3">
         <div class="row justify-content-center justify-content-center text-center" style="min-height: 100vh;">
             <h1 class="fw-bold my-3 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease">Artikel Terbaru</h2>
@@ -211,14 +213,14 @@
                             <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
                             <div class="card-body p-4 text-start">
                                 <h5 class="card-title fw-bold">{{ $item->title }}</h5>
-                                <p class="card-text">{{ Str::limit(strip_tags($item->body), 120) }}</p>
+                                <p class="card-text">{{ Str::limit(strip_tags($item->body), 60) }}</p>
                                 <a href="{{ url('article/'. $item->slug) }}" class="btn btn-primary">Baca Selengkapnya</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
 
-                <a href="posts"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mt-5 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Read More</button></a>
+                <a href="articles"><button type="button" class="btn-primary btn rounded-pill p-3 px-5 mt-5 mb-5 fs-5 fw-bold aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">Read More</button></a>
 
             </div>
         </div>
