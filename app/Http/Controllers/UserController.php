@@ -121,7 +121,7 @@ class UserController extends Controller
         // $user = auth()->user();
         
         $user->name = $request->name;
-        $user->username = $request->usernem;
+        $user->username = $request->username;
 
         if ($request->has('password') && $request->password != "") {
             if (Hash::check($request->old_password, $user->password)) {
@@ -134,7 +134,7 @@ class UserController extends Controller
                 return redirect('/dashboard/user')->with('error', 'Password lama tidak sesuai!');
             }
         }
-        
+
         $user->update();
 
         return redirect()->route('user.index')->with(['success' => 'Berhasil Diperbarui!']);
