@@ -46,7 +46,7 @@ use App\Http\Controllers\SitemapController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/check', [HomeController::class, 'check'])->name('home.check');
 
-Route::get('/posts', [PostsController::class, 'index'])->name('posts.index');
+Route::get('/articles', [PostsController::class, 'index'])->name('posts.index');
 
 Route::get('/layanan/{slug}', [DetailPageController::class, 'index'])->name('detail_page.index');
 Route::get('/article/{slug}', [PostController::class, 'index'])->name('post.index');

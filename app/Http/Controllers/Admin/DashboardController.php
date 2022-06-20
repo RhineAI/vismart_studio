@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\Client;
 use App\Models\Service;
 use App\Models\Package;
 use App\Models\Portofolio;
@@ -19,9 +21,11 @@ class DashboardController extends Controller
         $paket = Package::count();
         $portofolio = Portofolio::count();
         $testimonial = Testimonial::count();
+        $article = Article::count();
+        $client = Client::count();
 
         // $setting = SettingDashboard::first();
 
-        return view('admin.dashboard', compact('layanan', 'paket', 'portofolio', 'testimonial'));
+        return view('admin.dashboard', compact('layanan', 'paket', 'portofolio', 'testimonial', 'article', 'client'));
     }
 }

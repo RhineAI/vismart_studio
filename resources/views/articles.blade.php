@@ -19,6 +19,7 @@
     </nav>
 </header>
 
+
 <section class="posts" id="posts">
     @if ($article->count())
     <div class="container py-3">
@@ -32,7 +33,7 @@
                             <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
                             <div class="card-body p-4 text-start">
                                 <h5 class="card-title fw-bold">{{ $item->title }}</h5>
-                                <p class="card-text">{{ Str::limit(strip_tags($item->body), 120) }}</p>
+                                <p class="card-text">{{ Str::limit(strip_tags($item->body), 60) }}</p>
                                 <a href="{{ url('article/'. $item->slug) }}" class="btn btn-primary">Baca Selengkapnya</a>
                             </div>
                         </div>
