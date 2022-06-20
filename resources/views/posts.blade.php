@@ -27,7 +27,7 @@
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch justify-content-center g-4 py-5">
 
                 @foreach ($article as $item)
-                    <div class="col mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
+                    <div class="col mb-2 aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="100">
                         <div class="card article">
                             <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
                             <div class="card-body p-4 text-start">
