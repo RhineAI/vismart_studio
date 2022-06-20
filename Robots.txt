@@ -1,0 +1,39 @@
+User-agent: Mediapartners-Google
+Disallow:
+
+User-agent: Googlebot
+Allow: / 
+Disallow: /search
+
+User-agent: Googlebot-News
+Allow: / 
+Disallow: /search
+
+User-agent: Googlebot-Image
+Allow: / 
+Disallow: /search
+
+User-agent: Googlebot-Video
+Allow: / 
+Disallow: /search
+
+User-agent: Googlebot-Mobile
+Allow: / 
+Disallow: /search
+
+User-agent: Adsbot-Google
+Allow: / 
+Disallow: /search
+
+User-agent: bingbot
+Allow: /
+Disallow: /search
+
+User-agent: msnbot
+Allow: /
+Disallow: /search
+
+User-agent: *
+Disallow: /
+
+Sitemap: https://www.vismartstudio.com/sitemap.xml 

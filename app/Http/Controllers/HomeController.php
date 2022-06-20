@@ -8,11 +8,19 @@ use App\Models\Service;
 use App\Models\SettingHome;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Artesaos\SEOTools\Facades\SEOTools;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        SEOTools::setTitle('Vismart Studio | Home', false);
+        SEOTools::setDescription('One Stop Solution for Branding, Digital Marketing, Social Media Management & Marketing Communication');
+        SEOTools::opengraph()->setUrl('https://vismartstudio.com');
+        SEOTools::setCanonical('https://vismartstudio.com');
+        SEOTools::opengraph()->addProperty('type', 'home');
+        SEOTools::jsonLd()->addImage('');
+
         $clients = Client::all();
         $setting = SettingHome::first();
         // $service = Service::where('id', $detailService->service_id)->get();
