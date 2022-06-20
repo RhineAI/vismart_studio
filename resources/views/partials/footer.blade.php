@@ -76,8 +76,7 @@
                   <!-- Grid column -->
                   <div class="col-md-3 col-lg-3 col-xl-3 mx-auto my-5">
                       <h5 class="text-uppercase mb-4 fw-bold">Contact Us</h5>
-                      <p><i class="fas fa-home mr-3 me-2"></i> Kampung Bojongherang, Kecamatan Cianjur, Kabupaten Cianjur,
-                          Jawa Barat Indonesia, 43253</p>
+                      <p><i class="fas fa-home mr-3 me-2"></i> Jl.Mayor Harun Kabir, Kampung Bojongherang, Kecamatan Cianjur, Kabupaten Cianjur, Jawa Barat 43216</p>
                       <p><i class="fas fa-envelope mr-3 me-2"></i> meet@madtive.com</p>
                       <p><i class="fas fa-phone mr-3 me-2"></i> 087836370765</p>
                   </div>

@@ -5,10 +5,8 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item ms-2"><a href="/" class="nav-link text-uppercase">Home</a></li>
-                <li class="nav-item ms-2"><a href="#page-1" class="nav-link text-uppercase">About</a></li>
                 <li class="nav-item ms-2"><a href="#column-3" class="nav-link text-uppercase">Services</a></li>
                 <li class="nav-item ms-2"><a href="#portofolio" class="nav-link text-uppercase">Portofolio</a></li>
-                <li class="nav-item ms-2"><a href="#pricing" class="nav-link text-uppercase">Price</a></li>
                 <li class="nav-item ms-2"><a href="#contact" class="nav-link text-uppercase">Contact Us</a></li>
             </ul>
         </div>

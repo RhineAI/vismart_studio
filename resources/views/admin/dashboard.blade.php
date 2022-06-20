@@ -18,7 +18,7 @@
 </div>
 <!--end row-->
 <!-- end page title end breadcrumb -->
-<div class="row justify-content-center">
+<div class="row">
     <div class="col-md-6 col-lg-3">
         <div class="card report-card">
             <div class="card-body">
@@ -99,9 +99,6 @@
         <!--end card-->
     </div>
     <!--end col-->
-</div>
-<!--end row-->
-<div class="row justify-content-center">
     <div class="col-md-6 col-lg-3">
         <div class="card report-card">
             <div class="card-body">
@@ -144,6 +141,7 @@
             <!--end card-->
         </div>
 </div>
+<!--end row-->
     
         <!--end col-->
         @endsection

@@ -126,7 +126,7 @@
                     {{-- @if () --}}
                         @foreach ($testimonial as $item)
                             <div class="item">
-                            <h1 class="fw-bold mb-4">"{{ $item->description }}"</h1>
+                            <h1 class="fw-bold mb-4">" {{ $item->description }} "</h1>
                             <h4 class="fw-bold">{{ $item->name }}</h4>
                             </div>
                         @endforeach
